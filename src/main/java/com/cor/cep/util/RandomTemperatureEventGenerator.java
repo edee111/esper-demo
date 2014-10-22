@@ -5,6 +5,9 @@ import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.cor.cep.PerformanceMonitor;
+import com.cor.cep.event.CpuLoadEvent;
+import com.cor.cep.handler.CpuLoadEventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +29,10 @@ public class RandomTemperatureEventGenerator {
 
     /** The TemperatureEventHandler - wraps the Esper engine and processes the Events  */
     @Autowired
-    private TemperatureEventHandler temperatureEventHandler;
+  private TemperatureEventHandler temperatureEventHandler;
+
+  @Autowired
+  private CpuLoadEventHandler cpuLoadEventHandler;
 
     /**
      * Creates simple random Temperature events and lets the implementation class handle them.
@@ -41,9 +47,14 @@ public class RandomTemperatureEventGenerator {
                 LOG.debug(getStartingMessage());
                 
                 int count = 0;
-                while (count < noOfTemperatureEvents) {
+              PerformanceMonitor performanceMonitor = new PerformanceMonitor();
+              while (count < noOfTemperatureEvents) {
                     TemperatureEvent ve = new TemperatureEvent(new Random().nextInt(500), new Date());
-                    temperatureEventHandler.handle(ve);
+                    //temperatureEventHandler.handle(ve);
+
+                    CpuLoadEvent cle = new CpuLoadEvent(performanceMonitor.getCpuUsage(), new Date());
+                    cpuLoadEventHandler.handle(cle);
+
                     count++;
                     try {
                         Thread.sleep(200);
