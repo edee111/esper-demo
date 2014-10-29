@@ -12,12 +12,7 @@ import java.util.Map;
  * @since ${date}
  */
 @Component
-public class CpuLoadEventSubscriber implements StatementSubscriber {
-
-  /**
-   * Logger
-   */
-  private static Logger LOG = LoggerFactory.getLogger(CpuLoadEventSubscriber.class);
+public class CpuLoadEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
 
   /**
    * {@inheritDoc}
@@ -33,7 +28,7 @@ public class CpuLoadEventSubscriber implements StatementSubscriber {
   public void update(Map<String, TemperatureEvent> eventMap) {
     StringBuilder sb = new StringBuilder();
     sb.append("avgLoad=" + eventMap.get("avgLoad"));
-    LOG.debug(sb.toString());
+    log.debug(sb.toString());
   }
 
 

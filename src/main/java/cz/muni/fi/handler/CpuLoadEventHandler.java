@@ -23,10 +23,7 @@ import com.espertech.esper.client.EPStatement;
 @Scope(value = "singleton")
 public class CpuLoadEventHandler implements InitializingBean {
 
-  /**
-   * Logger
-   */
-  private static Logger LOG = LoggerFactory.getLogger(TemperatureEventHandler.class);
+  private static Logger log = LoggerFactory.getLogger(TemperatureEventHandler.class);
 
   /**
    * Esper service
@@ -43,7 +40,7 @@ public class CpuLoadEventHandler implements InitializingBean {
    */
   public void initService() {
 
-    LOG.debug("Initializing Servcie ..");
+    log.debug("Initializing Servcie ..");
     Configuration config = new Configuration();
     config.addEventTypeAutoName("cz.muni.fi.event");
     epService = EPServiceProviderManager.getDefaultProvider(config);
@@ -52,7 +49,7 @@ public class CpuLoadEventHandler implements InitializingBean {
   }
 
   private void createCpuLoadMonitorExpression() {
-    LOG.debug("create cpu load Monitor");
+    log.debug("create cpu load Monitor");
     cpuLoadEventStatement = epService.getEPAdministrator().createEPL(cpuLoadEventSubscriber.getStatement());
     cpuLoadEventStatement.setSubscriber(cpuLoadEventSubscriber);
   }
@@ -62,7 +59,7 @@ public class CpuLoadEventHandler implements InitializingBean {
    */
   public void handle(CpuLoadEvent event) {
 
-    LOG.debug(event.toString());
+    log.debug(event.toString());
     epService.getEPRuntime().sendEvent(event);
 
   }
@@ -70,7 +67,7 @@ public class CpuLoadEventHandler implements InitializingBean {
   @Override
   public void afterPropertiesSet() {
 
-    LOG.debug("Configuring..");
+    log.debug("Configuring..");
     initService();
   }
 }

@@ -10,7 +10,7 @@
 	<context:component-scan base-package="cz.muni.fi" />
 
 	<bean id="eventGenerator"
-		class="cz.muni.fi.util.RandomTemperatureEventGenerator" />
+		class="cz.muni.fi.util.SystemSnapshotTaker" />
 
 
 </beans>

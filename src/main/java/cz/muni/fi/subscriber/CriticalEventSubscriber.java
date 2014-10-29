@@ -12,13 +12,8 @@ import cz.muni.fi.event.TemperatureEvent;
  * Wraps Esper Statement and Listener. No dependency on Esper libraries.
  */
 @Component
-public class CriticalEventSubscriber implements StatementSubscriber {
-
-  /**
-   * Logger
-   */
-  private static Logger LOG = LoggerFactory.getLogger(CriticalEventSubscriber.class);
-
+@Deprecated
+public class CriticalEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
   /**
    * Used as the minimum starting threshold for a critical event.
    */
@@ -69,7 +64,7 @@ public class CriticalEventSubscriber implements StatementSubscriber {
     sb.append("\n* " + temp1 + " > " + temp2 + " > " + temp3 + " > " + temp4);
     sb.append("\n***************************************");
 
-    LOG.debug(sb.toString());
+    log.debug(sb.toString());
   }
 
 

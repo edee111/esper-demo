@@ -10,13 +10,8 @@ import org.springframework.stereotype.Component;
  * Wraps Esper Statement and Listener. No dependency on Esper libraries.
  */
 @Component
-public class MonitorEventSubscriber implements StatementSubscriber {
-
-  /**
-   * Logger
-   */
-  private static Logger LOG = LoggerFactory.getLogger(MonitorEventSubscriber.class);
-
+@Deprecated
+public class MonitorEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
   /**
    * {@inheritDoc}
    */
@@ -39,6 +34,6 @@ public class MonitorEventSubscriber implements StatementSubscriber {
     sb.append("\n- [MONITOR] Average Temp = " + avg);
     sb.append("\n---------------------------------");
 
-    LOG.debug(sb.toString());
+    log.debug(sb.toString());
   }
 }

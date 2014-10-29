@@ -12,12 +12,8 @@ import cz.muni.fi.event.TemperatureEvent;
  * Wraps Esper Statement and Listener. No dependency on Esper libraries.
  */
 @Component
-public class WarningEventSubscriber implements StatementSubscriber {
-
-  /**
-   * Logger
-   */
-  private static Logger LOG = LoggerFactory.getLogger(WarningEventSubscriber.class);
+@Deprecated
+public class WarningEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
 
   /**
    * If 2 consecutive temperature events are greater than this - issue a warning
@@ -57,6 +53,6 @@ public class WarningEventSubscriber implements StatementSubscriber {
     sb.append("\n- [WARNING] : TEMPERATURE SPIKE DETECTED = " + temp1 + "," + temp2);
     sb.append("\n--------------------------------------------------");
 
-    LOG.debug(sb.toString());
+    log.debug(sb.toString());
   }
 }

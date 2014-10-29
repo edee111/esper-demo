@@ -15,18 +15,12 @@ import com.espertech.esper.client.EPServiceProvider;
 import com.espertech.esper.client.EPServiceProviderManager;
 import com.espertech.esper.client.EPStatement;
 
-/**
- * This class handles incoming Temperature Events. It processes them through the EPService, to which
- * it has attached the 3 queries.
- */
 @Component
 @Scope(value = "singleton")
+@Deprecated
 public class TemperatureEventHandler implements InitializingBean {
 
-  /**
-   * Logger
-   */
-  private static Logger LOG = LoggerFactory.getLogger(TemperatureEventHandler.class);
+  private static Logger log = LoggerFactory.getLogger(TemperatureEventHandler.class);
 
   /**
    * Esper service
@@ -53,7 +47,7 @@ public class TemperatureEventHandler implements InitializingBean {
    */
   public void initService() {
 
-    LOG.debug("Initializing Servcie ..");
+    log.debug("Initializing Servcie ..");
     Configuration config = new Configuration();
     config.addEventTypeAutoName("cz.muni.fi.event");
     epService = EPServiceProviderManager.getDefaultProvider(config);
@@ -71,7 +65,7 @@ public class TemperatureEventHandler implements InitializingBean {
    */
   private void createCriticalTemperatureCheckExpression() {
 
-    LOG.debug("create Critical Temperature Check Expression");
+    log.debug("create Critical Temperature Check Expression");
     criticalEventStatement = epService.getEPAdministrator().createEPL(criticalEventSubscriber.getStatement());
     criticalEventStatement.setSubscriber(criticalEventSubscriber);
   }
@@ -82,7 +76,7 @@ public class TemperatureEventHandler implements InitializingBean {
    */
   private void createWarningTemperatureCheckExpression() {
 
-    LOG.debug("create Warning Temperature Check Expression");
+    log.debug("create Warning Temperature Check Expression");
     warningEventStatement = epService.getEPAdministrator().createEPL(warningEventSubscriber.getStatement());
     warningEventStatement.setSubscriber(warningEventSubscriber);
   }
@@ -92,7 +86,7 @@ public class TemperatureEventHandler implements InitializingBean {
    */
   private void createTemperatureMonitorExpression() {
 
-    LOG.debug("create Timed Average Monitor");
+    log.debug("create Timed Average Monitor");
     monitorEventStatement = epService.getEPAdministrator().createEPL(monitorEventSubscriber.getStatement());
     monitorEventStatement.setSubscriber(monitorEventSubscriber);
   }
@@ -102,7 +96,7 @@ public class TemperatureEventHandler implements InitializingBean {
    */
   public void handle(TemperatureEvent event) {
 
-    LOG.debug(event.toString());
+    log.debug(event.toString());
     epService.getEPRuntime().sendEvent(event);
 
   }
@@ -110,7 +104,7 @@ public class TemperatureEventHandler implements InitializingBean {
   @Override
   public void afterPropertiesSet() {
 
-    LOG.debug("Configuring..");
+    log.debug("Configuring..");
     initService();
   }
 }
