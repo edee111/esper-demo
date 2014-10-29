@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="739cae3f-a2a2-48ba-b536-e1367878f5a9" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__antlr_antlr_2_7_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__asm_asm_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__cglib_cglib_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_antlr_ST4_4_0_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_antlr_antlr_3_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_antlr_antlr_runtime_3_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_antlr_stringtemplate_3_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_springframework_spring_asm_4_1_1_RELEASE.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__ch_qos_logback_logback_classic_0_9_28.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_2.xml" />
-      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__ch_qos_logback_logback_core_0_9_28.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_2.xml" />
-      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_slf4j_slf4j_api_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_6.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__ch_qos_logback_logback_classic_4_1_1_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__junit_junit_4_8_1.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/corsoft-esper-demo.iml" afterPath="$PROJECT_DIR$/corsoft-esper-demo.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -82,7 +77,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="20" selection-start="1336" selection-end="1336" vertical-scroll-proportion="1.1218274" vertical-offset="255" max-vertical-offset="2159">
+            <state line="42" column="33" selection-start="1407" selection-end="1407" vertical-scroll-proportion="1.18802" vertical-offset="0" max-vertical-offset="1955">
               <folding />
             </state>
           </provider>
@@ -91,7 +86,7 @@
       <file leaf-file-name="logback.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="10" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+            <state line="5" column="10" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="374">
               <folding />
             </state>
           </provider>
@@ -198,7 +193,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="STATE" value="2" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
@@ -635,22 +630,22 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25755286" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24924472" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -676,12 +671,40 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="21" selection-start="2164" selection-end="2164" vertical-scroll-proportion="0.0" vertical-offset="1051" max-vertical-offset="2159">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="10" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="374">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="21" selection-start="2164" selection-end="2164" vertical-scroll-proportion="0.0" vertical-offset="1051" max-vertical-offset="2159">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="10" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="374">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/util/SystemSnapshotTaker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="81" selection-start="1913" selection-end="1913" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
           <folding>
-            <element signature="e#950#1504#0" expanded="true" />
-            <element signature="e#1497#1498#0" expanded="true" />
+            <element signature="e#950#1504#0" expanded="false" />
+            <element signature="e#1497#1498#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -690,7 +713,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="10" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0" vertical-offset="259" max-vertical-offset="901">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -699,7 +722,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="17" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" vertical-offset="313" max-vertical-offset="765">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -754,16 +777,12 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/lib/tools.jar!/com/sun/tools/script/shell/Main.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="52" selection-start="529" selection-end="529" vertical-scroll-proportion="0.3623446" vertical-offset="0" max-vertical-offset="1428">
-          <folding />
-        </state>
+        <state line="13" column="52" selection-start="529" selection-end="529" vertical-scroll-proportion="0.3623446" vertical-offset="0" max-vertical-offset="1428" />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/lib/tools.jar!/com/sun/tools/script/shell/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="0" selection-start="5211" selection-end="5211" vertical-scroll-proportion="0.9434276" vertical-offset="3343" max-vertical-offset="15130">
-          <folding />
-        </state>
+        <state line="230" column="0" selection-start="5211" selection-end="5211" vertical-scroll-proportion="0.9434276" vertical-offset="3343" max-vertical-offset="15130" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/CpuLoadEvent.java">
@@ -782,9 +801,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/debug_log4j.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="16" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0" vertical-offset="619" max-vertical-offset="1037">
-          <folding />
-        </state>
+        <state line="38" column="16" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0" vertical-offset="619" max-vertical-offset="1037" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application-context.xml">
@@ -805,7 +822,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="11" selection-start="195" selection-end="195" vertical-scroll-proportion="0.28380635" vertical-offset="0" max-vertical-offset="599">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -814,7 +831,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="25" selection-start="478" selection-end="478" vertical-scroll-proportion="0.5294118" vertical-offset="0" max-vertical-offset="867">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -823,8 +840,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="23" selection-start="652" selection-end="652" vertical-scroll-proportion="0.3529412" vertical-offset="34" max-vertical-offset="1020">
           <folding>
-            <element signature="e#950#1504#0" expanded="true" />
-            <element signature="e#1497#1498#0" expanded="true" />
+            <element signature="e#950#1504#0" expanded="false" />
+            <element signature="e#1497#1498#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -840,7 +857,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="7" selection-start="822" selection-end="822" vertical-scroll-proportion="0.88235295" vertical-offset="0" max-vertical-offset="714">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -870,7 +887,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="11" selection-start="308" selection-end="308" vertical-scroll-proportion="0.39732888" vertical-offset="0" max-vertical-offset="1088">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -898,7 +915,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="20" selection-start="1336" selection-end="1336" vertical-scroll-proportion="1.1218274" vertical-offset="255" max-vertical-offset="2159">
+        <state line="42" column="33" selection-start="1407" selection-end="1407" vertical-scroll-proportion="1.18802" vertical-offset="0" max-vertical-offset="1955">
           <folding />
         </state>
       </provider>
