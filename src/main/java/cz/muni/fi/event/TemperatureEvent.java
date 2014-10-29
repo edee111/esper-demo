@@ -6,6 +6,7 @@ import java.util.Date;
  * Immutable Temperature Event class. The process control system creates these events. The
  * TemperatureEventHandler picks these up and processes them.
  */
+@Deprecated
 public class TemperatureEvent {
 
   /**
