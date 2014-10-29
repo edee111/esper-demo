@@ -8,7 +8,7 @@
     </layout>
   </appender>
    
-  <logger name="com.cor.cep" level="DEBUG"/>
+  <logger name="cz.muni.fi" level="DEBUG"/>
    
  
   <root level="WARN">

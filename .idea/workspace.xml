@@ -2,35 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="739cae3f-a2a2-48ba-b536-e1367878f5a9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cor/cep/event/CpuLoadEvent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cor/cep/handler/CpuLoadEventHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cor/cep/subscriber/CpuLoadEventSubscriber.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_0_9_28.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_0_9_28.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_espertech_esper_4_7_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_api_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_8_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_ST4_4_0_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr_3_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr_runtime_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_stringtemplate_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_asm_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_3_1_1_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/cor/cep/PerformanceMonitor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/corsoft-esper-demo.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cor/cep/util/RandomTemperatureEventGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/com/cor/cep/util/RandomTemperatureEventGenerator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_3_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_espertech_esper_5_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_abego_treelayout_org_abego_treelayout_core_1_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr4_runtime_4_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/log4j.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__cglib_cglib_nodep_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__com_espertech_esper_4_7_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__log4j_log4j_1_2_16.xml" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__commons_logging_commons_logging_1_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_antlr_antlr_runtime_3_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr_runtime_3_4.xml" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_antlr_stringtemplate_3_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_stringtemplate_3_2_1.xml" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_springframework_spring_aop_3_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_springframework_spring_asm_3_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_asm_4_1_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_springframework_spring_beans_3_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_springframework_spring_context_3_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_1_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_springframework_spring_core_3_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_1_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__org_springframework_spring_expression_3_1_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_1_1_RELEASE.xml" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\PerformanceMonitor.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/PerformanceMonitor.java" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\StartDemo.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/StartDemo.java" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\event\CpuLoadEvent.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/event/CpuLoadEvent.java" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\event\TemperatureEvent.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/event/TemperatureEvent.java" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\handler\CpuLoadEventHandler.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/CpuLoadEventHandler.java" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\handler\TemperatureEventHandler.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/TemperatureEventHandler.java" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\subscriber\CpuLoadEventSubscriber.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\subscriber\CriticalEventSubscriber.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CriticalEventSubscriber.java" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\subscriber\MonitorEventSubscriber.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/MonitorEventSubscriber.java" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\subscriber\StatementSubscriber.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/StatementSubscriber.java" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\subscriber\WarningEventSubscriber.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/WarningEventSubscriber.java" />
+      <change type="MOVED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\com\cor\cep\util\RandomTemperatureEventGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/util/RandomTemperatureEventGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application-context.xml" afterPath="$PROJECT_DIR$/src/main/resources/application-context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/corsoft-esper-demo.iml" afterPath="$PROJECT_DIR$/corsoft-esper-demo.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="corsoft-esper-demo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -95,72 +102,74 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="RandomTemperatureEventGenerator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/util/RandomTemperatureEventGenerator.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/util/RandomTemperatureEventGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="81" selection-start="1913" selection-end="1913" vertical-scroll-proportion="0.0" vertical-offset="492" max-vertical-offset="1207">
-              <folding>
-                <element signature="e#1389#2266#0" expanded="true" />
-                <element signature="e#2255#2256#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PerformanceMonitor.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/PerformanceMonitor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="25" selection-start="488" selection-end="488" vertical-scroll-proportion="0.4201031" vertical-offset="143" max-vertical-offset="867">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CpuLoadEventSubscriber.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/subscriber/CpuLoadEventSubscriber.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="17" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" vertical-offset="313" max-vertical-offset="765">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CriticalEventSubscriber.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/subscriber/CriticalEventSubscriber.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="26" selection-start="888" selection-end="888" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1224">
+            <state line="55" column="43" selection-start="1974" selection-end="1974" vertical-scroll-proportion="0.0" vertical-offset="458" max-vertical-offset="1173">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TemperatureEventHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/handler/TemperatureEventHandler.java">
+      <file leaf-file-name="application-context.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application-context.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="0" selection-start="3480" selection-end="3480" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="1785">
+            <state line="11" column="19" selection-start="749" selection-end="749" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PerformanceMonitor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/PerformanceMonitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="5" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="23" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartDemo.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/StartDemo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="55" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0" vertical-offset="356" max-vertical-offset="765">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="CpuLoadEventHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/handler/CpuLoadEventHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/CpuLoadEventHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="1066" selection-end="1066" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1343">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="68" column="15" selection-start="2091" selection-end="2091" vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="1105">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CpuLoadEvent.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/event/CpuLoadEvent.java">
+      <file leaf-file-name="logback.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="26" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="612">
+            <state line="16" column="16" selection-start="473" selection-end="473" vertical-scroll-proportion="0.7010309" vertical-offset="0" max-vertical-offset="388">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="101" column="20" selection-start="2980" selection-end="2980" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="2754">
               <folding />
             </state>
           </provider>
@@ -179,13 +188,20 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/cor/cep/event/CpuLoadEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cor/cep/handler/CpuLoadEventHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cor/cep/util/RandomTemperatureEventGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cor/cep/subscriber/CpuLoadEventSubscriber.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cor/cep/handler/TemperatureEventHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cor/cep/PerformanceMonitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cor/fi/StartDemo.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cor/fi/subscriber/CpuLoadEventSubscriber.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application-context.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/util/RandomTemperatureEventGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
       </list>
     </option>
   </component>
@@ -228,7 +244,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -236,6 +251,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="corsoft-esper-demo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -306,7 +325,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cep" />
+              <option name="myItemId" value="fi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -332,7 +351,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cep" />
+              <option name="myItemId" value="fi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -362,7 +381,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cep" />
+              <option name="myItemId" value="fi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -370,68 +389,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="corsoft-esper-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="esper-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cep" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="corsoft-esper-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="esper-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cep" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="event" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -444,10 +404,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager" selected="Application.StartDemo">
     <configuration default="false" name="StartDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.cor.cep.StartDemo" />
+      <option name="MAIN_CLASS_NAME" value="cz.muni.fi.StartDemo" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -496,6 +457,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -521,19 +495,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -615,25 +576,25 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3287037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3287037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -661,105 +622,23 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.1.RELEASE/spring-beans-3.1.1.RELEASE.jar!/org/springframework/beans/factory/annotation/Qualifier.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/util/RandomTemperatureEventGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="18" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+        <state line="54" column="81" selection-start="1913" selection-end="1913" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.1.RELEASE/spring-beans-3.1.1.RELEASE-sources.jar!/org/springframework/beans/factory/annotation/Qualifier.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/PerformanceMonitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="18" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.54662377" vertical-offset="0" max-vertical-offset="622">
-          <folding />
+        <state line="25" column="10" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0" vertical-offset="259" max-vertical-offset="901">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="16" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2533">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/subscriber/StatementSubscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/event/TemperatureEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="13" selection-start="226" selection-end="226" vertical-scroll-proportion="0.35051546" vertical-offset="0" max-vertical-offset="918">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/subscriber/WarningEventSubscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="312" selection-end="312" vertical-scroll-proportion="-0.8505155" vertical-offset="466" max-vertical-offset="986">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/subscriber/MonitorEventSubscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="72" selection-start="628" selection-end="650" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="748">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/StartDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="55" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.5232274" vertical-offset="296" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/espertech/esper/4.7.0/esper-4.7.0.jar!/com/espertech/esper/client/EPRuntime.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="7" selection-start="192" selection-end="192" vertical-scroll-proportion="0.27493262" vertical-offset="0" max-vertical-offset="1037">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/subscriber/CriticalEventSubscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="26" selection-start="888" selection-end="888" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1224">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="388">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="388">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/debug_log4j.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.9201031" vertical-offset="357" max-vertical-offset="1037">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/event/CpuLoadEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="26" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/subscriber/CpuLoadEventSubscriber.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="17" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" vertical-offset="313" max-vertical-offset="765">
           <folding>
@@ -768,38 +647,188 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/handler/TemperatureEventHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CriticalEventSubscriber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="0" selection-start="3480" selection-end="3480" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="1785">
+        <state line="31" column="26" selection-start="888" selection-end="888" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1326">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/handler/CpuLoadEventHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/TemperatureEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="1066" selection-end="1066" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1343">
+        <state line="94" column="0" selection-start="3480" selection-end="3480" vertical-scroll-proportion="0.0" vertical-offset="1598" max-vertical-offset="2006">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/CpuLoadEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="1066" selection-end="1066" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1343">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/CpuLoadEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="26" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.1.RELEASE/spring-beans-3.1.1.RELEASE.jar!/org/springframework/beans/factory/annotation/Qualifier.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="18" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.1.RELEASE/spring-beans-3.1.1.RELEASE-sources.jar!/org/springframework/beans/factory/annotation/Qualifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="18" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.54662377" vertical-offset="0" max-vertical-offset="622" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/StatementSubscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="17" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/TemperatureEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="226" selection-end="226" vertical-scroll-proportion="0.35051546" vertical-offset="0" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/WarningEventSubscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="312" selection-end="312" vertical-scroll-proportion="-0.8505155" vertical-offset="466" max-vertical-offset="986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/MonitorEventSubscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="72" selection-start="628" selection-end="650" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="748">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/espertech/esper/4.7.0/esper-4.7.0.jar!/com/espertech/esper/client/EPRuntime.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="7" selection-start="192" selection-end="192" vertical-scroll-proportion="0.27493262" vertical-offset="0" max-vertical-offset="1037" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/lang/management/ManagementFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="457" column="43" selection-start="15965" selection-end="15965" vertical-scroll-proportion="6.7731957" vertical-offset="4325" max-vertical-offset="13260" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/lib/tools.jar!/com/sun/tools/script/shell/Main.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="52" selection-start="529" selection-end="529" vertical-scroll-proportion="0.3623446" vertical-offset="0" max-vertical-offset="1428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/lib/tools.jar!/com/sun/tools/script/shell/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="230" column="0" selection-start="5211" selection-end="5211" vertical-scroll-proportion="0.9434276" vertical-offset="3343" max-vertical-offset="15130">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="15" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/util/RandomTemperatureEventGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CriticalEventSubscriber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="81" selection-start="1913" selection-end="1913" vertical-scroll-proportion="0.0" vertical-offset="492" max-vertical-offset="1207">
+        <state line="31" column="26" selection-start="886" selection-end="886" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1326">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/TemperatureEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="0" selection-start="3476" selection-end="3476" vertical-scroll-proportion="0.002444988" vertical-offset="1597" max-vertical-offset="2006">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/CpuLoadEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="26" selection-start="496" selection-end="496" vertical-scroll-proportion="0.5427873" vertical-offset="203" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="20" selection-start="2980" selection-end="2980" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="2754">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="19" selection-start="749" selection-end="749" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="23" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/StartDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="55" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/PerformanceMonitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="5" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
           <folding>
-            <element signature="e#1389#2266#0" expanded="true" />
-            <element signature="e#2255#2256#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cor/cep/PerformanceMonitor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/util/RandomTemperatureEventGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="25" selection-start="488" selection-end="488" vertical-scroll-proportion="0.4201031" vertical-offset="143" max-vertical-offset="867">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="55" column="43" selection-start="1974" selection-end="1974" vertical-scroll-proportion="0.0" vertical-offset="458" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/CpuLoadEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="15" selection-start="2091" selection-end="2091" vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="1105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/debug_log4j.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="16" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0" vertical-offset="619" max-vertical-offset="1037">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="16" selection-start="473" selection-end="473" vertical-scroll-proportion="0.7010309" vertical-offset="0" max-vertical-offset="388">
+          <folding />
         </state>
       </provider>
     </entry>

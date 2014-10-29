@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.cor.cep</groupId>
-	<artifactId>corsoft-esper-demo</artifactId>
+	<groupId>cz.muni.fi</groupId>
+	<artifactId>esper-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>corsoft-esper-demo</name>
+	<name>esper-demo</name>
 	<description>Simple demo of Complex Event Processing (CEP) using the ESPER libraries.</description>
 
 	<properties>
-		<esper-version>4.7.0</esper-version>
-		<spring-version>3.1.1.RELEASE</spring-version>
+		<esper-version>5.1.0</esper-version>
+		<spring-version>4.1.1.RELEASE</spring-version>
 	</properties>
 
 	<dependencies>
@@ -83,7 +83,20 @@
 			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+    <!--
+    <dependency>
+      <groupId>com.sun</groupId>
+      <artifactId>tools</artifactId>
+      <version>1.7</version>
+      <scope>system</scope>
+      <systemPath>C:/Program Files/Java/jdk1.7.0_45/lib/tools.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-endorsed-api</artifactId>
+      <version>7.0</version>
+    </dependency> -->
+  </dependencies>
 
 	<build>
 		<defaultGoal>install</defaultGoal>
@@ -100,7 +113,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.cor.cep.StartDemo</mainClass>
+					<mainClass>cz.muni.fi.StartDemo</mainClass>
 					<includePluginDependencies>false</includePluginDependencies>
 					<arguments>
 						<argument>10000</argument>

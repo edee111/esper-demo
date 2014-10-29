@@ -7,10 +7,10 @@
 						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- Process Spring Annotations -->
-	<context:component-scan base-package="com.cor.cep" />
+	<context:component-scan base-package="cz.muni.fi" />
 
 	<bean id="eventGenerator"
-		class="com.cor.cep.util.RandomTemperatureEventGenerator" />
+		class="cz.muni.fi.util.RandomTemperatureEventGenerator" />
 
 
 </beans>
