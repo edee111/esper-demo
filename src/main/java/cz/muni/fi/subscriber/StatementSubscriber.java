@@ -6,10 +6,11 @@ package cz.muni.fi.subscriber;
  */
 public interface StatementSubscriber {
 
-    /**
-     * Get the EPL Stamement the Subscriber will listen to.
-     * @return EPL Statement
-     */
-    public String getStatement();
+  /**
+   * Get the EPL Stamement the Subscriber will listen to.
+   *
+   * @return EPL Statement
+   */
+  public String getStatement();
 
 }

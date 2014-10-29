@@ -14,7 +14,9 @@ import java.util.Map;
 @Component
 public class CpuLoadEventSubscriber implements StatementSubscriber {
 
-  /** Logger */
+  /**
+   * Logger
+   */
   private static Logger LOG = LoggerFactory.getLogger(CpuLoadEventSubscriber.class);
 
   /**

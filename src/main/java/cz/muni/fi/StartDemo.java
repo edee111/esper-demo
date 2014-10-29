@@ -12,33 +12,35 @@ import cz.muni.fi.util.RandomTemperatureEventGenerator;
  */
 public class StartDemo {
 
-    /** Logger */
-    private static Logger LOG = LoggerFactory.getLogger(StartDemo.class);
+  /**
+   * Logger
+   */
+  private static Logger LOG = LoggerFactory.getLogger(StartDemo.class);
 
-    
-    /**
-     * Main method - start the Demo!
-     */
-    public static void main(String[] args) throws Exception {
 
-        LOG.debug("Starting...");
+  /**
+   * Main method - start the Demo!
+   */
+  public static void main(String[] args) throws Exception {
 
-        long noOfTemperatureEvents = 1000;
+    LOG.debug("Starting...");
 
-        if (args.length != 1) {
-            LOG.debug("No override of number of events detected - defaulting to " + noOfTemperatureEvents + " events.");
-        } else {
-            noOfTemperatureEvents = Long.valueOf(args[0]);
-        }
+    long noOfTemperatureEvents = 1000;
 
-        // Load spring config
-        ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(new String[] { "application-context.xml" });
-        BeanFactory factory = (BeanFactory) appContext;
-
-        // Start Demo
-        RandomTemperatureEventGenerator generator = (RandomTemperatureEventGenerator) factory.getBean("eventGenerator");
-        generator.startSendingTemperatureReadings(noOfTemperatureEvents);
-
+    if (args.length != 1) {
+      LOG.debug("No override of number of events detected - defaulting to " + noOfTemperatureEvents + " events.");
+    } else {
+      noOfTemperatureEvents = Long.valueOf(args[0]);
     }
+
+    // Load spring config
+    ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(new String[]{"application-context.xml"});
+    BeanFactory factory = (BeanFactory) appContext;
+
+    // Start Demo
+    RandomTemperatureEventGenerator generator = (RandomTemperatureEventGenerator) factory.getBean("eventGenerator");
+    generator.startSendingTemperatureReadings(noOfTemperatureEvents);
+
+  }
 
 }

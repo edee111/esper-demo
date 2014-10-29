@@ -23,10 +23,14 @@ import com.espertech.esper.client.EPStatement;
 @Scope(value = "singleton")
 public class CpuLoadEventHandler implements InitializingBean {
 
-  /** Logger */
+  /**
+   * Logger
+   */
   private static Logger LOG = LoggerFactory.getLogger(TemperatureEventHandler.class);
 
-  /** Esper service */
+  /**
+   * Esper service
+   */
   private EPServiceProvider epService;
   private EPStatement cpuLoadEventStatement;
 

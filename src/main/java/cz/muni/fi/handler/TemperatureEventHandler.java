@@ -21,92 +21,96 @@ import com.espertech.esper.client.EPStatement;
  */
 @Component
 @Scope(value = "singleton")
-public class TemperatureEventHandler implements InitializingBean{
+public class TemperatureEventHandler implements InitializingBean {
 
-    /** Logger */
-    private static Logger LOG = LoggerFactory.getLogger(TemperatureEventHandler.class);
+  /**
+   * Logger
+   */
+  private static Logger LOG = LoggerFactory.getLogger(TemperatureEventHandler.class);
 
-    /** Esper service */
-    private EPServiceProvider epService;
-    private EPStatement criticalEventStatement;
-    private EPStatement warningEventStatement;
-    private EPStatement monitorEventStatement;
+  /**
+   * Esper service
+   */
+  private EPServiceProvider epService;
+  private EPStatement criticalEventStatement;
+  private EPStatement warningEventStatement;
+  private EPStatement monitorEventStatement;
 
-    @Autowired
-    @Qualifier("criticalEventSubscriber")
-    private StatementSubscriber criticalEventSubscriber;
+  @Autowired
+  @Qualifier("criticalEventSubscriber")
+  private StatementSubscriber criticalEventSubscriber;
 
-    @Autowired
-    @Qualifier("warningEventSubscriber")
-    private StatementSubscriber warningEventSubscriber;
+  @Autowired
+  @Qualifier("warningEventSubscriber")
+  private StatementSubscriber warningEventSubscriber;
 
-    @Autowired
-    @Qualifier("monitorEventSubscriber")
-    private StatementSubscriber monitorEventSubscriber;
+  @Autowired
+  @Qualifier("monitorEventSubscriber")
+  private StatementSubscriber monitorEventSubscriber;
 
-    /**
-     * Configure Esper Statement(s).
-     */
-    public void initService() {
+  /**
+   * Configure Esper Statement(s).
+   */
+  public void initService() {
 
-        LOG.debug("Initializing Servcie ..");
-        Configuration config = new Configuration();
-        config.addEventTypeAutoName("cz.muni.fi.event");
-        epService = EPServiceProviderManager.getDefaultProvider(config);
+    LOG.debug("Initializing Servcie ..");
+    Configuration config = new Configuration();
+    config.addEventTypeAutoName("cz.muni.fi.event");
+    epService = EPServiceProviderManager.getDefaultProvider(config);
 
-        createCriticalTemperatureCheckExpression();
-        createWarningTemperatureCheckExpression();
-        createTemperatureMonitorExpression();
+    createCriticalTemperatureCheckExpression();
+    createWarningTemperatureCheckExpression();
+    createTemperatureMonitorExpression();
 
-    }
+  }
 
-    /**
-     * EPL to check for a sudden critical rise across 4 events, where the last event is 1.5x greater
-     * than the first event. This is checking for a sudden, sustained escalating rise in the
-     * temperature
-     */
-    private void createCriticalTemperatureCheckExpression() {
-        
-        LOG.debug("create Critical Temperature Check Expression");
-        criticalEventStatement = epService.getEPAdministrator().createEPL(criticalEventSubscriber.getStatement());
-        criticalEventStatement.setSubscriber(criticalEventSubscriber);
-    }
+  /**
+   * EPL to check for a sudden critical rise across 4 events, where the last event is 1.5x greater
+   * than the first event. This is checking for a sudden, sustained escalating rise in the
+   * temperature
+   */
+  private void createCriticalTemperatureCheckExpression() {
 
-    /**
-     * EPL to check for 2 consecutive Temperature events over the threshold - if matched, will alert
-     * listener.
-     */
-    private void createWarningTemperatureCheckExpression() {
+    LOG.debug("create Critical Temperature Check Expression");
+    criticalEventStatement = epService.getEPAdministrator().createEPL(criticalEventSubscriber.getStatement());
+    criticalEventStatement.setSubscriber(criticalEventSubscriber);
+  }
 
-        LOG.debug("create Warning Temperature Check Expression");
-        warningEventStatement = epService.getEPAdministrator().createEPL(warningEventSubscriber.getStatement());
-        warningEventStatement.setSubscriber(warningEventSubscriber);
-    }
+  /**
+   * EPL to check for 2 consecutive Temperature events over the threshold - if matched, will alert
+   * listener.
+   */
+  private void createWarningTemperatureCheckExpression() {
 
-    /**
-     * EPL to monitor the average temperature every 10 seconds. Will call listener on every event.
-     */
-    private void createTemperatureMonitorExpression() {
+    LOG.debug("create Warning Temperature Check Expression");
+    warningEventStatement = epService.getEPAdministrator().createEPL(warningEventSubscriber.getStatement());
+    warningEventStatement.setSubscriber(warningEventSubscriber);
+  }
 
-        LOG.debug("create Timed Average Monitor");
-        monitorEventStatement = epService.getEPAdministrator().createEPL(monitorEventSubscriber.getStatement());
-        monitorEventStatement.setSubscriber(monitorEventSubscriber);
-    }
+  /**
+   * EPL to monitor the average temperature every 10 seconds. Will call listener on every event.
+   */
+  private void createTemperatureMonitorExpression() {
 
-    /**
-     * Handle the incoming TemperatureEvent.
-     */
-    public void handle(TemperatureEvent event) {
+    LOG.debug("create Timed Average Monitor");
+    monitorEventStatement = epService.getEPAdministrator().createEPL(monitorEventSubscriber.getStatement());
+    monitorEventStatement.setSubscriber(monitorEventSubscriber);
+  }
 
-        LOG.debug(event.toString());
-        epService.getEPRuntime().sendEvent(event);
+  /**
+   * Handle the incoming TemperatureEvent.
+   */
+  public void handle(TemperatureEvent event) {
 
-    }
+    LOG.debug(event.toString());
+    epService.getEPRuntime().sendEvent(event);
 
-    @Override
-    public void afterPropertiesSet() {
-        
-        LOG.debug("Configuring..");
-        initService();
-    }
+  }
+
+  @Override
+  public void afterPropertiesSet() {
+
+    LOG.debug("Configuring..");
+    initService();
+  }
 }

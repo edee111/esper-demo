@@ -10,12 +10,12 @@ import static java.lang.management.ManagementFactory.*;
  * @since ${date}
  */
 public class PerformanceMonitor {
-  private int  availableProcessors = getOperatingSystemMXBean().getAvailableProcessors();
-  private long lastSystemTime      = 0;
-  private long lastProcessCpuTime  = 0;
+  private int availableProcessors = getOperatingSystemMXBean().getAvailableProcessors();
+  private long lastSystemTime = 0;
+  private long lastProcessCpuTime = 0;
 
   public synchronized double getCpuUsage() {
-    if ( lastSystemTime == 0 ) {
+    if (lastSystemTime == 0) {
       baselineCounters();
       return 0;
     }
@@ -38,8 +38,8 @@ public class PerformanceMonitor {
   private void baselineCounters() {
     lastSystemTime = System.nanoTime();
 
-    if ( getOperatingSystemMXBean() instanceof OperatingSystemMXBean ) {
-      lastProcessCpuTime = ( (OperatingSystemMXBean) getOperatingSystemMXBean() ).getProcessCpuTime();
+    if (getOperatingSystemMXBean() instanceof OperatingSystemMXBean) {
+      lastProcessCpuTime = ((OperatingSystemMXBean) getOperatingSystemMXBean()).getProcessCpuTime();
     }
   }
 }

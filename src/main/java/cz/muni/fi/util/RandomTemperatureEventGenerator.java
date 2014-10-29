@@ -24,57 +24,61 @@ import cz.muni.fi.handler.TemperatureEventHandler;
 @Component
 public class RandomTemperatureEventGenerator {
 
-    /** Logger */
-    private static Logger LOG = LoggerFactory.getLogger(RandomTemperatureEventGenerator.class);
+  /**
+   * Logger
+   */
+  private static Logger LOG = LoggerFactory.getLogger(RandomTemperatureEventGenerator.class);
 
-    /** The TemperatureEventHandler - wraps the Esper engine and processes the Events  */
-    @Autowired
+  /**
+   * The TemperatureEventHandler - wraps the Esper engine and processes the Events
+   */
+  @Autowired
   private TemperatureEventHandler temperatureEventHandler;
 
   @Autowired
   private CpuLoadEventHandler cpuLoadEventHandler;
 
-    /**
-     * Creates simple random Temperature events and lets the implementation class handle them.
-     */
-    public void startSendingTemperatureReadings(final long noOfTemperatureEvents) {
+  /**
+   * Creates simple random Temperature events and lets the implementation class handle them.
+   */
+  public void startSendingTemperatureReadings(final long noOfTemperatureEvents) {
 
-        ExecutorService xrayExecutor = Executors.newSingleThreadExecutor();
+    ExecutorService xrayExecutor = Executors.newSingleThreadExecutor();
 
-        xrayExecutor.submit(new Runnable() {
-            public void run() {
+    xrayExecutor.submit(new Runnable() {
+      public void run() {
 
-                LOG.debug(getStartingMessage());
-                
-                int count = 0;
-              PerformanceMonitor performanceMonitor = new PerformanceMonitor();
-              while (count < noOfTemperatureEvents) {
-                    //TemperatureEvent ve = new TemperatureEvent(new Random().nextInt(500), new Date());
-                    //temperatureEventHandler.handle(ve);
+        LOG.debug(getStartingMessage());
 
-                    CpuLoadEvent cle = new CpuLoadEvent(performanceMonitor.getCpuUsage(), new Date());
-                    cpuLoadEventHandler.handle(cle);
+        int count = 0;
+        PerformanceMonitor performanceMonitor = new PerformanceMonitor();
+        while (count < noOfTemperatureEvents) {
+          //TemperatureEvent ve = new TemperatureEvent(new Random().nextInt(500), new Date());
+          //temperatureEventHandler.handle(ve);
 
-                    count++;
-                    try {
-                        Thread.sleep(200);
-                    } catch (InterruptedException e) {
-                        LOG.error("Thread Interrupted", e);
-                    }
-                }
+          CpuLoadEvent cle = new CpuLoadEvent(performanceMonitor.getCpuUsage(), new Date());
+          cpuLoadEventHandler.handle(cle);
 
-            }
-        });
-    }
+          count++;
+          try {
+            Thread.sleep(200);
+          } catch (InterruptedException e) {
+            LOG.error("Thread Interrupted", e);
+          }
+        }
 
-    
-    private String getStartingMessage(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n\n************************************************************");
-        sb.append("\n* STARTING - ");
-        sb.append("\n* PLEASE WAIT - TEMPERATURES ARE RANDOM SO MAY TAKE");
-        sb.append("\n* A WHILE TO SEE WARNING AND CRITICAL EVENTS!");
-        sb.append("\n************************************************************\n");
-        return sb.toString();
-    }
+      }
+    });
+  }
+
+
+  private String getStartingMessage() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("\n\n************************************************************");
+    sb.append("\n* STARTING - ");
+    sb.append("\n* PLEASE WAIT - TEMPERATURES ARE RANDOM SO MAY TAKE");
+    sb.append("\n* A WHILE TO SEE WARNING AND CRITICAL EVENTS!");
+    sb.append("\n************************************************************\n");
+    return sb.toString();
+  }
 }
