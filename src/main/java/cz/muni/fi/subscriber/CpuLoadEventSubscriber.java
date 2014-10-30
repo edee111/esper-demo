@@ -1,5 +1,6 @@
 package cz.muni.fi.subscriber;
 
+import cz.muni.fi.event.CpuLoadEvent;
 import cz.muni.fi.event.TemperatureEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,7 @@ public class CpuLoadEventSubscriber extends AbstractSubscriber implements Statem
   /**
    * Listener method called when Esper has detected a pattern match.
    */
-  public void update(Map<String, TemperatureEvent> eventMap) {
+  public void update(Map<String, CpuLoadEvent> eventMap) {
     StringBuilder sb = new StringBuilder();
     sb.append("avgLoad=" + eventMap.get("avgLoad"));
     log.debug(sb.toString());
