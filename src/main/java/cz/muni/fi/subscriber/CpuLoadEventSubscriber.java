@@ -1,11 +1,12 @@
 package cz.muni.fi.subscriber;
 
+import cz.muni.fi.connector.CpuLoad;
+import cz.muni.fi.connector.SimpleAgent;
 import cz.muni.fi.event.CpuLoadEvent;
-import cz.muni.fi.event.TemperatureEvent;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -15,6 +16,8 @@ import java.util.Map;
 @Component
 public class CpuLoadEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
 
+  @Autowired
+  private SimpleAgent simpleAgent;
   /**
    * {@inheritDoc}
    */
@@ -26,10 +29,12 @@ public class CpuLoadEventSubscriber extends AbstractSubscriber implements Statem
   /**
    * Listener method called when Esper has detected a pattern match.
    */
-  public void update(Map<String, CpuLoadEvent> eventMap) {
+  public void update(Map<String, Double> eventMap) {
     StringBuilder sb = new StringBuilder();
-    sb.append("avgLoad=" + eventMap.get("avgLoad"));
+    double avgLoad = eventMap.get("avgLoad");
+    sb.append("avgLoad=" + avgLoad);
     log.debug(sb.toString());
+    simpleAgent.register(new CpuLoad(avgLoad, new Date()), CpuLoadEvent.class);
   }
 
 
