@@ -1,6 +1,12 @@
 package cz.muni.fi.handler;
 
+import com.espertech.esper.client.Configuration;
+import com.espertech.esper.client.EPServiceProvider;
+import com.espertech.esper.client.EPServiceProviderManager;
+import com.espertech.esper.client.EPStatement;
 import cz.muni.fi.event.CpuLoadEvent;
+import cz.muni.fi.event.MemoryUsageEvent;
+import cz.muni.fi.subscriber.StatementSubscriber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -9,19 +15,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import cz.muni.fi.subscriber.StatementSubscriber;
-import com.espertech.esper.client.Configuration;
-import com.espertech.esper.client.EPServiceProvider;
-import com.espertech.esper.client.EPServiceProviderManager;
-import com.espertech.esper.client.EPStatement;
-
 /**
- * This class handles incoming Temperature Events. It processes them through the EPService, to which
- * it has attached the 3 queries.
+ * @author Eduard Tomek
+ * @since 30.10.14
  */
 @Component
 @Scope(value = "singleton")
-public class CpuLoadEventHandler implements InitializingBean {
+public class MemoryUsageEventHandler implements InitializingBean {
 
   private static Logger log = LoggerFactory.getLogger(TemperatureEventHandler.class);
 
@@ -29,35 +29,35 @@ public class CpuLoadEventHandler implements InitializingBean {
    * Esper service
    */
   private EPServiceProvider epService;
-  private EPStatement cpuLoadEventStatement;
+  private EPStatement memoryUsageEventStatement;
 
   @Autowired
-  @Qualifier("cpuLoadEventSubscriber")
-  private StatementSubscriber cpuLoadEventSubscriber;
+  @Qualifier("memoryUsageEventSubscriber")
+  private StatementSubscriber memoryUsageEventSubscriber;
 
   /**
    * Configure Esper Statement(s).
    */
   public void initService() {
 
-    log.debug("Initializing Servcie ..");
+    log.debug("Initializing memory usage event handler ..");
     Configuration config = new Configuration();
     config.addEventTypeAutoName("cz.muni.fi.event");
     epService = EPServiceProviderManager.getDefaultProvider(config);
 
-    createCpuLoadMonitorExpression();
+    createMemoryUsageMonitorExpression();
   }
 
-  private void createCpuLoadMonitorExpression() {
-    log.debug("create cpu load Monitor");
-    cpuLoadEventStatement = epService.getEPAdministrator().createEPL(cpuLoadEventSubscriber.getStatement());
-    cpuLoadEventStatement.setSubscriber(cpuLoadEventSubscriber);
+  private void createMemoryUsageMonitorExpression() {
+    log.debug("create memory usage Monitor");
+    memoryUsageEventStatement = epService.getEPAdministrator().createEPL(memoryUsageEventSubscriber.getStatement());
+    memoryUsageEventStatement.setSubscriber(memoryUsageEventSubscriber);
   }
 
   /**
    * Handle the incoming TemperatureEvent.
    */
-  public void handle(CpuLoadEvent event) {
+  public void handle(MemoryUsageEvent event) {
 
     //log.debug(event.toString());
     epService.getEPRuntime().sendEvent(event);

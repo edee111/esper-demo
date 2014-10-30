@@ -4,9 +4,12 @@ import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import cz.muni.fi.PerformanceMonitor;
+import cz.muni.fi.event.MemoryUsageEvent;
+import cz.muni.fi.handler.MemoryUsageEventHandler;
+import cz.muni.fi.monitor.CpuMonitor;
 import cz.muni.fi.event.CpuLoadEvent;
 import cz.muni.fi.handler.CpuLoadEventHandler;
+import cz.muni.fi.monitor.MemoryMonitor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,20 +29,27 @@ public class SystemSnapshotTaker {
 
   @Autowired
   private CpuLoadEventHandler cpuLoadEventHandler;
+  @Autowired
+  private MemoryUsageEventHandler memoryUsageEventHandler;
 
   public void startTakingSystemSnapshots(final long noOfSnapthots) {
 
-    ExecutorService xrayExecutor = Executors.newSingleThreadExecutor();
+    ExecutorService xrayExecutor = Executors.newFixedThreadPool(2);
 
     xrayExecutor.submit(new Runnable() {
       public void run() {
         log.debug(getStartingMessage());
 
         int count = 0;
-        PerformanceMonitor performanceMonitor = new PerformanceMonitor();
+        CpuMonitor cpuMonitor = new CpuMonitor();
+        MemoryMonitor memMonitor = new MemoryMonitor();
         while (count < noOfSnapthots) {
-          CpuLoadEvent cle = new CpuLoadEvent(performanceMonitor.getCpuUsage(), new Date());
+          Date now = new Date();
+          CpuLoadEvent cle = new CpuLoadEvent(cpuMonitor.getSystemCpuUsage(), now);
           cpuLoadEventHandler.handle(cle);
+
+          MemoryUsageEvent memoryUsageEvent = new MemoryUsageEvent(memMonitor.getTotalMemoryUsage(), now);
+          memoryUsageEventHandler.handle(memoryUsageEvent);
 
           count++;
           try {
@@ -51,6 +61,24 @@ public class SystemSnapshotTaker {
 
       }
     });
+    /*
+    //just do something
+    xrayExecutor.submit(new Runnable() {
+      public void run() {
+        long count = 0;
+        if (noOfSnapthots > 10) {
+          for (long i = 0; i < 10000000000000000l; i++) {
+            if (i % 1000000000 == 0) {
+              System.out.println(i);
+            }
+            count += i;
+          }
+        }
+        if (count > 1234) {
+          System.out.println("XXXXXXXXXXXXXXXXXX " + count);
+        }
+      }
+    });*/
   }
 
 

@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="739cae3f-a2a2-48ba-b536-e1367878f5a9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__ch_qos_logback_logback_classic_4_1_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\.idea\libraries\Maven__junit_junit_4_8_1.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/monitor/CpuMonitor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/monitor/MemoryMonitor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/event/MemoryUsageEvent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/MemoryUsageEventHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/MemoryUsageEventSubscriber.java" />
+      <change type="DELETED" beforePath="C:\Users\e\Documents\Git\esper-demo\src\main\java\cz\muni\fi\PerformanceMonitor.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/CpuLoadEventHandler.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/CpuLoadEventHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/muni/fi/util/SystemSnapshotTaker.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/util/SystemSnapshotTaker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/corsoft-esper-demo.iml" afterPath="$PROJECT_DIR$/corsoft-esper-demo.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -74,20 +76,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="MemoryUsageEvent.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/MemoryUsageEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="33" selection-start="1407" selection-end="1407" vertical-scroll-proportion="1.18802" vertical-offset="0" max-vertical-offset="1955">
+            <state line="10" column="21" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="748">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#366#367#0" expanded="true" />
+                <element signature="e#388#389#0" expanded="true" />
+                <element signature="e#426#427#0" expanded="true" />
+                <element signature="e#454#455#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SystemSnapshotTaker.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/util/SystemSnapshotTaker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="65" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.44235924" vertical-offset="447" max-vertical-offset="1411">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logback.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+      <file leaf-file-name="CpuLoadEventHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/CpuLoadEventHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="10" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="374">
+            <state line="21" column="0" selection-start="815" selection-end="2123" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="1105">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemoryUsageEventHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/MemoryUsageEventHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="32" selection-start="1932" selection-end="1932" vertical-scroll-proportion="0.0" vertical-offset="522" max-vertical-offset="1326">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CpuLoadEventSubscriber.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="0" selection-start="254" selection-end="849" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="629">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemoryMonitor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/monitor/MemoryMonitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="20" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0" vertical-offset="184" max-vertical-offset="680">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#853#854#0" expanded="true" />
+                <element signature="e#893#894#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CpuMonitor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/monitor/CpuMonitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="381" selection-end="465" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="969">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,12 +177,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/application-context.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/util/RandomTemperatureEventGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/util/SystemSnapshotTaker.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/StartDemo.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/AbstactSubscriber.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/AbstractSubscriber.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/CpuLoadEventHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/TemperatureEventHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CriticalEventSubscriber.java" />
         <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/MonitorEventSubscriber.java" />
@@ -129,6 +188,15 @@
         <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/event/TemperatureEvent.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/PerformanceMonitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/CpuMonitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/monitor/CpuMonitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/monitor/MemoryMonitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/event/MemoryUsageEvent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/CpuLoadEventHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/MemoryUsageEventSubscriber.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/util/SystemSnapshotTaker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/MemoryUsageEventHandler.java" />
       </list>
     </option>
   </component>
@@ -208,7 +276,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -379,6 +446,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="monitor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="corsoft-esper-demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="esper-demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="handler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -416,6 +513,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -434,6 +532,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="RunManager" selected="Application.StartDemo">
     <configuration default="false" name="StartDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -635,19 +734,19 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3264" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25755286" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24924472" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -671,6 +770,20 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="33" selection-start="1407" selection-end="1407" vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="1955">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="10" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="374">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="21" selection-start="2164" selection-end="2164" vertical-scroll-proportion="0.0" vertical-offset="1051" max-vertical-offset="2159">
@@ -702,18 +815,15 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/util/SystemSnapshotTaker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="81" selection-start="1913" selection-end="1913" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
-          <folding>
-            <element signature="e#950#1504#0" expanded="false" />
-            <element signature="e#1497#1498#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/PerformanceMonitor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/monitor/CpuMonitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="10" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0" vertical-offset="259" max-vertical-offset="901">
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -770,11 +880,6 @@
         <state line="7" column="7" selection-start="192" selection-end="192" vertical-scroll-proportion="0.27493262" vertical-offset="0" max-vertical-offset="1037" />
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/lang/management/ManagementFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="457" column="43" selection-start="15965" selection-end="15965" vertical-scroll-proportion="6.7731957" vertical-offset="4325" max-vertical-offset="13260" />
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/lib/tools.jar!/com/sun/tools/script/shell/Main.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="52" selection-start="529" selection-end="529" vertical-scroll-proportion="0.3623446" vertical-offset="0" max-vertical-offset="1428" />
@@ -783,13 +888,6 @@
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/lib/tools.jar!/com/sun/tools/script/shell/init.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="230" column="0" selection-start="5211" selection-end="5211" vertical-scroll-proportion="0.9434276" vertical-offset="3343" max-vertical-offset="15130" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/CpuLoadEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="26" selection-start="496" selection-end="496" vertical-scroll-proportion="0.5427873" vertical-offset="203" max-vertical-offset="612">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.xml">
@@ -827,41 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/PerformanceMonitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="25" selection-start="478" selection-end="478" vertical-scroll-proportion="0.5294118" vertical-offset="0" max-vertical-offset="867">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/util/SystemSnapshotTaker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="23" selection-start="652" selection-end="652" vertical-scroll-proportion="0.3529412" vertical-offset="34" max-vertical-offset="1020">
-          <folding>
-            <element signature="e#950#1504#0" expanded="false" />
-            <element signature="e#1497#1498#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/StartDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="75" selection-start="486" selection-end="486" vertical-scroll-proportion="0.3529412" vertical-offset="0" max-vertical-offset="799">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="7" selection-start="822" selection-end="822" vertical-scroll-proportion="0.88235295" vertical-offset="0" max-vertical-offset="714">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CriticalEventSubscriber.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="286" selection-end="286" vertical-scroll-proportion="0.21061946" vertical-offset="0" max-vertical-offset="1207">
@@ -892,13 +955,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/CpuLoadEventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="5" selection-start="1010" selection-end="1010" vertical-scroll-proportion="0.39732888" vertical-offset="0" max-vertical-offset="1122">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/TemperatureEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="224" selection-end="224" vertical-scroll-proportion="-0.50417364" vertical-offset="455" max-vertical-offset="1054">
@@ -908,14 +964,156 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="10" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+        <state line="5" column="10" selection-start="196" selection-end="196" vertical-scroll-proportion="0.14143094" vertical-offset="0" max-vertical-offset="601">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/lang/management/OperatingSystemMXBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="17" selection-start="1598" selection-end="1598" vertical-scroll-proportion="-2.71066" vertical-offset="1731" max-vertical-offset="2125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/util/concurrent/Executors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="34" selection-start="5003" selection-end="5003" vertical-scroll-proportion="1.152815" vertical-offset="1117" max-vertical-offset="11186">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/StartDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="28" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.0" vertical-offset="426" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="33" selection-start="1407" selection-end="1407" vertical-scroll-proportion="1.18802" vertical-offset="0" max-vertical-offset="1955">
+        <state line="61" column="21" selection-start="1832" selection-end="1832" vertical-scroll-proportion="0.3810345" vertical-offset="816" max-vertical-offset="1955">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/jre/lib/rt.jar!/sun/management/VMManagement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="7" selection-start="1747" selection-end="1767" vertical-scroll-proportion="0.0" vertical-offset="1173" max-vertical-offset="1955">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/jre/lib/rt.jar!/com/sun/management/OperatingSystemMXBean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="17" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/CpuLoadEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="130" selection-end="178" vertical-scroll-proportion="0.33248731" vertical-offset="39" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/lang/management/MemoryUsage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="0" selection-start="2771" selection-end="2771" vertical-scroll-proportion="-1.4584451" vertical-offset="1615" max-vertical-offset="4709">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/lang/Runtime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="658" column="23" selection-start="26744" selection-end="26744" vertical-scroll-proportion="0.7208122" vertical-offset="10426" max-vertical-offset="15028">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/monitor/CpuMonitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="381" selection-end="465" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="969">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/lang/management/MemoryMXBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="238" column="30" selection-start="9253" selection-end="9253" vertical-scroll-proportion="4.8900805" vertical-offset="1831" max-vertical-offset="4879">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/lang/management/ManagementFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="382" column="41" selection-start="12740" selection-end="12740" vertical-scroll-proportion="0.7208122" vertical-offset="5394" max-vertical-offset="13260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/monitor/MemoryMonitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="20" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0" vertical-offset="184" max-vertical-offset="680">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#893#894#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/CpuLoadEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="815" selection-end="2123" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="1105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="254" selection-end="849" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="629">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/MemoryUsageEventSubscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.04557641" vertical-offset="0" max-vertical-offset="646">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/MemoryUsageEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="32" selection-start="1932" selection-end="1932" vertical-scroll-proportion="0.0" vertical-offset="522" max-vertical-offset="1326">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/MemoryUsageEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="21" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="748">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#388#389#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#454#455#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/util/SystemSnapshotTaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="65" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.44235924" vertical-offset="447" max-vertical-offset="1411">
           <folding />
         </state>
       </provider>
