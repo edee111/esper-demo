@@ -35,12 +35,15 @@ public class SimpleAgent {
   public void register(CpuLoadMBean mBean, Class eventClass) {
     try {
       ObjectName name = getObjectName(eventClass);
-      if (mbs.isRegistered(name)) {
-        mbs.unregisterMBean(name);
+      if (mbs.isRegistered(name)) { //todo inform other side about attribute change
+        AttributeList attList = new AttributeList(2);
+        attList.add(new Attribute("Timestamp", mBean.getTimestamp()));
+        attList.add(new Attribute("Load", mBean.getLoad()));
+        mbs.setAttributes(name, attList);
       }
-
-      //todo registering strategy
-      mbs.registerMBean(mBean, name);
+      else {
+        mbs.registerMBean(mBean, name);
+      }
     } catch (MalformedObjectNameException e) {
       e.printStackTrace();
     } catch (NotCompliantMBeanException e) {
@@ -51,10 +54,12 @@ public class SimpleAgent {
       e.printStackTrace();
     } catch (InstanceNotFoundException e) {
       e.printStackTrace();
+    } catch (ReflectionException e) {
+      e.printStackTrace();
     }
   }
 
   private ObjectName getObjectName(Class clazz) throws MalformedObjectNameException {
-    return new ObjectName(clazz.getPackage() + ":name=" + clazz.getSimpleName());
+    return new ObjectName(clazz.getPackage().getName() + ":name=" + clazz.getSimpleName());
   }
 }
