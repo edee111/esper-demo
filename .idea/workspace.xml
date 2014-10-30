@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="739cae3f-a2a2-48ba-b536-e1367878f5a9" name="Default" comment="event type fix, typo in variable name fix&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/muni/fi/StartDemo.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/StartDemo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cz/muni/fi/util/SystemSnapshotTaker.java" afterPath="$PROJECT_DIR$/src/main/java/cz/muni/fi/util/SystemSnapshotTaker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="739cae3f-a2a2-48ba-b536-e1367878f5a9" name="Default" comment="event type fix, typo in variable name fix&#10;" />
     <ignored path="corsoft-esper-demo.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -96,10 +91,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CpuLoadEventSubscriber.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CpuLoadEventSubscriber.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="52" selection-start="848" selection-end="848" vertical-scroll-proportion="0.4318766" vertical-offset="240" max-vertical-offset="629">
+            <state line="30" column="52" selection-start="848" selection-end="848" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="629">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TemperatureEvent.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/TemperatureEvent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="0" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="482" max-vertical-offset="1054">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TemperatureEventHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/TemperatureEventHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="27" selection-start="822" selection-end="822" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1751">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CriticalEventSubscriber.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CriticalEventSubscriber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="0" selection-start="286" selection-end="286" vertical-scroll-proportion="0.33521128" vertical-offset="0" max-vertical-offset="1207">
               <folding />
             </state>
           </provider>
@@ -686,10 +708,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33811802" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33811802" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -876,20 +898,6 @@
         <state line="38" column="16" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0" vertical-offset="619" max-vertical-offset="1037" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CriticalEventSubscriber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="286" selection-end="286" vertical-scroll-proportion="0.21061946" vertical-offset="0" max-vertical-offset="1207">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/TemperatureEventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="27" selection-start="822" selection-end="822" vertical-scroll-proportion="0.25542572" vertical-offset="0" max-vertical-offset="1751">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/MonitorEventSubscriber.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="11" selection-start="265" selection-end="265" vertical-scroll-proportion="0.22704507" vertical-offset="0" max-vertical-offset="697">
@@ -903,13 +911,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/TemperatureEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="224" selection-end="224" vertical-scroll-proportion="-0.50417364" vertical-offset="455" max-vertical-offset="1054">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,7 +1063,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CpuLoadEventSubscriber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="52" selection-start="848" selection-end="848" vertical-scroll-proportion="0.4318766" vertical-offset="240" max-vertical-offset="629">
+        <state line="30" column="52" selection-start="848" selection-end="848" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="629">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/event/TemperatureEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="482" max-vertical-offset="1054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/handler/TemperatureEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="27" selection-start="822" selection-end="822" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1751">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cz/muni/fi/subscriber/CriticalEventSubscriber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="286" selection-end="286" vertical-scroll-proportion="0.33521128" vertical-offset="0" max-vertical-offset="1207">
           <folding />
         </state>
       </provider>
