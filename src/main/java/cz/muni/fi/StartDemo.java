@@ -24,12 +24,12 @@ public class StartDemo {
 
     log.debug("Starting...");
 
-    long noOfTemperatureEvents = 1000;
+    long noOfSnapshots = 1000;
 
     if (args.length != 1) {
-      log.debug("No override of number of events detected - defaulting to " + noOfTemperatureEvents + " events.");
+      log.debug("No override of number of events detected - defaulting to " + noOfSnapshots + " events.");
     } else {
-      noOfTemperatureEvents = Long.valueOf(args[0]);
+      noOfSnapshots = Long.valueOf(args[0]);
     }
 
     // Load spring config
@@ -38,7 +38,7 @@ public class StartDemo {
 
     // Start Demo
     SystemSnapshotTaker generator = (SystemSnapshotTaker) factory.getBean("eventGenerator");
-    generator.startTakingSystemSnapshots(noOfTemperatureEvents);
+    generator.startTakingSystemSnapshots(noOfSnapshots);
 
   }
 
