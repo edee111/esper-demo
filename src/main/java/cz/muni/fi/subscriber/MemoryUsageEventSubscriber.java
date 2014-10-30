@@ -1,5 +1,6 @@
 package cz.muni.fi.subscriber;
 
+import cz.muni.fi.event.MemoryUsageEvent;
 import cz.muni.fi.event.TemperatureEvent;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +24,7 @@ public class MemoryUsageEventSubscriber extends AbstractSubscriber implements St
   /**
    * Listener method called when Esper has detected a pattern match.
    */
-  public void update(Map<String, TemperatureEvent> eventMap) {
+  public void update(Map<String, MemoryUsageEvent> eventMap) {
     StringBuilder sb = new StringBuilder();
     sb.append("avgMemoryUsage=" + eventMap.get("avgMemoryUsage"));
     log.debug(sb.toString());
