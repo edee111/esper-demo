@@ -3,8 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cz.muni.fi</groupId>
 	<artifactId>esper-demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>esper-demo</name>
+  <packaging>pom</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <modules>
+    <module>client</module>
+  </modules>
+  <name>esper-demo</name>
 	<description>Simple demo of Complex Event Processing (CEP) using the ESPER libraries.</description>
 
 	<properties>
@@ -63,6 +67,7 @@
 				</configuration>
 			</plugin>
 			<plugin>
+        <!-- mvn exec:java -->
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<configuration>
