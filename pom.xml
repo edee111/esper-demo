@@ -9,7 +9,7 @@
     <module>client</module>
   </modules>
   <name>esper-demo</name>
-	<description>Simple demo of Complex Event Processing (CEP) using the ESPER libraries.</description>
+	<description>Server monitoring using the ESPER libraries.</description>
 
 	<properties>
 		<esper-version>5.1.0</esper-version>
