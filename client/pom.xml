@@ -11,6 +11,17 @@
 
   <artifactId>client</artifactId>
 
+  <properties>
+    <spring-version>4.1.1.RELEASE</spring-version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+  </dependencies>
 
   <build>
     <defaultGoal>install</defaultGoal>
