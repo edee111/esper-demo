@@ -1,9 +1,15 @@
 package cz.muni.fi.subscriber;
 
+import cz.muni.fi.connector.CpuLoad;
+import cz.muni.fi.connector.MemoryUsage;
+import cz.muni.fi.connector.SimpleAgent;
+import cz.muni.fi.event.CpuLoadEvent;
 import cz.muni.fi.event.MemoryUsageEvent;
 import cz.muni.fi.event.TemperatureEvent;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -13,6 +19,8 @@ import java.util.Map;
 @Component
 public class MemoryUsageEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
 
+  @Autowired
+  private SimpleAgent simpleAgent;
   /**
    * {@inheritDoc}
    */
@@ -24,10 +32,12 @@ public class MemoryUsageEventSubscriber extends AbstractSubscriber implements St
   /**
    * Listener method called when Esper has detected a pattern match.
    */
-  public void update(Map<String, MemoryUsageEvent> eventMap) {
+  public void update(Map<String, Double> eventMap) {
     StringBuilder sb = new StringBuilder();
-    sb.append("avgMemoryUsage=" + eventMap.get("avgMemoryUsage"));
+    long avgMemoryUsage = eventMap.get("avgMemoryUsage").longValue();
+    sb.append("avgMemoryUsage=" + avgMemoryUsage);
     log.debug(sb.toString());
+    simpleAgent.register(new MemoryUsage(avgMemoryUsage, new Date()), CpuLoadEvent.class);
   }
 
 }

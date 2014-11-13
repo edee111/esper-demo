@@ -55,13 +55,10 @@ public class MemoryUsageEventHandler implements InitializingBean {
   }
 
   /**
-   * Handle the incoming TemperatureEvent.
+   * Handle the incoming MemoryUsageEvent.
    */
   public void handle(MemoryUsageEvent event) {
-
-    //log.debug(event.toString());
     epService.getEPRuntime().sendEvent(event);
-
   }
 
   @Override

@@ -18,6 +18,7 @@ public class SimpleAgent {
 
     // Get the platform MBeanServer
     mbs = ManagementFactory.getPlatformMBeanServer();
+    
 
     // Unique identification of MBeans
     Hello helloBean = new Hello();
@@ -32,13 +33,12 @@ public class SimpleAgent {
     }
   }
 
-  public void register(CpuLoadMBean mBean, Class eventClass) {
+  public void register(MBean mBean, Class eventClass) {
     try {
       ObjectName name = getObjectName(eventClass);
+      System.out.println(name);
       if (mbs.isRegistered(name)) { //todo inform other side about attribute change
-        AttributeList attList = new AttributeList(2);
-        attList.add(new Attribute("Timestamp", mBean.getTimestamp()));
-        attList.add(new Attribute("Load", mBean.getLoad()));
+        AttributeList attList = getMBeanAttributes(mBean);
         mbs.setAttributes(name, attList);
       }
       else {
@@ -61,5 +61,20 @@ public class SimpleAgent {
 
   private ObjectName getObjectName(Class clazz) throws MalformedObjectNameException {
     return new ObjectName(clazz.getPackage().getName() + ":name=" + clazz.getSimpleName());
+  }
+
+  private AttributeList getMBeanAttributes(MBean mBean) {
+    AttributeList attList = new AttributeList();
+    if (mBean instanceof CpuLoad) {
+      CpuLoad cpuLoadMbean = (CpuLoad) mBean;
+      attList.add(new Attribute("Timestamp", cpuLoadMbean.getTimestamp()));
+      attList.add(new Attribute("Load", cpuLoadMbean.getLoad()));
+    }
+    else if (mBean instanceof MemoryUsage) {
+      MemoryUsage memoryUsageMBean = (MemoryUsage) mBean;
+      attList.add(new Attribute("Timestamp", memoryUsageMBean.getTimestamp()));
+      attList.add(new Attribute("Load", memoryUsageMBean.getUsage()));
+    }
+    return attList;
   }
 }

@@ -4,39 +4,38 @@ import java.util.Date;
 
 /**
  * @author Eduard Tomek
- * @since 30.10.14
+ * @since 13.11.14
  */
-public class CpuLoad extends MBean implements CpuLoadMBean {
+public class MemoryUsage extends MBean implements MemoryUsageMBean  {
 
-  private double load;
+  private long usage;
   private Date timestamp;
 
-  public CpuLoad(double load, Date timestamp) {
-    this.load = load;
+  public MemoryUsage(long usage, Date timestamp) {
+    this.usage = usage;
     this.timestamp = timestamp;
   }
 
-  @Override
-  public double getLoad() {
-    return load;
+  public long getUsage() {
+    return usage;
   }
-  @Override
-  public void setLoad(double load) {
-    this.load = load;
+
+  public void setUsage(long usage) {
+    this.usage = usage;
   }
-  @Override
+
   public Date getTimestamp() {
     return timestamp;
   }
-  @Override
+
   public void setTimestamp(Date timestamp) {
     this.timestamp = timestamp;
   }
 
   @Override
   public String toString() {
-    return "CpuLoadEvent{" +
-            "load=" + load +
+    return "MemoryUsageEvent{" +
+            "usage=" + usage +
             ", timestamp=" + timestamp +
             '}';
   }
