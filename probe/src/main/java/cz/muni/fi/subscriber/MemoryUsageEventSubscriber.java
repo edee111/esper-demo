@@ -37,7 +37,7 @@ public class MemoryUsageEventSubscriber extends AbstractSubscriber implements St
     long avgMemoryUsage = eventMap.get("avgMemoryUsage").longValue();
     sb.append("avgMemoryUsage=" + avgMemoryUsage);
     log.debug(sb.toString());
-    simpleAgent.register(new MemoryUsage(avgMemoryUsage, new Date()), CpuLoadEvent.class);
+    simpleAgent.register(new MemoryUsage(avgMemoryUsage, new Date()), MemoryUsageEvent.class);
   }
 
 }
