@@ -1,6 +1,8 @@
 package cz.muni.fi.runtime;
 
 import cz.muni.fi.example.*;
+import cz.muni.fi.mbean.CpuLoad;
+import cz.muni.fi.mbean.CpuLoadMBean;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.management.NotificationListener;
@@ -108,14 +110,15 @@ public class GlobalClient {
 
     // Construct the ObjectName for the Hello MBean
     //
-    ObjectName mbeanName = new ObjectName("cz.muni.fi.example:type=Hello");
+    ObjectName mbeanName = new ObjectName("cz.muni.fi.event:name=CpuLoadEvent");
 
     // Create a dedicated proxy for the MBean instead of
     // going directly through the MBean server connection
     //
-    cz.muni.fi.example.HelloMBean mbeanProxy =
-            JMX.newMBeanProxy(mbsc, mbeanName, cz.muni.fi.example.HelloMBean.class, true);
-
+    CpuLoadMBean mbeanProxy =
+            JMX.newMBeanProxy(mbsc, mbeanName, CpuLoadMBean.class, true);
+//https://docs.oracle.com/javase/tutorial/jmx/remote/custom.html
+    //https://docs.oracle.com/cd/E19159-01/819-7758/gchjb/index.html
     // Add notification listener on Hello MBean
     //
     echo("\nAdd notification listener...");

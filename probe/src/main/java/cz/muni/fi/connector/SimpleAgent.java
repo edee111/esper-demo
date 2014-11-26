@@ -18,7 +18,6 @@ public class SimpleAgent {
 
     // Get the platform MBeanServer
     mbs = ManagementFactory.getPlatformMBeanServer();
-    
 
     // Unique identification of MBeans
     Hello helloBean = new Hello();
