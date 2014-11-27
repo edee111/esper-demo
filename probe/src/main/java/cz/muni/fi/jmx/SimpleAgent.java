@@ -1,6 +1,10 @@
-package cz.muni.fi.connector;
+package cz.muni.fi.jmx;
 
 
+import cz.muni.fi.CpuLoad;
+import cz.muni.fi.Hello;
+import cz.muni.fi.MBean;
+import cz.muni.fi.MemoryUsage;
 import org.springframework.stereotype.Component;
 
 import javax.management.*;
@@ -36,7 +40,7 @@ public class SimpleAgent {
     try {
       ObjectName name = getObjectName(eventClass);
       System.out.println(name);
-      if (mbs.isRegistered(name)) { //todo inform other side about attribute change
+      if (mbs.isRegistered(name)) {
         AttributeList attList = getMBeanAttributes(mBean);
         mbs.setAttributes(name, attList);
       }
@@ -59,7 +63,7 @@ public class SimpleAgent {
   }
 
   private ObjectName getObjectName(Class clazz) throws MalformedObjectNameException {
-    return new ObjectName(clazz.getPackage().getName() + ":name=" + clazz.getSimpleName());
+    return new ObjectName(clazz.getPackage().getName() + ":type=" + clazz.getSimpleName());
   }
 
   private AttributeList getMBeanAttributes(MBean mBean) {
@@ -72,7 +76,7 @@ public class SimpleAgent {
     else if (mBean instanceof MemoryUsage) {
       MemoryUsage memoryUsageMBean = (MemoryUsage) mBean;
       attList.add(new Attribute("Timestamp", memoryUsageMBean.getTimestamp()));
-      attList.add(new Attribute("Load", memoryUsageMBean.getUsage()));
+      attList.add(new Attribute("Usage", memoryUsageMBean.getUsage()));
     }
     return attList;
   }

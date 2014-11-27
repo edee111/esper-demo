@@ -1,8 +1,7 @@
 package cz.muni.fi.subscriber;
 
-import cz.muni.fi.connector.CpuLoad;
-import cz.muni.fi.connector.SimpleAgent;
-import cz.muni.fi.event.CpuLoadEvent;
+import cz.muni.fi.CpuLoad;
+import cz.muni.fi.jmx.SimpleAgent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -34,7 +33,7 @@ public class CpuLoadEventSubscriber extends AbstractSubscriber implements Statem
     double avgLoad = eventMap.get("avgLoad");
     sb.append("avgLoad=" + avgLoad);
     log.debug(sb.toString());
-    simpleAgent.register(new CpuLoad(avgLoad, new Date()), CpuLoadEvent.class);
+    simpleAgent.register(new CpuLoad(avgLoad, new Date()), CpuLoad.class);
   }
 
 

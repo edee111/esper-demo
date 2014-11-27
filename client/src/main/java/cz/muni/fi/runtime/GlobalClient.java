@@ -1,56 +1,25 @@
 package cz.muni.fi.runtime;
 
-import cz.muni.fi.example.*;
-import cz.muni.fi.mbean.CpuLoad;
-import cz.muni.fi.mbean.CpuLoadMBean;
-import org.springframework.beans.factory.annotation.Autowired;
+import cz.muni.fi.CpuLoadMBean;
+import cz.muni.fi.example.QueueSample;
+import cz.muni.fi.example.QueueSamplerMXBean;
 
-import javax.management.NotificationListener;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
-import javax.management.AttributeChangeNotification;
 import javax.management.JMX;
 import javax.management.MBeanServerConnection;
-import javax.management.Notification;
-import javax.management.NotificationEmitter;
-import javax.management.NotificationListener;
 import javax.management.ObjectName;
 import javax.management.remote.JMXConnector;
 import javax.management.remote.JMXConnectorFactory;
 import javax.management.remote.JMXServiceURL;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author Eduard Tomek
  * @since 6.11.14
  */
 public class GlobalClient {
-
-
-
-  /**
-   * Inner class that will handle the notifications.
-   */
-  public static class ClientListener implements NotificationListener {
-    public void handleNotification(Notification notification,
-                                   Object handback) {
-      echo("\nReceived notification:");
-      echo("\tClassName: " + notification.getClass().getName());
-      echo("\tSource: " + notification.getSource());
-      echo("\tType: " + notification.getType());
-      echo("\tMessage: " + notification.getMessage());
-      if (notification instanceof AttributeChangeNotification) {
-        AttributeChangeNotification acn =
-                (AttributeChangeNotification) notification;
-        echo("\tAttributeName: " + acn.getAttributeName());
-        echo("\tAttributeType: " + acn.getAttributeType());
-        echo("\tNewValue: " + acn.getNewValue());
-        echo("\tOldValue: " + acn.getOldValue());
-      }
-    }
-  }
 
   /* For simplicity, we declare "throws Exception".
      Real programs will usually want finer-grained exception handling. */
@@ -110,7 +79,7 @@ public class GlobalClient {
 
     // Construct the ObjectName for the Hello MBean
     //
-    ObjectName mbeanName = new ObjectName("cz.muni.fi.event:name=CpuLoadEvent");
+    ObjectName mbeanName = new ObjectName("cz.muni.fi:type=CpuLoad");
 
     // Create a dedicated proxy for the MBean instead of
     // going directly through the MBean server connection

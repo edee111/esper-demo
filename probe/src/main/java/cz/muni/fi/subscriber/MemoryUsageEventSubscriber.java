@@ -1,11 +1,7 @@
 package cz.muni.fi.subscriber;
 
-import cz.muni.fi.connector.CpuLoad;
-import cz.muni.fi.connector.MemoryUsage;
-import cz.muni.fi.connector.SimpleAgent;
-import cz.muni.fi.event.CpuLoadEvent;
-import cz.muni.fi.event.MemoryUsageEvent;
-import cz.muni.fi.event.TemperatureEvent;
+import cz.muni.fi.MemoryUsage;
+import cz.muni.fi.jmx.SimpleAgent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -37,7 +33,7 @@ public class MemoryUsageEventSubscriber extends AbstractSubscriber implements St
     long avgMemoryUsage = eventMap.get("avgMemoryUsage").longValue();
     sb.append("avgMemoryUsage=" + avgMemoryUsage);
     log.debug(sb.toString());
-    simpleAgent.register(new MemoryUsage(avgMemoryUsage, new Date()), MemoryUsageEvent.class);
+    simpleAgent.register(new MemoryUsage(avgMemoryUsage, new Date()), MemoryUsage.class);
   }
 
 }

@@ -1,4 +1,4 @@
-package cz.muni.fi.mbean;
+package cz.muni.fi;
 
 import javax.management.AttributeChangeNotification;
 import javax.management.MBeanNotificationInfo;
@@ -9,7 +9,8 @@ import javax.management.NotificationBroadcasterSupport;
  * @author Eduard Tomek
  * @since 13.11.14
  */
-public class MBean extends NotificationBroadcasterSupport {
+public abstract class MBean extends NotificationBroadcasterSupport {
+
   public void sayHello() {
     System.out.println("hello, world");
   }

@@ -1,4 +1,4 @@
-package cz.muni.fi.mbean;
+package cz.muni.fi;
 
 import java.util.Date;
 

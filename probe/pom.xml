@@ -53,6 +53,10 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>cz.muni.fi</groupId>
+      <artifactId>mbean</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

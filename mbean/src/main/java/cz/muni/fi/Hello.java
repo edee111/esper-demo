@@ -1,4 +1,4 @@
-package cz.muni.fi.connector;
+package cz.muni.fi;
 
 /**
  * @author Eduard Tomek

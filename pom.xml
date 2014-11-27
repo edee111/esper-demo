@@ -8,6 +8,7 @@
   <modules>
     <module>client</module>
     <module>probe</module>
+    <module>mbean</module>
   </modules>
   <name>esper-demo</name>
 	<description>Server monitoring using the ESPER libraries.</description>

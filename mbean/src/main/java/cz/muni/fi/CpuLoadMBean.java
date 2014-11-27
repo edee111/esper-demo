@@ -1,5 +1,9 @@
-package cz.muni.fi.mbean;
+package cz.muni.fi;
 
+import javax.management.AttributeChangeNotification;
+import javax.management.DynamicMBean;
+import javax.management.MBeanNotificationInfo;
+import javax.management.Notification;
 import java.util.Date;
 
 /**
@@ -11,21 +15,15 @@ public interface CpuLoadMBean {
   public void setTimestamp(Date t);
   public double getLoad();
   public void setLoad(double l);
-  //-----------
-  // operations
-  //-----------
+
 
   public void sayHello();
+
   public int add(int x, int y);
 
-  //-----------
-  // attributes
-  //-----------
-
-  // a read-only attribute called Name of type String
   public String getName();
 
-  // a read-write attribute called CacheSize of type int
   public int getCacheSize();
   public void setCacheSize(int size);
+  public MBeanNotificationInfo[] getNotificationInfo();
 }

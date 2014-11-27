@@ -40,6 +40,10 @@
       <version>${logback-version}</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>cz.muni.fi</groupId>
+      <artifactId>mbean</artifactId>
+    </dependency>
 
   </dependencies>
 
