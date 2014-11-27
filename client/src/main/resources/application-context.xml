@@ -7,9 +7,7 @@
 						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- Process Spring Annotations -->
-	<context:component-scan base-package="cz.muni.fi" />
-
-  <bean id="eventGenerator" class="cz.muni.fi.runtime.GlobalClient" />
-
+  <context:component-scan base-package="cz.muni.fi.runtime" />
+  <bean id="core" class="cz.muni.fi.Core" />
 
 </beans>

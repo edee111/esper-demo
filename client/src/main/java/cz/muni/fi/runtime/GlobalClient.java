@@ -1,16 +1,17 @@
 package cz.muni.fi.runtime;
 
 import cz.muni.fi.CpuLoadMBean;
-import cz.muni.fi.example.QueueSample;
-import cz.muni.fi.example.QueueSamplerMXBean;
+import cz.muni.fi.MBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-import javax.management.JMX;
-import javax.management.MBeanServerConnection;
-import javax.management.ObjectName;
+import javax.management.*;
 import javax.management.remote.JMXConnector;
 import javax.management.remote.JMXConnectorFactory;
 import javax.management.remote.JMXServiceURL;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
@@ -19,176 +20,112 @@ import java.util.TreeSet;
  * @author Eduard Tomek
  * @since 6.11.14
  */
+@Component
 public class GlobalClient {
 
+  private final Logger log = LoggerFactory.getLogger(getClass());
+
+  private Set<MBean> beans;
+
+  private MBeanServerConnection mbsc;
+  private JMXConnector jmxc;
+
+  public void connect() {
+    try {
+      // Create an RMI connector client and
+      // connect it to the RMI connector server
+      //
+      log.debug("\nCreate an RMI connector client and " +
+              "connect it to the RMI connector server");
+      JMXServiceURL url =
+              new JMXServiceURL("service:jmx:rmi:///jndi/rmi://:9999/jmxrmi");
+      jmxc = JMXConnectorFactory.connect(url, null);
+
+
+      // Get an MBeanServerConnection
+      //
+      log.debug("Get an MBeanServerConnection");
+
+      mbsc = jmxc.getMBeanServerConnection();
+    } catch (IOException e) {
+      log.error("Unable to connect", e);
+    }
+    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa");
+  }
+
+  public void getConnectionInfo() {
+    try {
+      // Get domains from MBeanServer
+      //
+      log.debug("Domains:");
+      String domains[] = mbsc.getDomains();
+      Arrays.sort(domains);
+      for (String domain : domains) {
+        log.debug("Domain = " + domain);
+      }
+      // Get MBeanServer's default domain
+      //
+
+      log.debug("MBeanServer default domain = " + mbsc.getDefaultDomain());
+
+
+      // Get MBean count
+      //
+      log.debug("MBean count = " + mbsc.getMBeanCount());
+
+      // Query MBean names
+      //
+      log.debug("Query MBeanServer MBeans:");
+      Set<ObjectName> names =
+              new TreeSet<ObjectName>(mbsc.queryNames(null, null));
+      for (ObjectName name : names) {
+        log.debug("ObjectName = " + name);
+      }
+    } catch (IOException e) {
+      log.error("Unable to get connection info", e);
+    }
+  }
+
+  public void createMBeanProxies() {
+    createMbeanProxy(CpuLoadMBean.class, "cz.muni.fi:type=CpuLoad");
+    //createMbeanProxy((Class<? extends MBean>) CpuLoadMBean.class, "cz.muni.fi:type=CpuLoad");
+  }
+
+  public void createMbeanProxy(Class<CpuLoadMBean> mbeanClass, String objectName) {
+    ObjectName mbeanName = null;
+    try {
+      mbeanName = new ObjectName(objectName);
+    } catch (MalformedObjectNameException e) {
+      log.error("Unable to create object name from " + objectName, e);
+      return;
+    }
+
+    MBean mBean = (MBean) JMX.newMBeanProxy(mbsc, mbeanName, mbeanClass, true);
+
+    ClientListener listener = new ClientListener();
+    createMBeanNotificationListener(mbeanName, listener);
+    beans.add(mBean);
+  }
+
+
+  public void createMBeanNotificationListener(ObjectName mBeanName, NotificationListener listener) {
+    log.debug("Add notification listener...");
+    try {
+      mbsc.addNotificationListener(mBeanName, listener, null, null);
+    } catch (InstanceNotFoundException | IOException e) {
+      log.error("Unable to add notification listener", e);
+    }
+    return;
+  }
   /* For simplicity, we declare "throws Exception".
      Real programs will usually want finer-grained exception handling. */
-  public static void main(String[] args) throws Exception {
-    // Create an RMI connector client and
-    // connect it to the RMI connector server
-    //
-    echo("\nCreate an RMI connector client and " +
-            "connect it to the RMI connector server");
-    JMXServiceURL url =
-            new JMXServiceURL("service:jmx:rmi:///jndi/rmi://:9999/jmxrmi");
-    JMXConnector jmxc = JMXConnectorFactory.connect(url, null);
-
-    // Create listener
-    //
-    ClientListener listener = new ClientListener();
-
-    // Get an MBeanServerConnection
-    //
-    echo("\nGet an MBeanServerConnection");
-    MBeanServerConnection mbsc = jmxc.getMBeanServerConnection();
-    waitForEnterPressed();
-
-    // Get domains from MBeanServer
-    //
-    echo("\nDomains:");
-    String domains[] = mbsc.getDomains();
-    Arrays.sort(domains);
-    for (String domain : domains) {
-      echo("\tDomain = " + domain);
-    }
-    waitForEnterPressed();
-
-    // Get MBeanServer's default domain
-    //
-    echo("\nMBeanServer default domain = " + mbsc.getDefaultDomain());
-
-    // Get MBean count
-    //
-    echo("\nMBean count = " + mbsc.getMBeanCount());
-
-    // Query MBean names
-    //
-    echo("\nQuery MBeanServer MBeans:");
-    Set<ObjectName> names =
-            new TreeSet<ObjectName>(mbsc.queryNames(null, null));
-    for (ObjectName name : names) {
-      echo("\tObjectName = " + name);
-    }
-    waitForEnterPressed();
-
-    // ----------------------
-    // Manage the Hello MBean
-    // ----------------------
-
-    echo("\n>>> Perform operations on Hello MBean <<<");
-
-    // Construct the ObjectName for the Hello MBean
-    //
-    ObjectName mbeanName = new ObjectName("cz.muni.fi:type=CpuLoad");
-
-    // Create a dedicated proxy for the MBean instead of
-    // going directly through the MBean server connection
-    //
-    CpuLoadMBean mbeanProxy =
-            JMX.newMBeanProxy(mbsc, mbeanName, CpuLoadMBean.class, true);
-//https://docs.oracle.com/javase/tutorial/jmx/remote/custom.html
-    //https://docs.oracle.com/cd/E19159-01/819-7758/gchjb/index.html
-    // Add notification listener on Hello MBean
-    //
-    echo("\nAdd notification listener...");
-    mbsc.addNotificationListener(mbeanName, listener, null, null);
-
-    // Get CacheSize attribute in Hello MBean
-    //
-    echo("\nCacheSize = " + mbeanProxy.getCacheSize());
-
-    // Set CacheSize attribute in Hello MBean
-    // Calling "reset" makes the Hello MBean emit a
-    // notification that will be received by the registered
-    // ClientListener.
-    //
-    mbeanProxy.setCacheSize(150);
-
-    // Sleep for 2 seconds to have time to receive the notification
-    //
-    echo("\nWaiting for notification...");
-    sleep(2000);
-
-    // Get CacheSize attribute in Hello MBean
-    //
-    echo("\nCacheSize = " + mbeanProxy.getCacheSize());
-
-    // Invoke "sayHello" in Hello MBean
-    //
-    echo("\nInvoke sayHello() in Hello MBean...");
-    mbeanProxy.sayHello();
-
-    // Invoke "add" in Hello MBean
-    //
-    echo("\nInvoke add(2, 3) in Hello MBean...");
-    echo("\nadd(2, 3) = " + mbeanProxy.add(2, 3));
-
-    waitForEnterPressed();
-
-    // ------------------------------
-    // Manage the QueueSampler MXBean
-    // ------------------------------
-
-    echo("\n>>> Perform operations on QueueSampler MXBean <<<");
-
-    // Construct the ObjectName for the QueueSampler MXBean
-    //
-    ObjectName mxbeanName =
-            new ObjectName("cz.muni.fi.example:type=QueueSampler");
-
-    // Create a dedicated proxy for the MXBean instead of
-    // going directly through the MBean server connection
-    //
-    QueueSamplerMXBean mxbeanProxy =
-            JMX.newMXBeanProxy(mbsc, mxbeanName, QueueSamplerMXBean.class);
-
-    // Get QueueSample attribute in QueueSampler MXBean
-    //
-    QueueSample queue1 = mxbeanProxy.getQueueSample();
-    echo("\nQueueSample.Date = " + queue1.getDate());
-    echo("QueueSample.Head = " + queue1.getHead());
-    echo("QueueSample.Size = " + queue1.getSize());
-
-    // Invoke "clearQueue" in QueueSampler MXBean
-    //
-    echo("\nInvoke clearQueue() in QueueSampler MXBean...");
-    mxbeanProxy.clearQueue();
-
-    // Get QueueSample attribute in QueueSampler MXBean
-    //
-    QueueSample queue2 = mxbeanProxy.getQueueSample();
-    echo("\nQueueSample.Date = " + queue2.getDate());
-    echo("QueueSample.Head = " + queue2.getHead());
-    echo("QueueSample.Size = " + queue2.getSize());
-
-    waitForEnterPressed();
-
-    // Close MBeanServer connection
-    //
-    echo("\nClose the connection to the server");
-    jmxc.close();
-    echo("\nBye! Bye!");
-  }
-
-  private static void echo(String msg) {
-    System.out.println(msg);
-  }
-
-  private static void sleep(int millis) {
+  public void close() {
     try {
-      Thread.sleep(millis);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-  }
-
-  private static void waitForEnterPressed() {
-    try {
-      echo("\nPress <Enter> to continue...");
-      System.in.read();
+      jmxc.close();
     } catch (IOException e) {
-      e.printStackTrace();
+      log.error("Unable to close JMX connector", e);
     }
+    log.info("JMX connector successfully closed");
   }
 
 }
