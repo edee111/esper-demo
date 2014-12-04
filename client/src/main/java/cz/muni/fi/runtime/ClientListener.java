@@ -9,8 +9,11 @@ import javax.management.NotificationListener;
  * @since 27.11.14
  */
 public class ClientListener implements NotificationListener {
+
   public void handleNotification(Notification notification,
                                  Object handback) {
+
+    //todo: tato metoda se spusti, kdyz se je poslana notifikace ... toto bude vsupni bod pro zmeny ... zde logovat
     echo("\nReceived notification:");
     echo("\tClassName: " + notification.getClass().getName());
     echo("\tSource: " + notification.getSource());

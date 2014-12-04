@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
 
 import javax.management.*;
 import java.lang.management.ManagementFactory;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Eduard Tomek
@@ -17,6 +21,7 @@ import java.lang.management.ManagementFactory;
 @Component
 public class SimpleAgent {
   private MBeanServer mbs = null;
+  private Map<String, MBean> registeredMBeans = new HashMap<>();
 
   public SimpleAgent() {
 
@@ -36,16 +41,24 @@ public class SimpleAgent {
     }
   }
 
+  public void update(MBean mBean, Class eventClass) {
+
+  }
+
   public void register(MBean mBean, Class eventClass) {
     try {
       ObjectName name = getObjectName(eventClass);
-      System.out.println(name);
       if (mbs.isRegistered(name)) {
+        /*
         AttributeList attList = getMBeanAttributes(mBean);
         mbs.setAttributes(name, attList);
+        */
+        MBean registeredMBean = registeredMBeans.get(mBean.getClass().getName());
+        registeredMBean.update(mBean);
       }
       else {
         mbs.registerMBean(mBean, name);
+        registeredMBeans.put(mBean.getClass().getName(), mBean);
       }
     } catch (MalformedObjectNameException e) {
       e.printStackTrace();
@@ -54,10 +67,6 @@ public class SimpleAgent {
     } catch (InstanceAlreadyExistsException e) {
       e.printStackTrace();
     } catch (MBeanRegistrationException e) {
-      e.printStackTrace();
-    } catch (InstanceNotFoundException e) {
-      e.printStackTrace();
-    } catch (ReflectionException e) {
       e.printStackTrace();
     }
   }

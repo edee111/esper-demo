@@ -1,9 +1,6 @@
 package cz.muni.fi.runtime;
 
-import cz.muni.fi.CpuLoad;
-import cz.muni.fi.CpuLoadMBean;
-import cz.muni.fi.MBean;
-import cz.muni.fi.MBeanInf;
+import cz.muni.fi.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -90,6 +87,7 @@ public class GlobalClient {
 
   public void createMBeanProxies() {
     createMbeanProxy(CpuLoadMBean.class, "cz.muni.fi:type=CpuLoad");
+    createMbeanProxy(MemoryUsageMBean.class, "cz.muni.fi:type=MemoryUsage");
     //createMbeanProxy((Class<? extends MBean>) CpuLoadMBean.class, "cz.muni.fi:type=CpuLoad");
   }
 
@@ -122,13 +120,15 @@ public class GlobalClient {
 
   public void listen() {
     while (true) {
+      /*
       for(MBeanInf m : beans) {
         if (m instanceof CpuLoadMBean) {
           CpuLoadMBean mb = (CpuLoadMBean) m;
-          log.info("Logging cpuLoadMBean");
-          log.info(mb.returnInfo());
+          //log.info("Logging cpuLoadMBean");
+          //log.info(mb.returnInfo());
         }
       }
+      */
 
       try {
         Thread.sleep(1000);

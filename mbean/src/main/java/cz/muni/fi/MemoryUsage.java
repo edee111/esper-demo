@@ -1,12 +1,14 @@
 package cz.muni.fi;
 
+import javax.management.AttributeChangeNotification;
+import javax.management.Notification;
 import java.util.Date;
 
 /**
  * @author Eduard Tomek
  * @since 13.11.14
  */
-public class MemoryUsage extends MBean implements MemoryUsageMBean  {
+public class MemoryUsage extends MBean<MemoryUsageMBean> implements MemoryUsageMBean  {
 
   private long usage;
   private Date timestamp;
@@ -40,4 +42,20 @@ public class MemoryUsage extends MBean implements MemoryUsageMBean  {
             '}';
   }
 
+  @Override
+  public void update(MemoryUsageMBean mBean) {
+    Notification n =
+            new AttributeChangeNotification(this,
+                    sequenceNumber++,
+                    System.currentTimeMillis(),
+                    "MemoryUsage changed",
+                    "MemoryUsage",
+                    "long",
+                    this,
+                    mBean);
+    sendNotification(n);
+
+    setTimestamp(mBean.getTimestamp());
+    setUsage(mBean.getUsage());
+  }
 }

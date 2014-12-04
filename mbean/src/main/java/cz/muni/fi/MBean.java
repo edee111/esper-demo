@@ -4,12 +4,13 @@ import javax.management.AttributeChangeNotification;
 import javax.management.MBeanNotificationInfo;
 import javax.management.Notification;
 import javax.management.NotificationBroadcasterSupport;
+import java.io.Serializable;
 
 /**
  * @author Eduard Tomek
  * @since 13.11.14
  */
-public abstract class MBean extends NotificationBroadcasterSupport {
+public abstract class MBean<T> extends NotificationBroadcasterSupport implements Serializable {
 
   public void sayHello() {
     System.out.println("hello, world");
@@ -91,8 +92,23 @@ public abstract class MBean extends NotificationBroadcasterSupport {
   }
 
   private final String name = "Reginald";
-  private int cacheSize = DEFAULT_CACHE_SIZE;
+  protected int cacheSize = DEFAULT_CACHE_SIZE;
   private static final int DEFAULT_CACHE_SIZE = 200;
 
-  private long sequenceNumber = 1;
+  protected long sequenceNumber = 1;
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    return getClass().hashCode();
+  }
+
+  public abstract void update(T mBean);
 }

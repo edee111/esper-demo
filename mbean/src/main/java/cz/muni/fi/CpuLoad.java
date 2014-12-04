@@ -1,12 +1,14 @@
 package cz.muni.fi;
 
+import javax.management.AttributeChangeNotification;
+import javax.management.Notification;
 import java.util.Date;
 
 /**
  * @author Eduard Tomek
  * @since 30.10.14
  */
-public class CpuLoad extends MBean implements CpuLoadMBean {
+public class CpuLoad extends MBean<CpuLoadMBean> implements CpuLoadMBean {
 
   private double load;
   private Date timestamp;
@@ -47,4 +49,20 @@ public class CpuLoad extends MBean implements CpuLoadMBean {
             '}';
   }
 
+  @Override
+  public void update(CpuLoadMBean mBean) {
+    Notification n =
+            new AttributeChangeNotification(this,
+                    sequenceNumber++,
+                    System.currentTimeMillis(),
+                    "CpuLoad changed",
+                    "CpuLoad",
+                    "double",
+                    this,
+                    mBean);
+    sendNotification(n);
+
+    setLoad(mBean.getLoad());
+    setTimestamp(mBean.getTimestamp());
+  }
 }
