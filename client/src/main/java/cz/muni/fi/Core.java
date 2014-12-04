@@ -25,6 +25,7 @@ public class Core {
     client.connect();
     client.getConnectionInfo();
     client.createMBeanProxies();
+    client.listen();
   }
 
 

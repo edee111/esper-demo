@@ -1,7 +1,9 @@
 package cz.muni.fi.runtime;
 
+import cz.muni.fi.CpuLoad;
 import cz.muni.fi.CpuLoadMBean;
 import cz.muni.fi.MBean;
+import cz.muni.fi.MBeanInf;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -13,6 +15,7 @@ import javax.management.remote.JMXServiceURL;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -25,7 +28,7 @@ public class GlobalClient {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
-  private Set<MBean> beans;
+  private Set<MBeanInf> beans = new HashSet();
 
   private MBeanServerConnection mbsc;
   private JMXConnector jmxc;
@@ -50,7 +53,6 @@ public class GlobalClient {
     } catch (IOException e) {
       log.error("Unable to connect", e);
     }
-    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa");
   }
 
   public void getConnectionInfo() {
@@ -91,7 +93,7 @@ public class GlobalClient {
     //createMbeanProxy((Class<? extends MBean>) CpuLoadMBean.class, "cz.muni.fi:type=CpuLoad");
   }
 
-  public void createMbeanProxy(Class<CpuLoadMBean> mbeanClass, String objectName) {
+  public void createMbeanProxy(Class<? extends MBeanInf> mbeanClass, String objectName) {
     ObjectName mbeanName = null;
     try {
       mbeanName = new ObjectName(objectName);
@@ -100,7 +102,7 @@ public class GlobalClient {
       return;
     }
 
-    MBean mBean = (MBean) JMX.newMBeanProxy(mbsc, mbeanName, mbeanClass, true);
+    MBeanInf mBean = JMX.newMBeanProxy(mbsc, mbeanName, mbeanClass, true);
 
     ClientListener listener = new ClientListener();
     createMBeanNotificationListener(mbeanName, listener);
@@ -117,8 +119,25 @@ public class GlobalClient {
     }
     return;
   }
-  /* For simplicity, we declare "throws Exception".
-     Real programs will usually want finer-grained exception handling. */
+
+  public void listen() {
+    while (true) {
+      for(MBeanInf m : beans) {
+        if (m instanceof CpuLoadMBean) {
+          CpuLoadMBean mb = (CpuLoadMBean) m;
+          log.info("Logging cpuLoadMBean");
+          log.info(mb.returnInfo());
+        }
+      }
+
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+
   public void close() {
     try {
       jmxc.close();

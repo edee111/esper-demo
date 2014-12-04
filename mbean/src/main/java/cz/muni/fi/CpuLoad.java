@@ -24,6 +24,12 @@ public class CpuLoad extends MBean implements CpuLoadMBean {
   public void setLoad(double load) {
     this.load = load;
   }
+
+  @Override
+  public String returnInfo() {
+    return "CpuLoad - Timestamp: " + getTimestamp() + ", Load: " + getLoad();
+  }
+
   @Override
   public Date getTimestamp() {
     return timestamp;
