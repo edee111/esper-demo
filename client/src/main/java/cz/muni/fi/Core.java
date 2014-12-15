@@ -3,8 +3,11 @@ package cz.muni.fi;
 import cz.muni.fi.runtime.GlobalClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Eduard Tomek
@@ -13,19 +16,32 @@ import org.springframework.stereotype.Component;
 @Component
 public class Core {
   private final Logger log = LoggerFactory.getLogger(getClass());
+  private static final String[] servers = new String[]{
+          "service:jmx:rmi:///jndi/rmi://:9999/jmxrmi",
+          "service:jmx:rmi:///jndi/rmi://:9998/jmxrmi"
+  };
 
-  @Autowired
-  private GlobalClient client;
+  private List<GlobalClient> clients = new ArrayList<>();
 
+  @PostConstruct
+  public void initialize() {
+
+    for (String serverUrl : servers) {
+      GlobalClient globalClient = new GlobalClient();
+      globalClient.connect(serverUrl);
+      clients.add(globalClient);
+    }
+
+  }
 
   public void run() {
     log.debug(getStartingMessage());
-    
-    System.out.println(client);
-    client.connect();
-    client.getConnectionInfo();
-    client.createMBeanProxies();
-    client.listen();
+    System.out.println(clients);
+    for (GlobalClient c : clients) {
+      c.getConnectionInfo();
+      c.createMBeanProxies();
+      c.listen();
+    }
   }
 
 

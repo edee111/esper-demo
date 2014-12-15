@@ -30,7 +30,7 @@ public class GlobalClient {
   private MBeanServerConnection mbsc;
   private JMXConnector jmxc;
 
-  public void connect() {
+  public void connect(String jmxServiceUrl) {
     try {
       // Create an RMI connector client and
       // connect it to the RMI connector server
@@ -38,7 +38,7 @@ public class GlobalClient {
       log.debug("\nCreate an RMI connector client and " +
               "connect it to the RMI connector server");
       JMXServiceURL url =
-              new JMXServiceURL("service:jmx:rmi:///jndi/rmi://:9999/jmxrmi");
+              new JMXServiceURL(jmxServiceUrl);
       jmxc = JMXConnectorFactory.connect(url, null);
 
 
