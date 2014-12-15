@@ -24,21 +24,13 @@ public class StartDemo {
 
     log.debug("Starting...");
 
-    long noOfSnapshots = 1000;
-
-    if (args.length != 1) {
-      log.debug("No override of number of events detected - defaulting to " + noOfSnapshots + " events.");
-    } else {
-      noOfSnapshots = Long.valueOf(args[0]);
-    }
-
     // Load spring config
     ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(new String[]{"application-context.xml"});
     BeanFactory factory = (BeanFactory) appContext;
 
     // Start Demo
     SystemSnapshotTaker generator = (SystemSnapshotTaker) factory.getBean("eventGenerator");
-    generator.startTakingSystemSnapshots(noOfSnapshots);
+    generator.startTakingSystemSnapshots();
 
   }
 

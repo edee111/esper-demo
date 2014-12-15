@@ -32,7 +32,7 @@ public class SystemSnapshotTaker {
   @Autowired
   private MemoryUsageEventHandler memoryUsageEventHandler;
 
-  public void startTakingSystemSnapshots(final long noOfSnapshots) {
+  public void startTakingSystemSnapshots() {
 
     ExecutorService xrayExecutor = Executors.newFixedThreadPool(2);
 
@@ -40,10 +40,9 @@ public class SystemSnapshotTaker {
       public void run() {
         log.debug(getStartingMessage());
 
-        int count = 0;
         CpuMonitor cpuMonitor = new CpuMonitor();
         MemoryMonitor memMonitor = new MemoryMonitor();
-        while (count < noOfSnapshots) {
+        while (true) {
           Date now = new Date();
           CpuLoadEvent cle = new CpuLoadEvent(cpuMonitor.getSystemCpuUsage(), now);
           cpuLoadEventHandler.handle(cle);
@@ -51,7 +50,6 @@ public class SystemSnapshotTaker {
           MemoryUsageEvent memoryUsageEvent = new MemoryUsageEvent(memMonitor.getTotalMemoryUsage(), now);
           memoryUsageEventHandler.handle(memoryUsageEvent);
 
-          count++;
           try {
             Thread.sleep(1000);
           } catch (InterruptedException e) {
