@@ -80,7 +80,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <configuration>
-          <mainClass>cz.muni.fi.StartDemo</mainClass>
+          <mainClass>cz.muni.fi.ProbeMain</mainClass>
           <includePluginDependencies>false</includePluginDependencies>
         </configuration>
       </plugin>

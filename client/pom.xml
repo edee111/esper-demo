@@ -67,7 +67,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <configuration>
-          <mainClass>cz.muni.fi.Main</mainClass>
+          <mainClass>cz.muni.fi.ClientMain</mainClass>
           <includePluginDependencies>false</includePluginDependencies>
         </configuration>
       </plugin>

@@ -9,12 +9,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Entry point for the Demo. Run this from your IDE, or from the command line using 'mvn exec:java'.
  */
-public class StartDemo {
+public class ProbeMain {
 
   /**
    * Logger
    */
-  private static final Logger log = LoggerFactory.getLogger(StartDemo.class);
+  private static final Logger log = LoggerFactory.getLogger(ProbeMain.class);
 
 
   /**
