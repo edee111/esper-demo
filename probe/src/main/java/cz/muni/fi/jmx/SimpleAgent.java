@@ -2,7 +2,6 @@ package cz.muni.fi.jmx;
 
 
 import cz.muni.fi.CpuLoad;
-import cz.muni.fi.Hello;
 import cz.muni.fi.MBean;
 import cz.muni.fi.MemoryUsage;
 import org.springframework.stereotype.Component;
@@ -24,21 +23,7 @@ public class SimpleAgent {
   private Map<String, MBean> registeredMBeans = new HashMap<>();
 
   public SimpleAgent() {
-
-    // Get the platform MBeanServer
     mbs = ManagementFactory.getPlatformMBeanServer();
-
-    // Unique identification of MBeans
-    Hello helloBean = new Hello();
-    ObjectName helloName = null;
-
-    try {
-      // Uniquely identify the MBeans and register them with the platform MBeanServer
-      helloName = new ObjectName("FOO:name=HelloBean");
-      mbs.registerMBean(helloBean, helloName);
-    } catch(Exception e) {
-      e.printStackTrace();
-    }
   }
 
   public void update(MBean mBean, Class eventClass) {

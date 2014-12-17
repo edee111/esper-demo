@@ -16,15 +16,6 @@ public interface CpuLoadMBean extends MBeanInf {
   public double getLoad();
   public void setLoad(double l);
 
-
-  public void sayHello();
-
-  public int add(int x, int y);
-
-  public String getName();
-
-  public int getCacheSize();
-  public void setCacheSize(int size);
   public MBeanNotificationInfo[] getNotificationInfo();
 
   public String returnInfo();
