@@ -1,11 +1,12 @@
 package cz.muni.fi;
 
-import cz.muni.fi.runtime.GlobalClient;
+import cz.muni.fi.runtime.JMXClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,26 +22,31 @@ public class Core {
           "service:jmx:rmi:///jndi/rmi://:9998/jmxrmi"
   };
 
-  private List<GlobalClient> clients = new ArrayList<>();
+  private List<JMXClient> clients = new ArrayList<>();
 
   @PostConstruct
   public void initialize() {
 
     for (String serverUrl : servers) {
-      GlobalClient globalClient = new GlobalClient();
-      globalClient.connect(serverUrl);
-      clients.add(globalClient);
+      JMXClient JMXClient = new JMXClient();
+      JMXClient.connect(serverUrl);
+      clients.add(JMXClient);
     }
 
   }
 
   public void run() {
     log.debug(getStartingMessage());
-    System.out.println(clients);
-    for (GlobalClient c : clients) {
-      c.getConnectionInfo();
+    for (JMXClient c : clients) {
       c.createMBeanProxies();
-      c.listen();
+      c.listen(); //todo split to threads - listening is indefinite... cycle is paused
+    }
+  }
+
+  @PreDestroy
+  public void stop() {
+    for (JMXClient c : clients) {
+      c.close();
     }
   }
 

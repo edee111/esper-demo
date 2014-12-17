@@ -1,6 +1,8 @@
 package cz.muni.fi.runtime;
 
-import cz.muni.fi.*;
+import cz.muni.fi.CpuLoadMBean;
+import cz.muni.fi.MBeanInf;
+import cz.muni.fi.MemoryUsageMBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -10,7 +12,6 @@ import javax.management.remote.JMXConnector;
 import javax.management.remote.JMXConnectorFactory;
 import javax.management.remote.JMXServiceURL;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,79 +19,34 @@ import java.util.TreeSet;
 
 /**
  * @author Eduard Tomek
- * @since 6.11.14
- * @note customized code from https://docs.oracle.com/javase/tutorial/jmx/remote/custom.html
+ * @since 17.12.14
  */
 @Component
-@Deprecated
-public class GlobalClient {
+public class JMXClient {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
   private Set<MBeanInf> beans = new HashSet();
-
-  private MBeanServerConnection mbsc;
+  private JMXServiceURL url;
   private JMXConnector jmxc;
+  private MBeanServerConnection mbsc;
 
   public void connect(String jmxServiceUrl) {
     try {
-      // Create an RMI connector client and
-      // connect it to the RMI connector server
-      //
-      log.debug("\nCreate an RMI connector client and " +
-              "connect it to the RMI connector server");
-      JMXServiceURL url =
+      log.debug("\nCreating an RMI connector client and " +
+              "connect it to the RMI connector server " + jmxServiceUrl);
+      url =
               new JMXServiceURL(jmxServiceUrl);
       jmxc = JMXConnectorFactory.connect(url, null);
-
-
-      // Get an MBeanServerConnection
-      //
-      log.debug("Get an MBeanServerConnection");
-
       mbsc = jmxc.getMBeanServerConnection();
     } catch (IOException e) {
       log.error("Unable to connect", e);
     }
   }
 
-  public void getConnectionInfo() {
-    try {
-      // Get domains from MBeanServer
-      //
-      log.debug("Domains:");
-      String domains[] = mbsc.getDomains();
-      Arrays.sort(domains);
-      for (String domain : domains) {
-        log.debug("Domain = " + domain);
-      }
-      // Get MBeanServer's default domain
-      //
-
-      log.debug("MBeanServer default domain = " + mbsc.getDefaultDomain());
-
-
-      // Get MBean count
-      //
-      log.debug("MBean count = " + mbsc.getMBeanCount());
-
-      // Query MBean names
-      //
-      log.debug("Query MBeanServer MBeans:");
-      Set<ObjectName> names =
-              new TreeSet<ObjectName>(mbsc.queryNames(null, null));
-      for (ObjectName name : names) {
-        log.debug("ObjectName = " + name);
-      }
-    } catch (IOException e) {
-      log.error("Unable to get connection info", e);
-    }
-  }
-
   public void createMBeanProxies() {
     createMbeanProxy(CpuLoadMBean.class, "cz.muni.fi:type=CpuLoad");
     createMbeanProxy(MemoryUsageMBean.class, "cz.muni.fi:type=MemoryUsage");
-    //createMbeanProxy((Class<? extends MBean>) CpuLoadMBean.class, "cz.muni.fi:type=CpuLoad");
   }
 
   public void createMbeanProxy(Class<? extends MBeanInf> mbeanClass, String objectName) {
@@ -111,7 +67,7 @@ public class GlobalClient {
 
 
   public void createMBeanNotificationListener(ObjectName mBeanName, NotificationListener listener) {
-    log.debug("Add notification listener...");
+    log.debug("Adding notification listener for JMXClient " + url.getURLPath());
     try {
       mbsc.addNotificationListener(mBeanName, listener, null, null);
     } catch (InstanceNotFoundException | IOException e) {
@@ -120,6 +76,7 @@ public class GlobalClient {
     return;
   }
 
+  @Deprecated //todo make it better
   public void listen() {
     while (true) {
       try {
@@ -138,5 +95,4 @@ public class GlobalClient {
     }
     log.info("JMX connector successfully closed");
   }
-
 }
