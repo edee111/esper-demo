@@ -34,10 +34,6 @@ public class SimpleAgent {
     try {
       ObjectName name = getObjectName(eventClass);
       if (mbs.isRegistered(name)) {
-        /*
-        AttributeList attList = getMBeanAttributes(mBean);
-        mbs.setAttributes(name, attList);
-        */
         MBean registeredMBean = registeredMBeans.get(mBean.getClass().getName());
         registeredMBean.update(mBean);
       }
@@ -58,20 +54,5 @@ public class SimpleAgent {
 
   private ObjectName getObjectName(Class clazz) throws MalformedObjectNameException {
     return new ObjectName(clazz.getPackage().getName() + ":type=" + clazz.getSimpleName());
-  }
-
-  private AttributeList getMBeanAttributes(MBean mBean) {
-    AttributeList attList = new AttributeList();
-    if (mBean instanceof CpuLoad) {
-      CpuLoad cpuLoadMbean = (CpuLoad) mBean;
-      attList.add(new Attribute("Timestamp", cpuLoadMbean.getTimestamp()));
-      attList.add(new Attribute("Load", cpuLoadMbean.getLoad()));
-    }
-    else if (mBean instanceof MemoryUsage) {
-      MemoryUsage memoryUsageMBean = (MemoryUsage) mBean;
-      attList.add(new Attribute("Timestamp", memoryUsageMBean.getTimestamp()));
-      attList.add(new Attribute("Usage", memoryUsageMBean.getUsage()));
-    }
-    return attList;
   }
 }

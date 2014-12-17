@@ -17,6 +17,4 @@ public interface CpuLoadMBean extends MBeanInf {
   public void setLoad(double l);
 
   public MBeanNotificationInfo[] getNotificationInfo();
-
-  public String returnInfo();
 }

@@ -15,19 +15,10 @@ import com.espertech.esper.client.EPServiceProvider;
 import com.espertech.esper.client.EPServiceProviderManager;
 import com.espertech.esper.client.EPStatement;
 
-/**
- * This class handles incoming Temperature Events. It processes them through the EPService, to which
- * it has attached the 3 queries.
- */
 @Component
 @Scope(value = "singleton")
-public class CpuLoadEventHandler implements InitializingBean {
+public class CpuLoadEventHandler extends AbstractHandler implements InitializingBean {
 
-  private static Logger log = LoggerFactory.getLogger(TemperatureEventHandler.class);
-
-  /**
-   * Esper service
-   */
   private EPServiceProvider epService;
   private EPStatement cpuLoadEventStatement;
 

@@ -28,11 +28,6 @@ public class CpuLoad extends MBean<CpuLoadMBean> implements CpuLoadMBean {
   }
 
   @Override
-  public String returnInfo() {
-    return "CpuLoad - Timestamp: " + getTimestamp() + ", Load: " + getLoad();
-  }
-
-  @Override
   public Date getTimestamp() {
     return timestamp;
   }

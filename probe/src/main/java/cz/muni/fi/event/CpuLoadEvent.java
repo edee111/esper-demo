@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * @author Eduard Tomek
- * @since ${date}
+ * @since 30.10.14
  */
 public class CpuLoadEvent {
 

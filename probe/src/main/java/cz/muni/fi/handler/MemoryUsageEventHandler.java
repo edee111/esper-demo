@@ -21,13 +21,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Scope(value = "singleton")
-public class MemoryUsageEventHandler implements InitializingBean {
+public class MemoryUsageEventHandler extends AbstractHandler implements InitializingBean {
 
-  private static Logger log = LoggerFactory.getLogger(TemperatureEventHandler.class);
-
-  /**
-   * Esper service
-   */
   private EPServiceProvider epService;
   private EPStatement memoryUsageEventStatement;
 
@@ -35,9 +30,6 @@ public class MemoryUsageEventHandler implements InitializingBean {
   @Qualifier("memoryUsageEventSubscriber")
   private StatementSubscriber memoryUsageEventSubscriber;
 
-  /**
-   * Configure Esper Statement(s).
-   */
   public void initService() {
 
     log.debug("Initializing memory usage event handler ..");
@@ -54,9 +46,6 @@ public class MemoryUsageEventHandler implements InitializingBean {
     memoryUsageEventStatement.setSubscriber(memoryUsageEventSubscriber);
   }
 
-  /**
-   * Handle the incoming MemoryUsageEvent.
-   */
   public void handle(MemoryUsageEvent event) {
     epService.getEPRuntime().sendEvent(event);
   }

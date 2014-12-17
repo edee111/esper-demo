@@ -15,10 +15,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * Just a simple class to create a number of Random TemperatureEvents and pass them off to the
- * TemperatureEventHandler.
- */
 @Component
 public class SystemSnapshotTaker {
 
@@ -59,24 +55,6 @@ public class SystemSnapshotTaker {
 
       }
     });
-    /*
-    //just do something
-    xrayExecutor.submit(new Runnable() {
-      public void run() {
-        long count = 0;
-        if (noOfSnapthots > 10) {
-          for (long i = 0; i < 10000000000000000l; i++) {
-            if (i % 1000000000 == 0) {
-              System.out.println(i);
-            }
-            count += i;
-          }
-        }
-        if (count > 1234) {
-          System.out.println("XXXXXXXXXXXXXXXXXX " + count);
-        }
-      }
-    });*/
   }
 
 
