@@ -11,4 +11,6 @@ public interface MemoryUsageMBean extends MBeanInf {
   public void setTimestamp(Date t);
   public long getUsage();
   public void setUsage(long l);
+  public long getTotalMemory();
+  public void setTotalMemory(long l);
 }

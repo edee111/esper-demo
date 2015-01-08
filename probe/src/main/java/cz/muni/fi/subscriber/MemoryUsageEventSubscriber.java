@@ -21,7 +21,7 @@ public class MemoryUsageEventSubscriber extends AbstractSubscriber implements St
    * {@inheritDoc}
    */
   public String getStatement() {
-    String cpuLoadEventExpression = "select avg(usage) as avgMemoryUsage from MemoryUsageEvent.win:time_batch(10 sec)";
+    String cpuLoadEventExpression = "select avg(usage) as avgMemoryUsage, avg(totalMemory) as avgTotalMemory from MemoryUsageEvent.win:time_batch(10 sec)";
     return cpuLoadEventExpression;
   }
 
@@ -31,9 +31,11 @@ public class MemoryUsageEventSubscriber extends AbstractSubscriber implements St
   public void update(Map<String, Double> eventMap) {
     StringBuilder sb = new StringBuilder();
     long avgMemoryUsage = eventMap.get("avgMemoryUsage").longValue();
-    sb.append("avgMemoryUsage=" + avgMemoryUsage);
+    long totalMemory = eventMap.get("avgTotalMemory").longValue();
+    sb.append("totalMemory=" + totalMemory);
+    sb.append(", avgMemoryUsage=" + avgMemoryUsage);
     log.debug(sb.toString());
-    simpleAgent.register(new MemoryUsage(avgMemoryUsage, new Date()), MemoryUsage.class);
+    simpleAgent.register(new MemoryUsage(totalMemory, avgMemoryUsage, new Date()), MemoryUsage.class);
   }
 
 }

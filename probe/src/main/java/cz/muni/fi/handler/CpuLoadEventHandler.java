@@ -31,7 +31,7 @@ public class CpuLoadEventHandler extends AbstractHandler implements Initializing
    */
   public void initService() {
 
-    log.debug("Initializing Servcie ..");
+    log.debug("Initializing Service ..");
     Configuration config = new Configuration();
     config.addEventTypeAutoName("cz.muni.fi.event");
     epService = EPServiceProviderManager.getDefaultProvider(config);

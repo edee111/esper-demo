@@ -10,10 +10,20 @@ import java.util.Date;
 public class MemoryUsageEvent {
   private long usage;
   private Date timestamp;
+  private long totalMemory;
 
-  public MemoryUsageEvent(long usage, Date timestamp) {
+  public MemoryUsageEvent(long totalMemory, long usage, Date timestamp) {
     this.usage = usage;
     this.timestamp = timestamp;
+    this.totalMemory = totalMemory;
+  }
+
+  public long getTotalMemory() {
+    return totalMemory;
+  }
+
+  public void setTotalMemory(long totalMemory) {
+    this.totalMemory = totalMemory;
   }
 
   public long getUsage() {

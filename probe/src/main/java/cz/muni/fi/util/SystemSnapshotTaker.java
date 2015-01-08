@@ -43,7 +43,8 @@ public class SystemSnapshotTaker {
           CpuLoadEvent cle = new CpuLoadEvent(cpuMonitor.getSystemCpuUsage(), now);
           cpuLoadEventHandler.handle(cle);
 
-          MemoryUsageEvent memoryUsageEvent = new MemoryUsageEvent(memMonitor.getTotalMemoryUsage(), now);
+          MemoryUsageEvent memoryUsageEvent =
+                  new MemoryUsageEvent(memMonitor.getTotalMemorySize(), memMonitor.getTotalMemoryUsage(), now);
           memoryUsageEventHandler.handle(memoryUsageEvent);
 
           try {

@@ -9,11 +9,13 @@ import java.util.Date;
  * @since 13.11.14
  */
 public class MemoryUsage extends MBean<MemoryUsageMBean> implements MemoryUsageMBean  {
+  private long totalMemory;
 
   private long usage;
   private Date timestamp;
 
-  public MemoryUsage(long usage, Date timestamp) {
+  public MemoryUsage(long totalMemory, long usage, Date timestamp) {
+    this.totalMemory = totalMemory;
     this.usage = usage;
     this.timestamp = timestamp;
   }
@@ -34,10 +36,21 @@ public class MemoryUsage extends MBean<MemoryUsageMBean> implements MemoryUsageM
     this.timestamp = timestamp;
   }
 
+  public long getTotalMemory() {
+    return totalMemory;
+  }
+
+  public void setTotalMemory(long totalMemory) {
+    this.totalMemory = totalMemory;
+  }
+
+
+
   @Override
   public String toString() {
     return "MemoryUsageEvent{" +
-            "usage=" + usage +
+            "totalMemory=" + totalMemory +
+            " usage=" + usage +
             ", timestamp=" + timestamp +
             '}';
   }
@@ -57,5 +70,6 @@ public class MemoryUsage extends MBean<MemoryUsageMBean> implements MemoryUsageM
 
     setTimestamp(mBean.getTimestamp());
     setUsage(mBean.getUsage());
+    setTotalMemory(mBean.getTotalMemory());
   }
 }
