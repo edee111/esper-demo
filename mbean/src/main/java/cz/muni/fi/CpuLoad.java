@@ -38,7 +38,7 @@ public class CpuLoad extends MBean<CpuLoadMBean> implements CpuLoadMBean {
 
   @Override
   public String toString() {
-    return "CpuLoadEvent{" +
+    return "CpuLoad{" +
             "load=" + load +
             ", timestamp=" + timestamp +
             '}';

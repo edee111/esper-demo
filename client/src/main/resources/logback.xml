@@ -3,14 +3,14 @@
  
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <layout class="ch.qos.logback.classic.PatternLayout">
-      <!-- <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern> -->
-      <Pattern>%msg%n</Pattern>
+      <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+      <!-- <Pattern>%msg%n</Pattern> -->
     </layout>
   </appender>
    
   <logger name="cz.muni.fi" level="DEBUG"/>
-   
- 
+  <logger name="cz.muni.fi.runtime.ClientListener" level="INFO"/>
+
   <root level="WARN">
     <appender-ref ref="STDOUT" />
   </root>

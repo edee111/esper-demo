@@ -1,5 +1,9 @@
 package cz.muni.fi.runtime;
 
+import cz.muni.fi.MemoryUsage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.management.AttributeChangeNotification;
 import javax.management.Notification;
 import javax.management.NotificationListener;
@@ -9,6 +13,8 @@ import javax.management.NotificationListener;
  * @since 27.11.14
  */
 public class ClientListener implements NotificationListener {
+
+  private Logger log = LoggerFactory.getLogger(ClientListener.class);
 
   public void handleNotification(Notification notification,
                                  Object handback) {
@@ -26,10 +32,13 @@ public class ClientListener implements NotificationListener {
       echo("\tAttributeType: " + acn.getAttributeType());
       echo("\tNewValue: " + acn.getNewValue());
       echo("\tOldValue: " + acn.getOldValue());
+
+      //todo hack
+      log.info(acn.getNewValue().toString());
     }
   }
 
   private static void echo(String msg) {
-    System.out.println(msg);
+    //System.out.println(msg);
   }
 }

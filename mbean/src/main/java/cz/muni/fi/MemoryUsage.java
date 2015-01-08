@@ -48,7 +48,7 @@ public class MemoryUsage extends MBean<MemoryUsageMBean> implements MemoryUsageM
 
   @Override
   public String toString() {
-    return "MemoryUsageEvent{" +
+    return "MemoryUsage{" +
             "totalMemory=" + totalMemory +
             " usage=" + usage +
             ", timestamp=" + timestamp +
