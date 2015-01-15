@@ -21,7 +21,7 @@
   </appender>
   <logger name="cz.muni.fi" level="DEBUG">
     <appender-ref ref="STDOUT"/>
-  </logger>>
+  </logger>
 
   <!-- production logger -->
   <appender name="FILE_PRODUCT" class="ch.qos.logback.core.FileAppender">
