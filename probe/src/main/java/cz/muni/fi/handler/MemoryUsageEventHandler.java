@@ -23,7 +23,6 @@ import org.springframework.stereotype.Component;
 @Scope(value = "singleton")
 public class MemoryUsageEventHandler extends AbstractHandler implements InitializingBean {
 
-  private EPServiceProvider epService;
   private EPStatement memoryUsageEventStatement;
 
   @Autowired
@@ -44,10 +43,6 @@ public class MemoryUsageEventHandler extends AbstractHandler implements Initiali
     log.debug("create memory usage Monitor");
     memoryUsageEventStatement = epService.getEPAdministrator().createEPL(memoryUsageEventSubscriber.getStatement());
     memoryUsageEventStatement.setSubscriber(memoryUsageEventSubscriber);
-  }
-
-  public void handle(MemoryUsageEvent event) {
-    epService.getEPRuntime().sendEvent(event);
   }
 
   @Override

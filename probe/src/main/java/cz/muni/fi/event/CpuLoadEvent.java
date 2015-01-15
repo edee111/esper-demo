@@ -6,7 +6,7 @@ import java.util.Date;
  * @author Eduard Tomek
  * @since 30.10.14
  */
-public class CpuLoadEvent {
+public class CpuLoadEvent extends AbstractEvent {
 
   private double load;
   private Date timestamp;

@@ -19,7 +19,6 @@ import com.espertech.esper.client.EPStatement;
 @Scope(value = "singleton")
 public class CpuLoadEventHandler extends AbstractHandler implements InitializingBean {
 
-  private EPServiceProvider epService;
   private EPStatement cpuLoadEventStatement;
 
   @Autowired
@@ -43,16 +42,6 @@ public class CpuLoadEventHandler extends AbstractHandler implements Initializing
     log.debug("create cpu load Monitor");
     cpuLoadEventStatement = epService.getEPAdministrator().createEPL(cpuLoadEventSubscriber.getStatement());
     cpuLoadEventStatement.setSubscriber(cpuLoadEventSubscriber);
-  }
-
-  /**
-   * Handle the incoming TemperatureEvent.
-   */
-  public void handle(CpuLoadEvent event) {
-
-    //log.debug(event.toString());
-    epService.getEPRuntime().sendEvent(event);
-
   }
 
   @Override

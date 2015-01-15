@@ -7,7 +7,7 @@ import java.util.Date;
  * @author Eduard Tomek
  * @since 30.10.14
  */
-public class MemoryUsageEvent {
+public class MemoryUsageEvent extends AbstractEvent {
   private long usage;
   private Date timestamp;
   private long totalMemory;
