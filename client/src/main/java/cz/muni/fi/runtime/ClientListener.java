@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import javax.management.AttributeChangeNotification;
 import javax.management.Notification;
 import javax.management.NotificationListener;
+import javax.management.remote.JMXServiceURL;
 
 /**
  * @author Eduard Tomek
@@ -15,11 +16,15 @@ import javax.management.NotificationListener;
 public class ClientListener implements NotificationListener {
 
   private Logger log = LoggerFactory.getLogger(ClientListener.class);
+  private JMXServiceURL url;
+
+  public ClientListener(JMXServiceURL url) {
+    this.url = url;
+  }
 
   public void handleNotification(Notification notification,
                                  Object handback) {
 
-    //todo: tato metoda se spusti, kdyz se je poslana notifikace ... toto bude vsupni bod pro zmeny ... zde logovat
     echo("\nReceived notification:");
     echo("\tClassName: " + notification.getClass().getName());
     echo("\tSource: " + notification.getSource());
@@ -33,12 +38,15 @@ public class ClientListener implements NotificationListener {
       echo("\tNewValue: " + acn.getNewValue());
       echo("\tOldValue: " + acn.getOldValue());
 
-      //todo hack
-      log.info(acn.getNewValue().toString());
+      logNotification(acn);
     }
   }
 
   private static void echo(String msg) {
     //System.out.println(msg);
+  }
+
+  private void logNotification(AttributeChangeNotification acn) {
+    log.info(url + " " + acn.getNewValue());
   }
 }

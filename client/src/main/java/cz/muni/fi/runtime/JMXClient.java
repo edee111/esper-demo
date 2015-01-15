@@ -12,10 +12,7 @@ import javax.management.remote.JMXConnector;
 import javax.management.remote.JMXConnectorFactory;
 import javax.management.remote.JMXServiceURL;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * @author Eduard Tomek
@@ -60,7 +57,7 @@ public class JMXClient {
 
     MBeanInf mBean = JMX.newMBeanProxy(mbsc, mbeanName, mbeanClass, true);
 
-    ClientListener listener = new ClientListener();
+    ClientListener listener = new ClientListener(url);
     createMBeanNotificationListener(mbeanName, listener);
     beans.add(mBean);
   }

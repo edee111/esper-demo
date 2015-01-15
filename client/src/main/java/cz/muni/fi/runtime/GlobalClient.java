@@ -31,6 +31,7 @@ public class GlobalClient {
 
   private MBeanServerConnection mbsc;
   private JMXConnector jmxc;
+  /*
 
   public void connect(String jmxServiceUrl) {
     try {
@@ -138,5 +139,6 @@ public class GlobalClient {
     }
     log.info("JMX connector successfully closed");
   }
+  */
 
 }
