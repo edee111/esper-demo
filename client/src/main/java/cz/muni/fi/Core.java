@@ -36,10 +36,21 @@ public class Core {
   }
 
   public void run() {
-    log.debug(getStartingMessage());
+    log.info(getStartingMessage());
     for (JMXClient c : clients) {
       c.createMBeanProxies();
-      c.listen(); //todo split to threads - listening is indefinite... cycle is paused
+    }
+    listen();
+  }
+
+  @Deprecated //todo make it better
+  public void listen() {
+    while (true) {
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        log.error("Exception while sleeping", e);
+      }
     }
   }
 
