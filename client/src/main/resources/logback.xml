@@ -19,9 +19,9 @@
       <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
     </layout>
   </appender>
-  <root level="DEBUG">
+  <logger name="cz.muni.fi" level="DEBUG">
     <appender-ref ref="STDOUT"/>
-  </root>
+  </logger>>
 
   <!-- production logger -->
   <appender name="FILE_PRODUCT" class="ch.qos.logback.core.FileAppender">
