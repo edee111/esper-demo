@@ -2,11 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
-  <groupId>cz.muni.fi</groupId>
   <artifactId>probe</artifactId>
-  <packaging>pom</packaging>
-  <version>0.0.1-SNAPSHOT</version>
 
   <parent>
     <artifactId>esper-demo</artifactId>
@@ -59,29 +57,23 @@
     <dependency>
       <groupId>cz.muni.fi</groupId>
       <artifactId>mbean</artifactId>
-      <version>${pom.version}</version>
+      <version>${project.parent.version}</version>
     </dependency>
   </dependencies>
 
   <build>
-    <defaultGoal>install</defaultGoal>
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.2</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.5</version>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <!-- mvn exec:java -->
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <configuration>
-          <mainClass>cz.muni.fi.ProbeMain</mainClass>
-          <includePluginDependencies>false</includePluginDependencies>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>cz.muni.fi.ProbeMain</mainClass>
+            </manifest>
+          </archive>
         </configuration>
       </plugin>
     </plugins>
