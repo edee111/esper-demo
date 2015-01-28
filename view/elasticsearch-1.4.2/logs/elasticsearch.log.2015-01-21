@@ -1,0 +1,211 @@
+[2015-01-21 12:06:05,433][INFO ][node                     ] [Warstar] version[1.4.2], pid[6921], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-21 12:06:05,434][INFO ][node                     ] [Warstar] initializing ...
+[2015-01-21 12:06:05,453][INFO ][plugins                  ] [Warstar] loaded [], sites []
+[2015-01-21 12:06:09,733][INFO ][node                     ] [Warstar] initialized
+[2015-01-21 12:06:09,733][INFO ][node                     ] [Warstar] starting ...
+[2015-01-21 12:06:09,896][INFO ][transport                ] [Warstar] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.13:9300]}
+[2015-01-21 12:06:09,949][INFO ][discovery                ] [Warstar] elasticsearch/juyufa3yTr-8GAoiODANRQ
+[2015-01-21 12:06:13,749][INFO ][cluster.service          ] [Warstar] new_master [Warstar][juyufa3yTr-8GAoiODANRQ][e-Len-x][inet[/192.168.0.13:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-21 12:06:13,778][INFO ][http                     ] [Warstar] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-21 12:06:13,779][INFO ][node                     ] [Warstar] started
+[2015-01-21 12:06:13,850][INFO ][gateway                  ] [Warstar] recovered [0] indices into cluster_state
+[2015-01-21 12:08:25,328][INFO ][cluster.service          ] [Warstar] added {[logstash-e-Len-x-7065-2010][0Wr7WqMWSyOGw3Qh3Vmgfw][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-7065-2010][0Wr7WqMWSyOGw3Qh3Vmgfw][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}])
+[2015-01-21 12:08:27,166][INFO ][cluster.metadata         ] [Warstar] [logstash-2015.01.21] creating index, cause [auto(bulk api)], shards [5]/[1], mappings [_default_]
+[2015-01-21 12:08:28,168][INFO ][cluster.metadata         ] [Warstar] [logstash-2015.01.21] update_mapping [logs] (dynamic)
+[2015-01-21 12:14:37,630][INFO ][node                     ] [Warstar] stopping ...
+[2015-01-21 12:14:37,700][INFO ][node                     ] [Warstar] stopped
+[2015-01-21 12:14:37,700][INFO ][node                     ] [Warstar] closing ...
+[2015-01-21 12:14:37,707][INFO ][node                     ] [Warstar] closed
+[2015-01-21 12:15:02,927][INFO ][node                     ] [Shooting Star] version[1.4.2], pid[7390], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-21 12:15:02,927][INFO ][node                     ] [Shooting Star] initializing ...
+[2015-01-21 12:15:02,934][INFO ][plugins                  ] [Shooting Star] loaded [], sites [kopf]
+[2015-01-21 12:15:05,807][INFO ][node                     ] [Shooting Star] initialized
+[2015-01-21 12:15:05,807][INFO ][node                     ] [Shooting Star] starting ...
+[2015-01-21 12:15:05,929][INFO ][transport                ] [Shooting Star] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.13:9300]}
+[2015-01-21 12:15:05,947][INFO ][discovery                ] [Shooting Star] elasticsearch/IqTeAODbS-6D6vHgmEYMrA
+[2015-01-21 12:15:09,724][INFO ][cluster.service          ] [Shooting Star] new_master [Shooting Star][IqTeAODbS-6D6vHgmEYMrA][e-Len-x][inet[/192.168.0.13:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-21 12:15:09,751][INFO ][http                     ] [Shooting Star] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-21 12:15:09,751][INFO ][node                     ] [Shooting Star] started
+[2015-01-21 12:15:10,480][INFO ][gateway                  ] [Shooting Star] recovered [1] indices into cluster_state
+[2015-01-21 12:15:10,838][INFO ][cluster.service          ] [Shooting Star] added {[logstash-e-Len-x-7065-2010][0Wr7WqMWSyOGw3Qh3Vmgfw][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-7065-2010][0Wr7WqMWSyOGw3Qh3Vmgfw][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}])
+[2015-01-21 12:16:32,509][INFO ][node                     ] [Shooting Star] stopping ...
+[2015-01-21 12:16:32,565][INFO ][node                     ] [Shooting Star] stopped
+[2015-01-21 12:16:32,565][INFO ][node                     ] [Shooting Star] closing ...
+[2015-01-21 12:16:32,571][INFO ][node                     ] [Shooting Star] closed
+[2015-01-21 12:29:28,578][INFO ][node                     ] [Diamanda Nero] version[1.4.2], pid[9305], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-21 12:29:28,579][INFO ][node                     ] [Diamanda Nero] initializing ...
+[2015-01-21 12:29:28,585][INFO ][plugins                  ] [Diamanda Nero] loaded [], sites [kopf]
+[2015-01-21 12:29:31,440][INFO ][node                     ] [Diamanda Nero] initialized
+[2015-01-21 12:29:31,440][INFO ][node                     ] [Diamanda Nero] starting ...
+[2015-01-21 12:29:31,575][INFO ][transport                ] [Diamanda Nero] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.13:9300]}
+[2015-01-21 12:29:31,590][INFO ][discovery                ] [Diamanda Nero] elasticsearch/Yb2RX-xdSWO1p7tHtuxvkg
+[2015-01-21 12:29:35,367][INFO ][cluster.service          ] [Diamanda Nero] new_master [Diamanda Nero][Yb2RX-xdSWO1p7tHtuxvkg][e-Len-x][inet[/192.168.0.13:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-21 12:29:35,396][INFO ][http                     ] [Diamanda Nero] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-21 12:29:35,397][INFO ][node                     ] [Diamanda Nero] started
+[2015-01-21 12:29:36,201][INFO ][gateway                  ] [Diamanda Nero] recovered [1] indices into cluster_state
+[2015-01-21 12:29:37,402][INFO ][cluster.service          ] [Diamanda Nero] added {[logstash-e-Len-x-7065-2010][0Wr7WqMWSyOGw3Qh3Vmgfw][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-7065-2010][0Wr7WqMWSyOGw3Qh3Vmgfw][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}])
+[2015-01-21 12:35:43,558][INFO ][cluster.service          ] [Diamanda Nero] removed {[logstash-e-Len-x-7065-2010][0Wr7WqMWSyOGw3Qh3Vmgfw][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-node_failed([logstash-e-Len-x-7065-2010][0Wr7WqMWSyOGw3Qh3Vmgfw][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}), reason transport disconnected
+[2015-01-21 12:36:25,267][INFO ][cluster.service          ] [Diamanda Nero] added {[logstash-e-Len-x-9488-2010][XFnAr1eiRja4oXS1jwnSYQ][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-9488-2010][XFnAr1eiRja4oXS1jwnSYQ][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}])
+[2015-01-21 13:13:49,127][INFO ][node                     ] [Diamanda Nero] stopping ...
+[2015-01-21 13:13:49,179][INFO ][node                     ] [Diamanda Nero] stopped
+[2015-01-21 13:13:49,179][INFO ][node                     ] [Diamanda Nero] closing ...
+[2015-01-21 13:13:49,195][INFO ][node                     ] [Diamanda Nero] closed
+[2015-01-21 13:14:18,391][INFO ][node                     ] [Abner Jenkins] version[1.4.2], pid[10972], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-21 13:14:18,391][INFO ][node                     ] [Abner Jenkins] initializing ...
+[2015-01-21 13:14:18,411][INFO ][plugins                  ] [Abner Jenkins] loaded [], sites [kopf]
+[2015-01-21 13:14:21,377][INFO ][node                     ] [Abner Jenkins] initialized
+[2015-01-21 13:14:21,377][INFO ][node                     ] [Abner Jenkins] starting ...
+[2015-01-21 13:14:21,476][INFO ][transport                ] [Abner Jenkins] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.13:9300]}
+[2015-01-21 13:14:21,491][INFO ][discovery                ] [Abner Jenkins] elasticsearch/RzgIN8ouTz-NF41-Pfy4WQ
+[2015-01-21 13:14:25,264][INFO ][cluster.service          ] [Abner Jenkins] new_master [Abner Jenkins][RzgIN8ouTz-NF41-Pfy4WQ][e-Len-x][inet[/192.168.0.13:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-21 13:14:25,288][INFO ][http                     ] [Abner Jenkins] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-21 13:14:25,288][INFO ][node                     ] [Abner Jenkins] started
+[2015-01-21 13:14:25,973][INFO ][gateway                  ] [Abner Jenkins] recovered [1] indices into cluster_state
+[2015-01-21 13:14:25,974][INFO ][cluster.service          ] [Abner Jenkins] added {[logstash-e-Len-x-9488-2010][XFnAr1eiRja4oXS1jwnSYQ][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-9488-2010][XFnAr1eiRja4oXS1jwnSYQ][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}])
+[2015-01-21 13:16:04,323][WARN ][transport.netty          ] [Abner Jenkins] exception caught on transport layer [[id: 0x331a0e16, /192.168.0.13:50761 :> /192.168.0.13:9301]], closing connection
+java.io.IOException: Spojení zrušeno druhou stranou
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:318)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+[2015-01-21 13:16:04,325][INFO ][cluster.service          ] [Abner Jenkins] removed {[logstash-e-Len-x-9488-2010][XFnAr1eiRja4oXS1jwnSYQ][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-node_failed([logstash-e-Len-x-9488-2010][XFnAr1eiRja4oXS1jwnSYQ][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}), reason transport disconnected
+[2015-01-21 13:16:23,066][INFO ][cluster.service          ] [Abner Jenkins] added {[logstash-e-Len-x-11085-2010][clbFo4i9Q0qsTzzALzoFdA][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-11085-2010][clbFo4i9Q0qsTzzALzoFdA][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}])
+[2015-01-21 13:16:54,733][INFO ][node                     ] [Abner Jenkins] stopping ...
+[2015-01-21 13:16:54,788][INFO ][node                     ] [Abner Jenkins] stopped
+[2015-01-21 13:16:54,789][INFO ][node                     ] [Abner Jenkins] closing ...
+[2015-01-21 13:16:54,795][INFO ][node                     ] [Abner Jenkins] closed
+[2015-01-21 13:16:56,051][INFO ][node                     ] [Pixx] version[1.4.2], pid[11185], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-21 13:16:56,051][INFO ][node                     ] [Pixx] initializing ...
+[2015-01-21 13:16:56,060][INFO ][plugins                  ] [Pixx] loaded [], sites [kopf]
+[2015-01-21 13:16:58,934][INFO ][node                     ] [Pixx] initialized
+[2015-01-21 13:16:58,935][INFO ][node                     ] [Pixx] starting ...
+[2015-01-21 13:16:59,096][INFO ][transport                ] [Pixx] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.13:9300]}
+[2015-01-21 13:16:59,113][INFO ][discovery                ] [Pixx] elasticsearch/ukcA6NMRSOGo6NU6ukufkw
+[2015-01-21 13:17:02,894][INFO ][cluster.service          ] [Pixx] new_master [Pixx][ukcA6NMRSOGo6NU6ukufkw][e-Len-x][inet[/192.168.0.13:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-21 13:17:02,925][INFO ][http                     ] [Pixx] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-21 13:17:02,926][INFO ][node                     ] [Pixx] started
+[2015-01-21 13:17:03,738][INFO ][gateway                  ] [Pixx] recovered [1] indices into cluster_state
+[2015-01-21 13:17:04,012][INFO ][cluster.service          ] [Pixx] added {[logstash-e-Len-x-11085-2010][clbFo4i9Q0qsTzzALzoFdA][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-11085-2010][clbFo4i9Q0qsTzzALzoFdA][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}])
+[2015-01-21 13:20:52,370][WARN ][transport.netty          ] [Pixx] exception caught on transport layer [[id: 0x32455708, /192.168.0.13:50939 :> /192.168.0.13:9301]], closing connection
+java.io.IOException: Spojení zrušeno druhou stranou
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:318)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+[2015-01-21 13:20:52,372][INFO ][cluster.service          ] [Pixx] removed {[logstash-e-Len-x-11085-2010][clbFo4i9Q0qsTzzALzoFdA][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-node_failed([logstash-e-Len-x-11085-2010][clbFo4i9Q0qsTzzALzoFdA][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}), reason transport disconnected
+[2015-01-21 13:21:32,191][INFO ][node                     ] [Pixx] stopping ...
+[2015-01-21 13:21:32,222][INFO ][node                     ] [Pixx] stopped
+[2015-01-21 13:21:32,222][INFO ][node                     ] [Pixx] closing ...
+[2015-01-21 13:21:32,232][INFO ][node                     ] [Pixx] closed
+[2015-01-21 13:21:33,572][INFO ][node                     ] [Ape] version[1.4.2], pid[11578], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-21 13:21:33,573][INFO ][node                     ] [Ape] initializing ...
+[2015-01-21 13:21:33,584][INFO ][plugins                  ] [Ape] loaded [], sites [kopf]
+[2015-01-21 13:21:36,518][INFO ][node                     ] [Ape] initialized
+[2015-01-21 13:21:36,518][INFO ][node                     ] [Ape] starting ...
+[2015-01-21 13:21:36,619][INFO ][transport                ] [Ape] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.13:9300]}
+[2015-01-21 13:21:36,634][INFO ][discovery                ] [Ape] elasticsearch/XrlVqNhQQgi73P2f8WKMHg
+[2015-01-21 13:21:40,408][INFO ][cluster.service          ] [Ape] new_master [Ape][XrlVqNhQQgi73P2f8WKMHg][e-Len-x][inet[/192.168.0.13:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-21 13:21:40,436][INFO ][http                     ] [Ape] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-21 13:21:40,436][INFO ][node                     ] [Ape] started
+[2015-01-21 13:21:41,052][INFO ][gateway                  ] [Ape] recovered [1] indices into cluster_state
+[2015-01-21 13:23:21,964][INFO ][node                     ] [Ape] stopping ...
+[2015-01-21 13:23:22,024][INFO ][node                     ] [Ape] stopped
+[2015-01-21 13:23:22,024][INFO ][node                     ] [Ape] closing ...
+[2015-01-21 13:23:22,036][INFO ][node                     ] [Ape] closed
+[2015-01-21 13:23:28,203][INFO ][node                     ] [Wyatt Wingfoot] version[1.4.2], pid[11739], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-21 13:23:28,204][INFO ][node                     ] [Wyatt Wingfoot] initializing ...
+[2015-01-21 13:23:28,215][INFO ][plugins                  ] [Wyatt Wingfoot] loaded [], sites [kopf]
+[2015-01-21 13:23:32,176][INFO ][node                     ] [Wyatt Wingfoot] initialized
+[2015-01-21 13:23:32,176][INFO ][node                     ] [Wyatt Wingfoot] starting ...
+[2015-01-21 13:23:32,434][INFO ][transport                ] [Wyatt Wingfoot] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.13:9300]}
+[2015-01-21 13:23:32,460][INFO ][discovery                ] [Wyatt Wingfoot] elasticsearch/AtzBEjCbTZC3gp9eOs3M_A
+[2015-01-21 13:23:36,255][INFO ][cluster.service          ] [Wyatt Wingfoot] new_master [Wyatt Wingfoot][AtzBEjCbTZC3gp9eOs3M_A][e-Len-x][inet[/192.168.0.13:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-21 13:23:36,285][INFO ][http                     ] [Wyatt Wingfoot] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-21 13:23:36,286][INFO ][node                     ] [Wyatt Wingfoot] started
+[2015-01-21 13:23:36,876][INFO ][gateway                  ] [Wyatt Wingfoot] recovered [1] indices into cluster_state
+[2015-01-21 13:23:38,853][INFO ][cluster.service          ] [Wyatt Wingfoot] added {[logstash-e-Len-x-11715-2016][3k9kuG9mRPuNawXo575Mag][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-11715-2016][3k9kuG9mRPuNawXo575Mag][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}])
+[2015-01-21 13:24:12,859][INFO ][cluster.metadata         ] [Wyatt Wingfoot] [logstash-2015.01.21] update_mapping [logs] (dynamic)
+[2015-01-21 13:34:03,547][INFO ][cluster.service          ] [Wyatt Wingfoot] removed {[logstash-e-Len-x-11715-2016][3k9kuG9mRPuNawXo575Mag][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false},}, reason: zen-disco-node_failed([logstash-e-Len-x-11715-2016][3k9kuG9mRPuNawXo575Mag][e-Len-x][inet[/192.168.0.13:9301]]{client=true, data=false}), reason transport disconnected
+[2015-01-21 13:36:13,017][INFO ][node                     ] [Wyatt Wingfoot] stopping ...
+[2015-01-21 13:36:13,067][INFO ][node                     ] [Wyatt Wingfoot] stopped
+[2015-01-21 13:36:13,067][INFO ][node                     ] [Wyatt Wingfoot] closing ...
+[2015-01-21 13:36:13,073][INFO ][node                     ] [Wyatt Wingfoot] closed
+[2015-01-21 13:36:59,015][INFO ][node                     ] [Ymir] version[1.4.2], pid[12244], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-21 13:36:59,015][INFO ][node                     ] [Ymir] initializing ...
+[2015-01-21 13:36:59,022][INFO ][plugins                  ] [Ymir] loaded [], sites [kopf]
+[2015-01-21 13:37:01,814][INFO ][node                     ] [Ymir] initialized
+[2015-01-21 13:37:01,814][INFO ][node                     ] [Ymir] starting ...
+[2015-01-21 13:37:01,962][INFO ][transport                ] [Ymir] bound_address {inet[/0:0:0:0:0:0:0:0:9301]}, publish_address {inet[/192.168.0.13:9301]}
+[2015-01-21 13:37:01,979][INFO ][discovery                ] [Ymir] elasticsearch/UQOUzgC-SImtN-4u-XjzDA
+[2015-01-21 13:37:05,754][INFO ][cluster.service          ] [Ymir] new_master [Ymir][UQOUzgC-SImtN-4u-XjzDA][e-Len-x][inet[/192.168.0.13:9301]], reason: zen-disco-join (elected_as_master)
+[2015-01-21 13:37:05,785][INFO ][http                     ] [Ymir] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-21 13:37:05,786][INFO ][node                     ] [Ymir] started
+[2015-01-21 13:37:06,461][INFO ][gateway                  ] [Ymir] recovered [1] indices into cluster_state
+[2015-01-21 13:37:07,772][INFO ][cluster.service          ] [Ymir] added {[logstash-e-Len-x-12127-4010][_uLL1V2-TF24x-1oIo5klg][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-12127-4010][_uLL1V2-TF24x-1oIo5klg][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false}])
+[2015-01-21 13:37:08,048][INFO ][cluster.metadata         ] [Ymir] [logstash-2015.01.21] update_mapping [apache_access] (dynamic)
+[2015-01-21 13:37:08,462][INFO ][cluster.service          ] [Ymir] removed {[logstash-e-Len-x-12127-4010][_uLL1V2-TF24x-1oIo5klg][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false},}, reason: zen-disco-node_failed([logstash-e-Len-x-12127-4010][_uLL1V2-TF24x-1oIo5klg][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false}), reason transport disconnected
+[2015-01-21 13:37:42,067][INFO ][cluster.service          ] [Ymir] added {[logstash-e-Len-x-12348-4012][CgzivRwWSNad3PS0NbahdA][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-12348-4012][CgzivRwWSNad3PS0NbahdA][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false}])
+[2015-01-21 13:48:22,321][INFO ][cluster.service          ] [Ymir] removed {[logstash-e-Len-x-12348-4012][CgzivRwWSNad3PS0NbahdA][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false},}, reason: zen-disco-node_failed([logstash-e-Len-x-12348-4012][CgzivRwWSNad3PS0NbahdA][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false}), reason transport disconnected
+[2015-01-21 13:48:43,479][INFO ][cluster.service          ] [Ymir] added {[logstash-e-Len-x-12609-2016][Zpnvb-34S_6XM7Ee1i8oyw][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-12609-2016][Zpnvb-34S_6XM7Ee1i8oyw][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false}])
+[2015-01-21 13:51:54,833][INFO ][cluster.metadata         ] [Ymir] [logstash-2015.01.21] update_mapping [syslog] (dynamic)
+[2015-01-21 14:14:10,571][INFO ][node                     ] [Ymir] stopping ...
+[2015-01-21 14:14:10,638][INFO ][node                     ] [Ymir] stopped
+[2015-01-21 14:14:10,638][INFO ][node                     ] [Ymir] closing ...
+[2015-01-21 14:14:10,673][INFO ][node                     ] [Ymir] closed
+[2015-01-21 14:14:12,867][INFO ][node                     ] [Earth Lord] version[1.4.2], pid[13617], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-21 14:14:12,868][INFO ][node                     ] [Earth Lord] initializing ...
+[2015-01-21 14:14:12,897][INFO ][plugins                  ] [Earth Lord] loaded [], sites [kopf]
+[2015-01-21 14:14:16,551][INFO ][node                     ] [Earth Lord] initialized
+[2015-01-21 14:14:16,551][INFO ][node                     ] [Earth Lord] starting ...
+[2015-01-21 14:14:16,714][INFO ][transport                ] [Earth Lord] bound_address {inet[/0:0:0:0:0:0:0:0:9301]}, publish_address {inet[/192.168.0.13:9301]}
+[2015-01-21 14:14:16,752][INFO ][discovery                ] [Earth Lord] elasticsearch/2yk0uYXhT3empZcRbnfRcQ
+[2015-01-21 14:14:20,548][INFO ][cluster.service          ] [Earth Lord] new_master [Earth Lord][2yk0uYXhT3empZcRbnfRcQ][e-Len-x][inet[/192.168.0.13:9301]], reason: zen-disco-join (elected_as_master)
+[2015-01-21 14:14:20,604][INFO ][http                     ] [Earth Lord] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-21 14:14:20,604][INFO ][node                     ] [Earth Lord] started
+[2015-01-21 14:14:21,535][INFO ][gateway                  ] [Earth Lord] recovered [1] indices into cluster_state
+[2015-01-21 14:14:22,728][INFO ][cluster.service          ] [Earth Lord] added {[logstash-e-Len-x-12609-2016][Zpnvb-34S_6XM7Ee1i8oyw][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-12609-2016][Zpnvb-34S_6XM7Ee1i8oyw][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false}])
+[2015-01-21 14:16:50,478][INFO ][node                     ] [Earth Lord] stopping ...
+[2015-01-21 14:16:50,550][INFO ][node                     ] [Earth Lord] stopped
+[2015-01-21 14:16:50,551][INFO ][node                     ] [Earth Lord] closing ...
+[2015-01-21 14:16:50,558][INFO ][node                     ] [Earth Lord] closed
+[2015-01-21 14:16:51,854][INFO ][node                     ] [Count Nefaria] version[1.4.2], pid[13947], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-21 14:16:51,854][INFO ][node                     ] [Count Nefaria] initializing ...
+[2015-01-21 14:16:51,861][INFO ][plugins                  ] [Count Nefaria] loaded [], sites [kopf, kibana]
+[2015-01-21 14:16:54,698][INFO ][node                     ] [Count Nefaria] initialized
+[2015-01-21 14:16:54,698][INFO ][node                     ] [Count Nefaria] starting ...
+[2015-01-21 14:16:54,808][INFO ][transport                ] [Count Nefaria] bound_address {inet[/0:0:0:0:0:0:0:0:9301]}, publish_address {inet[/192.168.0.13:9301]}
+[2015-01-21 14:16:54,823][INFO ][discovery                ] [Count Nefaria] elasticsearch/4oobhxNFTZGh0dL8MtYUKw
+[2015-01-21 14:16:58,600][INFO ][cluster.service          ] [Count Nefaria] new_master [Count Nefaria][4oobhxNFTZGh0dL8MtYUKw][e-Len-x][inet[/192.168.0.13:9301]], reason: zen-disco-join (elected_as_master)
+[2015-01-21 14:16:58,630][INFO ][http                     ] [Count Nefaria] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-21 14:16:58,631][INFO ][node                     ] [Count Nefaria] started
+[2015-01-21 14:16:59,332][INFO ][gateway                  ] [Count Nefaria] recovered [1] indices into cluster_state
+[2015-01-21 14:16:59,593][INFO ][cluster.service          ] [Count Nefaria] added {[logstash-e-Len-x-12609-2016][Zpnvb-34S_6XM7Ee1i8oyw][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-12609-2016][Zpnvb-34S_6XM7Ee1i8oyw][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false}])
+[2015-01-21 14:20:26,628][INFO ][cluster.service          ] [Count Nefaria] removed {[logstash-e-Len-x-12609-2016][Zpnvb-34S_6XM7Ee1i8oyw][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false},}, reason: zen-disco-node_failed([logstash-e-Len-x-12609-2016][Zpnvb-34S_6XM7Ee1i8oyw][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false}), reason transport disconnected
+[2015-01-21 15:00:29,439][INFO ][cluster.service          ] [Count Nefaria] added {[logstash-e-Len-x-15459-4010][ZLlYrB--SHaKkeESlrhwyA][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-15459-4010][ZLlYrB--SHaKkeESlrhwyA][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false}])
+[2015-01-21 15:00:30,979][INFO ][cluster.metadata         ] [Count Nefaria] [logstash-2015.01.21] update_mapping [logs] (dynamic)
+[2015-01-21 15:03:21,576][INFO ][node                     ] [Count Nefaria] stopping ...
+[2015-01-21 15:03:23,787][INFO ][node                     ] [Count Nefaria] stopped
+[2015-01-21 15:03:23,787][INFO ][node                     ] [Count Nefaria] closing ...
+[2015-01-21 15:03:23,795][INFO ][node                     ] [Count Nefaria] closed

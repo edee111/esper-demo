@@ -1,0 +1,987 @@
+[2015-01-28 10:03:28,601][INFO ][node                     ] [Druid] version[1.4.2], pid[3831], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-28 10:03:28,616][INFO ][node                     ] [Druid] initializing ...
+[2015-01-28 10:03:28,678][INFO ][plugins                  ] [Druid] loaded [], sites [kopf, kibana]
+[2015-01-28 10:03:33,456][INFO ][node                     ] [Druid] initialized
+[2015-01-28 10:03:33,457][INFO ][node                     ] [Druid] starting ...
+[2015-01-28 10:03:33,740][INFO ][transport                ] [Druid] bound_address {inet[/0:0:0:0:0:0:0:0:9301]}, publish_address {inet[/192.168.0.13:9301]}
+[2015-01-28 10:03:33,757][INFO ][discovery                ] [Druid] elasticsearch/bVfSiUOZQ0WLLYKXkc0tQg
+[2015-01-28 10:03:37,560][INFO ][cluster.service          ] [Druid] new_master [Druid][bVfSiUOZQ0WLLYKXkc0tQg][e-Len-x][inet[/192.168.0.13:9301]], reason: zen-disco-join (elected_as_master)
+[2015-01-28 10:03:37,610][INFO ][http                     ] [Druid] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-28 10:03:37,611][INFO ][node                     ] [Druid] started
+[2015-01-28 10:03:39,262][INFO ][gateway                  ] [Druid] recovered [2] indices into cluster_state
+[2015-01-28 10:03:39,769][INFO ][cluster.service          ] [Druid] added {[logstash-e-Len-x-3658-4014][7USjOxj2R0i-BQ3tiWq3wA][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false},}, reason: zen-disco-receive(join from node[[logstash-e-Len-x-3658-4014][7USjOxj2R0i-BQ3tiWq3wA][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false}])
+[2015-01-28 10:03:41,169][INFO ][cluster.metadata         ] [Druid] [logstash-2015.01.28] creating index, cause [auto(bulk api)], shards [5]/[1], mappings [_default_]
+[2015-01-28 10:03:44,171][INFO ][cluster.metadata         ] [Druid] [logstash-2015.01.28] update_mapping [logs] (dynamic)
+[2015-01-28 10:26:27,866][INFO ][cluster.service          ] [Druid] removed {[logstash-e-Len-x-3658-4014][7USjOxj2R0i-BQ3tiWq3wA][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false},}, reason: zen-disco-node_failed([logstash-e-Len-x-3658-4014][7USjOxj2R0i-BQ3tiWq3wA][e-Len-x][inet[/192.168.0.13:9300]]{client=true, data=false}), reason transport disconnected
+[2015-01-28 10:26:27,901][WARN ][transport.netty          ] [Druid] exception caught on transport layer [[id: 0x4b200e91, /192.168.0.13:55761 :> /192.168.0.13:9300]], closing connection
+java.io.IOException: Spojení zrušeno druhou stranou
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:379)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.read(NioWorker.java:64)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.process(AbstractNioWorker.java:108)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:318)
+	at org.elasticsearch.common.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+	at org.elasticsearch.common.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+	at org.elasticsearch.common.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+	at org.elasticsearch.common.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+[2015-01-28 10:27:31,191][INFO ][cluster.metadata         ] [Druid] [.kibana] creating index, cause [api], shards [1]/[1], mappings []
+[2015-01-28 10:27:31,812][INFO ][cluster.metadata         ] [Druid] [.kibana] update_mapping [config] (dynamic)
+[2015-01-28 10:28:00,965][INFO ][cluster.metadata         ] [Druid] [.kibana] create_mapping [index-pattern]
+[2015-01-28 10:28:01,771][INFO ][cluster.metadata         ] [Druid] [.kibana] update_mapping [config] (dynamic)
+[2015-01-28 10:28:27,906][INFO ][cluster.metadata         ] [Druid] [.kibana] create_mapping [search]
+[2015-01-28 10:28:48,599][INFO ][cluster.metadata         ] [Druid] [.kibana] create_mapping [dashboard]
+[2015-01-28 10:30:42,517][INFO ][cluster.metadata         ] [Druid] [.kibana] create_mapping [visualization]
+[2015-01-28 11:06:04,197][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][4], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@774d027d]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2015.01.28][4]: query[ConstantScore(BooleanFilter(+cache(event_timestamp:[1422435964138 TO 1422439564138])))],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.lang.ArithmeticException: / by zero
+	at org.elasticsearch.common.rounding.Rounding$Interval.roundKey(Rounding.java:97)
+	at org.elasticsearch.common.rounding.Rounding$Interval.roundKey(Rounding.java:107)
+	at org.elasticsearch.search.aggregations.bucket.histogram.HistogramAggregator.collect(HistogramAggregator.java:96)
+	at org.elasticsearch.search.aggregations.AggregationPhase$AggregationsCollector.collect(AggregationPhase.java:161)
+	at org.elasticsearch.common.lucene.MultiCollector.collect(MultiCollector.java:60)
+	at org.apache.lucene.search.Weight$DefaultBulkScorer.scoreAll(Weight.java:193)
+	at org.apache.lucene.search.Weight$DefaultBulkScorer.score(Weight.java:163)
+	at org.apache.lucene.search.BulkScorer.score(BulkScorer.java:35)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:621)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+[2015-01-28 11:06:04,197][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][2], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@774d027d] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2015.01.28][2]: query[ConstantScore(BooleanFilter(+cache(event_timestamp:[1422435964138 TO 1422439564138])))],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.lang.ArithmeticException: / by zero
+	at org.elasticsearch.common.rounding.Rounding$Interval.roundKey(Rounding.java:97)
+	at org.elasticsearch.common.rounding.Rounding$Interval.roundKey(Rounding.java:107)
+	at org.elasticsearch.search.aggregations.bucket.histogram.HistogramAggregator.collect(HistogramAggregator.java:96)
+	at org.elasticsearch.search.aggregations.AggregationPhase$AggregationsCollector.collect(AggregationPhase.java:161)
+	at org.elasticsearch.common.lucene.MultiCollector.collect(MultiCollector.java:60)
+	at org.apache.lucene.search.Weight$DefaultBulkScorer.scoreAll(Weight.java:193)
+	at org.apache.lucene.search.Weight$DefaultBulkScorer.score(Weight.java:163)
+	at org.apache.lucene.search.BulkScorer.score(BulkScorer.java:35)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:621)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+[2015-01-28 11:06:04,197][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][3], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@774d027d] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2015.01.28][3]: query[ConstantScore(BooleanFilter(+cache(event_timestamp:[1422435964138 TO 1422439564138])))],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.lang.ArithmeticException: / by zero
+	at org.elasticsearch.common.rounding.Rounding$Interval.roundKey(Rounding.java:97)
+	at org.elasticsearch.common.rounding.Rounding$Interval.roundKey(Rounding.java:107)
+	at org.elasticsearch.search.aggregations.bucket.histogram.HistogramAggregator.collect(HistogramAggregator.java:96)
+	at org.elasticsearch.search.aggregations.AggregationPhase$AggregationsCollector.collect(AggregationPhase.java:161)
+	at org.elasticsearch.common.lucene.MultiCollector.collect(MultiCollector.java:60)
+	at org.apache.lucene.search.Weight$DefaultBulkScorer.scoreAll(Weight.java:193)
+	at org.apache.lucene.search.Weight$DefaultBulkScorer.score(Weight.java:163)
+	at org.apache.lucene.search.BulkScorer.score(BulkScorer.java:35)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:621)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+[2015-01-28 11:06:04,197][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][1], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@774d027d] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2015.01.28][1]: query[ConstantScore(BooleanFilter(+cache(event_timestamp:[1422435964138 TO 1422439564138])))],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.lang.ArithmeticException: / by zero
+	at org.elasticsearch.common.rounding.Rounding$Interval.roundKey(Rounding.java:97)
+	at org.elasticsearch.common.rounding.Rounding$Interval.roundKey(Rounding.java:107)
+	at org.elasticsearch.search.aggregations.bucket.histogram.HistogramAggregator.collect(HistogramAggregator.java:96)
+	at org.elasticsearch.search.aggregations.AggregationPhase$AggregationsCollector.collect(AggregationPhase.java:161)
+	at org.elasticsearch.common.lucene.MultiCollector.collect(MultiCollector.java:60)
+	at org.apache.lucene.search.Weight$DefaultBulkScorer.scoreAll(Weight.java:193)
+	at org.apache.lucene.search.Weight$DefaultBulkScorer.score(Weight.java:163)
+	at org.apache.lucene.search.BulkScorer.score(BulkScorer.java:35)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:621)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+[2015-01-28 11:06:04,197][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][0], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@774d027d] lastShard [true]
+org.elasticsearch.search.query.QueryPhaseExecutionException: [logstash-2015.01.28][0]: query[ConstantScore(BooleanFilter(+cache(event_timestamp:[1422435964138 TO 1422439564138])))],from[0],size[0]: Query Failed [Failed to execute main query]
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:163)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:275)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: java.lang.ArithmeticException: / by zero
+	at org.elasticsearch.common.rounding.Rounding$Interval.roundKey(Rounding.java:97)
+	at org.elasticsearch.common.rounding.Rounding$Interval.roundKey(Rounding.java:107)
+	at org.elasticsearch.search.aggregations.bucket.histogram.HistogramAggregator.collect(HistogramAggregator.java:96)
+	at org.elasticsearch.search.aggregations.AggregationPhase$AggregationsCollector.collect(AggregationPhase.java:161)
+	at org.elasticsearch.common.lucene.MultiCollector.collect(MultiCollector.java:60)
+	at org.apache.lucene.search.Weight$DefaultBulkScorer.scoreAll(Weight.java:193)
+	at org.apache.lucene.search.Weight$DefaultBulkScorer.score(Weight.java:163)
+	at org.apache.lucene.search.BulkScorer.score(BulkScorer.java:35)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:621)
+	at org.elasticsearch.search.internal.ContextIndexSearcher.search(ContextIndexSearcher.java:191)
+	at org.apache.lucene.search.IndexSearcher.search(IndexSearcher.java:309)
+	at org.elasticsearch.search.query.QueryPhase.execute(QueryPhase.java:117)
+	... 7 more
+[2015-01-28 11:19:34,668][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][0], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@b64a757] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"30s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndserver:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774630,"to":1422440374630}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [server:"service:jmx:rmi:///jndserver:"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi" AND event_type:"CpuLoad"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FQueryFilterParser.parse(FQueryFilterParser.java:66)
+	at org.elasticsearch.index.query.QueryParseContext.executeFilterParser(QueryParseContext.java:343)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerFilter(QueryParseContext.java:324)
+	at org.elasticsearch.index.query.IndexQueryParserService.parseInnerFilter(IndexQueryParserService.java:295)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:86)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'server:"service:jmx:rmi:///jndserver:"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi" AND event_type:"CpuLoad"': Encountered " ":" ": "" at line 1, column 49.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <NUMBER> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:128)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " ":" ": "" at line 1, column 49.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <NUMBER> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:710)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:592)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:173)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 20 more
+[2015-01-28 11:19:34,678][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][1], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@b64a757] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"30s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndserver:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774630,"to":1422440374630}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [server:"service:jmx:rmi:///jndserver:"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi" AND event_type:"CpuLoad"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FQueryFilterParser.parse(FQueryFilterParser.java:66)
+	at org.elasticsearch.index.query.QueryParseContext.executeFilterParser(QueryParseContext.java:343)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerFilter(QueryParseContext.java:324)
+	at org.elasticsearch.index.query.IndexQueryParserService.parseInnerFilter(IndexQueryParserService.java:295)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:86)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'server:"service:jmx:rmi:///jndserver:"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi" AND event_type:"CpuLoad"': Encountered " ":" ": "" at line 1, column 49.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <NUMBER> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:128)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " ":" ": "" at line 1, column 49.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <NUMBER> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:710)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:592)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:173)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 20 more
+[2015-01-28 11:19:34,687][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][2], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@b64a757] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"30s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndserver:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774630,"to":1422440374630}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [server:"service:jmx:rmi:///jndserver:"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi" AND event_type:"CpuLoad"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FQueryFilterParser.parse(FQueryFilterParser.java:66)
+	at org.elasticsearch.index.query.QueryParseContext.executeFilterParser(QueryParseContext.java:343)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerFilter(QueryParseContext.java:324)
+	at org.elasticsearch.index.query.IndexQueryParserService.parseInnerFilter(IndexQueryParserService.java:295)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:86)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'server:"service:jmx:rmi:///jndserver:"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi" AND event_type:"CpuLoad"': Encountered " ":" ": "" at line 1, column 49.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <NUMBER> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:128)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " ":" ": "" at line 1, column 49.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <NUMBER> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:710)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:592)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:173)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 20 more
+[2015-01-28 11:19:34,691][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][4], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@b64a757]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"30s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndserver:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774630,"to":1422440374630}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [server:"service:jmx:rmi:///jndserver:"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi" AND event_type:"CpuLoad"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FQueryFilterParser.parse(FQueryFilterParser.java:66)
+	at org.elasticsearch.index.query.QueryParseContext.executeFilterParser(QueryParseContext.java:343)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerFilter(QueryParseContext.java:324)
+	at org.elasticsearch.index.query.IndexQueryParserService.parseInnerFilter(IndexQueryParserService.java:295)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:86)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'server:"service:jmx:rmi:///jndserver:"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi" AND event_type:"CpuLoad"': Encountered " ":" ": "" at line 1, column 49.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <NUMBER> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:128)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " ":" ": "" at line 1, column 49.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <NUMBER> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:710)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:592)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:173)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 20 more
+[2015-01-28 11:19:34,689][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][3], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@b64a757] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"30s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndserver:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774630,"to":1422440374630}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [server:"service:jmx:rmi:///jndserver:"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi" AND event_type:"CpuLoad"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FQueryFilterParser.parse(FQueryFilterParser.java:66)
+	at org.elasticsearch.index.query.QueryParseContext.executeFilterParser(QueryParseContext.java:343)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerFilter(QueryParseContext.java:324)
+	at org.elasticsearch.index.query.IndexQueryParserService.parseInnerFilter(IndexQueryParserService.java:295)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:86)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'server:"service:jmx:rmi:///jndserver:"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi" AND event_type:"CpuLoad"': Encountered " ":" ": "" at line 1, column 49.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <NUMBER> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:128)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " ":" ": "" at line 1, column 49.
+Was expecting one of:
+    <EOF> 
+    <AND> ...
+    <OR> ...
+    <NOT> ...
+    "+" ...
+    "-" ...
+    <BAREOPER> ...
+    "(" ...
+    "*" ...
+    "^" ...
+    <QUOTED> ...
+    <TERM> ...
+    <FUZZY_SLOP> ...
+    <PREFIXTERM> ...
+    <WILDTERM> ...
+    <REGEXPTERM> ...
+    "[" ...
+    "{" ...
+    <NUMBER> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:710)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:592)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:173)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 20 more
+[2015-01-28 11:19:34,693][DEBUG][action.search.type       ] [Druid] All shards failed for phase: [query]
+[2015-01-28 11:19:34,722][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][4], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4877102b] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"30s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"i/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774627,"to":1422440374627}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FQueryFilterParser.parse(FQueryFilterParser.java:66)
+	at org.elasticsearch.index.query.QueryParseContext.executeFilterParser(QueryParseContext.java:343)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerFilter(QueryParseContext.java:324)
+	at org.elasticsearch.index.query.IndexQueryParserService.parseInnerFilter(IndexQueryParserService.java:295)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:86)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"': Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:133)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.TokenMgrError: Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserTokenManager.getNextToken(QueryParserTokenManager.java:1133)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_scan_token(QueryParser.java:601)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3R_2(QueryParser.java:484)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3_1(QueryParser.java:491)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_2_1(QueryParser.java:477)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:228)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:214)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:172)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 20 more
+[2015-01-28 11:19:34,727][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][0], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6f3a20ed]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"filtered":{"query":{"bool":{"should":[{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},{"query_string":{"query":"i/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},{"query_string":{"query":"server:\"service:jmx:rmi:///jndserver:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}}]}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774635,"to":1422440374635}}}]}}}},"highlight":{"fields":{},"fragment_size":2147483647,"pre_tags":["@start-highlight@"],"post_tags":["@end-highlight@"]},"size":500,"sort":[{"event_timestamp":{"order":"desc","ignore_unmapped":true}},{"@timestamp":{"order":"desc","ignore_unmapped":true}}]}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:107)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"': Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:133)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 19 more
+Caused by: org.apache.lucene.queryparser.classic.TokenMgrError: Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserTokenManager.getNextToken(QueryParserTokenManager.java:1133)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_scan_token(QueryParser.java:601)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3R_2(QueryParser.java:484)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3_1(QueryParser.java:491)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_2_1(QueryParser.java:477)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:228)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:214)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:172)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 21 more
+[2015-01-28 11:19:34,726][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][1], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6f3a20ed] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"filtered":{"query":{"bool":{"should":[{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},{"query_string":{"query":"i/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},{"query_string":{"query":"server:\"service:jmx:rmi:///jndserver:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}}]}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774635,"to":1422440374635}}}]}}}},"highlight":{"fields":{},"fragment_size":2147483647,"pre_tags":["@start-highlight@"],"post_tags":["@end-highlight@"]},"size":500,"sort":[{"event_timestamp":{"order":"desc","ignore_unmapped":true}},{"@timestamp":{"order":"desc","ignore_unmapped":true}}]}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:107)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"': Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:133)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 19 more
+Caused by: org.apache.lucene.queryparser.classic.TokenMgrError: Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserTokenManager.getNextToken(QueryParserTokenManager.java:1133)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_scan_token(QueryParser.java:601)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3R_2(QueryParser.java:484)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3_1(QueryParser.java:491)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_2_1(QueryParser.java:477)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:228)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:214)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:172)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 21 more
+[2015-01-28 11:19:34,725][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][2], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4877102b]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"30s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"i/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774627,"to":1422440374627}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FQueryFilterParser.parse(FQueryFilterParser.java:66)
+	at org.elasticsearch.index.query.QueryParseContext.executeFilterParser(QueryParseContext.java:343)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerFilter(QueryParseContext.java:324)
+	at org.elasticsearch.index.query.IndexQueryParserService.parseInnerFilter(IndexQueryParserService.java:295)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:86)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"': Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:133)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.TokenMgrError: Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserTokenManager.getNextToken(QueryParserTokenManager.java:1133)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_scan_token(QueryParser.java:601)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3R_2(QueryParser.java:484)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3_1(QueryParser.java:491)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_2_1(QueryParser.java:477)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:228)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:214)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:172)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 20 more
+[2015-01-28 11:19:34,725][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][0], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4877102b] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"30s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"i/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774627,"to":1422440374627}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FQueryFilterParser.parse(FQueryFilterParser.java:66)
+	at org.elasticsearch.index.query.QueryParseContext.executeFilterParser(QueryParseContext.java:343)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerFilter(QueryParseContext.java:324)
+	at org.elasticsearch.index.query.IndexQueryParserService.parseInnerFilter(IndexQueryParserService.java:295)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:86)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"': Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:133)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.TokenMgrError: Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserTokenManager.getNextToken(QueryParserTokenManager.java:1133)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_scan_token(QueryParser.java:601)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3R_2(QueryParser.java:484)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3_1(QueryParser.java:491)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_2_1(QueryParser.java:477)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:228)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:214)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:172)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 20 more
+[2015-01-28 11:19:34,724][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][3], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4877102b] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"30s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"i/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774627,"to":1422440374627}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FQueryFilterParser.parse(FQueryFilterParser.java:66)
+	at org.elasticsearch.index.query.QueryParseContext.executeFilterParser(QueryParseContext.java:343)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerFilter(QueryParseContext.java:324)
+	at org.elasticsearch.index.query.IndexQueryParserService.parseInnerFilter(IndexQueryParserService.java:295)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:86)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"': Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:133)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.TokenMgrError: Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserTokenManager.getNextToken(QueryParserTokenManager.java:1133)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_scan_token(QueryParser.java:601)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3R_2(QueryParser.java:484)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3_1(QueryParser.java:491)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_2_1(QueryParser.java:477)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:228)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:214)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:172)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 20 more
+[2015-01-28 11:19:34,723][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][2], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6f3a20ed] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"filtered":{"query":{"bool":{"should":[{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},{"query_string":{"query":"i/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},{"query_string":{"query":"server:\"service:jmx:rmi:///jndserver:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}}]}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774635,"to":1422440374635}}}]}}}},"highlight":{"fields":{},"fragment_size":2147483647,"pre_tags":["@start-highlight@"],"post_tags":["@end-highlight@"]},"size":500,"sort":[{"event_timestamp":{"order":"desc","ignore_unmapped":true}},{"@timestamp":{"order":"desc","ignore_unmapped":true}}]}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:107)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"': Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:133)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 19 more
+Caused by: org.apache.lucene.queryparser.classic.TokenMgrError: Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserTokenManager.getNextToken(QueryParserTokenManager.java:1133)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_scan_token(QueryParser.java:601)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3R_2(QueryParser.java:484)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3_1(QueryParser.java:491)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_2_1(QueryParser.java:477)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:228)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:214)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:172)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 21 more
+[2015-01-28 11:19:34,723][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][4], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6f3a20ed] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"filtered":{"query":{"bool":{"should":[{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},{"query_string":{"query":"i/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},{"query_string":{"query":"server:\"service:jmx:rmi:///jndserver:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}}]}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774635,"to":1422440374635}}}]}}}},"highlight":{"fields":{},"fragment_size":2147483647,"pre_tags":["@start-highlight@"],"post_tags":["@end-highlight@"]},"size":500,"sort":[{"event_timestamp":{"order":"desc","ignore_unmapped":true}},{"@timestamp":{"order":"desc","ignore_unmapped":true}}]}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:107)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"': Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:133)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 19 more
+Caused by: org.apache.lucene.queryparser.classic.TokenMgrError: Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserTokenManager.getNextToken(QueryParserTokenManager.java:1133)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_scan_token(QueryParser.java:601)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3R_2(QueryParser.java:484)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3_1(QueryParser.java:491)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_2_1(QueryParser.java:477)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:228)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:214)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:172)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 21 more
+[2015-01-28 11:19:34,723][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][3], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6f3a20ed] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"query":{"filtered":{"query":{"bool":{"should":[{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},{"query_string":{"query":"i/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},{"query_string":{"query":"server:\"service:jmx:rmi:///jndserver:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}}]}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774635,"to":1422440374635}}}]}}}},"highlight":{"fields":{},"fragment_size":2147483647,"pre_tags":["@start-highlight@"],"post_tags":["@end-highlight@"]},"size":500,"sort":[{"event_timestamp":{"order":"desc","ignore_unmapped":true}},{"@timestamp":{"order":"desc","ignore_unmapped":true}}]}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.BoolQueryParser.parse(BoolQueryParser.java:107)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:382)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:281)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:276)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"': Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:133)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 19 more
+Caused by: org.apache.lucene.queryparser.classic.TokenMgrError: Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserTokenManager.getNextToken(QueryParserTokenManager.java:1133)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_scan_token(QueryParser.java:601)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3R_2(QueryParser.java:484)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3_1(QueryParser.java:491)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_2_1(QueryParser.java:477)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:228)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:214)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:172)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 21 more
+[2015-01-28 11:19:34,722][DEBUG][action.search.type       ] [Druid] [logstash-2015.01.28][1], node[bVfSiUOZQ0WLLYKXkc0tQg], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4877102b] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"30s"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"i/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1422436774627,"to":1422440374627}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.index.query.QueryParsingException: [logstash-2015.01.28] Failed to parse query [i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"]
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:240)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FilteredQueryParser.parse(FilteredQueryParser.java:71)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:277)
+	at org.elasticsearch.index.query.FQueryFilterParser.parse(FQueryFilterParser.java:66)
+	at org.elasticsearch.index.query.QueryParseContext.executeFilterParser(QueryParseContext.java:343)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerFilter(QueryParseContext.java:324)
+	at org.elasticsearch.index.query.IndexQueryParserService.parseInnerFilter(IndexQueryParserService.java:295)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:86)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse 'i/rmi://:9999/jmxrmi" AND event_type:"MemoryUsage"': Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:133)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:882)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:223)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.TokenMgrError: Lexical error at line 1, column 51.  Encountered: <EOF> after : ""
+	at org.apache.lucene.queryparser.classic.QueryParserTokenManager.getNextToken(QueryParserTokenManager.java:1133)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_scan_token(QueryParser.java:601)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3R_2(QueryParser.java:484)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_3_1(QueryParser.java:491)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_2_1(QueryParser.java:477)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:228)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:214)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:172)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:123)
+	... 20 more
+[2015-01-28 11:19:34,733][DEBUG][action.search.type       ] [Druid] All shards failed for phase: [query]
+[2015-01-28 11:19:34,729][DEBUG][action.search.type       ] [Druid] All shards failed for phase: [query]
+[2015-01-28 11:50:53,530][INFO ][monitor.jvm              ] [Druid] [gc][young][6413][156] duration [746ms], collections [1]/[1.5s], total [746ms]/[3.6s], memory [147mb]->[81.5mb]/[990.7mb], all_pools {[young] [66.9mb]->[43.9kb]/[266.2mb]}{[survivor] [4.4mb]->[5.7mb]/[33.2mb]}{[old] [75.7mb]->[75.7mb]/[691.2mb]}
+[2015-01-28 11:51:31,549][INFO ][node                     ] [Druid] stopping ...
+[2015-01-28 11:51:44,262][INFO ][node                     ] [Druid] stopped
+[2015-01-28 11:51:44,263][INFO ][node                     ] [Druid] closing ...
+[2015-01-28 11:51:45,965][INFO ][node                     ] [Druid] closed
+[2015-01-28 13:09:54,787][INFO ][node                     ] [Dormammu] version[1.4.2], pid[5460], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-28 13:09:54,807][INFO ][node                     ] [Dormammu] initializing ...
+[2015-01-28 13:09:54,924][INFO ][plugins                  ] [Dormammu] loaded [], sites [kopf, kibana]
+[2015-01-28 13:10:01,520][INFO ][node                     ] [Dormammu] initialized
+[2015-01-28 13:10:01,520][INFO ][node                     ] [Dormammu] starting ...
+[2015-01-28 13:10:01,664][INFO ][transport                ] [Dormammu] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.13:9300]}
+[2015-01-28 13:10:01,749][INFO ][discovery                ] [Dormammu] elasticsearch/g9dDYVfIRZSyODe6jHEWEQ
+[2015-01-28 13:10:05,540][INFO ][cluster.service          ] [Dormammu] new_master [Dormammu][g9dDYVfIRZSyODe6jHEWEQ][e-Len-x][inet[/192.168.0.13:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-28 13:10:05,577][INFO ][http                     ] [Dormammu] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-28 13:10:05,578][INFO ][node                     ] [Dormammu] started
+[2015-01-28 13:10:06,585][INFO ][gateway                  ] [Dormammu] recovered [4] indices into cluster_state
+[2015-01-28 13:22:16,133][INFO ][node                     ] [Dormammu] stopping ...
+[2015-01-28 13:22:16,245][INFO ][node                     ] [Dormammu] stopped
+[2015-01-28 13:22:16,246][INFO ][node                     ] [Dormammu] closing ...
+[2015-01-28 13:22:16,261][INFO ][node                     ] [Dormammu] closed
+[2015-01-28 13:57:15,933][INFO ][node                     ] [Akhenaten] version[1.4.2], pid[13863], build[927caff/2014-12-16T14:11:12Z]
+[2015-01-28 13:57:15,945][INFO ][node                     ] [Akhenaten] initializing ...
+[2015-01-28 13:57:15,972][INFO ][plugins                  ] [Akhenaten] loaded [], sites [kopf, kibana]
+[2015-01-28 13:57:20,384][INFO ][node                     ] [Akhenaten] initialized
+[2015-01-28 13:57:20,384][INFO ][node                     ] [Akhenaten] starting ...
+[2015-01-28 13:57:20,545][INFO ][transport                ] [Akhenaten] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.13:9300]}
+[2015-01-28 13:57:20,629][INFO ][discovery                ] [Akhenaten] elasticsearch/nQPrun75SR6R6Qlj3oO_cg
+[2015-01-28 13:57:24,433][INFO ][cluster.service          ] [Akhenaten] new_master [Akhenaten][nQPrun75SR6R6Qlj3oO_cg][e-Len-x][inet[/192.168.0.13:9300]], reason: zen-disco-join (elected_as_master)
+[2015-01-28 13:57:24,483][INFO ][http                     ] [Akhenaten] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-01-28 13:57:24,483][INFO ][node                     ] [Akhenaten] started
+[2015-01-28 13:57:25,403][INFO ][gateway                  ] [Akhenaten] recovered [4] indices into cluster_state
+[2015-01-28 13:59:58,801][INFO ][node                     ] [Akhenaten] stopping ...
+[2015-01-28 13:59:58,945][INFO ][node                     ] [Akhenaten] stopped
+[2015-01-28 13:59:58,945][INFO ][node                     ] [Akhenaten] closing ...
+[2015-01-28 13:59:58,954][INFO ][node                     ] [Akhenaten] closed
