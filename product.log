@@ -2113,3 +2113,211 @@ Caused by: java.net.ConnectException: Connection refused: connect
 19:29:21.520 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
 19:29:21.525 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
 19:29:21.550 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+11:09:37.982 [main] DEBUG cz.muni.fi.ClientMain - Starting...
+11:09:39.812 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+11:09:40.012 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+11:09:40.049 [main] INFO  cz.muni.fi.Core - 
+
+************************************************************
+* STARTING *
+************************************************************
+
+11:09:40.057 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+11:09:40.100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+11:09:40.104 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+11:09:40.122 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+11:22:45.065 [main] DEBUG cz.muni.fi.ClientMain - Starting...
+11:22:46.915 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+11:22:47.140 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+11:22:47.175 [main] INFO  cz.muni.fi.Core - 
+
+************************************************************
+* STARTING *
+************************************************************
+
+11:22:47.181 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+11:22:47.229 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+11:22:47.244 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+11:22:47.259 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+11:25:33.692 [main] DEBUG cz.muni.fi.ClientMain - Starting...
+11:25:35.903 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+11:25:36.046 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+11:25:36.081 [main] INFO  cz.muni.fi.Core - 
+
+************************************************************
+* STARTING *
+************************************************************
+
+11:25:36.088 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+11:25:36.124 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+11:25:36.128 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+11:25:36.148 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T11:29:05.999+0100 [main] DEBUG cz.muni.fi.ClientMain - Starting...
+2015-01-22T11:29:07.908+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-22T11:29:08.061+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-22T11:29:08.099+0100 [main] INFO  cz.muni.fi.Core - 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-22T11:29:08.106+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T11:29:08.158+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T11:29:08.163+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T11:29:08.179+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T11:49:28.596+0100 [main] DEBUG cz.muni.fi.ClientMain - Starting...
+2015-01-22T11:49:30.446+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-22T11:49:30.649+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-22T11:49:30.686+0100 [main] INFO  cz.muni.fi.Core - 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-22T11:49:30.697+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T11:49:30.742+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T11:49:30.763+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T11:49:30.784+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T11:53:11.390+0100 [main] DEBUG cz.muni.fi.ClientMain - Starting...
+2015-01-22T11:53:13.783+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-22T11:53:14.022+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-22T11:53:14.076+0100 [main] INFO  cz.muni.fi.Core - 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-22T11:53:14.086+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T11:53:14.147+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T11:53:14.151+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T11:53:14.174+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T11:55:46.918+0100 [main] DEBUG cz.muni.fi.ClientMain - Starting...
+2015-01-22T11:55:49.026+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-22T11:55:49.172+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-22T11:55:49.204+0100 [main] INFO  cz.muni.fi.Core - 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-22T11:55:49.213+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T11:55:49.248+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T11:55:49.252+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T11:55:49.273+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:00:36.141+0100 [main] DEBUG cz.muni.fi.ClientMain - Starting...
+2015-01-22T12:00:38.949+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-22T12:00:39.245+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-22T12:00:39.266+0100 [main] INFO  cz.muni.fi.Core - 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-22T12:00:39.316+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:00:39.349+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:00:39.356+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:00:39.363+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:05:32.908+0100 [main] DEBUG cz.muni.fi.ClientMain - Starting...
+2015-01-22T12:05:34.980+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-22T12:05:35.225+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-22T12:05:35.264+0100 [main] INFO  cz.muni.fi.Core - 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-22T12:05:35.271+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:05:35.310+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:05:35.314+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:05:35.335+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:08:06.023+0100 [main] DEBUG cz.muni.fi.ClientMain - Starting...
+2015-01-22T12:08:07.865+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-22T12:08:08.008+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-22T12:08:08.043+0100 [main] INFO  cz.muni.fi.Core - 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-22T12:08:08.051+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:08:08.088+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:08:08.092+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:08:08.114+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:14:23.124+0100 [main] DEBUG cz.muni.fi.ClientMain - Starting...
+2015-01-22T12:14:25.342+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-22T12:14:25.486+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-22T12:14:25.521+0100 [main] INFO  cz.muni.fi.Core - 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-22T12:14:25.528+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:14:25.570+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:14:25.573+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:14:25.595+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient - Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:22:01.455+0100 [main] DEBUG cz.muni.fi.ClientMain Starting...
+2015-01-22T12:22:03.502+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-22T12:22:03.787+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-22T12:22:03.834+0100 [main] INFO  cz.muni.fi.Core 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-22T12:22:03.847+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:22:03.927+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:22:03.932+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:22:03.953+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:42:22.242+0100 [main] DEBUG cz.muni.fi.ClientMain Starting...
+2015-01-22T12:42:24.887+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-22T12:42:25.252+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-22T12:42:25.272+0100 [main] INFO  cz.muni.fi.Core 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-22T12:42:25.310+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:42:25.339+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T12:42:25.343+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T12:42:25.351+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T13:05:41.528+0100 [main] DEBUG cz.muni.fi.ClientMain Starting...
+2015-01-22T13:05:44.349+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-22T13:05:44.788+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-22T13:05:44.829+0100 [main] INFO  cz.muni.fi.Core 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-22T13:05:44.844+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T13:05:44.885+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-22T13:05:44.890+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-22T13:05:44.900+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-28T10:02:08.435+0100 [main] DEBUG cz.muni.fi.ClientMain Starting...
+2015-01-28T10:02:10.726+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-28T10:02:10.836+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-28T10:02:10.874+0100 [main] INFO  cz.muni.fi.Core 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-28T10:02:10.884+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-28T10:02:10.932+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-28T10:02:10.951+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-28T10:02:11.004+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-28T13:09:05.901+0100 [main] DEBUG cz.muni.fi.ClientMain Starting...
+2015-01-28T13:09:07.895+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9999/jmxrmi
+2015-01-28T13:09:08.104+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Creating an RMI connector client and connect it to the RMI connector server service:jmx:rmi:///jndi/rmi://:9998/jmxrmi
+2015-01-28T13:09:08.149+0100 [main] INFO  cz.muni.fi.Core 
+
+************************************************************
+* STARTING *
+************************************************************
+
+2015-01-28T13:09:08.159+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-28T13:09:08.210+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9999/jmxrmi
+2015-01-28T13:09:08.231+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
+2015-01-28T13:09:08.256+0100 [main] DEBUG cz.muni.fi.runtime.JMXClient Adding notification listener for JMXClient /jndi/rmi://:9998/jmxrmi
