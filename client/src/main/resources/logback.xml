@@ -6,17 +6,17 @@
     <file>event.log</file>
 
     <encoder>
-      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-    </encoder>
-  </appender>
-  <logger name="cz.muni.fi.runtime.ClientListener" level="INFO">
-    <appender-ref ref="FILE_EVENT"/>
-  </logger>
+      <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%thread] %-5level %logger{36} %msg%n</pattern>
+</encoder>
+</appender>
+<logger name="cz.muni.fi.runtime.ClientListener" level="INFO">
+<appender-ref ref="FILE_EVENT"/>
+</logger>
 
-  <!-- test logger -->
+<!-- test logger -->
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <layout class="ch.qos.logback.classic.PatternLayout">
-      <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+      <Pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%thread] %-5level %logger{36} %msg%n</Pattern>
     </layout>
   </appender>
   <logger name="cz.muni.fi" level="DEBUG">
@@ -28,7 +28,7 @@
     <file>product.log</file>
     <filter class="cz.muni.fi.config.OmitEventsInProductionFilter"/>
     <encoder>
-      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+      <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%thread] %-5level %logger{36} %msg%n</pattern>
     </encoder>
   </appender>
   <root level="WARN">

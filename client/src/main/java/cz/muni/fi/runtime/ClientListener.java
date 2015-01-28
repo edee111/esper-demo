@@ -1,5 +1,6 @@
 package cz.muni.fi.runtime;
 
+import cz.muni.fi.MBean;
 import cz.muni.fi.MemoryUsage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,7 @@ import javax.management.AttributeChangeNotification;
 import javax.management.Notification;
 import javax.management.NotificationListener;
 import javax.management.remote.JMXServiceURL;
+import java.text.SimpleDateFormat;
 
 /**
  * @author Eduard Tomek
@@ -47,6 +49,13 @@ public class ClientListener implements NotificationListener {
   }
 
   private void logNotification(AttributeChangeNotification acn) {
-    log.info(url + " " + acn.getNewValue());
+    Object newValue = acn.getNewValue();
+    if (newValue instanceof MBean) {
+      MBean mBean = (MBean) newValue;
+      log.info(url + " " + mBean.getLogInfo());
+    }
+    else {
+      log.error("New value " + newValue + " is not instance of MBean!");
+    }
   }
 }

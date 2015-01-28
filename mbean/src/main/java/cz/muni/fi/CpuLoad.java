@@ -38,10 +38,7 @@ public class CpuLoad extends MBean<CpuLoadMBean> implements CpuLoadMBean {
 
   @Override
   public String toString() {
-    return "CpuLoad{" +
-            "load=" + load +
-            ", timestamp=" + timestamp +
-            '}';
+    return "CpuLoad load=" + load + ", timestamp=" + timestamp;
   }
 
   @Override
@@ -59,5 +56,10 @@ public class CpuLoad extends MBean<CpuLoadMBean> implements CpuLoadMBean {
 
     setLoad(mBean.getLoad());
     setTimestamp(mBean.getTimestamp());
+  }
+
+  @Override
+  public String getLogInfo() {
+      return "CpuLoad load " + load + " timestamp " + sdf.format(timestamp);
   }
 }

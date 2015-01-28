@@ -72,4 +72,9 @@ public class MemoryUsage extends MBean<MemoryUsageMBean> implements MemoryUsageM
     setUsage(mBean.getUsage());
     setTotalMemory(mBean.getTotalMemory());
   }
+
+  @Override
+  public String getLogInfo() {
+    return "MemoryUsage totalMemory " + totalMemory + " usage " + usage + " timestamp " + sdf.format(timestamp);
+  }
 }

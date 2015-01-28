@@ -5,12 +5,15 @@ import javax.management.MBeanNotificationInfo;
 import javax.management.Notification;
 import javax.management.NotificationBroadcasterSupport;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 
 /**
  * @author Eduard Tomek
  * @since 13.11.14
  */
 public abstract class MBean<T> extends NotificationBroadcasterSupport implements Serializable {
+
+  protected SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 
   @Override
   public MBeanNotificationInfo[] getNotificationInfo() {
@@ -40,4 +43,6 @@ public abstract class MBean<T> extends NotificationBroadcasterSupport implements
   }
 
   public abstract void update(T mBean);
+
+  public abstract String getLogInfo();
 }
