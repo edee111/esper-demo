@@ -1,8 +1,11 @@
 package cz.muni.fi;
 
+import cz.muni.fi.config.EspMonConfig;
 import cz.muni.fi.runtime.JMXClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -17,15 +20,19 @@ import java.util.List;
 @Component
 public class Core {
   private final Logger log = LoggerFactory.getLogger(getClass());
-  private static final String[] servers = new String[]{
-          "service:jmx:rmi:///jndi/rmi://:9999/jmxrmi",
-          "service:jmx:rmi:///jndi/rmi://:9998/jmxrmi"
-  };
+  @Autowired
+  private EspMonConfig config;
 
+  private List<String> servers = new ArrayList<>();
   private List<JMXClient> clients = new ArrayList<>();
 
   @PostConstruct
   public void initialize() {
+    try {
+      servers = config.getServers();
+    } catch (EspMonException e) {
+      log.error("Server configuration load failed", e);
+    }
 
     for (String serverUrl : servers) {
       JMXClient JMXClient = new JMXClient();
