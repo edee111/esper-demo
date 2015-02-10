@@ -8,6 +8,6 @@
 
 	<!-- Process Spring Annotations -->
   <context:component-scan base-package="cz.muni.fi" />
-  <bean id="core" class="cz.muni.fi.Core" />
+  <bean id="clientMain" class="cz.muni.fi.ClientMain" />
 
 </beans>
