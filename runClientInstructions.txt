@@ -1,5 +1,7 @@
 In root directory:
 
+set environment variable ESPMON_HOME. In ESPMON_HOME directory create conf/espmon.xml file. Example file can be found in client/espmon-home-template.
+
 mvn package
 
 client:
