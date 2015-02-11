@@ -32,7 +32,7 @@ public class CpuLoadEventHandler extends AbstractHandler implements Initializing
 
     log.debug("Initializing Service ..");
     Configuration config = new Configuration();
-    config.addEventTypeAutoName("cz.muni.fi.event");
+    config.configure();
     epService = EPServiceProviderManager.getDefaultProvider(config);
 
     createCpuLoadMonitorExpression();

@@ -59,6 +59,13 @@
       <artifactId>mbean</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>cz.muni.fi</groupId>
+      <artifactId>esper-jmx</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
   </dependencies>
 
   <build>

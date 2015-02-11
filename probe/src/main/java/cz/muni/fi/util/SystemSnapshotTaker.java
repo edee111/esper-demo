@@ -48,7 +48,7 @@ public class SystemSnapshotTaker {
           memoryUsageEventHandler.handle(memoryUsageEvent);
 
           try {
-            Thread.sleep(1000);
+            Thread.sleep(1);
           } catch (InterruptedException e) {
             log.error("Thread Interrupted", e);
           }

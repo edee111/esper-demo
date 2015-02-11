@@ -33,7 +33,7 @@ public class MemoryUsageEventHandler extends AbstractHandler implements Initiali
 
     log.debug("Initializing memory usage event handler ..");
     Configuration config = new Configuration();
-    config.addEventTypeAutoName("cz.muni.fi.event");
+    config.configure();
     epService = EPServiceProviderManager.getDefaultProvider(config);
 
     createMemoryUsageMonitorExpression();
