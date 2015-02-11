@@ -1,5 +1,6 @@
 package cz.muni.fi;
 
+import com.espertech.esper.client.Configuration;
 import cz.muni.fi.util.SystemSnapshotTaker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,10 @@ public class ProbeMain {
   public static void main(String[] args) throws Exception {
 
     log.debug("Starting...");
+    Configuration config = new Configuration();
+    config.configure();
+
+    //config.getEngineDefaults().getMetricsReporting().setJmxEngineMetrics(true);
 
     // Load spring config
     ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(new String[]{"application-context.xml"});
