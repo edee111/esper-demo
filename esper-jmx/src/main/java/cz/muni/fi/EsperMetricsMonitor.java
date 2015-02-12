@@ -1,9 +1,6 @@
 package cz.muni.fi;
 
-import com.espertech.esper.client.Configuration;
-import com.espertech.esper.client.EPServiceProvider;
-import com.espertech.esper.client.EPServiceProviderManager;
-import com.espertech.esper.client.EPStatement;
+import com.espertech.esper.client.*;
 
 /**
  * @author Eduard Tomek
@@ -11,17 +8,35 @@ import com.espertech.esper.client.EPStatement;
  */
 public class EsperMetricsMonitor {
 
-  private EPServiceProvider epService;
-
-  //todo when esper server configured programatically - configure will not work, consider passing epService
-  public EsperMetricsMonitor() throws EsperJMXException {
+  /**
+   * Register monitoring from code
+   *
+   * @throws EsperJMXException
+   */
+  public static void registerEsperMetricsMonitorFromFile() throws EsperJMXException {
     Configuration config = new Configuration();
-    config.configure();
-    this.epService = EPServiceProviderManager.getDefaultProvider(config);
-    this.initMonitor();
+    config.configure(); //use esper.cfg.xml file
+    doRegister(config);
   }
 
-  private void initMonitor() throws EsperJMXException {
+  /**
+   * Register monitoring from values
+   *
+   * @throws EsperJMXException
+   */
+  public static void registerEsperMetricsMonitorWithValues(long engineInterval, long statementInterval) throws EsperJMXException {
+    Configuration config = new Configuration();
+    ConfigurationMetricsReporting cmr = config.getEngineDefaults().getMetricsReporting();
+    cmr.setEnableMetricsReporting(true);
+    cmr.setEngineInterval(engineInterval);
+    cmr.setStatementInterval(statementInterval);
+    cmr.setThreading(true);
+    doRegister(config);
+  }
+
+  private static void doRegister(Configuration config) throws EsperJMXException {
+    EPServiceProvider epService = EPServiceProviderManager.getDefaultProvider(config);
+
     EPStatement epl2 = epService.getEPAdministrator().createEPL(getStatementMetricStatement(), "StatementMetrics statement");
     epl2.addListener(StatementMetricListener.getInstance());
 
@@ -29,11 +44,11 @@ public class EsperMetricsMonitor {
     epl.addListener(EngineMetricListener.getInstance());
   }
 
-  private String getEngineMetricStatement() {
+  private static String getEngineMetricStatement() {
     return "select * from com.espertech.esper.client.metric.EngineMetric";
   }
 
-  private String getStatementMetricStatement() {
+  private static String getStatementMetricStatement() {
     return "select * from com.espertech.esper.client.metric.StatementMetric";
   }
 

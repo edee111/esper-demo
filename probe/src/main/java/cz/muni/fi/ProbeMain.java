@@ -1,8 +1,5 @@
 package cz.muni.fi;
 
-import com.espertech.esper.client.Configuration;
-import com.espertech.esper.client.EPServiceProvider;
-import com.espertech.esper.client.EPServiceProviderManager;
 import cz.muni.fi.util.SystemSnapshotTaker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +23,7 @@ public class ProbeMain {
   public static void main(String[] args) throws Exception {
 
     log.debug("Starting...");
-    EsperMetricsMonitor esperMetricsMonitor = new EsperMetricsMonitor();
+    EsperMetricsMonitor.registerEsperMetricsMonitorFromFile();
 
     // Load spring config
     ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(new String[]{"application-context.xml"});
