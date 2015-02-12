@@ -16,11 +16,11 @@ public class EngineMetricListener implements UpdateListener {
 
   private static EngineMetricListener instance;
 
-  private EngineMetricListener(){
+  private EngineMetricListener() throws EsperJMXException {
     this.simpleAgent = SimpleAgent.getInstance();
   }
 
-  public static EngineMetricListener getInstance() {
+  public static EngineMetricListener getInstance() throws EsperJMXException {
     if (instance == null) {
       instance = new EngineMetricListener();
     }

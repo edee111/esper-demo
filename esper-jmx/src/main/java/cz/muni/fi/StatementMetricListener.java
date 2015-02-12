@@ -17,11 +17,11 @@ public class StatementMetricListener implements UpdateListener {
 
   private static StatementMetricListener instance;
 
-  private StatementMetricListener(){
+  private StatementMetricListener() throws EsperJMXException {
     this.simpleAgent = SimpleAgent.getInstance();
   }
 
-  public static StatementMetricListener getInstance() {
+  public static StatementMetricListener getInstance() throws EsperJMXException {
     if (instance == null) {
       instance = new StatementMetricListener();
     }

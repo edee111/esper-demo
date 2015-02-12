@@ -14,14 +14,14 @@ public class EsperMetricsMonitor {
   private EPServiceProvider epService;
 
   //todo when esper server configured programatically - configure will not work, consider passing epService
-  public EsperMetricsMonitor() {
+  public EsperMetricsMonitor() throws EsperJMXException {
     Configuration config = new Configuration();
     config.configure();
     this.epService = EPServiceProviderManager.getDefaultProvider(config);
     this.initMonitor();
   }
 
-  private void initMonitor() {
+  private void initMonitor() throws EsperJMXException {
     EPStatement epl2 = epService.getEPAdministrator().createEPL(getStatementMetricStatement(), "StatementMetrics statement");
     epl2.addListener(StatementMetricListener.getInstance());
 
