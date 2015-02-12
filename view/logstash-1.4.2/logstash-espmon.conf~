@@ -1,0 +1,21 @@
+input {
+  file {
+    path => "/home/e/espmon-home/logs/event.log"
+    start_position => beginning
+  }
+}
+
+filter {
+  grok {
+    match => [ "message", "%{TIMESTAMP_ISO8601:timestamp_log} %{THREAD:thread} %{LOGLEVEL:log_level}  %{JAVACLASS:logger} %{JMXSERVICEURI:server} %{STATEMENTMETRIC:event_type} %{WORD:field0} %{TIMESTAMP_ISO8601:event_timestamp} %{WORD:field1} %{WORD:statement_name} %{WORD:field2} %{NONNEGINT:cpuTime:int} %{WORD:field3} %{NONNEGINT:wallTime:int} %{WORD:field3} %{NONNEGINT:numInput:int} %{WORD:field3} %{NONNEGINT:numOutputRStream:int} %{WORD:field3} %{NONNEGINT:numOutputIStream:int}" ]
+
+    match => [ "message", "%{TIMESTAMP_ISO8601:timestamp_log} %{THREAD:thread} %{LOGLEVEL:log_level}  %{JAVACLASS:logger} %{JMXSERVICEURI:server} %{ENGINEMETRIC:event_type} %{WORD:field0} %{TIMESTAMP_ISO8601:event_timestamp} %{WORD:field2} %{NONNEGINT:inputCount:int} %{WORD:field3} %{NONNEGINT:inputCountDelta:int} %{WORD:field3} %{NONNEGINT:scheduleDepth:int}" ]
+  }
+}
+
+output {
+  elasticsearch_http {
+    host => localhost
+  }
+  stdout { codec => rubydebug }
+}
