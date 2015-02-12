@@ -3,15 +3,23 @@ package cz.muni.fi;
 import com.espertech.esper.client.EventBean;
 import com.espertech.esper.client.PropertyAccessException;
 import com.espertech.esper.client.UpdateListener;
+import cz.muni.fi.jmx.SimpleAgent;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Eduard Tomek
  * @since 11.2.15
  */
 public class StatementMetricListener implements UpdateListener {
+  protected org.slf4j.Logger log = LoggerFactory.getLogger(getClass());
+
+  private SimpleAgent simpleAgent;
+
   private static StatementMetricListener instance;
 
-  private StatementMetricListener(){}
+  private StatementMetricListener(){
+    this.simpleAgent = SimpleAgent.getInstance();
+  }
 
   public static StatementMetricListener getInstance() {
     if (instance == null) {
@@ -21,9 +29,21 @@ public class StatementMetricListener implements UpdateListener {
   }
 
   public void update(EventBean[] newEvents, EventBean[] oldEvents) {
-    for (EventBean b : newEvents) {
-      printInfo(b);
+    if (newEvents.length != 1) {
+      throw new IllegalArgumentException("Unexpected number of new events: " + newEvents.length);
     }
+    EventBean b = newEvents[0];
+
+    StatementMetric sm = new StatementMetric();
+    sm.setTimestamp((long) b.get("timestamp"));
+    sm.setStatementName((String) b.get("statementName"));
+    sm.setCpuTime((long) b.get("cpuTime"));
+    sm.setWallTime((long) b.get("wallTime"));
+    sm.setNumInput((long) b.get("numInput"));
+    sm.setNumOutputIStream((long) b.get("numOutputIStream"));
+    sm.setNumOutputRStream((long) b.get("numOutputRStream"));
+
+    simpleAgent.register(sm, StatementMetric.class);
   }
 
   private void printInfo(EventBean b) {
