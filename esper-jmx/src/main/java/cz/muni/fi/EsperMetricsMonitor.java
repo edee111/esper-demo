@@ -37,10 +37,10 @@ public class EsperMetricsMonitor {
   private static void doRegister(Configuration config) throws EsperJMXException {
     EPServiceProvider epService = EPServiceProviderManager.getDefaultProvider(config);
 
-    EPStatement epl2 = epService.getEPAdministrator().createEPL(getStatementMetricStatement(), "StatementMetrics statement");
+    EPStatement epl2 = epService.getEPAdministrator().createEPL(getStatementMetricStatement(), "StatementMetricsStatement");
     epl2.addListener(StatementMetricListener.getInstance());
 
-    EPStatement epl = epService.getEPAdministrator().createEPL(getEngineMetricStatement(), "EngineMetrics statement");
+    EPStatement epl = epService.getEPAdministrator().createEPL(getEngineMetricStatement(), "EngineMetricsStatement");
     epl.addListener(EngineMetricListener.getInstance());
   }
 

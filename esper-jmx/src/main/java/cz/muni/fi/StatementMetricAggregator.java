@@ -15,7 +15,7 @@ public class StatementMetricAggregator {
     if (aggSM == null) {
       aggSM = new StatementMetric();
       updateAggSM(sm);
-      aggSM.setStatementName("Aggregated statements");
+      aggSM.setStatementName("AggregatedStatements");
     }
     else if (aggSM.getTimestamp() == sm.getTimestamp()) {
       doAggregate(sm);
@@ -23,7 +23,7 @@ public class StatementMetricAggregator {
     else {
       simpleAgent.register(aggSM, StatementMetric.class);
       updateAggSM(sm);
-      aggSM.setStatementName("Aggregated statements");
+      aggSM.setStatementName("AggregatedStatements");
     }
   }
 

@@ -41,7 +41,7 @@ public class MemoryUsageEventHandler extends AbstractHandler implements Initiali
 
   private void createMemoryUsageMonitorExpression() {
     log.debug("create memory usage Monitor");
-    memoryUsageEventStatement = epService.getEPAdministrator().createEPL(memoryUsageEventSubscriber.getStatement(), "MemoryUsage statement");
+    memoryUsageEventStatement = epService.getEPAdministrator().createEPL(memoryUsageEventSubscriber.getStatement(), "MemoryUsageStatement");
     memoryUsageEventStatement.setSubscriber(memoryUsageEventSubscriber);
   }
 
