@@ -1,0 +1,8 @@
+# patterns for my esper logs
+# todo improve regualar expressions
+
+THREAD \[%{DATA}\]
+JAVACLASS (?:[a-zA-Z0-9-]+\.)+[A-Za-z0-9$]+
+JMXSERVICEURI service:jmx:%{URI}
+STATEMENTMETRIC StatementMetric
+ENGINEMETRIC EngineMetric
