@@ -14,11 +14,13 @@ public class StatementMetricListener implements UpdateListener {
   protected org.slf4j.Logger log = LoggerFactory.getLogger(getClass());
 
   private SimpleAgent simpleAgent;
+  private StatementMetricAggregator sma;
 
   private static StatementMetricListener instance;
 
   private StatementMetricListener() throws EsperJMXException {
     this.simpleAgent = SimpleAgent.getInstance();
+    this.sma = new StatementMetricAggregator();
   }
 
   public static StatementMetricListener getInstance() throws EsperJMXException {
@@ -44,6 +46,7 @@ public class StatementMetricListener implements UpdateListener {
     sm.setNumOutputRStream((long) b.get("numOutputRStream"));
 
     simpleAgent.register(sm, StatementMetric.class);
+    sma.addNewStatementMetric(this.simpleAgent, sm);
   }
 
   private void printInfo(EventBean b) {
