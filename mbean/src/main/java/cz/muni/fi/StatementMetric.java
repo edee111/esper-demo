@@ -40,8 +40,8 @@ public class StatementMetric extends MBean<StatementMetric> implements Statement
     setCpuTime(mBean.getCpuTime());
     setWallTime(mBean.getWallTime());
     setNumInput(mBean.getNumInput());
-    setNumOutputIStream(getNumOutputIStream());
-    setNumOutputRStream(getNumOutputRStream());
+    setNumOutputIStream(mBean.getNumOutputIStream());
+    setNumOutputRStream(mBean.getNumOutputRStream());
   }
 
   @Override

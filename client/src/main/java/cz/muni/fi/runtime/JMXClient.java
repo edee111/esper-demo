@@ -30,8 +30,7 @@ public class JMXClient {
     try {
       log.debug("Creating an RMI connector client and " +
               "connect it to the RMI connector server " + jmxServiceUrl);
-      url =
-              new JMXServiceURL(jmxServiceUrl);
+      url = new JMXServiceURL(jmxServiceUrl);
       jmxc = JMXConnectorFactory.connect(url, null);
       mbsc = jmxc.getMBeanServerConnection();
     } catch (IOException e) {

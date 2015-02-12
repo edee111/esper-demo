@@ -26,7 +26,7 @@ public class SimpleAgent {
 
   private MBeanServer mbs = null;
   private Map<String, MBean> registeredMBeans = new HashMap<>();
-  private static final String DEFAULT_MBEAN_SERVER_PORT = "9998";
+  private static final String DEFAULT_MBEAN_SERVER_PORT = "9999";
   private static final String[] KEYS = {
       "com.sun.management.jmxremote.",
       "com.sun.management.jmxremote.ssl",
@@ -85,7 +85,7 @@ public class SimpleAgent {
 
   }
 
-  public void register(MBean mBean, Class eventClass) {
+  public synchronized void register(MBean mBean, Class eventClass) {
     try {
       ObjectName name = getObjectName(eventClass);
       if (mbs.isRegistered(name)) {
