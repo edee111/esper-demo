@@ -22,10 +22,10 @@ public class EsperMetricsMonitor {
   }
 
   private void initMonitor() {
-    EPStatement epl2 = epService.getEPAdministrator().createEPL(getStatementMetricStatement());
+    EPStatement epl2 = epService.getEPAdministrator().createEPL(getStatementMetricStatement(), "StatementMetrics statement");
     epl2.addListener(StatementMetricListener.getInstance());
 
-    EPStatement epl = epService.getEPAdministrator().createEPL(getEngineMetricStatement());
+    EPStatement epl = epService.getEPAdministrator().createEPL(getEngineMetricStatement(), "EngineMetrics statement");
     epl.addListener(EngineMetricListener.getInstance());
   }
 

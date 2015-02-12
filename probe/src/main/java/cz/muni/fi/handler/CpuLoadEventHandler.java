@@ -40,7 +40,7 @@ public class CpuLoadEventHandler extends AbstractHandler implements Initializing
 
   private void createCpuLoadMonitorExpression() {
     log.debug("create cpu load Monitor");
-    cpuLoadEventStatement = epService.getEPAdministrator().createEPL(cpuLoadEventSubscriber.getStatement());
+    cpuLoadEventStatement = epService.getEPAdministrator().createEPL(cpuLoadEventSubscriber.getStatement(), "CpuLoad statement");
     cpuLoadEventStatement.setSubscriber(cpuLoadEventSubscriber);
   }
 
