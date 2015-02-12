@@ -1,5 +1,6 @@
 package cz.muni.fi;
 
+import javax.management.AttributeChangeNotification;
 import javax.management.Notification;
 
 /**
@@ -19,7 +20,17 @@ public class StatementMetric extends MBean<StatementMetric> implements Statement
   public void update(StatementMetric mBean) {
     updateFieldsInternal(mBean);
 
-    Notification n = new Notification("statementMetricMBean", this, sequenceNumber++); //todo use attributenotification if not working
+    Notification n =
+        new AttributeChangeNotification(
+            this,
+            sequenceNumber++,
+            System.currentTimeMillis(),
+            "StatementMetric changed",
+            "StatementMetric",
+            "StatementMetric",
+            this,
+            mBean
+        );
     sendNotification(n);
   }
 

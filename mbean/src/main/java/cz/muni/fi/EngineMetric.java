@@ -1,5 +1,6 @@
 package cz.muni.fi;
 
+import javax.management.AttributeChangeNotification;
 import javax.management.Notification;
 
 /**
@@ -15,8 +16,18 @@ public class EngineMetric extends MBean<EngineMetric> implements EngineMetricMBe
   @Override
   public void update(EngineMetric mBean) {
     updateFieldsInternal(mBean);
+    Notification n =
+        new AttributeChangeNotification(
+            this,
+            sequenceNumber++,
+            System.currentTimeMillis(),
+            "EngineMetric changed",
+            "EngineMetric",
+            "EngineMetric",
+            this,
+            mBean
+        );
 
-    Notification n = new Notification("engineMetricMBean", this, sequenceNumber++); //todo use attributenotification if not working
     sendNotification(n);
   }
 

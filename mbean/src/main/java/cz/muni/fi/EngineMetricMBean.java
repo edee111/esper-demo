@@ -4,7 +4,7 @@ package cz.muni.fi;
  * @author Eduard Tomek
  * @since 12.2.15
  */
-public interface EngineMetricMBean {
+public interface EngineMetricMBean extends MBeanInf {
 
   public long getTimestamp();
 

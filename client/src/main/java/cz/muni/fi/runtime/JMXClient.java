@@ -1,8 +1,6 @@
 package cz.muni.fi.runtime;
 
-import cz.muni.fi.CpuLoadMBean;
-import cz.muni.fi.MBeanInf;
-import cz.muni.fi.MemoryUsageMBean;
+import cz.muni.fi.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -42,8 +40,8 @@ public class JMXClient {
   }
 
   public void createMBeanProxies() {
-    createMbeanProxy(CpuLoadMBean.class, "cz.muni.fi:type=CpuLoad");
-    createMbeanProxy(MemoryUsageMBean.class, "cz.muni.fi:type=MemoryUsage");
+    createMbeanProxy(EngineMetricMBean.class, "cz.muni.fi:type=EngineMetric");
+    createMbeanProxy(StatementMetricMBean.class, "cz.muni.fi:type=StatementMetric");
   }
 
   public void createMbeanProxy(Class<? extends MBeanInf> mbeanClass, String objectName) {
