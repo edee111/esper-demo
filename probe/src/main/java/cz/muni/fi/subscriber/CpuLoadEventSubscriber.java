@@ -15,8 +15,8 @@ import java.util.Map;
 @Component
 public class CpuLoadEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
 
-  @Autowired
-  private SimpleAgent simpleAgent;
+  //@Autowired
+  //private SimpleAgent simpleAgent;
   /**
    * {@inheritDoc}
    */
@@ -33,7 +33,7 @@ public class CpuLoadEventSubscriber extends AbstractSubscriber implements Statem
     double avgLoad = eventMap.get("avgLoad");
     sb.append("avgLoad=" + avgLoad);
     log.debug(sb.toString());
-    simpleAgent.register(new CpuLoad(avgLoad, new Date()), CpuLoad.class);
+    //simpleAgent.register(new CpuLoad(avgLoad, new Date()), CpuLoad.class);
   }
 
 

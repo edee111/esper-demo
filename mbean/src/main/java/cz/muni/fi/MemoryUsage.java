@@ -8,6 +8,7 @@ import java.util.Date;
  * @author Eduard Tomek
  * @since 13.11.14
  */
+@Deprecated
 public class MemoryUsage extends MBean<MemoryUsageMBean> implements MemoryUsageMBean  {
   private long totalMemory;
 

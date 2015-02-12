@@ -23,6 +23,11 @@
       <artifactId>esper</artifactId>
       <version>5.1.0</version>
     </dependency>
+    <dependency>
+      <groupId>cz.muni.fi</groupId>
+      <artifactId>mbean</artifactId>
+      <version>${project.parent.version}</version>
+    </dependency>
 
   </dependencies>
 

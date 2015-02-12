@@ -8,7 +8,18 @@ import com.espertech.esper.client.UpdateListener;
  * @author Eduard Tomek
  * @since 11.2.15
  */
-public class StatementMetricsListener implements UpdateListener {
+public class StatementMetricListener implements UpdateListener {
+  private static StatementMetricListener instance;
+
+  private StatementMetricListener(){}
+
+  public static StatementMetricListener getInstance() {
+    if (instance == null) {
+      instance = new StatementMetricListener();
+    }
+    return instance;
+  }
+
   public void update(EventBean[] newEvents, EventBean[] oldEvents) {
     for (EventBean b : newEvents) {
       printInfo(b);

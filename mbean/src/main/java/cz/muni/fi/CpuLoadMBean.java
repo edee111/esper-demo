@@ -10,6 +10,7 @@ import java.util.Date;
  * @author Eduard Tomek
  * @since 30.10.14
  */
+@Deprecated
 public interface CpuLoadMBean extends MBeanInf {
   public Date getTimestamp();
   public void setTimestamp(Date t);

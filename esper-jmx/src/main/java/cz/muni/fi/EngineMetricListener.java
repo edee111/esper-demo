@@ -9,6 +9,17 @@ import com.sun.org.apache.xpath.internal.SourceTree;
  * @since 11.2.15
  */
 public class EngineMetricListener implements UpdateListener {
+  private static EngineMetricListener instance;
+
+  private EngineMetricListener(){}
+
+  public static EngineMetricListener getInstance() {
+    if (instance == null) {
+      instance = new EngineMetricListener();
+    }
+    return instance;
+  }
+
   public void update(EventBean[] newEvents, EventBean[] oldEvents) {
     for (EventBean b : newEvents) {
       printInfo(b);

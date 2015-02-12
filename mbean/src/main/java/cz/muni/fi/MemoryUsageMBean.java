@@ -6,6 +6,7 @@ import java.util.Date;
  * @author Eduard Tomek
  * @since 13.11.14
  */
+@Deprecated
 public interface MemoryUsageMBean extends MBeanInf {
   public Date getTimestamp();
   public void setTimestamp(Date t);

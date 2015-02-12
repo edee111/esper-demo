@@ -8,6 +8,7 @@ import java.util.Date;
  * @author Eduard Tomek
  * @since 30.10.14
  */
+@Deprecated
 public class CpuLoad extends MBean<CpuLoadMBean> implements CpuLoadMBean {
 
   private double load;

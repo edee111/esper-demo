@@ -15,8 +15,8 @@ import java.util.Map;
 @Component
 public class MemoryUsageEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
 
-  @Autowired
-  private SimpleAgent simpleAgent;
+  //@Autowired
+  //private SimpleAgent simpleAgent;
   /**
    * {@inheritDoc}
    */
@@ -35,7 +35,7 @@ public class MemoryUsageEventSubscriber extends AbstractSubscriber implements St
     sb.append("totalMemory=" + totalMemory);
     sb.append(", avgMemoryUsage=" + avgMemoryUsage);
     log.debug(sb.toString());
-    simpleAgent.register(new MemoryUsage(totalMemory, avgMemoryUsage, new Date()), MemoryUsage.class);
+    //simpleAgent.register(new MemoryUsage(totalMemory, avgMemoryUsage, new Date()), MemoryUsage.class);
   }
 
 }
