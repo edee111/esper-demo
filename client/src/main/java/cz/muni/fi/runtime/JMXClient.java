@@ -39,6 +39,7 @@ public class JMXClient {
     }
   }
 
+  //todo disconnect jmxc.close()
   public void createMBeanProxies() {
     createMbeanProxy(EngineMetricMBean.class, "cz.muni.fi:type=EngineMetric");
     createMbeanProxy(StatementMetricMBean.class, "cz.muni.fi:type=StatementMetric");

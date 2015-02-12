@@ -7,7 +7,7 @@ http://www.espertech.com/schema/esper/esper-configuration-2.0.xsd">
   <event-type-auto-name package-name="cz.muni.fi.event"/>
   <engine-settings>
     <defaults>
-      <metrics-reporting enabled="true" engine-interval="5000" statement-interval="5000" threading="true"/>
+      <metrics-reporting jmx-engine-metrics="true" enabled="true" engine-interval="5000" statement-interval="5000" threading="true"/>
     </defaults>
   </engine-settings>
 </esper-configuration>
