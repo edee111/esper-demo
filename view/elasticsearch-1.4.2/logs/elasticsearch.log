@@ -1560,3 +1560,7 @@ Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0
 	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
 	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
 	... 9 more
+[2015-02-12 20:37:24,539][INFO ][node                     ] [Shamrock] stopping ...
+[2015-02-12 20:37:25,179][INFO ][node                     ] [Shamrock] stopped
+[2015-02-12 20:37:25,179][INFO ][node                     ] [Shamrock] closing ...
+[2015-02-12 20:37:25,348][INFO ][node                     ] [Shamrock] closed
