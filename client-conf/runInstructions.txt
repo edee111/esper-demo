@@ -1,0 +1,18 @@
+1) download
+logstash 1.4.2
+elasticsearch 1.4.2
+kibana 3.1.2
+
+2) copy content of folders elasticsearch and logstash into downloaded products
+
+3) copy content of downloaded kibana into downloaded elasticsearch folder in subfolder plugins/kibana/_site
+
+4) open downloaded logstash folder and open file logstash-espmon.conf - edit value of path (3rd line) to soit your event.log location
+
+5) in downloaded logstash folder run: bin/logstash -f logstash-espmon.conf
+
+6) in downloaded elasticsearch folder run: bin/elasticsearch
+
+7) open http://localhost:9200/_plugin/kibana/index.html in your browser
+
+8) at the top and on the right side of the page click 'open' icon > advanced - use file in kibana folder > click on 'save' icon and save the dashboard > do it for all files in kibana folder
