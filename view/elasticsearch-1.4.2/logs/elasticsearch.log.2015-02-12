@@ -1,0 +1,1566 @@
+[2015-02-12 20:04:58,783][INFO ][node                     ] [Shamrock] version[1.4.2], pid[13808], build[927caff/2014-12-16T14:11:12Z]
+[2015-02-12 20:04:58,794][INFO ][node                     ] [Shamrock] initializing ...
+[2015-02-12 20:04:58,858][INFO ][plugins                  ] [Shamrock] loaded [], sites [kopf, kibana]
+[2015-02-12 20:05:03,631][INFO ][node                     ] [Shamrock] initialized
+[2015-02-12 20:05:03,631][INFO ][node                     ] [Shamrock] starting ...
+[2015-02-12 20:05:03,848][INFO ][transport                ] [Shamrock] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.0.13:9300]}
+[2015-02-12 20:05:03,921][INFO ][discovery                ] [Shamrock] elasticsearch/CYhF2WVaRGWf0pwHbFj3aQ
+[2015-02-12 20:05:07,714][INFO ][cluster.service          ] [Shamrock] new_master [Shamrock][CYhF2WVaRGWf0pwHbFj3aQ][e-Len-x][inet[/192.168.0.13:9300]], reason: zen-disco-join (elected_as_master)
+[2015-02-12 20:05:07,747][INFO ][http                     ] [Shamrock] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.0.13:9200]}
+[2015-02-12 20:05:07,747][INFO ][node                     ] [Shamrock] started
+[2015-02-12 20:05:08,768][INFO ][gateway                  ] [Shamrock] recovered [4] indices into cluster_state
+[2015-02-12 20:06:46,807][INFO ][cluster.metadata         ] [Shamrock] [logstash-2015.02.12] creating index, cause [auto(bulk api)], shards [5]/[1], mappings [_default_]
+[2015-02-12 20:06:47,811][INFO ][cluster.metadata         ] [Shamrock] [logstash-2015.02.12] update_mapping [logs] (dynamic)
+[2015-02-12 20:07:03,576][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@2f2cbe03] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423532,"to":1423768023532}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,577][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5d6f6ae9] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"10m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423419,"to":1423768023420}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,577][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5d6f6ae9] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"10m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423419,"to":1423768023420}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,577][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5d6f6ae9] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"10m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423419,"to":1423768023420}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,577][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5d6f6ae9] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"10m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423419,"to":1423768023420}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,576][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5d6f6ae9]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"10m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423419,"to":1423768023420}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,576][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@2f2cbe03] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423532,"to":1423768023532}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,586][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:07:03,583][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@2f2cbe03]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423532,"to":1423768023532}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,583][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@2f2cbe03] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423532,"to":1423768023532}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,583][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@2f2cbe03] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423532,"to":1423768023532}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,614][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:07:03,626][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@25fee847] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423585,"to":1423768023585}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,626][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@25fee847] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423585,"to":1423768023585}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,631][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@25fee847] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423585,"to":1423768023585}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,635][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@25fee847] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423585,"to":1423768023585}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,634][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@25fee847]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423585,"to":1423768023585}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,637][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:07:03,676][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1f3ad2aa] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423655,"to":1423768023655}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,677][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1f3ad2aa]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423655,"to":1423768023655}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,676][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1f3ad2aa] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423655,"to":1423768023655}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,676][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1f3ad2aa] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423655,"to":1423768023655}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:03,678][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:07:03,677][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@1f3ad2aa] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"5m"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1423746423655,"to":1423768023655}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,672][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@3a897fe9] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035656,"to":1423768035656}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,676][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6124022e] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035662,"to":1423768035662}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,675][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6124022e] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035662,"to":1423768035662}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,672][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@192cb805] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035659,"to":1423768035660}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,672][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@192cb805] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035659,"to":1423768035660}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,674][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@3a897fe9] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035656,"to":1423768035656}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,674][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@3a897fe9] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035656,"to":1423768035656}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,674][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@3a897fe9]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035656,"to":1423768035656}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,695][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:07:15,673][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@3a897fe9] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035656,"to":1423768035656}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,673][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@192cb805]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035659,"to":1423768035660}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,700][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:07:15,672][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@192cb805] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035659,"to":1423768035660}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,710][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@27cdef27] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035664,"to":1423768035664}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,719][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@27cdef27] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035664,"to":1423768035664}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,672][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@192cb805] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035659,"to":1423768035660}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,672][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6124022e] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035662,"to":1423768035662}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,730][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@27cdef27]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035664,"to":1423768035664}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,740][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:07:15,711][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@27cdef27] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035664,"to":1423768035664}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,710][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@27cdef27] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035664,"to":1423768035664}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,680][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6124022e]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035662,"to":1423768035662}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:15,752][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:07:15,679][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@6124022e] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176035662,"to":1423768035662}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,312][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7ccb7779] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075291,"to":1423768075291}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,312][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7ccb7779] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075291,"to":1423768075291}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,313][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7ccb7779] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075291,"to":1423768075291}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,313][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7ccb7779] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075291,"to":1423768075291}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,314][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7ccb7779]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"1d"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075291,"to":1423768075291}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,315][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:07:55,374][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@76541506] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075353,"to":1423768075353}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,374][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@76541506] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075353,"to":1423768075353}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,374][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@76541506] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075353,"to":1423768075353}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,374][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@76541506] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075353,"to":1423768075353}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,374][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@76541506]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"1":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075353,"to":1423768075353}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [1]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,379][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:07:55,419][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5ed5f42a] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075397,"to":1423768075397}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,420][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5ed5f42a] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075397,"to":1423768075397}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,420][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5ed5f42a]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075397,"to":1423768075397}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,420][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5ed5f42a] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075397,"to":1423768075397}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,420][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@5ed5f42a] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"2":{"date_histogram":{"key_field":"event_timestamp","value_field":"usage","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"MemoryUsage\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075397,"to":1423768075397}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [2]: (value) field [usage] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,422][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:07:55,511][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4e3c9e5c] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075484,"to":1423768075484}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,512][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4e3c9e5c] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075484,"to":1423768075484}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,514][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4e3c9e5c] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075484,"to":1423768075484}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,515][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4e3c9e5c]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075484,"to":1423768075484}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,515][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@4e3c9e5c] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"3":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176075484,"to":1423768075484}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [3]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:07:55,516][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:08:22,226][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@21e4c321] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176102203,"to":1423768102203}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:08:22,227][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@21e4c321]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176102203,"to":1423768102203}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:08:22,228][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:08:22,227][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@21e4c321] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176102203,"to":1423768102203}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:08:22,227][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@21e4c321] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176102203,"to":1423768102203}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:08:22,227][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@21e4c321] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9998/jmxrmi\" AND event_type:\"CpuLoad\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176102203,"to":1423768102203}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:09:00,811][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@613d6b63] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176140780,"to":1423768140780}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:09:00,811][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@613d6b63] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176140780,"to":1423768140780}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:09:00,811][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@613d6b63] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176140780,"to":1423768140780}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:09:00,811][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@613d6b63] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176140780,"to":1423768140780}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:09:00,811][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@613d6b63]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"load","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176140780,"to":1423768140780}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [load] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:09:00,830][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:10:03,492][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@373cb761] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176203457,"to":1423768203457}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:10:03,493][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@373cb761] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176203457,"to":1423768203457}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:10:03,493][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@373cb761] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176203457,"to":1423768203457}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:10:03,493][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@373cb761] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176203457,"to":1423768203457}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:10:03,494][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@373cb761]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176203457,"to":1423768203457}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:10:03,496][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:10:14,317][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7df3bfdc] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176214282,"to":1423768214283}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:10:14,317][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7df3bfdc] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176214282,"to":1423768214283}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:10:14,317][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7df3bfdc] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176214282,"to":1423768214283}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:10:14,318][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7df3bfdc] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176214282,"to":1423768214283}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:10:14,318][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.02.12][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@7df3bfdc]
+org.elasticsearch.search.SearchParseException: [logstash-2015.02.12][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176214282,"to":1423768214283}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:10:14,320][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:12:55,737][INFO ][cluster.metadata         ] [Shamrock] [logstash-2015.02.12] update_mapping [logs] (dynamic)
+[2015-02-12 20:13:14,491][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.01.28][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@edd402f] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176394485,"to":1423768394485}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:13:14,491][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.01.28][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@edd402f]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176394485,"to":1423768394485}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:13:14,491][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.01.28][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@edd402f] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176394485,"to":1423768394485}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:13:14,491][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.01.28][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@edd402f] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176394485,"to":1423768394485}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:13:14,491][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.01.28][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@edd402f] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176394485,"to":1423768394485}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:13:14,492][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:14:19,981][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.01.28][4], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@248f61fd] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][4]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176459976,"to":1423768459976}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:14:19,981][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.01.28][2], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@248f61fd]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][2]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176459976,"to":1423768459976}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:14:19,982][DEBUG][action.search.type       ] [Shamrock] All shards failed for phase: [query]
+[2015-02-12 20:14:19,981][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.01.28][1], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@248f61fd] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][1]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176459976,"to":1423768459976}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:14:19,981][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.01.28][0], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@248f61fd] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][0]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176459976,"to":1423768459976}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:14:19,981][DEBUG][action.search.type       ] [Shamrock] [logstash-2015.01.28][3], node[CYhF2WVaRGWf0pwHbFj3aQ], [P], s[STARTED]: Failed to execute [org.elasticsearch.action.search.SearchRequest@248f61fd] lastShard [true]
+org.elasticsearch.search.SearchParseException: [logstash-2015.01.28][3]: from[-1],size[-1]: Parse Failure [Failed to parse source [{"facets":{"0":{"date_histogram":{"key_field":"event_timestamp","value_field":"inputCount","interval":"12h"},"global":true,"facet_filter":{"fquery":{"query":{"filtered":{"query":{"query_string":{"query":"server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\""}},"filter":{"bool":{"must":[{"range":{"event_timestamp":{"from":1421176459976,"to":1423768459976}}}]}}}}}}}},"size":0}]]
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:681)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:537)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:509)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:264)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:231)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$5.call(SearchServiceTransportAction.java:228)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$23.run(SearchServiceTransportAction.java:559)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:744)
+Caused by: org.elasticsearch.search.facet.FacetPhaseExecutionException: Facet [0]: (value) field [inputCount] not found
+	at org.elasticsearch.search.facet.datehistogram.DateHistogramFacetParser.parse(DateHistogramFacetParser.java:197)
+	at org.elasticsearch.search.facet.FacetParseElement.parse(FacetParseElement.java:93)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:665)
+	... 9 more
+[2015-02-12 20:37:24,539][INFO ][node                     ] [Shamrock] stopping ...
+[2015-02-12 20:37:25,179][INFO ][node                     ] [Shamrock] stopped
+[2015-02-12 20:37:25,179][INFO ][node                     ] [Shamrock] closing ...
+[2015-02-12 20:37:25,348][INFO ][node                     ] [Shamrock] closed
