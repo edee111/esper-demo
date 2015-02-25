@@ -10,6 +10,8 @@
     <module>probe</module>
     <module>mbean</module>
     <module>esper-jmx</module>
+    <module>example-a-lot-of-events</module>
+    <module>example-a-lot-of-statements</module>
   </modules>
   <name>esper-demo</name>
 	<description>Server monitoring using the ESPER libraries.</description>
