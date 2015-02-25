@@ -48,51 +48,5 @@ public class StatementMetricListener implements UpdateListener {
     simpleAgent.register(sm, StatementMetric.class);
     sma.addNewStatementMetric(this.simpleAgent, sm);
   }
-
-  private void printInfo(EventBean b) {
-    System.out.println("printInfo: ");
-    System.out.println(b.getEventType());
-    System.out.println(b.getUnderlying());
-    String key = "timestamp";
-    System.out.println(key + ": " + b.get(key));
-    key = "statementName";
-    try {
-      System.out.println(key + ": " + b.get(key));
-    } catch (PropertyAccessException e) {
-      System.out.println(key + " is wrong");
-    }
-    key = "cpuTime";
-    try {
-      System.out.println(key + ": " + b.get(key));
-    } catch (PropertyAccessException e) {
-      System.out.println(key + " is wrong");
-    }
-    key = "wallTime";
-    try {
-      System.out.println(key + ": " + b.get(key));
-    } catch (PropertyAccessException e) {
-      System.out.println(key + " is wrong");
-    }
-    key = "numInput";
-    try {
-      System.out.println(key + ": " + b.get(key));
-    } catch (PropertyAccessException e) {
-      System.out.println(key + " is wrong");
-    }
-    key = "numOutputIStream";
-    try {
-      System.out.println(key + ": " + b.get(key));
-    } catch (PropertyAccessException e) {
-      System.out.println(key + " is wrong");
-    }
-    key = "numOutputRStream";
-    try {
-      System.out.println(key + ": " + b.get(key));
-    } catch (PropertyAccessException e) {
-      System.out.println(key + " is wrong");
-    }
-    System.out.println("-------------------");
-
-  }
 }
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class Core {
 
   @PostConstruct
   public void initialize() {
+    log.info(getInitializingMessage());
     try {
       servers = config.getServers();
     } catch (EspMonException e) {
@@ -36,15 +38,23 @@ public class Core {
 
     for (String serverUrl : servers) {
       JMXClient JMXClient = new JMXClient();
-      JMXClient.connect(serverUrl);
-      clients.add(JMXClient);
+      try {
+        JMXClient.connect(serverUrl);
+        clients.add(JMXClient);
+      } catch (IOException e) {
+        log.error("JMXClient could not connect to server " + serverUrl, e);
+      }
     }
-
   }
 
   public void run() {
     log.info(getStartingMessage());
+    if (clients.isEmpty()) {
+      log.error("No clients are connected - exiting.");
+      return;
+    }
     for (JMXClient c : clients) {
+      log.info("Creating MBean proxy for " + c.getUrl());
       c.createMBeanProxies();
     }
     listen();
@@ -54,9 +64,10 @@ public class Core {
   public void listen() {
     while (true) {
       try {
-        Thread.sleep(1000);
+        Thread.sleep(5000);
       } catch (InterruptedException e) {
         log.error("Exception while sleeping", e);
+        System.exit(1);
       }
     }
   }
@@ -68,11 +79,18 @@ public class Core {
     }
   }
 
-
   private String getStartingMessage() {
+    return getInfoMessage("STARTING");
+  }
+
+  private String getInitializingMessage() {
+    return getInfoMessage("INITIALIZING");
+  }
+
+  private String getInfoMessage(String info) {
     StringBuilder sb = new StringBuilder();
     sb.append("\n\n************************************************************");
-    sb.append("\n* STARTING *");
+    sb.append("\n* " + info + " *");
     sb.append("\n************************************************************\n");
     return sb.toString();
   }

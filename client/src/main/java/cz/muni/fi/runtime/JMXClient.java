@@ -26,15 +26,16 @@ public class JMXClient {
   private JMXConnector jmxc;
   private MBeanServerConnection mbsc;
 
-  public void connect(String jmxServiceUrl) {
-    try {
-      log.debug("Creating an RMI connector client and " +
-              "connect it to the RMI connector server " + jmxServiceUrl);
-      url = new JMXServiceURL(jmxServiceUrl);
-      jmxc = JMXConnectorFactory.connect(url, null);
-      mbsc = jmxc.getMBeanServerConnection();
-    } catch (IOException e) {
-      log.error("Unable to connect", e);
+  public void connect(String jmxServiceUrl) throws IOException {
+    log.debug("Creating an RMI connector client and " +
+            "connect it to the RMI connector server " + jmxServiceUrl);
+
+    url = new JMXServiceURL(jmxServiceUrl);
+    jmxc = JMXConnectorFactory.connect(url, null);
+    mbsc = jmxc.getMBeanServerConnection();
+
+    if (mbsc == null) {
+      throw new IOException("Connection to " + url + " was not estabilshed");
     }
   }
 
@@ -89,5 +90,9 @@ public class JMXClient {
       log.error("Unable to close JMX connector", e);
     }
     log.info("JMX connector successfully closed");
+  }
+
+  public JMXServiceURL getUrl() {
+    return url;
   }
 }

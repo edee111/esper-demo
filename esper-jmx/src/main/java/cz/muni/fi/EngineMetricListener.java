@@ -43,19 +43,4 @@ public class EngineMetricListener implements UpdateListener {
     simpleAgent.register(em, EngineMetric.class);
   }
 
-  private void printInfo(EventBean b) {
-    System.out.println("printInfo: ");
-    System.out.println(b.getEventType());
-    System.out.println(b.getUnderlying());
-    String key = "timestamp";
-    System.out.println(key + ": " + b.get(key));
-    key = "inputCount";
-    System.out.println(key + ": " + b.get(key));
-    key = "inputCountDelta";
-    System.out.println(key + ": " + b.get(key));
-    key = "scheduleDepth";
-    System.out.println(key + ": " + b.get(key));
-    System.out.println("-------------------");
-
-  }
 }
