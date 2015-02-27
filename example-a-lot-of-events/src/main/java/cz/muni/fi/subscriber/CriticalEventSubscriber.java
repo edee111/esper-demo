@@ -14,13 +14,13 @@ public class CriticalEventSubscriber extends AbstractSubscriber implements State
   /**
    * Used as the minimum starting threshold for a critical event.
    */
-  private static final String CRITICAL_EVENT_THRESHOLD = "100";
+  private static final String CRITICAL_EVENT_THRESHOLD = "70";
 
   /**
    * If the last event in a critical sequence is this much greater than the first - issue a
    * critical alert.
    */
-  private static final String CRITICAL_EVENT_MULTIPLIER = "1.5";
+  private static final String CRITICAL_EVENT_MULTIPLIER = "1.3";
 
   /**
    * {@inheritDoc}
@@ -28,7 +28,7 @@ public class CriticalEventSubscriber extends AbstractSubscriber implements State
   public String getStatement() {
 
     // Example using 'Match Recognise' syntax.
-    String crtiticalEventExpression = "select * from TemperatureEvent "
+    String crtiticalEventExpression = "select * from cz.muni.fi.event.TemperatureEvent "
             + "match_recognize ( "
             + "       measures A as temp1, B as temp2, C as temp3, D as temp4 "
             + "       pattern (A B C D) "
@@ -56,12 +56,12 @@ public class CriticalEventSubscriber extends AbstractSubscriber implements State
     TemperatureEvent temp4 = (TemperatureEvent) eventMap.get("temp4");
 
     StringBuilder sb = new StringBuilder();
-    sb.append("***************************************");
+    sb.append("\n***************************************");
     sb.append("\n* [ALERT] : CRITICAL EVENT DETECTED! ");
     sb.append("\n* " + temp1 + " > " + temp2 + " > " + temp3 + " > " + temp4);
     sb.append("\n***************************************");
 
-    log.debug(sb.toString());
+    this.log.debug(sb.toString());
   }
 
 

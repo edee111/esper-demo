@@ -15,7 +15,7 @@ public class WarningEventSubscriber extends AbstractSubscriber implements Statem
   /**
    * If 2 consecutive temperature events are greater than this - issue a warning
    */
-  private static final String WARNING_EVENT_THRESHOLD = "400";
+  private static final String WARNING_EVENT_THRESHOLD = "80";
 
 
   /**
