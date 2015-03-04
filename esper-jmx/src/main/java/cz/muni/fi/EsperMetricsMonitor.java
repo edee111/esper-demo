@@ -1,6 +1,7 @@
 package cz.muni.fi;
 
 import com.espertech.esper.client.*;
+import cz.muni.fi.jmx.SimpleAgent;
 
 /**
  * @author Eduard Tomek
@@ -50,6 +51,10 @@ public class EsperMetricsMonitor {
 
   private static String getStatementMetricStatement() {
     return "select * from com.espertech.esper.client.metric.StatementMetric";
+  }
+
+  public static void stop() throws EsperJMXException {
+    SimpleAgent.getInstance().stop();
   }
 
 }

@@ -37,12 +37,10 @@ public class TemperatureEventHandler {
   private TemperatureEventHandler() {
     log.debug("Initializing Service ..");
     Configuration config = new Configuration();
-    //config.addEventTypeAutoName("cz.muni.fi.event");
-    config.addEventType(TemperatureEvent.class);
     epService = EPServiceProviderManager.getDefaultProvider(config);
 
     createCriticalTemperatureCheckExpression();
-    //createWarningTemperatureCheckExpression();
+    createWarningTemperatureCheckExpression();
     createTemperatureMonitorExpression();
   }
 

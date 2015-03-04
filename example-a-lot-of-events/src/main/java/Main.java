@@ -15,10 +15,10 @@ import java.util.concurrent.Executors;
  */
 public class Main {
 
-  private static final int SERVER_COUNT = 1;
+  private static final int SERVER_COUNT = 1000;
 
   public static void main(String[] args) throws EsperJMXException {
-    EsperMetricsMonitor.registerEsperMetricsMonitorWithValues(5000, 5000);
+    EsperMetricsMonitor.registerEsperMetricsMonitorFromFile();
 
     ExecutorService exSvc = Executors.newFixedThreadPool(SERVER_COUNT);
 
@@ -26,15 +26,20 @@ public class Main {
       exSvc.execute(new TemperatureMonitor(i));
     }
 
+    int runInSecondsDuration = 10000;
     try {
-      Thread.sleep(20000);
+      Thread.sleep(runInSecondsDuration * 1000);
     } catch (InterruptedException e) {
       return;
     }
 
-    TemperatureMonitor.stopMonitoring();
+    stop(exSvc);
 
-    //udelat neco ve stylu sberna teplot v serverovne - vice vlaken - kazde vlakno jako jeden server chrli teplotu systemu
-    //ktere jsou eventy a bude jich hodne
+  }
+
+  private static void stop(ExecutorService exSvc) throws EsperJMXException {
+    TemperatureMonitor.stopMonitoring();
+    exSvc.shutdown();
+    EsperMetricsMonitor.stop();
   }
 }

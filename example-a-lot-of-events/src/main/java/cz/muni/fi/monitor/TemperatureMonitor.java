@@ -5,6 +5,7 @@ import cz.muni.fi.handler.TemperatureEventHandler;
 
 import java.util.Date;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author Eduard Tomek
@@ -12,9 +13,10 @@ import java.util.Random;
  */
 public class TemperatureMonitor implements Runnable {
 
-  private static boolean isMonitoringRunning = true;
+  private static AtomicBoolean isMonitoringRunning = new AtomicBoolean(true);
   private static final int TEMPERATURE_MIN = 20;
   private static final int TEMPERATURE_MAX = 100;
+  private static final int EVENT_PER_SEC_COUNT = 100;
 
   private int serverNumber;
   private TemperatureEventHandler temperatureEventHandler;
@@ -29,14 +31,19 @@ public class TemperatureMonitor implements Runnable {
   public void run() {
     Random random = new Random();
     int randomRange = TEMPERATURE_MAX - TEMPERATURE_MIN;
-    while (isMonitoringRunning) {
+    while (isMonitoringRunning.get()) {
       int temp = random.nextInt(randomRange);
       TemperatureEvent tempEve = new TemperatureEvent(TEMPERATURE_MIN + temp, new Date());
       temperatureEventHandler.handle(tempEve);
+      try {
+        Thread.sleep(1000 / EVENT_PER_SEC_COUNT);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
     }
   }
 
   public static void stopMonitoring() {
-    isMonitoringRunning = false;
+    isMonitoringRunning.set(false);
   }
 }

@@ -25,6 +25,7 @@ public class SimpleAgent {
   protected Logger log = LoggerFactory.getLogger(getClass());
 
   private MBeanServer mbs = null;
+  JMXConnectorServer cs = null;
   private Map<String, MBean> registeredMBeans = new HashMap<>();
   private static final String DEFAULT_MBEAN_SERVER_PORT = "9999";
   private static final String[] KEYS = {
@@ -75,8 +76,7 @@ public class SimpleAgent {
     log.info("Creating an RMI connector server");
     JMXServiceURL url =
         new JMXServiceURL("service:jmx:rmi:///jndi/rmi://:" + port + "/jmxrmi");
-    JMXConnectorServer cs =
-        JMXConnectorServerFactory.newJMXConnectorServer(url, env, mbs);
+    cs = JMXConnectorServerFactory.newJMXConnectorServer(url, env, mbs);
     log.info("Start the RMI connector server");
     cs.start();
   }
@@ -109,5 +109,13 @@ public class SimpleAgent {
 
   private ObjectName getObjectName(Class clazz) throws MalformedObjectNameException {
     return new ObjectName(clazz.getPackage().getName() + ":type=" + clazz.getSimpleName());
+  }
+
+  public void stop() throws EsperJMXException {
+    try {
+      cs.stop();
+    } catch (IOException e) {
+      throw new EsperJMXException("Cannot stop connection server", e);
+    }
   }
 }
