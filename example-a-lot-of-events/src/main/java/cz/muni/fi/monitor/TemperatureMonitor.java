@@ -14,16 +14,16 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class TemperatureMonitor implements Runnable {
 
   private static AtomicBoolean isMonitoringRunning = new AtomicBoolean(true);
-  private static final int TEMPERATURE_MIN = 20;
-  private static final int TEMPERATURE_MAX = 100;
-  private static final int EVENT_PER_SEC_COUNT = 100;
+  private static final int TEMPERATURE_MIN = 0;
+  private static final int TEMPERATURE_MAX = 80;
+  private static final int EVENT_PER_SEC_COUNT = 10;
 
-  private int serverNumber;
+  private String serverName;
   private TemperatureEventHandler temperatureEventHandler;
 
 
   public TemperatureMonitor(int serverNumber) {
-    this.serverNumber = serverNumber;
+    this.serverName = String.valueOf(serverNumber);
     temperatureEventHandler = TemperatureEventHandler.getInstance();
   }
 
@@ -33,7 +33,7 @@ public class TemperatureMonitor implements Runnable {
     int randomRange = TEMPERATURE_MAX - TEMPERATURE_MIN;
     while (isMonitoringRunning.get()) {
       int temp = random.nextInt(randomRange);
-      TemperatureEvent tempEve = new TemperatureEvent(TEMPERATURE_MIN + temp, new Date());
+      TemperatureEvent tempEve = new TemperatureEvent(TEMPERATURE_MIN + temp, new Date(), serverName);
       temperatureEventHandler.handle(tempEve);
       try {
         Thread.sleep(1000 / EVENT_PER_SEC_COUNT);

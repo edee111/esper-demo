@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
  */
 public class Main {
 
-  private static final int SERVER_COUNT = 1000;
+  private static final int SERVER_COUNT = 2000;
 
   public static void main(String[] args) throws EsperJMXException {
     EsperMetricsMonitor.registerEsperMetricsMonitorFromFile();

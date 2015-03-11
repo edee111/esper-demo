@@ -13,9 +13,10 @@ import java.util.Map;
 public class WarningEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
 
   /**
-   * If 2 consecutive temperature events are greater than this - issue a warning
+   * If 2 consecutive temperature events are greater than this
+   * and the second is greater than the first - issue a warning
    */
-  private static final String WARNING_EVENT_THRESHOLD = "80";
+  private static final String WARNING_EVENT_THRESHOLD = "60";
 
 
   /**
@@ -26,11 +27,12 @@ public class WarningEventSubscriber extends AbstractSubscriber implements Statem
     // Example using 'Match Recognise' syntax.
     String warningEventExpression = "select * from TemperatureEvent "
             + "match_recognize ( "
+            + "       partition by serverName "
             + "       measures A as temp1, B as temp2 "
             + "       pattern (A B) "
             + "       define "
             + "               A as A.temperature > " + WARNING_EVENT_THRESHOLD + ", "
-            + "               B as B.temperature > " + WARNING_EVENT_THRESHOLD + ")";
+            + "               B as B.temperature > " + WARNING_EVENT_THRESHOLD + " and B.temperature > A.temperature)";
 
     return warningEventExpression;
   }
@@ -46,7 +48,7 @@ public class WarningEventSubscriber extends AbstractSubscriber implements Statem
     TemperatureEvent temp2 = (TemperatureEvent) eventMap.get("temp2");
 
     StringBuilder sb = new StringBuilder();
-    sb.append("--------------------------------------------------");
+    sb.append("\n--------------------------------------------------");
     sb.append("\n- [WARNING] : TEMPERATURE SPIKE DETECTED = " + temp1 + "," + temp2);
     sb.append("\n--------------------------------------------------");
 

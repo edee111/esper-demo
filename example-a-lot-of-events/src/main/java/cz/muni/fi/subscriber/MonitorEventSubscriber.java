@@ -12,7 +12,7 @@ public class MonitorEventSubscriber extends AbstractSubscriber implements Statem
    * {@inheritDoc}
    */
   public String getStatement() {
-    return "select avg(temperature) as avg_val from TemperatureEvent.win:time_batch(5 sec)";
+    return "select avg(temperature) as avg_val from TemperatureEvent.win:time_batch(5 sec) group by serverName";
   }
 
   /**
