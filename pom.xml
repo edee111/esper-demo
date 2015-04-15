@@ -7,10 +7,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <modules>
     <module>espmon-client</module>
-    <module>probe</module>
     <module>espmon-mbean</module>
     <module>espmon-jmx</module>
-    <module>example-a-lot-of-events</module>
+    <module>example-event-representation</module>
   </modules>
   <name>espmon</name>
 	<description>Server monitoring using the ESPER libraries.</description>
