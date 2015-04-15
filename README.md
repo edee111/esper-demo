@@ -1,4 +1,4 @@
-#esper-demo
+#espmon
 
 Server monitoring system using Esper Engine for monitoring and Kibana for showing the data.
 

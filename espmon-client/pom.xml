@@ -7,7 +7,7 @@
   <artifactId>client</artifactId>
 
   <parent>
-    <artifactId>esper-demo</artifactId>
+    <artifactId>espmon</artifactId>
     <groupId>cz.muni.fi</groupId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>

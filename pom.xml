@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cz.muni.fi</groupId>
-	<artifactId>esper-demo</artifactId>
+	<artifactId>espmon</artifactId>
   <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <modules>
@@ -12,7 +12,7 @@
     <module>espmon-jmx</module>
     <module>example-a-lot-of-events</module>
   </modules>
-  <name>esper-demo</name>
+  <name>espmon</name>
 	<description>Server monitoring using the ESPER libraries.</description>
   <dependencies>
     <!-- logging api -->
