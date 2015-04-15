@@ -18,6 +18,8 @@ public class Main {
   private static final int SERVER_COUNT = 2000;
 
   public static void main(String[] args) throws EsperJMXException {
+    //example of programatic espmon-jmx setup
+    //EsperMetricsMonitor.registerEsperMetricsMonitorWithValues(5000, 5000);
     EsperMetricsMonitor.registerEsperMetricsMonitorFromFile();
 
     ExecutorService exSvc = Executors.newFixedThreadPool(SERVER_COUNT);

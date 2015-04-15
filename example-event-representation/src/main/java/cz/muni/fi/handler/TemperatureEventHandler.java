@@ -39,6 +39,9 @@ public class TemperatureEventHandler {
     Configuration config = new Configuration();
     epService = EPServiceProviderManager.getDefaultProvider(config);
 
+    //in case we dont use esper.cfg.xml file, we need to register event type programatically
+    //epService.getEPAdministrator().getConfiguration().addEventType(TemperatureEvent.class);
+
     createCriticalTemperatureCheckExpression();
     createWarningTemperatureCheckExpression();
     createTemperatureMonitorExpression();

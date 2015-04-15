@@ -10,7 +10,7 @@ import cz.muni.fi.jmx.SimpleAgent;
 public class EsperMetricsMonitor {
 
   /**
-   * Register monitoring from code
+   * Register monitoring using esper.cfg.xml file
    *
    * @throws EsperJMXException
    */
