@@ -8,10 +8,9 @@
   <modules>
     <module>espmon-client</module>
     <module>probe</module>
-    <module>mbean</module>
+    <module>espmon-mbean</module>
     <module>espmon-jmx</module>
     <module>example-a-lot-of-events</module>
-    <module>example-a-lot-of-statements</module>
   </modules>
   <name>esper-demo</name>
 	<description>Server monitoring using the ESPER libraries.</description>
