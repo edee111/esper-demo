@@ -37,7 +37,8 @@ public class TemperatureEventHandler {
     log.debug("Initializing Service ..");
     epService = EPServiceProviderManager.getDefaultProvider(config);
 
-    createCriticalTemperatureCheckExpression();
+    //todo proc nefunguje critical a warning dotazy na map a array eventech?
+    //createCriticalTemperatureCheckExpression();
     createWarningTemperatureCheckExpression();
     createTemperatureMonitorExpression();
   }
@@ -80,6 +81,17 @@ public class TemperatureEventHandler {
    */
   public static void handle(TemperatureEvent event) {
     getInstance().epService.getEPRuntime().sendEvent(event);
+  }
+
+  /**
+   * Handle the incoming TemperatureEvent.
+   */
+  public static void handle(Map<String, Object> event) {
+    getInstance().epService.getEPRuntime().sendEvent(event, TemperatureEvent.class.getSimpleName());
+  }
+
+  public static void handle(Object[] event) {
+    getInstance().epService.getEPRuntime().sendEvent(event, TemperatureEvent.class.getSimpleName());
   }
 
   public static void init(Configuration config) {

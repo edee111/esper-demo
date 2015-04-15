@@ -8,6 +8,8 @@ import cz.muni.fi.event.TemperatureEvent;
 import cz.muni.fi.handler.TemperatureEventHandler;
 import cz.muni.fi.monitor.TemperatureMonitor;
 
+import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -36,6 +38,8 @@ public class Main {
       } catch (Exception e) {}
     }
 
+    //todo hack
+    eventRepresentation = EventRepresentation.ARRAY;
     runTest(duration, eventRepresentation);
   }
 
@@ -43,24 +47,49 @@ public class Main {
     Configuration config = new Configuration();
 
     switch (repr) {
-      case POJO: setupPOJOTest(config);
+      case POJO: setupPOJOTest(config); break;
+      case MAP: setupMapTest(config); break;
+      case ARRAY: setupArrayTest(config); break;
     }
 
     EsperMetricsMonitor.registerEsperMetricsMonitorWithValues(config, 5000, 5000);
     TemperatureEventHandler.init(config);
 
-    runExecution(durationInSeconds);
+    runExecution(durationInSeconds, repr);
   }
 
   private static void setupPOJOTest(Configuration config) throws EsperJMXException {
     config.addEventType(TemperatureEvent.class);
   }
 
-  private static void runExecution(int durationInSeconds) throws EsperJMXException {
+  private static void setupMapTest(Configuration config) throws EsperJMXException {
+    Map<String, Object> def = new HashMap();
+    Field[] fields = TemperatureEvent.class.getDeclaredFields();
+    for (Field f : fields) {
+      def.put(f.getName(), f.getType());
+    }
+
+    config.addEventType(TemperatureEvent.class.getSimpleName(), def);
+  }
+
+  private static void setupArrayTest(Configuration config) throws EsperJMXException {
+    Field[] fields = TemperatureEvent.class.getDeclaredFields();
+    String[] fieldNames = new String[fields.length];
+    Object[] fieldTypes = new Object[fields.length];
+    for (int i = 0; i < fields.length; i++ ) {
+      Field f = fields[i];
+      fieldNames[i] = f.getName();
+      fieldTypes[i] = f.getType();
+    }
+
+    config.addEventType(TemperatureEvent.class.getSimpleName(), fieldNames, fieldTypes);
+  }
+
+  private static void runExecution(int durationInSeconds, EventRepresentation repr) throws EsperJMXException {
     ExecutorService exSvc = Executors.newFixedThreadPool(SERVER_COUNT);
 
     for (int i = 1; i <= SERVER_COUNT; i++) {
-      exSvc.execute(new TemperatureMonitor(i));
+      exSvc.execute(new TemperatureMonitor(i, repr));
     }
 
     try {

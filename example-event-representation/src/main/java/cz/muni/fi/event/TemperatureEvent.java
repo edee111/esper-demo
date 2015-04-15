@@ -7,8 +7,8 @@ import java.util.Date;
  * @since 27.2.15
  */
 public class TemperatureEvent {
-
-  private int temperature;
+  // note: array represented events rely on fields order
+  private Integer temperature;
   private Date timeOfReading;
   private String serverName;
 
@@ -18,13 +18,13 @@ public class TemperatureEvent {
    * @param temperature   Temperature in Celsius
    * @param timeOfReading Time of Reading
    */
-  public TemperatureEvent(int temperature, Date timeOfReading, String serverName) {
+  public TemperatureEvent(Integer temperature, Date timeOfReading, String serverName) {
     this.temperature = temperature;
     this.timeOfReading = timeOfReading;
     this.serverName = serverName;
   }
 
-  public int getTemperature() {
+  public Integer getTemperature() {
     return temperature;
   }
 

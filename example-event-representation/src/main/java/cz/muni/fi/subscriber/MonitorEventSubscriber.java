@@ -12,20 +12,21 @@ public class MonitorEventSubscriber extends AbstractSubscriber implements Statem
    * {@inheritDoc}
    */
   public String getStatement() {
-    return "select avg(temperature) as avg_val from TemperatureEvent.win:time_batch(5 sec) group by serverName";
+    return "select avg(temperature) as avg_val, serverName from TemperatureEvent.win:time_batch(5 sec) group by serverName";
   }
 
   /**
    * Listener method called when Esper has detected a pattern match.
    */
-  public void update(Map<String, Double> eventMap) {
+  public void update(Map<String, Object> eventMap) {
 
     // average temp over 10 secs
     Double avg = (Double) eventMap.get("avg_val");
+    String serverName = (String) eventMap.get("serverName");
 
     StringBuilder sb = new StringBuilder();
     sb.append("---------------------------------");
-    sb.append("\n- [MONITOR] Average Temp = " + avg);
+    sb.append("\n- [MONITOR] Server " + serverName + " average Temp = " + avg);
     sb.append("\n---------------------------------");
 
     log.debug(sb.toString());
