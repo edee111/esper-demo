@@ -2,6 +2,7 @@ package cz.muni.fi;
 
 import com.espertech.esper.client.*;
 import cz.muni.fi.jmx.SimpleAgent;
+import sun.security.krb5.Config;
 
 /**
  * @author Eduard Tomek
@@ -14,9 +15,7 @@ public class EsperMetricsMonitor {
    *
    * @throws EsperJMXException
    */
-  public static void registerEsperMetricsMonitorFromFile() throws EsperJMXException {
-    Configuration config = new Configuration();
-    config.configure(); //use esper.cfg.xml file
+  public static void registerEsperMetricsMonitorFromFile(Configuration config) throws EsperJMXException {
     doRegister(config);
   }
 
@@ -25,8 +24,7 @@ public class EsperMetricsMonitor {
    *
    * @throws EsperJMXException
    */
-  public static void registerEsperMetricsMonitorWithValues(long engineInterval, long statementInterval) throws EsperJMXException {
-    Configuration config = new Configuration();
+  public static void registerEsperMetricsMonitorWithValues(Configuration config, long engineInterval, long statementInterval) throws EsperJMXException {
     ConfigurationMetricsReporting cmr = config.getEngineDefaults().getMetricsReporting();
     cmr.setEnableMetricsReporting(true);
     cmr.setEngineInterval(engineInterval);

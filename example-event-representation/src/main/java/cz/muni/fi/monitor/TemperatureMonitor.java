@@ -24,7 +24,7 @@ public class TemperatureMonitor implements Runnable {
 
   public TemperatureMonitor(int serverNumber) {
     this.serverName = String.valueOf(serverNumber);
-    temperatureEventHandler = TemperatureEventHandler.getInstance();
+    this.temperatureEventHandler = TemperatureEventHandler.getInstance();
   }
 
   @Override

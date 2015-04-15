@@ -1,9 +1,6 @@
 package cz.muni.fi.handler;
 
-import com.espertech.esper.client.Configuration;
-import com.espertech.esper.client.EPServiceProvider;
-import com.espertech.esper.client.EPServiceProviderManager;
-import com.espertech.esper.client.EPStatement;
+import com.espertech.esper.client.*;
 import cz.muni.fi.event.TemperatureEvent;
 import cz.muni.fi.subscriber.CriticalEventSubscriber;
 import cz.muni.fi.subscriber.MonitorEventSubscriber;
@@ -11,6 +8,8 @@ import cz.muni.fi.subscriber.WarningEventSubscriber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import cz.muni.fi.subscriber.StatementSubscriber;
+
+import java.util.Map;
 
 /**
  * @author Eduard Tomek
@@ -34,13 +33,9 @@ public class TemperatureEventHandler {
   private StatementSubscriber warningEventSubscriber;
   private StatementSubscriber monitorEventSubscriber;
 
-  private TemperatureEventHandler() {
+  private TemperatureEventHandler(Configuration config) {
     log.debug("Initializing Service ..");
-    Configuration config = new Configuration();
     epService = EPServiceProviderManager.getDefaultProvider(config);
-
-    //in case we dont use esper.cfg.xml file, we need to register event type programatically
-    //epService.getEPAdministrator().getConfiguration().addEventType(TemperatureEvent.class);
 
     createCriticalTemperatureCheckExpression();
     createWarningTemperatureCheckExpression();
@@ -83,13 +78,17 @@ public class TemperatureEventHandler {
   /**
    * Handle the incoming TemperatureEvent.
    */
-  public synchronized void handle(TemperatureEvent event) {
-    epService.getEPRuntime().sendEvent(event);
+  public static void handle(TemperatureEvent event) {
+    getInstance().epService.getEPRuntime().sendEvent(event);
+  }
+
+  public static void init(Configuration config) {
+    instance = new TemperatureEventHandler(config);
   }
 
   public synchronized static TemperatureEventHandler getInstance() {
     if (instance == null) {
-      instance = new TemperatureEventHandler();
+      throw new IllegalStateException("Instance was not initialized yet");
     }
     return instance;
   }
