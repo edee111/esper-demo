@@ -4,6 +4,7 @@ package cz.muni.fi.subscriber;
 
 import cz.muni.fi.event.TemperatureEvent;
 
+import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -45,16 +46,28 @@ public class CriticalEventSubscriber extends AbstractSubscriber implements State
   /**
    * Listener method called when Esper has detected a pattern match.
    */
-  public void update(Map<String, TemperatureEvent> eventMap) {
+  public void update(Map<String, Object> eventMap) {
 
     // 1st Temperature in the Critical Sequence
-    TemperatureEvent temp1 = (TemperatureEvent) eventMap.get("temp1");
+    Object temp1 = eventMap.get("temp1");
     // 2nd Temperature in the Critical Sequence
-    TemperatureEvent temp2 = (TemperatureEvent) eventMap.get("temp2");
+    Object temp2 = eventMap.get("temp2");
     // 3rd Temperature in the Critical Sequence
-    TemperatureEvent temp3 = (TemperatureEvent) eventMap.get("temp3");
+    Object temp3 = eventMap.get("temp3");
     // 4th Temperature in the Critical Sequence
-    TemperatureEvent temp4 = (TemperatureEvent) eventMap.get("temp4");
+    Object temp4 = eventMap.get("temp4");
+
+    //when representation of events is array transform result for logging to get values instead of pointer to array
+    if (temp1 instanceof Object[] && temp2 instanceof Object[]) {
+      Object[] temp1Arr = (Object[]) temp1;
+      Object[] temp2Arr = (Object[]) temp2;
+      Object[] temp3Arr = (Object[]) temp3;
+      Object[] temp4Arr = (Object[]) temp4;
+      temp1 = Arrays.asList(temp1Arr);
+      temp2 = Arrays.asList(temp2Arr);
+      temp3 = Arrays.asList(temp3Arr);
+      temp4 = Arrays.asList(temp4Arr);
+    }
 
     StringBuilder sb = new StringBuilder();
     sb.append("\n***************************************");
@@ -64,6 +77,5 @@ public class CriticalEventSubscriber extends AbstractSubscriber implements State
 
     this.log.debug(sb.toString());
   }
-
 
 }

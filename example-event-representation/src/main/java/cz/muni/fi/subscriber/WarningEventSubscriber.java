@@ -2,8 +2,8 @@ package cz.muni.fi.subscriber;
 
 
 
-import cz.muni.fi.event.TemperatureEvent;
 
+import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -39,13 +39,24 @@ public class WarningEventSubscriber extends AbstractSubscriber implements Statem
 
   /**
    * Listener method called when Esper has detected a pattern match.
+   * Argument map values must be of type Object, because this type depends on event representation. If type
+   * of map is wrong then update method does not match and is not called by Esper.
    */
-  public void update(Map<String, TemperatureEvent> eventMap) {
+  public void update(Map<String, Object> eventMap) {
 
     // 1st Temperature in the Warning Sequence
-    TemperatureEvent temp1 = (TemperatureEvent) eventMap.get("temp1");
+    Object temp1 = eventMap.get("temp1");
     // 2nd Temperature in the Warning Sequence
-    TemperatureEvent temp2 = (TemperatureEvent) eventMap.get("temp2");
+    Object temp2 = eventMap.get("temp2");
+
+
+    //when representation of events is array transform result for logging to get values instead of pointer to array
+    if (temp1 instanceof Object[] && temp2 instanceof Object[]) {
+      Object[] temp1Arr = (Object[]) temp1;
+      Object[] temp2Arr = (Object[]) temp2;
+      temp1 = Arrays.asList(temp1Arr);
+      temp2 = Arrays.asList(temp2Arr);
+    }
 
     StringBuilder sb = new StringBuilder();
     sb.append("\n--------------------------------------------------");

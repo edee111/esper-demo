@@ -25,7 +25,7 @@ public class MonitorEventSubscriber extends AbstractSubscriber implements Statem
     String serverName = (String) eventMap.get("serverName");
 
     StringBuilder sb = new StringBuilder();
-    sb.append("---------------------------------");
+    sb.append("\n---------------------------------");
     sb.append("\n- [MONITOR] Server " + serverName + " average Temp = " + avg);
     sb.append("\n---------------------------------");
 

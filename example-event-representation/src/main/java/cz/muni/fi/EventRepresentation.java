@@ -9,7 +9,6 @@ public enum EventRepresentation {
 
     public static EventRepresentation valueOfStr(String str) {
       str = str.toUpperCase();
-      final String pojoString = POJO.name();
       switch (str) {
         case "POJO": return POJO;
         case "MAP": return MAP;

@@ -38,7 +38,7 @@ public class TemperatureEventHandler {
     epService = EPServiceProviderManager.getDefaultProvider(config);
 
     //todo proc nefunguje critical a warning dotazy na map a array eventech?
-    //createCriticalTemperatureCheckExpression();
+    createCriticalTemperatureCheckExpression();
     createWarningTemperatureCheckExpression();
     createTemperatureMonitorExpression();
   }
