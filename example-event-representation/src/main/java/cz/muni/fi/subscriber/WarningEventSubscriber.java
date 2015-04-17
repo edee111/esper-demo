@@ -3,8 +3,9 @@ package cz.muni.fi.subscriber;
 
 
 
-import java.util.Arrays;
-import java.util.Map;
+import cz.muni.fi.EventRepresentation;
+
+import java.util.*;
 
 /**
  * @author Eduard Tomek
@@ -12,12 +13,30 @@ import java.util.Map;
  */
 public class WarningEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
 
+  private TemperaturePreparationStrategy temperaturePreparationStrategy;
+
   /**
    * If 2 consecutive temperature events are greater than this
    * and the second is greater than the first - issue a warning
    */
   private static final String WARNING_EVENT_THRESHOLD = "60";
 
+  public WarningEventSubscriber(EventRepresentation repr) {
+    switch (repr) {
+      case POJO:
+        this.temperaturePreparationStrategy = new TemperaturePreparationPOJOStrategy();
+        break;
+      case MAP:
+        this.temperaturePreparationStrategy = new TemperaturePreparationMapStrategy();
+        break;
+      case ARRAY:
+        this.temperaturePreparationStrategy = new TemperaturePreparationArrayStrategy();
+        break;
+      case XML:
+        this.temperaturePreparationStrategy = new TemperaturePreparationXMLStrategy();
+        break;
+    }
+  }
 
   /**
    * {@inheritDoc}
@@ -43,24 +62,15 @@ public class WarningEventSubscriber extends AbstractSubscriber implements Statem
    * of map is wrong then update method does not match and is not called by Esper.
    */
   public void update(Map<String, Object> eventMap) {
-
-    // 1st Temperature in the Warning Sequence
     Object temp1 = eventMap.get("temp1");
-    // 2nd Temperature in the Warning Sequence
     Object temp2 = eventMap.get("temp2");
 
-
-    //when representation of events is array transform result for logging to get values instead of pointer to array
-    if (temp1 instanceof Object[] && temp2 instanceof Object[]) {
-      Object[] temp1Arr = (Object[]) temp1;
-      Object[] temp2Arr = (Object[]) temp2;
-      temp1 = Arrays.asList(temp1Arr);
-      temp2 = Arrays.asList(temp2Arr);
-    }
+    Object[] temps = {temp1, temp2};
+    temps = temperaturePreparationStrategy.prepareData(temps);
 
     StringBuilder sb = new StringBuilder();
     sb.append("\n--------------------------------------------------");
-    sb.append("\n- [WARNING] : TEMPERATURE SPIKE DETECTED = " + temp1 + "," + temp2);
+    sb.append("\n- [WARNING] : TEMPERATURE SPIKE DETECTED = " + temps[0] + "," + temps[1]);
     sb.append("\n--------------------------------------------------");
 
     log.debug(sb.toString());

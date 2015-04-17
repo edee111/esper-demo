@@ -1,6 +1,5 @@
 import com.espertech.esper.client.Configuration;
-import com.espertech.esper.client.EPServiceProvider;
-import com.espertech.esper.client.EPServiceProviderManager;
+import com.espertech.esper.client.ConfigurationEventTypeXMLDOM;
 import cz.muni.fi.EsperJMXException;
 import cz.muni.fi.EsperMetricsMonitor;
 import cz.muni.fi.EventRepresentation;
@@ -9,6 +8,7 @@ import cz.muni.fi.handler.TemperatureEventHandler;
 import cz.muni.fi.monitor.TemperatureMonitor;
 
 import java.lang.reflect.Field;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -20,9 +20,10 @@ import java.util.concurrent.Executors;
  */
 public class Main {
 
-  private static final int SERVER_COUNT = 1000;
+  private static final int SERVER_COUNT = 100;
   private static final int DEFAULT_DURATION = 3600;
   private static final EventRepresentation DEFAULT_EVENT_REPRESENTATION = EventRepresentation.POJO;
+  private static final String TEMPERATURE_EVENT_XSD_FILE_NAME = "temperature-event.xsd";
 
 
   public static void main(String[] args) throws EsperJMXException {
@@ -39,7 +40,7 @@ public class Main {
     }
 
     //todo hack
-    eventRepresentation = EventRepresentation.ARRAY;
+    eventRepresentation = EventRepresentation.XML;
     runTest(duration, eventRepresentation);
   }
 
@@ -50,10 +51,11 @@ public class Main {
       case POJO: setupPOJOTest(config); break;
       case MAP: setupMapTest(config); break;
       case ARRAY: setupArrayTest(config); break;
+      case XML: setupXMLTest(config); break;
     }
 
     EsperMetricsMonitor.registerEsperMetricsMonitorWithValues(config, 5000, 5000);
-    TemperatureEventHandler.init(config);
+    TemperatureEventHandler.init(config, repr);
 
     runExecution(durationInSeconds, repr);
   }
@@ -83,6 +85,16 @@ public class Main {
     }
 
     config.addEventType(TemperatureEvent.class.getSimpleName(), fieldNames, fieldTypes);
+  }
+
+  private static void setupXMLTest(Configuration config) throws EsperJMXException {
+    URL schemaURL = Main.class.getClassLoader().getResource(Main.TEMPERATURE_EVENT_XSD_FILE_NAME);
+
+    ConfigurationEventTypeXMLDOM tempCfg = new ConfigurationEventTypeXMLDOM();
+    tempCfg.setRootElementName(TemperatureEvent.class.getSimpleName());
+    tempCfg.setSchemaResource(schemaURL.toString());
+
+    config.addEventType(TemperatureEvent.class.getSimpleName(), tempCfg);
   }
 
   private static void runExecution(int durationInSeconds, EventRepresentation repr) throws EsperJMXException {

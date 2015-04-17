@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="TemperatureEvent">
+    <xs:complexType>
+      <xs:attribute name="temperature" type="xs:nonNegativeInteger" use="required"/>
+      <xs:attribute name="timeOfReading" type="xs:dateTime" use="required"/>
+      <xs:attribute name="serverName" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

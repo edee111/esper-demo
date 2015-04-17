@@ -1,6 +1,7 @@
 package cz.muni.fi.handler;
 
 import com.espertech.esper.client.*;
+import cz.muni.fi.EventRepresentation;
 import cz.muni.fi.event.TemperatureEvent;
 import cz.muni.fi.subscriber.CriticalEventSubscriber;
 import cz.muni.fi.subscriber.MonitorEventSubscriber;
@@ -8,6 +9,7 @@ import cz.muni.fi.subscriber.WarningEventSubscriber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import cz.muni.fi.subscriber.StatementSubscriber;
+import org.w3c.dom.Node;
 
 import java.util.Map;
 
@@ -21,58 +23,49 @@ public class TemperatureEventHandler {
 
   private static TemperatureEventHandler instance;
 
-  /**
-   * Esper service
-   */
   private EPServiceProvider epService;
-  private EPStatement criticalEventStatement;
-  private EPStatement warningEventStatement;
-  private EPStatement monitorEventStatement;
+  private EventRepresentation eventRepresentation;
 
-  private StatementSubscriber criticalEventSubscriber;
-  private StatementSubscriber warningEventSubscriber;
-  private StatementSubscriber monitorEventSubscriber;
-
-  private TemperatureEventHandler(Configuration config) {
-    log.debug("Initializing Service ..");
+  private TemperatureEventHandler(Configuration config, EventRepresentation representation) {
+    log.debug("Initializing TemperatureEventHandler ..");
     epService = EPServiceProviderManager.getDefaultProvider(config);
+    eventRepresentation = representation;
 
-    //todo proc nefunguje critical a warning dotazy na map a array eventech?
     createCriticalTemperatureCheckExpression();
     createWarningTemperatureCheckExpression();
     createTemperatureMonitorExpression();
+
+    log.debug("TemperatureEventHandler initialized");
   }
 
   /**
-   * EPL to check for a sudden critical rise across 4 events, where the last event is 1.5x greater
-   * than the first event. This is checking for a sudden, sustained escalating rise in the
-   * temperature
+   * EPL to check for a sudden critical rise across 4 events. This is checking for a sudden, sustained escalating
+   * rise in the temperature
    */
   private void createCriticalTemperatureCheckExpression() {
-    log.debug("create Critical Temperature Check Expression");
-    criticalEventSubscriber = new CriticalEventSubscriber();
-    criticalEventStatement = epService.getEPAdministrator().createEPL(criticalEventSubscriber.getStatement(), "Temperature critical statement");
+    log.debug("creating Critical Temperature Check Expression");
+    StatementSubscriber criticalEventSubscriber = new CriticalEventSubscriber(eventRepresentation);
+    EPStatement criticalEventStatement = epService.getEPAdministrator().createEPL(criticalEventSubscriber.getStatement(), "TemperatureCriticalStatement");
     criticalEventStatement.setSubscriber(criticalEventSubscriber);
   }
 
   /**
-   * EPL to check for 2 consecutive Temperature events over the threshold - if matched, will alert
-   * listener.
+   * EPL to check for 2 consecutive Temperature events over the threshold - if matched, will alert subscriber.
    */
   private void createWarningTemperatureCheckExpression() {
-    log.debug("create Warning Temperature Check Expression");
-    warningEventSubscriber = new WarningEventSubscriber();
-    warningEventStatement = epService.getEPAdministrator().createEPL(warningEventSubscriber.getStatement(), "Temperature warning statement");
+    log.debug("creating Warning Temperature Check Expression");
+    StatementSubscriber warningEventSubscriber = new WarningEventSubscriber(eventRepresentation);
+    EPStatement warningEventStatement = epService.getEPAdministrator().createEPL(warningEventSubscriber.getStatement(), "TemperatureWarningStatement");
     warningEventStatement.setSubscriber(warningEventSubscriber);
   }
 
   /**
-   * EPL to monitor the average temperature every 10 seconds. Will call listener on every event.
+   * EPL to monitor the average temperature.
    */
   private void createTemperatureMonitorExpression() {
-    log.debug("create Timed Average Monitor");
-    monitorEventSubscriber = new MonitorEventSubscriber();
-    monitorEventStatement = epService.getEPAdministrator().createEPL(monitorEventSubscriber.getStatement(), "Temperature monitor statement");
+    log.debug("creating Timed Average Monitor");
+    StatementSubscriber monitorEventSubscriber = new MonitorEventSubscriber();
+    EPStatement monitorEventStatement = epService.getEPAdministrator().createEPL(monitorEventSubscriber.getStatement(), "TemperatureMonitorStatement");
     monitorEventStatement.setSubscriber(monitorEventSubscriber);
   }
 
@@ -83,9 +76,6 @@ public class TemperatureEventHandler {
     getInstance().epService.getEPRuntime().sendEvent(event);
   }
 
-  /**
-   * Handle the incoming TemperatureEvent.
-   */
   public static void handle(Map<String, Object> event) {
     getInstance().epService.getEPRuntime().sendEvent(event, TemperatureEvent.class.getSimpleName());
   }
@@ -94,8 +84,12 @@ public class TemperatureEventHandler {
     getInstance().epService.getEPRuntime().sendEvent(event, TemperatureEvent.class.getSimpleName());
   }
 
-  public static void init(Configuration config) {
-    instance = new TemperatureEventHandler(config);
+  public static void handle(Node event) {
+    getInstance().epService.getEPRuntime().sendEvent(event);
+  }
+
+  public static void init(Configuration config, EventRepresentation representation) {
+    instance = new TemperatureEventHandler(config, representation);
   }
 
   public synchronized static TemperatureEventHandler getInstance() {
