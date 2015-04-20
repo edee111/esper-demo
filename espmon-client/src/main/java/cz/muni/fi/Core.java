@@ -60,7 +60,6 @@ public class Core {
     listen();
   }
 
-  @Deprecated //todo make it better
   public void listen() {
     while (true) {
       try {

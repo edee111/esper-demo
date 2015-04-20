@@ -39,7 +39,6 @@ public class JMXClient {
     }
   }
 
-  //todo disconnect jmxc.close()
   public void createMBeanProxies() {
     createMbeanProxy(EngineMetricMBean.class, "cz.muni.fi:type=EngineMetric");
     createMbeanProxy(StatementMetricMBean.class, "cz.muni.fi:type=StatementMetric");
@@ -70,17 +69,6 @@ public class JMXClient {
       log.error("Unable to add notification listener", e);
     }
     return;
-  }
-
-  @Deprecated //todo make it better
-  public void listen() {
-    while (true) {
-      try {
-        Thread.sleep(1000);
-      } catch (InterruptedException e) {
-        log.error("Exception while sleeping", e);
-      }
-    }
   }
 
   public void close() {
