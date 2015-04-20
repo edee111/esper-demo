@@ -11,5 +11,16 @@
 
   <artifactId>mbean</artifactId>
 
+  <properties>
+    <esper-version>5.2.0</esper-version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.espertech</groupId>
+      <artifactId>esper</artifactId>
+      <version>${esper-version}</version>
+    </dependency>
+  </dependencies>
 
 </project>

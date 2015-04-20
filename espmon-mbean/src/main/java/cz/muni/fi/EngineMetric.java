@@ -8,10 +8,19 @@ import javax.management.Notification;
  * @since 12.2.15
  */
 public class EngineMetric extends MBean<EngineMetric> implements EngineMetricMBean {
+  private String engineURI;
   private long timestamp;
   private long inputCount;
   private long inputCountDelta;
   private long scheduleDepth;
+
+  public EngineMetric(com.espertech.esper.client.metric.EngineMetric em) {
+    this.engineURI = em.getEngineURI();
+    this.timestamp = em.getTimestamp();
+    this.inputCount = em.getInputCount();
+    this.inputCountDelta = em.getInputCountDelta();
+    this.scheduleDepth = em.getScheduleDepth();
+  }
 
   @Override
   public void update(EngineMetric mBean) {
@@ -41,6 +50,7 @@ public class EngineMetric extends MBean<EngineMetric> implements EngineMetricMBe
   @Override
   public String getLogInfo() {
     StringBuilder sb = new StringBuilder();
+    //todo add engineURI
     sb.append("EngineMetric timestamp ");
     sb.append(sdf.format(timestamp));
     sb.append(" inputCount ");
@@ -50,6 +60,16 @@ public class EngineMetric extends MBean<EngineMetric> implements EngineMetricMBe
     sb.append(" scheduleDepth ");
     sb.append(scheduleDepth);
     return sb.toString();
+  }
+
+  @Override
+  public String getEngineURI() {
+    return engineURI;
+  }
+
+  @Override
+  public void setEngineURI(String engineURI) {
+    this.engineURI = engineURI;
   }
 
   @Override

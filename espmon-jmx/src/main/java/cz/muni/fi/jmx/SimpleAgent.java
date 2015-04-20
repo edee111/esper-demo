@@ -85,6 +85,7 @@ public class SimpleAgent {
 
   }
 
+  //todo pro tu musi byt eventClass argument
   public synchronized void register(MBean mBean, Class eventClass) {
     try {
       ObjectName name = getObjectName(eventClass);

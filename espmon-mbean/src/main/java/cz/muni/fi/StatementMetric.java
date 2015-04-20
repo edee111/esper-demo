@@ -16,6 +16,18 @@ public class StatementMetric extends MBean<StatementMetric> implements Statement
   private long numOutputRStream;
   private long numOutputIStream;
 
+  public StatementMetric() {}
+
+  public StatementMetric(com.espertech.esper.client.metric.StatementMetric sm) {
+    this.timestamp = sm.getTimestamp();
+    this.statementName = sm.getStatementName();
+    this.cpuTime = sm.getCpuTime();
+    this.wallTime = sm.getWallTime();
+    this.numInput = sm.getNumInput();
+    this.numOutputRStream = sm.getNumOutputRStream();
+    this.numOutputIStream = sm.getNumOutputIStream();
+  }
+
   @Override
   public void update(StatementMetric mBean) {
     updateFieldsInternal(mBean);

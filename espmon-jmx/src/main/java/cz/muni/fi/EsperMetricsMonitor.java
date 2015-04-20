@@ -2,7 +2,6 @@ package cz.muni.fi;
 
 import com.espertech.esper.client.*;
 import cz.muni.fi.jmx.SimpleAgent;
-import sun.security.krb5.Config;
 
 /**
  * @author Eduard Tomek
@@ -36,11 +35,11 @@ public class EsperMetricsMonitor {
   private static void doRegister(Configuration config) throws EsperJMXException {
     EPServiceProvider epService = EPServiceProviderManager.getDefaultProvider(config);
 
-    EPStatement epl2 = epService.getEPAdministrator().createEPL(getStatementMetricStatement(), "StatementMetricsStatement");
-    epl2.addListener(StatementMetricListener.getInstance());
+    EPStatement smEpl = epService.getEPAdministrator().createEPL(getStatementMetricStatement(), "StatementMetricsStatement");
+    smEpl.setSubscriber(StatementMetricSubscriber.getInstance());
 
-    EPStatement epl = epService.getEPAdministrator().createEPL(getEngineMetricStatement(), "EngineMetricsStatement");
-    epl.addListener(EngineMetricListener.getInstance());
+    EPStatement emEpl = epService.getEPAdministrator().createEPL(getEngineMetricStatement(), "EngineMetricsStatement");
+    emEpl.setSubscriber(EngineMetricSubscriber.getInstance());
   }
 
   private static String getEngineMetricStatement() {
