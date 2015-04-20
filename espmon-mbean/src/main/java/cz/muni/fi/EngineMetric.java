@@ -50,8 +50,10 @@ public class EngineMetric extends MBean<EngineMetric> implements EngineMetricMBe
   @Override
   public String getLogInfo() {
     StringBuilder sb = new StringBuilder();
-    //todo add engineURI
-    sb.append("EngineMetric timestamp ");
+    sb.append("EngineMetric ");
+    sb.append("engineURI ");
+    sb.append(engineURI);
+    sb.append(" timestamp ");
     sb.append(sdf.format(timestamp));
     sb.append(" inputCount ");
     sb.append(inputCount);
