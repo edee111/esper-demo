@@ -21,7 +21,7 @@ import java.util.Map;
  * @author Eduard Tomek
  * @since 30.10.14
  */
-public class SimpleAgent {
+public class SimpleJMXAgent {
   protected Logger log = LoggerFactory.getLogger(getClass());
 
   private MBeanServer mbs = null;
@@ -37,12 +37,12 @@ public class SimpleAgent {
   };
   private static final String[] KEYS_VALUE_DEFAULTS = {"", "false", "false", DEFAULT_MBEAN_SERVER_PORT, "false"};
 
-  private static SimpleAgent instance;
+  private static SimpleJMXAgent instance;
 
-  public static SimpleAgent getInstance() throws EsperJMXException {
+  public static SimpleJMXAgent getInstance() throws EsperJMXException {
     if (instance == null) {
       try {
-        instance = new SimpleAgent();
+        instance = new SimpleJMXAgent();
       } catch (IOException e) {
         throw new EsperJMXException("Cannot create JMX agent", e);
       }
@@ -50,7 +50,7 @@ public class SimpleAgent {
     return instance;
   }
 
-  private SimpleAgent() throws IOException {
+  private SimpleJMXAgent() throws IOException {
     this.mbs = ManagementFactory.getPlatformMBeanServer();
     loadJMXAgent(Integer.valueOf(DEFAULT_MBEAN_SERVER_PORT), mbs);
   }
@@ -81,14 +81,9 @@ public class SimpleAgent {
     cs.start();
   }
 
-  public void update(MBean mBean, Class eventClass) {
-
-  }
-
-  //todo pro tu musi byt eventClass argument
-  public synchronized void register(MBean mBean, Class eventClass) {
+  public synchronized void register(MBean mBean) {
     try {
-      ObjectName name = getObjectName(eventClass);
+      ObjectName name = getObjectName(mBean.getClass());
       if (mbs.isRegistered(name)) {
         MBean registeredMBean = registeredMBeans.get(mBean.getClass().getName());
         registeredMBean.update(mBean);
@@ -97,14 +92,9 @@ public class SimpleAgent {
         mbs.registerMBean(mBean, name);
         registeredMBeans.put(mBean.getClass().getName(), mBean);
       }
-    } catch (MalformedObjectNameException e) {
-      e.printStackTrace();
-    } catch (NotCompliantMBeanException e) {
-      e.printStackTrace();
-    } catch (InstanceAlreadyExistsException e) {
-      e.printStackTrace();
-    } catch (MBeanRegistrationException e) {
-      e.printStackTrace();
+    } catch (MalformedObjectNameException | NotCompliantMBeanException
+            | InstanceAlreadyExistsException | MBeanRegistrationException e) {
+      log.error("Cannot register mBean.", e);
     }
   }
 

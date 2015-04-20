@@ -1,8 +1,6 @@
 package cz.muni.fi;
 
-import cz.muni.fi.jmx.SimpleAgent;
-
-import javax.swing.plaf.nimbus.State;
+import cz.muni.fi.jmx.SimpleJMXAgent;
 
 /**
  * @author Eduard Tomek
@@ -11,7 +9,7 @@ import javax.swing.plaf.nimbus.State;
 public class StatementMetricAggregator {
   private StatementMetric aggSM;
 
-  public synchronized void addNewStatementMetric(SimpleAgent simpleAgent, StatementMetric sm) {
+  public synchronized void addNewStatementMetric(SimpleJMXAgent simpleJMXAgent, StatementMetric sm) {
     if (aggSM == null) {
       aggSM = new StatementMetric();
       updateAggSM(sm);
@@ -21,7 +19,7 @@ public class StatementMetricAggregator {
       doAggregate(sm);
     }
     else {
-      simpleAgent.register(aggSM, StatementMetric.class);
+      simpleJMXAgent.register(aggSM);
       updateAggSM(sm);
       aggSM.setStatementName("AggregatedStatements");
     }

@@ -1,7 +1,6 @@
 package cz.muni.fi;
 
-import com.espertech.esper.client.EventBean;
-import cz.muni.fi.jmx.SimpleAgent;
+import cz.muni.fi.jmx.SimpleJMXAgent;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -11,13 +10,13 @@ import org.slf4j.LoggerFactory;
 public class StatementMetricSubscriber {
   protected org.slf4j.Logger log = LoggerFactory.getLogger(getClass());
 
-  private SimpleAgent simpleAgent;
+  private SimpleJMXAgent simpleJMXAgent;
   private StatementMetricAggregator sma;
 
   private static StatementMetricSubscriber instance;
 
   private StatementMetricSubscriber() throws EsperJMXException {
-    this.simpleAgent = SimpleAgent.getInstance();
+    this.simpleJMXAgent = SimpleJMXAgent.getInstance();
     this.sma = new StatementMetricAggregator();
   }
 
@@ -30,8 +29,8 @@ public class StatementMetricSubscriber {
 
   public void update(com.espertech.esper.client.metric.StatementMetric sm) {
     StatementMetric smMBean = new StatementMetric(sm);
-    simpleAgent.register(smMBean, StatementMetric.class);
-    sma.addNewStatementMetric(this.simpleAgent, smMBean);
+    simpleJMXAgent.register(smMBean);
+    sma.addNewStatementMetric(this.simpleJMXAgent, smMBean);
   }
 }
 
