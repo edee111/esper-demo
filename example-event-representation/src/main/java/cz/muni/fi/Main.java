@@ -1,8 +1,7 @@
+package cz.muni.fi;
+
 import com.espertech.esper.client.Configuration;
 import com.espertech.esper.client.ConfigurationEventTypeXMLDOM;
-import cz.muni.fi.EsperJMXException;
-import cz.muni.fi.EsperMetricsMonitor;
-import cz.muni.fi.EventRepresentation;
 import cz.muni.fi.event.TemperatureEvent;
 import cz.muni.fi.handler.TemperatureEventHandler;
 import cz.muni.fi.monitor.TemperatureMonitor;
