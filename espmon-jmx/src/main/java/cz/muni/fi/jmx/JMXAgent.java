@@ -21,7 +21,7 @@ import java.util.Map;
  * @author Eduard Tomek
  * @since 30.10.14
  */
-public class SimpleJMXAgent {
+public class JMXAgent {
   protected Logger log = LoggerFactory.getLogger(getClass());
 
   private MBeanServer mbs = null;
@@ -37,12 +37,12 @@ public class SimpleJMXAgent {
   };
   private static final String[] KEYS_VALUE_DEFAULTS = {"", "false", "false", DEFAULT_MBEAN_SERVER_PORT, "false"};
 
-  private static SimpleJMXAgent instance;
+  private static JMXAgent instance;
 
-  public static SimpleJMXAgent getInstance() throws EsperJMXException {
+  public static JMXAgent getInstance() throws EsperJMXException {
     if (instance == null) {
       try {
-        instance = new SimpleJMXAgent();
+        instance = new JMXAgent();
       } catch (IOException e) {
         throw new EsperJMXException("Cannot create JMX agent", e);
       }
@@ -50,7 +50,7 @@ public class SimpleJMXAgent {
     return instance;
   }
 
-  private SimpleJMXAgent() throws IOException {
+  private JMXAgent() throws IOException {
     this.mbs = ManagementFactory.getPlatformMBeanServer();
     loadJMXAgent(Integer.valueOf(DEFAULT_MBEAN_SERVER_PORT), mbs);
   }

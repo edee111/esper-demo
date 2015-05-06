@@ -1,6 +1,6 @@
 package cz.muni.fi;
 
-import cz.muni.fi.jmx.SimpleJMXAgent;
+import cz.muni.fi.jmx.JMXAgent;
 
 /**
  * @author Eduard Tomek
@@ -9,19 +9,22 @@ import cz.muni.fi.jmx.SimpleJMXAgent;
 public class StatementMetricAggregator {
   private StatementMetric aggSM;
 
-  public synchronized void addNewStatementMetric(SimpleJMXAgent simpleJMXAgent, StatementMetric sm) {
-    if (aggSM == null) {
-      aggSM = new StatementMetric();
-      updateAggSM(sm);
-      aggSM.setStatementName("AggregatedStatements");
-    }
-    else if (aggSM.getTimestamp() == sm.getTimestamp()) {
+  private JMXAgent jmxAgent;
+
+  public StatementMetricAggregator(JMXAgent jmxAgent) {
+    this.jmxAgent = jmxAgent;
+    this.aggSM = new StatementMetric();
+    this.aggSM.setStatementName("TotalStatementMetrics");
+  }
+
+  public synchronized void addNewStatementMetric(StatementMetric sm) {
+    boolean metricIsFromTheSameInterval = aggSM.getTimestamp() == sm.getTimestamp();
+    if (metricIsFromTheSameInterval) {
       doAggregate(sm);
     }
     else {
-      simpleJMXAgent.register(aggSM);
-      updateAggSM(sm);
-      aggSM.setStatementName("AggregatedStatements");
+      jmxAgent.register(aggSM);
+      initAggSM(sm);
     }
   }
 
@@ -33,7 +36,7 @@ public class StatementMetricAggregator {
     this.aggSM.setNumOutputRStream(this.aggSM.getNumOutputRStream() + sm.getNumOutputRStream());
   }
 
-  private synchronized void updateAggSM(StatementMetric sm) {
+  private synchronized void initAggSM(StatementMetric sm) {
     aggSM.setTimestamp(sm.getTimestamp());
     aggSM.setCpuTime(sm.getCpuTime());
     aggSM.setWallTime(sm.getWallTime());

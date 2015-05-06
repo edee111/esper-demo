@@ -1,7 +1,7 @@
 package cz.muni.fi;
 
 import com.espertech.esper.client.*;
-import cz.muni.fi.jmx.SimpleJMXAgent;
+import cz.muni.fi.jmx.JMXAgent;
 
 /**
  * @author Eduard Tomek
@@ -51,7 +51,7 @@ public class EsperMetricsMonitor {
   }
 
   public static void stop() throws EsperJMXException {
-    SimpleJMXAgent.getInstance().stop();
+    JMXAgent.getInstance().stop();
   }
 
 }

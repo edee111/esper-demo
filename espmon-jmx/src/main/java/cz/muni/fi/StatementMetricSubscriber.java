@@ -1,6 +1,6 @@
 package cz.muni.fi;
 
-import cz.muni.fi.jmx.SimpleJMXAgent;
+import cz.muni.fi.jmx.JMXAgent;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -10,14 +10,14 @@ import org.slf4j.LoggerFactory;
 public class StatementMetricSubscriber {
   protected org.slf4j.Logger log = LoggerFactory.getLogger(getClass());
 
-  private SimpleJMXAgent simpleJMXAgent;
+  private JMXAgent jmxAgent;
   private StatementMetricAggregator sma;
 
   private static StatementMetricSubscriber instance;
 
   private StatementMetricSubscriber() throws EsperJMXException {
-    this.simpleJMXAgent = SimpleJMXAgent.getInstance();
-    this.sma = new StatementMetricAggregator();
+    this.jmxAgent = JMXAgent.getInstance();
+    this.sma = new StatementMetricAggregator(jmxAgent);
   }
 
   public static StatementMetricSubscriber getInstance() throws EsperJMXException {
@@ -29,8 +29,8 @@ public class StatementMetricSubscriber {
 
   public void update(com.espertech.esper.client.metric.StatementMetric sm) {
     StatementMetric smMBean = new StatementMetric(sm);
-    simpleJMXAgent.register(smMBean);
-    sma.addNewStatementMetric(this.simpleJMXAgent, smMBean);
+    jmxAgent.register(smMBean);
+    sma.addNewStatementMetric(smMBean);
   }
 }
 
