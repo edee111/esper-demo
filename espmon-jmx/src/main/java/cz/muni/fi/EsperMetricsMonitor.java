@@ -10,29 +10,26 @@ import cz.muni.fi.jmx.JMXAgent;
 public class EsperMetricsMonitor {
 
   /**
-   * Register monitoring using esper.cfg.xml file
+   * Enable metric monitoring
    *
-   * @throws EsperJMXException
+   * @throws EspmonJMXException
    */
-  public static void registerEsperMetricsMonitorFromFile(Configuration config) throws EsperJMXException {
-    doRegister(config);
-  }
-
-  /**
-   * Register monitoring from values
-   *
-   * @throws EsperJMXException
-   */
-  public static void registerEsperMetricsMonitorWithValues(Configuration config, long engineInterval, long statementInterval) throws EsperJMXException {
+  public static void enableEsperMetricsMonitoring(Configuration config, long engineInterval, long statementInterval) throws EspmonJMXException {
     ConfigurationMetricsReporting cmr = config.getEngineDefaults().getMetricsReporting();
     cmr.setEnableMetricsReporting(true);
     cmr.setEngineInterval(engineInterval);
     cmr.setStatementInterval(statementInterval);
     cmr.setThreading(true);
-    doRegister(config);
+    doEnable(config);
   }
 
-  private static void doRegister(Configuration config) throws EsperJMXException {
+  /**
+   * Create engine and statement metrics EPL's and set them subscribers
+   *
+   * @param config
+   * @throws EspmonJMXException
+   */
+  private static void doEnable(Configuration config) throws EspmonJMXException {
     EPServiceProvider epService = EPServiceProviderManager.getDefaultProvider(config);
 
     EPStatement smEpl = epService.getEPAdministrator().createEPL(getStatementMetricStatement(), "StatementMetricsStatement");
@@ -50,7 +47,7 @@ public class EsperMetricsMonitor {
     return "select * from com.espertech.esper.client.metric.StatementMetric";
   }
 
-  public static void stop() throws EsperJMXException {
+  public static void stop() throws EspmonJMXException {
     JMXAgent.getInstance().stop();
   }
 

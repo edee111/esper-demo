@@ -2,7 +2,7 @@ package cz.muni.fi.jmx;
 
 
 
-import cz.muni.fi.EsperJMXException;
+import cz.muni.fi.EspmonJMXException;
 import cz.muni.fi.MBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * JMX agent for publishing MBeans
+ *
  * @author Eduard Tomek
  * @since 30.10.14
  */
@@ -28,23 +30,25 @@ public class JMXAgent {
   JMXConnectorServer cs = null;
   private Map<String, MBean> registeredMBeans = new HashMap<>();
   private static final String DEFAULT_MBEAN_SERVER_PORT = "9999";
-  private static final String[] KEYS = {
+
+  //environment properties for enabling jmx support
+  private static final String[] ENV_PROPS_KEYS = {
       "com.sun.management.jmxremote.",
       "com.sun.management.jmxremote.ssl",
       "com.sun.management.jmxremote.authenticate",
       "com.sun.management.jmxremote.port",
       "com.sun.management.jmxremote.local.only",
   };
-  private static final String[] KEYS_VALUE_DEFAULTS = {"", "false", "false", DEFAULT_MBEAN_SERVER_PORT, "false"};
+  private static final String[] ENV_PROPS_VALUE_DEFAULTS = {"", "false", "false", DEFAULT_MBEAN_SERVER_PORT, "false"};
 
   private static JMXAgent instance;
 
-  public static JMXAgent getInstance() throws EsperJMXException {
+  public static JMXAgent getInstance() throws EspmonJMXException {
     if (instance == null) {
       try {
         instance = new JMXAgent();
       } catch (IOException e) {
-        throw new EsperJMXException("Cannot create JMX agent", e);
+        throw new EspmonJMXException("Cannot create JMX agent", e);
       }
     }
     return instance;
@@ -64,25 +68,33 @@ public class JMXAgent {
    * @throws IOException
    */
   public void loadJMXAgent(int port, MBeanServer mbs) throws IOException {
+
+    log.info("Initializing the environment map");
     LocateRegistry.createRegistry(port);
     Map<String, Object> env = new HashMap<>();
-    log.info("Initializing the environment map");
-    for (int i = 0; i < KEYS.length; i++) {
-      if (System.getProperty(KEYS[i]) == null) {
-        env.put(KEYS[i], KEYS_VALUE_DEFAULTS[i]);
+    for (int i = 0; i < ENV_PROPS_KEYS.length; i++) {
+      if (System.getProperty(ENV_PROPS_KEYS[i]) == null) {
+        env.put(ENV_PROPS_KEYS[i], ENV_PROPS_VALUE_DEFAULTS[i]);
       }
     }
 
     log.info("Creating an RMI connector server");
-    JMXServiceURL url =
-        new JMXServiceURL("service:jmx:rmi:///jndi/rmi://:" + port + "/jmxrmi");
+    JMXServiceURL url = new JMXServiceURL("service:jmx:rmi:///jndi/rmi://:" + port + "/jmxrmi");
     cs = JMXConnectorServerFactory.newJMXConnectorServer(url, env, mbs);
-    log.info("Start the RMI connector server");
+
+    log.info("Starting the RMI connector server");
     cs.start();
   }
 
+  /**
+   * Register MBean on MBean server.
+   * If MBean of the given type is already registered update its state.
+   *
+   * @param mBean MBean to be registered
+   */
   public synchronized void register(MBean mBean) {
     try {
+
       ObjectName name = getObjectName(mBean.getClass());
       if (mbs.isRegistered(name)) {
         MBean registeredMBean = registeredMBeans.get(mBean.getClass().getName());
@@ -92,9 +104,12 @@ public class JMXAgent {
         mbs.registerMBean(mBean, name);
         registeredMBeans.put(mBean.getClass().getName(), mBean);
       }
-    } catch (MalformedObjectNameException | NotCompliantMBeanException
-            | InstanceAlreadyExistsException | MBeanRegistrationException e) {
-      log.error("Cannot register mBean.", e);
+
+    } catch (MalformedObjectNameException
+            | NotCompliantMBeanException
+            | InstanceAlreadyExistsException
+            | MBeanRegistrationException e) {
+      log.error("Cannot register MBean." + mBean.getLogInfo(), e);
     }
   }
 
@@ -102,11 +117,11 @@ public class JMXAgent {
     return new ObjectName(clazz.getPackage().getName() + ":type=" + clazz.getSimpleName());
   }
 
-  public void stop() throws EsperJMXException {
+  public void stop() throws EspmonJMXException {
     try {
       cs.stop();
     } catch (IOException e) {
-      throw new EsperJMXException("Cannot stop connection server", e);
+      throw new EspmonJMXException("Cannot stop JMX connector server", e);
     }
   }
 }

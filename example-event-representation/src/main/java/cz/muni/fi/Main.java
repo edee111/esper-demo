@@ -25,7 +25,7 @@ public class Main {
   private static final String TEMPERATURE_EVENT_XSD_FILE_NAME = "temperature-event.xsd";
 
 
-  public static void main(String[] args) throws EsperJMXException {
+  public static void main(String[] args) throws EspmonJMXException {
     EventRepresentation eventRepresentation = DEFAULT_EVENT_REPRESENTATION;
     int duration = DEFAULT_DURATION;
 
@@ -43,7 +43,7 @@ public class Main {
     runTest(duration, eventRepresentation);
   }
 
-  private static void runTest(int durationInSeconds, EventRepresentation repr) throws EsperJMXException {
+  private static void runTest(int durationInSeconds, EventRepresentation repr) throws EspmonJMXException {
     Configuration config = new Configuration();
 
     switch (repr) {
@@ -53,17 +53,17 @@ public class Main {
       case XML: setupXMLTest(config); break;
     }
 
-    EsperMetricsMonitor.registerEsperMetricsMonitorWithValues(config, 5000, 5000);
+    EsperMetricsMonitor.enableEsperMetricsMonitoring(config, 5000, 5000);
     TemperatureEventHandler.init(config, repr);
 
     runExecution(durationInSeconds, repr);
   }
 
-  private static void setupPOJOTest(Configuration config) throws EsperJMXException {
+  private static void setupPOJOTest(Configuration config) throws EspmonJMXException {
     config.addEventType(TemperatureEvent.class);
   }
 
-  private static void setupMapTest(Configuration config) throws EsperJMXException {
+  private static void setupMapTest(Configuration config) throws EspmonJMXException {
     Map<String, Object> def = new HashMap();
     Field[] fields = TemperatureEvent.class.getDeclaredFields();
     for (Field f : fields) {
@@ -73,7 +73,7 @@ public class Main {
     config.addEventType(TemperatureEvent.class.getSimpleName(), def);
   }
 
-  private static void setupArrayTest(Configuration config) throws EsperJMXException {
+  private static void setupArrayTest(Configuration config) throws EspmonJMXException {
     Field[] fields = TemperatureEvent.class.getDeclaredFields();
     String[] fieldNames = new String[fields.length];
     Object[] fieldTypes = new Object[fields.length];
@@ -86,7 +86,7 @@ public class Main {
     config.addEventType(TemperatureEvent.class.getSimpleName(), fieldNames, fieldTypes);
   }
 
-  private static void setupXMLTest(Configuration config) throws EsperJMXException {
+  private static void setupXMLTest(Configuration config) throws EspmonJMXException {
     URL schemaURL = Main.class.getClassLoader().getResource(Main.TEMPERATURE_EVENT_XSD_FILE_NAME);
 
     ConfigurationEventTypeXMLDOM tempCfg = new ConfigurationEventTypeXMLDOM();
@@ -96,7 +96,7 @@ public class Main {
     config.addEventType(TemperatureEvent.class.getSimpleName(), tempCfg);
   }
 
-  private static void runExecution(int durationInSeconds, EventRepresentation repr) throws EsperJMXException {
+  private static void runExecution(int durationInSeconds, EventRepresentation repr) throws EspmonJMXException {
     ExecutorService exSvc = Executors.newFixedThreadPool(SERVER_COUNT);
 
     for (int i = 1; i <= SERVER_COUNT; i++) {
@@ -112,7 +112,7 @@ public class Main {
     stop(exSvc);
   }
 
-  private static void stop(ExecutorService exSvc) throws EsperJMXException {
+  private static void stop(ExecutorService exSvc) throws EspmonJMXException {
     TemperatureMonitor.stopMonitoring();
     exSvc.shutdown();
     EsperMetricsMonitor.stop();

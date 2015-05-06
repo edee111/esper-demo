@@ -15,18 +15,23 @@ public class StatementMetricSubscriber {
 
   private static StatementMetricSubscriber instance;
 
-  private StatementMetricSubscriber() throws EsperJMXException {
+  private StatementMetricSubscriber() throws EspmonJMXException {
     this.jmxAgent = JMXAgent.getInstance();
     this.sma = new StatementMetricAggregator(jmxAgent);
   }
 
-  public static StatementMetricSubscriber getInstance() throws EsperJMXException {
+  public static StatementMetricSubscriber getInstance() throws EspmonJMXException {
     if (instance == null) {
       instance = new StatementMetricSubscriber();
     }
     return instance;
   }
 
+  /**
+   * Update method called by Esper engine.
+   *
+   * @param sm passed statement metric event
+   */
   public void update(com.espertech.esper.client.metric.StatementMetric sm) {
     StatementMetric smMBean = new StatementMetric(sm);
     jmxAgent.register(smMBean);
