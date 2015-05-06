@@ -12,6 +12,8 @@ import javax.management.remote.JMXServiceURL;
 import java.text.SimpleDateFormat;
 
 /**
+ * Listener for MBean proxies to handle notifications.
+ *
  * @author Eduard Tomek
  * @since 27.11.14
  */
@@ -24,30 +26,19 @@ public class ClientListener implements NotificationListener {
     this.url = url;
   }
 
-  public void handleNotification(Notification notification,
-                                 Object handback) {
-
-    echo("\nReceived notification:");
-    echo("\tClassName: " + notification.getClass().getName());
-    echo("\tSource: " + notification.getSource());
-    echo("\tType: " + notification.getType());
-    echo("\tMessage: " + notification.getMessage());
+  @Override
+  public void handleNotification(Notification notification, Object handback) {
     if (notification instanceof AttributeChangeNotification) {
-      AttributeChangeNotification acn =
-              (AttributeChangeNotification) notification;
-      echo("\tAttributeName: " + acn.getAttributeName());
-      echo("\tAttributeType: " + acn.getAttributeType());
-      echo("\tNewValue: " + acn.getNewValue());
-      echo("\tOldValue: " + acn.getOldValue());
-
+      AttributeChangeNotification acn = (AttributeChangeNotification) notification;
       logNotification(acn);
     }
   }
 
-  private static void echo(String msg) {
-    //System.out.println(msg);
-  }
-
+  /**
+   * Log MBean state
+   *
+   * @param acn nofitication
+   */
   private void logNotification(AttributeChangeNotification acn) {
     Object newValue = acn.getNewValue();
     if (newValue instanceof MBean) {

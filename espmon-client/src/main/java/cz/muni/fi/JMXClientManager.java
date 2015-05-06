@@ -1,11 +1,10 @@
 package cz.muni.fi;
 
-import cz.muni.fi.config.EspMonConfig;
+import cz.muni.fi.config.EspMonClientConfig;
 import cz.muni.fi.runtime.JMXClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -15,14 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Core class for managing JMX clients
+ *
  * @author Eduard Tomek
  * @since 27.11.14
  */
 @Component
-public class Core {
+public class JMXClientManager {
   private final Logger log = LoggerFactory.getLogger(getClass());
   @Autowired
-  private EspMonConfig config;
+  private EspMonClientConfig config;
 
   private List<String> servers = new ArrayList<>();
   private List<JMXClient> clients = new ArrayList<>();
@@ -32,7 +33,7 @@ public class Core {
     log.info(getInitializingMessage());
     try {
       servers = config.getServers();
-    } catch (EspMonException e) {
+    } catch (EspmonClientException e) {
       log.error("Server configuration load failed", e);
     }
 
@@ -47,6 +48,9 @@ public class Core {
     }
   }
 
+  /**
+   * Create connections and listen to MBeans
+   */
   public void run() {
     log.info(getStartingMessage());
     if (clients.isEmpty()) {

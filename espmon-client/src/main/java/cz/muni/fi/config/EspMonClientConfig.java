@@ -1,6 +1,6 @@
 package cz.muni.fi.config;
 
-import cz.muni.fi.EspMonException;
+import cz.muni.fi.EspmonClientException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,20 +11,29 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.annotation.PostConstruct;
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Class for configuration management of espmon-client
+ *
  * @author Eduard Tomek
  * @since 6.2.15
  */
 @Component
-public class EspMonConfig {
+public class EspMonClientConfig {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
@@ -42,6 +51,8 @@ public class EspMonConfig {
   private final String ELEMENT_SERVER = "server";
   private final String ATTRIBUTE_URI = "uri";
 
+  private final String FILE_ESPMON_XSD_SCHEMA = "espmon.xsd";
+
   @PostConstruct
   public void init() {
     PATH_ESPMON_HOME_CONF = ESPMON_HOME + FILE_SEPARATOR + DIR_CONF;
@@ -49,14 +60,23 @@ public class EspMonConfig {
     PATH_ESPMON_XML = PATH_ESPMON_HOME_CONF + FILE_SEPARATOR + FILE_ESPMON_XML;
   }
 
-  public List<String> getServers() throws EspMonException {
+  /**
+   * Get list of JMX server URI's from configuration file
+   *
+   * @return list of server URI's
+   * @throws cz.muni.fi.EspmonClientException if configuration file doesn't exist or is not well formed
+   */
+  public List<String> getServers() throws EspmonClientException {
+    log.info("Aquiring servers from config.");
     DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
     Document doc = null;
+    File configFile = new File(PATH_ESPMON_XML);
+    validateConfigFile(configFile);
     try {
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        doc = dBuilder.parse(new File(PATH_ESPMON_XML));
+        doc = dBuilder.parse(configFile);
     } catch (SAXException | IOException | ParserConfigurationException e) {
-        throw new EspMonException("Cannot aquire server config file", e);
+        throw new EspmonClientException("Cannot aquire server config file", e);
     }
 
     List<String> serverNames = new ArrayList<>();
@@ -71,5 +91,28 @@ public class EspMonConfig {
 
   public String getLogbackXmlPath() {
     return PATH_LOGBACK_XML;
+  }
+
+  /**
+   * Validate config file to XSD schema
+   *
+   * @param configFile config file
+   * @throws cz.muni.fi.EspmonClientException if config file is not valid
+   */
+  private void validateConfigFile(File configFile) throws EspmonClientException {
+    Source xmlFile = new StreamSource(configFile);
+    URL xsdSchemaUrl = this.getClass().getClassLoader().getResource(FILE_ESPMON_XSD_SCHEMA);
+    SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+
+    try {
+      Schema schema = schemaFactory.newSchema(xsdSchemaUrl);
+      Validator validator = schema.newValidator();
+      validator.validate(xmlFile);
+    } catch (IOException | SAXException e) {
+      log.error("EspMon config file is not valid");
+      throw new EspmonClientException("EspMon config file is not valid to schema.", e);
+    }
+
+    log.info("Validation of espmon client config file was successful.");
   }
 }

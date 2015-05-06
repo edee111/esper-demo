@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.*;
 
 /**
+ * JMX client for connecting to JMX servers and reading their registerd MBeans
+ *
  * @author Eduard Tomek
  * @since 17.12.14
  */
@@ -26,6 +28,12 @@ public class JMXClient {
   private JMXConnector jmxc;
   private MBeanServerConnection mbsc;
 
+  /**
+   * Connect to JMX service on given url and init JMXClient
+   *
+   * @param jmxServiceUrl JMX service url
+   * @throws IOException if connection to given url cannot be established
+   */
   public void connect(String jmxServiceUrl) throws IOException {
     log.debug("Creating an RMI connector client and " +
             "connect it to the RMI connector server " + jmxServiceUrl);
@@ -40,11 +48,17 @@ public class JMXClient {
   }
 
   public void createMBeanProxies() {
-    createMbeanProxy(EngineMetricMBean.class, "cz.muni.fi:type=EngineMetric");
-    createMbeanProxy(StatementMetricMBean.class, "cz.muni.fi:type=StatementMetric");
+    createMBeanProxy(EngineMetricMBean.class, "cz.muni.fi:type=EngineMetric");
+    createMBeanProxy(StatementMetricMBean.class, "cz.muni.fi:type=StatementMetric");
   }
 
-  public void createMbeanProxy(Class<? extends MBeanInf> mbeanClass, String objectName) {
+  /**
+   * Create MBean progy for given MBean class with given object name and add notification listener to it
+   *
+   * @param mbeanClass MBean class
+   * @param objectName object name
+   */
+  public void createMBeanProxy(Class<? extends MBeanInf> mbeanClass, String objectName) {
     ObjectName mbeanName = null;
     try {
       mbeanName = new ObjectName(objectName);
@@ -61,6 +75,12 @@ public class JMXClient {
   }
 
 
+  /**
+   * Add notification listener to given MBean name
+   *
+   * @param mBeanName MBean name
+   * @param listener notification listener
+   */
   public void createMBeanNotificationListener(ObjectName mBeanName, NotificationListener listener) {
     log.debug("Adding notification listener for JMXClient " + url.getURLPath());
     try {
@@ -68,9 +88,11 @@ public class JMXClient {
     } catch (InstanceNotFoundException | IOException e) {
       log.error("Unable to add notification listener", e);
     }
-    return;
   }
 
+  /**
+   * Close JMX client and all its connections
+   */
   public void close() {
     try {
       jmxc.close();
