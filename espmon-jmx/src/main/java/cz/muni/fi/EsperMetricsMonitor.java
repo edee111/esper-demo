@@ -33,10 +33,10 @@ public class EsperMetricsMonitor {
     EPServiceProvider epService = EPServiceProviderManager.getDefaultProvider(config);
 
     EPStatement smEpl = epService.getEPAdministrator().createEPL(getStatementMetricStatement(), "StatementMetricsStatement");
-    smEpl.setSubscriber(StatementMetricSubscriber.getInstance());
+    smEpl.setSubscriber(new StatementMetricSubscriber());
 
     EPStatement emEpl = epService.getEPAdministrator().createEPL(getEngineMetricStatement(), "EngineMetricsStatement");
-    emEpl.setSubscriber(EngineMetricSubscriber.getInstance());
+    emEpl.setSubscriber(new EngineMetricSubscriber());
   }
 
   private static String getEngineMetricStatement() {

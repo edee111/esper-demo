@@ -43,12 +43,12 @@ public class JMXAgent {
 
   private static JMXAgent instance;
 
-  public static JMXAgent getInstance() throws EspmonJMXException {
+  public static JMXAgent getInstance() {
     if (instance == null) {
       try {
         instance = new JMXAgent();
       } catch (IOException e) {
-        throw new EspmonJMXException("Cannot create JMX agent", e);
+        LoggerFactory.getLogger(JMXAgent.class).error("Cannot create JMX agent", e);
       }
     }
     return instance;

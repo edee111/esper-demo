@@ -11,15 +11,12 @@ import cz.muni.fi.jmx.JMXAgent;
 public class StatementMetricAggregator {
 
   private StatementMetric aggSM;
-  private JMXAgent jmxAgent;
+  private JMXAgent jmxAgent = JMXAgent.getInstance();
 
   /**
    * Create class instance and init aggregated statement metric
-   *
-   * @param jmxAgent jmx agent
    */
-  public StatementMetricAggregator(JMXAgent jmxAgent) {
-    this.jmxAgent = jmxAgent;
+  public StatementMetricAggregator() {
     this.aggSM = new StatementMetric();
     this.aggSM.setStatementName("TotalStatementMetrics");
   }
@@ -30,7 +27,7 @@ public class StatementMetricAggregator {
    *
    * @param sm statement metric to aggregate
    */
-  public synchronized void addNewStatementMetric(StatementMetric sm) {
+  public synchronized void addStatementMetric(StatementMetric sm) {
     boolean metricIsFromTheSameInterval = aggSM.getTimestamp() == sm.getTimestamp();
     if (metricIsFromTheSameInterval) {
       doAggregate(sm);

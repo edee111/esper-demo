@@ -3,24 +3,13 @@ package cz.muni.fi;
 import cz.muni.fi.jmx.JMXAgent;
 
 /**
+ * Class subscribing engine metric event
+ *
  * @author Eduard Tomek
  * @since 11.2.15
  */
 public class EngineMetricSubscriber {
-  private JMXAgent jmxAgent;
-
-  private static EngineMetricSubscriber instance;
-
-  private EngineMetricSubscriber() throws EspmonJMXException {
-    this.jmxAgent = jmxAgent.getInstance();
-  }
-
-  public static EngineMetricSubscriber getInstance() throws EspmonJMXException {
-    if (instance == null) {
-      instance = new EngineMetricSubscriber();
-    }
-    return instance;
-  }
+  private JMXAgent jmxAgent = JMXAgent.getInstance();
 
   /**
    * Update method called by Esper engine.
