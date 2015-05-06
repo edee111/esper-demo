@@ -47,7 +47,7 @@ public class EsperMetricsMonitor {
     return "select * from com.espertech.esper.client.metric.StatementMetric";
   }
 
-  public static void stop() throws EspmonJMXException {
+  public static void stopEsperMetricsMonitoring() throws EspmonJMXException {
     JMXAgent.getInstance().stop();
   }
 

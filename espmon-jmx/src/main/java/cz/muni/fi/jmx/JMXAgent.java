@@ -67,7 +67,7 @@ public class JMXAgent {
    * @param mbs mBean server
    * @throws IOException
    */
-  public void loadJMXAgent(int port, MBeanServer mbs) throws IOException {
+  private void loadJMXAgent(int port, MBeanServer mbs) throws IOException {
 
     log.info("Initializing the environment map");
     LocateRegistry.createRegistry(port);
@@ -120,8 +120,9 @@ public class JMXAgent {
   public void stop() throws EspmonJMXException {
     try {
       cs.stop();
+      instance = null;
     } catch (IOException e) {
-      throw new EspmonJMXException("Cannot stop JMX connector server", e);
+      throw new EspmonJMXException("Cannot stopEsperMetricsMonitoring JMX connector server", e);
     }
   }
 }

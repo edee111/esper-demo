@@ -115,6 +115,6 @@ public class Main {
   private static void stop(ExecutorService exSvc) throws EspmonJMXException {
     TemperatureMonitor.stopMonitoring();
     exSvc.shutdown();
-    EsperMetricsMonitor.stop();
+    EsperMetricsMonitor.stopEsperMetricsMonitoring();
   }
 }
