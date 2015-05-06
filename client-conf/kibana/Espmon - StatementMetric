@@ -10,7 +10,7 @@
           "pin": false,
           "type": "lucene",
           "enable": true,
-          "query": "server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"StatementMetric\" AND statement_name:\"AggregatedStatements\""
+          "query": "server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"StatementMetric\" AND statement_name:\"TotalStatementMetrics\""
         }
       },
       "ids": [
@@ -510,6 +510,7 @@
       "query": "*",
       "pinned": true,
       "history": [
+        "server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"StatementMetric\" AND statement_name:\"TotalStatementMetrics\"",
         "server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"StatementMetric\" AND statement_name:\"AggregatedStatements\"",
         "server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"StatementMetric\"",
         "server:\"service:jmx:rmi:///jndi/rmi://:9999/jmxrmi\" AND event_type:\"EngineMetric\"",
@@ -578,5 +579,5 @@
     "load_local": true,
     "hide": false
   },
-  "refresh": false
+  "refresh": "10s"
 }
