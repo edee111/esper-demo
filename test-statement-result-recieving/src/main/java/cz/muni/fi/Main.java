@@ -1,8 +1,11 @@
 package cz.muni.fi;
 
 import com.espertech.esper.client.Configuration;
+import cz.muni.fi.event.TemperatureEvent;
+import cz.muni.fi.handler.TemperatureEventHandler;
 import cz.muni.fi.monitor.TemperatureMonitor;
 
+import java.lang.reflect.Field;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -33,11 +36,14 @@ public class Main {
 
   private static void runTest(int durationInSeconds) throws EspmonJMXException {
     Configuration config = new Configuration();
-
+    registerEventType(config);
     EsperMetricsMonitor.enableEsperMetricsMonitoring(config, 5000, 5000);
-    //TemperatureEventHandler.init(config, repr);
+    ResultRecievingType type = ResultRecievingType.SUBSCRIBER; //todo listener is not listening
 
-    //runExecution(durationInSeconds);
+
+    TemperatureEventHandler.init(config, type);
+
+    runExecution(durationInSeconds);
   }
 
   private static void runExecution(int durationInSeconds) throws EspmonJMXException {
@@ -54,6 +60,19 @@ public class Main {
     }
 
     stop(exSvc);
+  }
+
+  private static void registerEventType(Configuration config) throws EspmonJMXException {
+    Field[] fields = TemperatureEvent.class.getDeclaredFields();
+    String[] fieldNames = new String[fields.length];
+    Object[] fieldTypes = new Object[fields.length];
+    for (int i = 0; i < fields.length; i++ ) {
+      Field f = fields[i];
+      fieldNames[i] = f.getName();
+      fieldTypes[i] = f.getType();
+    }
+
+    config.addEventType(TemperatureEvent.class.getSimpleName(), fieldNames, fieldTypes);
   }
 
   private static void stop(ExecutorService exSvc) throws EspmonJMXException {

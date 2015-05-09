@@ -7,17 +7,14 @@ import java.util.Map;
  * @author Eduard Tomek
  * @since 27.2.15
  */
-public class MonitorEventSubscriber extends BaseSubscriber implements StatementSubscriber {
-  /**
-   * {@inheritDoc}
-   */
+public class MonitorEventSubscriber extends BaseSubscriber {
+
+  @Override
   public String getStatement() {
     return "select avg(temperature) as avg_val, serverName from TemperatureEvent.win:time_batch(5 sec) group by serverName";
   }
 
-  /**
-   * Listener method called when Esper has detected a pattern match.
-   */
+  @Override
   public void update(Map<String, Object> eventMap) {
 
     // average temp over 10 secs

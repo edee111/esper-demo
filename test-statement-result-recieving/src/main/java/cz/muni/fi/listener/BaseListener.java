@@ -13,10 +13,9 @@ import java.util.Map;
  * @author Eduard Tomek
  * @since 9.5.15
  */
-public abstract class AbstractListener implements UpdateListener {
+public abstract class BaseListener implements UpdateListener, StatementListener {
 
   protected BaseSubscriber baseSubscriber;
-
 
   @Override
   public void update(EventBean[] newEvents, EventBean[] oldEvents) {
@@ -25,12 +24,17 @@ public abstract class AbstractListener implements UpdateListener {
     }
 
     EventBean b = newEvents[0];
-    Map<String, Object> eventMap = new HashMap<>(3);
+    Map<String, Object> eventMap = new HashMap<>(TemperatureEvent.class.getDeclaredFields().length);
     Field[] fields = TemperatureEvent.class.getDeclaredFields();
     for (Field f : fields) {
       eventMap.put(f.getName(), b.get(f.getName()));
     }
 
     baseSubscriber.update(eventMap);
+  }
+
+  @Override
+  public String getStatement() {
+    return baseSubscriber.getStatement();
   }
 }

@@ -7,7 +7,7 @@ import java.util.Map;
  * @author Eduard Tomek
  * @since 27.2.15
  */
-public class WarningEventSubscriber extends BaseSubscriber implements StatementSubscriber {
+public class WarningEventSubscriber extends BaseSubscriber {
 
 
   /**
@@ -16,10 +16,7 @@ public class WarningEventSubscriber extends BaseSubscriber implements StatementS
    */
   private static final String WARNING_EVENT_THRESHOLD = "60";
 
-
-  /**
-   * {@inheritDoc}
-   */
+  @Override
   public String getStatement() {
 
     // Example using 'Match Recognise' syntax.
@@ -35,11 +32,7 @@ public class WarningEventSubscriber extends BaseSubscriber implements StatementS
     return warningEventExpression;
   }
 
-  /**
-   * Listener method called when Esper has detected a pattern match.
-   * Argument map values must be of type Object, because this type depends on event representation. If type
-   * of map is wrong then update method does not match and is not called by Esper.
-   */
+  @Override
   public void update(Map<String, Object> eventMap) {
     Object temp1 = eventMap.get("temp1");
     Object temp2 = eventMap.get("temp2");
