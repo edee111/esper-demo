@@ -7,7 +7,7 @@ import java.util.Map;
  * @author Eduard Tomek
  * @since 27.2.15
  */
-public class WarningEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
+public class WarningEventSubscriber extends BaseSubscriber implements StatementSubscriber {
 
 
   /**

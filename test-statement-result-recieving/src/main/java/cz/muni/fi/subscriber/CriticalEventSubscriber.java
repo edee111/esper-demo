@@ -8,7 +8,7 @@ import java.util.Map;
  * @author Eduard Tomek
  * @since 27.2.15
  */
-public class CriticalEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
+public class CriticalEventSubscriber extends BaseSubscriber implements StatementSubscriber {
   /**
    * Used as the minimum starting threshold for a critical event.
    */

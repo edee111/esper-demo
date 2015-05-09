@@ -7,7 +7,7 @@ import java.util.Map;
  * @author Eduard Tomek
  * @since 27.2.15
  */
-public class MonitorEventSubscriber extends AbstractSubscriber implements StatementSubscriber {
+public class MonitorEventSubscriber extends BaseSubscriber implements StatementSubscriber {
   /**
    * {@inheritDoc}
    */
