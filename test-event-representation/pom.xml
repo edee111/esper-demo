@@ -55,7 +55,7 @@
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
-          <finalName>repr-example</finalName>
+          <finalName>test-representation</finalName>
           <appendAssemblyId>false</appendAssemblyId>
         </configuration>
       </plugin>

@@ -13,7 +13,7 @@ public class SendPOJOEventStrategy implements SendEventStrategy {
 
   @Override
   public void sendTemperatureEvent(Integer temp, Date date, String serverName) {
-    TemperatureEvent tempEve = new TemperatureEvent(temp, new Date(), serverName);
+    TemperatureEvent tempEve = new TemperatureEvent(temp, date, serverName);
     TemperatureEventHandler.handle(tempEve);
   }
 }

@@ -15,7 +15,7 @@ public class SendMapEventStrategy implements SendEventStrategy {
   public void sendTemperatureEvent(Integer temp, Date date, String serverName) {
     HashMap<String, Object> mapEvent = new HashMap();
     mapEvent.put("temperature", temp);
-    mapEvent.put("timeOfReading", new Date());
+    mapEvent.put("timeOfReading", date);
     mapEvent.put("serverName", serverName);
 
     TemperatureEventHandler.handle(mapEvent);

@@ -31,7 +31,7 @@ public class SendXMLEventStrategy implements SendEventStrategy {
 
   @Override
   public void sendTemperatureEvent(Integer temp, Date date, String serverName) {
-    String xmlString = String.format(XML_EVENT_FORMAT, temp, sdfISO8601.format(new Date()), serverName);
+    String xmlString = String.format(XML_EVENT_FORMAT, temp, sdfISO8601.format(date), serverName);
     try {
       DocumentBuilder builder = DBF.newDocumentBuilder();
       Document eventNode = builder.parse(new InputSource(new StringReader(xmlString)));

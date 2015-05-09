@@ -12,7 +12,7 @@ public class SendArrayEventStrategy  implements SendEventStrategy {
 
   @Override
   public void sendTemperatureEvent(Integer temp, Date date, String serverName) {
-    Object[] event = {temp, new Date(), serverName};
+    Object[] event = {temp, date, serverName};
     TemperatureEventHandler.handle(event);
   }
 }
