@@ -9,7 +9,7 @@
     <module>espmon-client</module>
     <module>espmon-mbean</module>
     <module>espmon-jmx</module>
-    <module>example-event-representation</module>
+    <module>test-event-representation</module>
   </modules>
   <name>espmon</name>
 	<description>Server monitoring using the ESPER libraries.</description>
