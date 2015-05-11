@@ -1,5 +1,6 @@
 package cz.muni.fi;
 
+import cz.muni.fi.espmon.StatementMetric;
 import cz.muni.fi.jmx.JMXAgent;
 
 /**

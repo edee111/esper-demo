@@ -1,4 +1,4 @@
-package cz.muni.fi;
+package cz.muni.fi.espmon;
 
 import javax.management.AttributeChangeNotification;
 import javax.management.MBeanNotificationInfo;

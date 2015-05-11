@@ -3,7 +3,7 @@ package cz.muni.fi.jmx;
 
 
 import cz.muni.fi.EspmonJMXException;
-import cz.muni.fi.MBean;
+import cz.muni.fi.espmon.MBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,7 +1,6 @@
 package cz.muni.fi.runtime;
 
-import cz.muni.fi.MBean;
-import cz.muni.fi.MemoryUsage;
+import cz.muni.fi.espmon.MBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,7 +8,6 @@ import javax.management.AttributeChangeNotification;
 import javax.management.Notification;
 import javax.management.NotificationListener;
 import javax.management.remote.JMXServiceURL;
-import java.text.SimpleDateFormat;
 
 /**
  * Listener for MBean proxies to handle notifications.
