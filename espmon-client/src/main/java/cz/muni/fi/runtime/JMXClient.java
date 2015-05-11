@@ -18,7 +18,6 @@ import java.util.*;
  * @author Eduard Tomek
  * @since 17.12.14
  */
-@Component
 public class JMXClient {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
