@@ -1,8 +1,6 @@
 package cz.muni.fi.runtime;
 
-import cz.muni.fi.espmon.EngineMetricMBean;
-import cz.muni.fi.espmon.MBeanInf;
-import cz.muni.fi.espmon.StatementMetricMBean;
+import cz.muni.fi.espmon.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -50,8 +48,8 @@ public class JMXClient {
   }
 
   public void createMBeanProxies() {
-    createMBeanProxy(EngineMetricMBean.class, "cz.muni.fi:type=EngineMetric");
-    createMBeanProxy(StatementMetricMBean.class, "cz.muni.fi:type=StatementMetric");
+    createMBeanProxy(EngineMetricMBean.class, getObjectName(EngineMetric.class));
+    createMBeanProxy(StatementMetricMBean.class, getObjectName(StatementMetric.class));
   }
 
   /**
@@ -90,6 +88,10 @@ public class JMXClient {
     } catch (InstanceNotFoundException | IOException e) {
       log.error("Unable to add notification listener", e);
     }
+  }
+
+  private String getObjectName(Class clazz) {
+    return clazz.getPackage().getName() + ":type=" + clazz.getSimpleName();
   }
 
   /**
