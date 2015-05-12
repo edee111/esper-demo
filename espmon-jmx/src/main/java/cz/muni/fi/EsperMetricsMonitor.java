@@ -9,17 +9,24 @@ import cz.muni.fi.jmx.JMXAgent;
  */
 public class EsperMetricsMonitor {
 
+  public static void enableEsperMetricsMonitoring(Configuration config, long engineInterval, long statementInterval) throws EspmonJMXException {
+    enableEsperMetricsMonitoring(config, engineInterval, statementInterval, null);
+  }
+
   /**
    * Enable metric monitoring
    *
    * @throws EspmonJMXException
    */
-  public static void enableEsperMetricsMonitoring(Configuration config, long engineInterval, long statementInterval) throws EspmonJMXException {
+  public static void enableEsperMetricsMonitoring(Configuration config, long engineInterval, long statementInterval, Integer port) throws EspmonJMXException {
     ConfigurationMetricsReporting cmr = config.getEngineDefaults().getMetricsReporting();
     cmr.setEnableMetricsReporting(true);
     cmr.setEngineInterval(engineInterval);
     cmr.setStatementInterval(statementInterval);
     cmr.setThreading(true);
+    if (port != null) {
+      JMXAgent.setMBeanServerPort(port);
+    }
     doEnable(config);
   }
 

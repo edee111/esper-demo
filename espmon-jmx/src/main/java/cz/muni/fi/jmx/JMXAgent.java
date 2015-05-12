@@ -29,17 +29,9 @@ public class JMXAgent {
   private MBeanServer mbs = null;
   JMXConnectorServer cs = null;
   private Map<String, MBean> registeredMBeans = new HashMap<>();
-  private static final String DEFAULT_MBEAN_SERVER_PORT = "9999";
+  private static int mbeanServerPort = 9999;
 
-  //environment properties for enabling jmx support
-  private static final String[] ENV_PROPS_KEYS = {
-      "com.sun.management.jmxremote.",
-      "com.sun.management.jmxremote.ssl",
-      "com.sun.management.jmxremote.authenticate",
-      "com.sun.management.jmxremote.port",
-      "com.sun.management.jmxremote.local.only",
-  };
-  private static final String[] ENV_PROPS_VALUE_DEFAULTS = {"", "false", "false", DEFAULT_MBEAN_SERVER_PORT, "false"};
+  private static final String JMXREMOTE_CLASS = "com.sun.management.jmxremote";
 
   private static JMXAgent instance;
 
@@ -54,9 +46,27 @@ public class JMXAgent {
     return instance;
   }
 
+  public static void setMBeanServerPort(int port) {
+    mbeanServerPort = port;
+  }
+
+  /**
+   * @return Environment properties which will use connector server
+   */
+  private static Map<String, String> createEnvProps() {
+    Map<String, String> props = new HashMap<>();
+    props.put("com.sun.management.jmxremote", "");
+    props.put("com.sun.management.jmxremote.ssl", "false");
+    props.put("com.sun.management.jmxremote.authenticate", "false");
+    props.put("com.sun.management.jmxremote.port", String.valueOf(mbeanServerPort));
+    props.put("com.sun.management.jmxremote.local.only", "false");
+
+    return props;
+  }
+
   private JMXAgent() throws IOException {
     this.mbs = ManagementFactory.getPlatformMBeanServer();
-    loadJMXAgent(Integer.valueOf(DEFAULT_MBEAN_SERVER_PORT), mbs);
+    loadJMXAgent(Integer.valueOf(mbeanServerPort), mbs);
   }
 
   /**
@@ -69,18 +79,31 @@ public class JMXAgent {
    */
   private void loadJMXAgent(int port, MBeanServer mbs) throws IOException {
 
-    log.info("Initializing the environment map");
-    LocateRegistry.createRegistry(port);
-    Map<String, Object> env = new HashMap<>();
-    for (int i = 0; i < ENV_PROPS_KEYS.length; i++) {
-      if (System.getProperty(ENV_PROPS_KEYS[i]) == null) {
-        env.put(ENV_PROPS_KEYS[i], ENV_PROPS_VALUE_DEFAULTS[i]);
+    for (String p : System.getProperties().stringPropertyNames()) {
+      if (p.toLowerCase().contains(JMXREMOTE_CLASS)) {
+        log.info("Found jmx remote related property " + p +
+                ". Program will use only system properties (port, remoting, ssl)");
+        return;
       }
     }
 
+    createCustomConnectorServer(port, mbs);
+  }
+
+  /**
+   * Create custom connector server and register here MBean server
+   *
+   * @param port port of connector server
+   * @param mbs MBean server
+   * @throws IOException
+   */
+  private void createCustomConnectorServer(int port, MBeanServer mbs) throws IOException {
+    log.info("Initializing the environment map");
+    LocateRegistry.createRegistry(port);
+
     log.info("Creating an RMI connector server");
     JMXServiceURL url = new JMXServiceURL("service:jmx:rmi:///jndi/rmi://:" + port + "/jmxrmi");
-    cs = JMXConnectorServerFactory.newJMXConnectorServer(url, env, mbs);
+    cs = JMXConnectorServerFactory.newJMXConnectorServer(url, createEnvProps(), mbs);
 
     log.info("Starting the RMI connector server");
     cs.start();
@@ -119,10 +142,12 @@ public class JMXAgent {
 
   public void stop() throws EspmonJMXException {
     try {
-      cs.stop();
+      if (cs != null) {
+        cs.stop();
+      }
       instance = null;
     } catch (IOException e) {
-      throw new EspmonJMXException("Cannot stopEsperMetricsMonitoring JMX connector server", e);
+      throw new EspmonJMXException("Cannot stop EsperMetricsMonitoring JMX connector server", e);
     }
   }
 }
