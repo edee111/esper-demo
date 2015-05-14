@@ -11,6 +11,7 @@
     <module>espmon-jmx</module>
     <module>test-event-representation</module>
     <module>test-statement-result-recieving</module>
+    <module>example</module>
   </modules>
   <name>espmon</name>
 	<description>Server monitoring using the ESPER libraries.</description>
