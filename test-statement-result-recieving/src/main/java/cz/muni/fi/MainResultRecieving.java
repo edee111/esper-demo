@@ -13,7 +13,7 @@ import java.util.concurrent.Executors;
  * @author Eduard Tomek
  * @since 9.5.15
  */
-public class Main {
+public class MainResultRecieving {
   private static final int SERVER_COUNT = 100;
   private static final int DEFAULT_DURATION = 3600;
   private static final String TEMPERATURE_EVENT_XSD_FILE_NAME = "temperature-event.xsd";

@@ -49,7 +49,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>cz.muni.fi.Main</mainClass>
+              <mainClass>cz.muni.fi.MainResultRecieving</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
