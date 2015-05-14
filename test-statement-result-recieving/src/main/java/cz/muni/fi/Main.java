@@ -37,6 +37,16 @@ public class Main {
   private static void runTest(int durationInSeconds) throws EspmonJMXException {
     Configuration config = new Configuration();
     registerEventType(config);
+
+    /*
+     * Not all statements may report metrics: The engine performs certain runtime optimizations sharing resources
+     * between similar statements, thereby not reporting on certain statements unless resource sharing
+     * is disabled through configuration.
+     * Esper refference 16.4.12.1.
+     * We want real statement metrics results for purpose of this test. Optimization disabled.
+     */
+    config.getEngineDefaults().getViewResources().setShareViews(false);
+
     EsperMetricsMonitor.enableEsperMetricsMonitoring(config, 5000, 5000);
     ResultRecievingType type = ResultRecievingType.SUBSCRIBER; //todo listener is not listening
 
