@@ -28,22 +28,22 @@ public class Main {
   public static void main(String[] args) throws EspmonJMXException {
     EventRepresentation eventRepresentation = DEFAULT_EVENT_REPRESENTATION;
     int duration = DEFAULT_DURATION;
+    Integer portNumber = null;
 
-    if (args.length == 2) {
-      try {
+    if (args.length >= 2) {
         duration = Integer.valueOf(args[0]);
-      } catch (Exception e) {}
       try {
         eventRepresentation = EventRepresentation.valueOfStr(args[1]);
       } catch (Exception e) {}
     }
+    if (args.length == 3) {
+      portNumber = Integer.valueOf(args[2]);
+    }
 
-    //todo hack
-    eventRepresentation = EventRepresentation.XML;
-    runTest(duration, eventRepresentation);
+    runTest(duration, eventRepresentation, portNumber);
   }
 
-  private static void runTest(int durationInSeconds, EventRepresentation repr) throws EspmonJMXException {
+  private static void runTest(int durationInSeconds, EventRepresentation repr, Integer portNumber) throws EspmonJMXException {
     Configuration config = new Configuration();
 
     switch (repr) {
@@ -53,7 +53,7 @@ public class Main {
       case XML: setupXMLTest(config); break;
     }
 
-    EsperMetricsMonitor.enableEsperMetricsMonitoring(config, 5000, 5000);
+    EsperMetricsMonitor.enableEsperMetricsMonitoring(config, 5000, 5000, portNumber);
     TemperatureEventHandler.init(config, repr);
 
     runExecution(durationInSeconds, repr);
