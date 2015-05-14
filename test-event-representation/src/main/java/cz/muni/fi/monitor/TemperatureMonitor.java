@@ -45,12 +45,13 @@ public class TemperatureMonitor implements Runnable {
   public void run() {
     Random random = new Random();
     int randomRange = TEMPERATURE_MAX - TEMPERATURE_MIN;
+    int sleepTime = 1000 / EVENT_PER_SEC_COUNT;
     while (isMonitoringRunning.get()) {
       int temp = random.nextInt(randomRange);
       sendTemperatureEvent(TEMPERATURE_MIN + temp);
 
       try {
-        Thread.sleep(1000 / EVENT_PER_SEC_COUNT);
+        Thread.sleep(sleepTime);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
