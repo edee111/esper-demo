@@ -414,7 +414,7 @@
               3
             ]
           },
-          "title": "Total WallTime on service:jmx:rmi:///jndi/rmi://:9999/jmxrmi",
+          "title": "Total WallTime on localhost:9999",
           "intervals": [
             "auto",
             "1s",
