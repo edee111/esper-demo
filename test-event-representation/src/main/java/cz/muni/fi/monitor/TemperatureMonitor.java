@@ -23,19 +23,21 @@ public class TemperatureMonitor implements Runnable {
 
   public TemperatureMonitor(int serverNumber, EventRepresentation repr) {
     this.serverName = String.valueOf(serverNumber);
-    switch (repr) {
-      case POJO:
-        this.sendEventStrat = new SendPOJOEventStrategy();
-        break;
-      case MAP:
-        this.sendEventStrat = new SendMapEventStrategy();
-        break;
-      case ARRAY:
-        this.sendEventStrat = new SendArrayEventStrategy();
-        break;
-      case XML:
-        this.sendEventStrat = new SendXMLEventStrategy();
-        break;
+    synchronized (repr) {
+      switch (repr) {
+        case POJO:
+          this.sendEventStrat = new SendPOJOEventStrategy();
+          break;
+        case MAP:
+          this.sendEventStrat = new SendMapEventStrategy();
+          break;
+        case ARRAY:
+          this.sendEventStrat = new SendArrayEventStrategy();
+          break;
+        case XML:
+          this.sendEventStrat = new SendXMLEventStrategy();
+          break;
+      }
     }
   }
 
