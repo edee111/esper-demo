@@ -21,16 +21,16 @@ Tím se spustí 4 Esper servery s testy v 40, 20, 10 a 1 vlákně na portech 999
 ###Spuštění test-event-representation:
 java -Xmx16m -jar example/target/test-representation.jar 3600 POJO 9999
 
-java -Xmx16m -jar example/target/test-representation.jar 3600 MAP 9998
+java -Xmx16m -jar test-event-representation/target/test-representation.jar 3600 MAP 9998
 
-java -Xmx16m -jar example/target/test-representation.jar 3600 ARRAY 9997
+java -Xmx16m -jar test-event-representation/target/test-representation.jar 3600 ARRAY 9997
 
-java -Xmx16m -jar example/target/test-representation.jar 3600 XML 9996
+java -Xmx16m -jar test-event-representation/target/test-representation.jar 3600 XML 9996
 
-###Spuštění test-event-representation:
-java -Xmx16m -jar example/target/test-representation.jar 3600 LISTENER 9999
+###Spuštění test-statement-result-recieving:
+java -Xmx16m -jar test-statement-result-recieving/target/test-recieving.jar 3600 LISTENER 9999
 
-java -Xmx16m -jar example/target/test-representation.jar 3600 SUBSCRIBER 9998
+java -Xmx16m -jar test-statement-result-recieving/target/test-recieving.jar 3600 SUBSCRIBER 9998
 
 ##Spuštění klienta (sbírá výkonostní statistiky ze spuštěných Esper instancí):
 ###Konfigurace:
