@@ -2,5 +2,8 @@
 <config>
   <servers>
     <server uri="service:jmx:rmi:///jndi/rmi://:9999/jmxrmi"></server>
+    <server uri="service:jmx:rmi:///jndi/rmi://:9998/jmxrmi"></server>
+    <server uri="service:jmx:rmi:///jndi/rmi://:9997/jmxrmi"></server>
+    <server uri="service:jmx:rmi:///jndi/rmi://:9996/jmxrmi"></server>
   </servers>
 </config>
