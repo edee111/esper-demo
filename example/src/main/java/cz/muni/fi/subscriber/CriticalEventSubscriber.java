@@ -40,7 +40,7 @@ public class CriticalEventSubscriber extends AbstractSubscriber implements State
   }
 
   /**
-   * Listener method called when Esper has detected a pattern match.
+   * Subscriber method called when Esper has detected a pattern match.
    */
   public void update(Map<String, Object> eventMap) {
     Object temp1 = eventMap.get("temp1");

@@ -16,7 +16,7 @@ public class MonitorEventSubscriber extends AbstractSubscriber implements Statem
   }
 
   /**
-   * Listener method called when Esper has detected a pattern match.
+   * Subscriber method called when Esper has detected a pattern match.
    */
   public void update(Map<String, Object> eventMap) {
 

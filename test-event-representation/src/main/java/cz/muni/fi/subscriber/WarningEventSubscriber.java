@@ -57,7 +57,7 @@ public class WarningEventSubscriber extends AbstractSubscriber implements Statem
   }
 
   /**
-   * Listener method called when Esper has detected a pattern match.
+   * Subscriber method called when Esper has detected a pattern match.
    * Argument map values must be of type Object, because this type depends on event representation. If type
    * of map is wrong then update method does not match and is not called by Esper.
    */
