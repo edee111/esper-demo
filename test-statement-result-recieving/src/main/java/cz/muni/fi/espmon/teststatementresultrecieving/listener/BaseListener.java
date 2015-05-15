@@ -1,12 +1,10 @@
-package cz.muni.fi.listener;
+package cz.muni.fi.espmon.teststatementresultrecieving.listener;
 
 import com.espertech.esper.client.EventBean;
-import com.espertech.esper.client.StatementAwareUpdateListener;
 import com.espertech.esper.client.UpdateListener;
-import cz.muni.fi.event.TemperatureEvent;
-import cz.muni.fi.subscriber.BaseSubscriber;
+import cz.muni.fi.espmon.teststatementresultrecieving.event.TemperatureEvent;
+import cz.muni.fi.espmon.teststatementresultrecieving.subscriber.BaseSubscriber;
 
-import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 

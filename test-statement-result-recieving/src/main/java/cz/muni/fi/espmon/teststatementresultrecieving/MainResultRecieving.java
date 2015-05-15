@@ -1,11 +1,11 @@
-package cz.muni.fi;
+package cz.muni.fi.espmon.teststatementresultrecieving;
 
 import com.espertech.esper.client.Configuration;
 import cz.muni.fi.espmonjmx.EsperMetricsMonitor;
 import cz.muni.fi.espmonjmx.EspmonJMXException;
-import cz.muni.fi.event.TemperatureEvent;
-import cz.muni.fi.handler.TemperatureEventHandler;
-import cz.muni.fi.monitor.TemperatureMonitor;
+import cz.muni.fi.espmon.teststatementresultrecieving.event.TemperatureEvent;
+import cz.muni.fi.espmon.teststatementresultrecieving.handler.TemperatureEventHandler;
+import cz.muni.fi.espmon.teststatementresultrecieving.monitor.TemperatureMonitor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,6 +1,5 @@
-package cz.muni.fi.subscriber;
+package cz.muni.fi.espmon.teststatementresultrecieving.subscriber;
 
-import com.espertech.esper.client.EventBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,6 +1,6 @@
-package cz.muni.fi.monitor;
+package cz.muni.fi.espmon.teststatementresultrecieving.monitor;
 
-import cz.muni.fi.handler.TemperatureEventHandler;
+import cz.muni.fi.espmon.teststatementresultrecieving.handler.TemperatureEventHandler;
 
 import java.util.Date;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package cz.muni.fi.listener;
+package cz.muni.fi.espmon.teststatementresultrecieving.listener;
 
 /**
  * @author Eduard Tomek

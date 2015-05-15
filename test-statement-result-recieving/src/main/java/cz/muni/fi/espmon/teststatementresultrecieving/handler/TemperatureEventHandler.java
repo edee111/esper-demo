@@ -1,18 +1,15 @@
-package cz.muni.fi.handler;
+package cz.muni.fi.espmon.teststatementresultrecieving.handler;
 
 import com.espertech.esper.client.Configuration;
 import com.espertech.esper.client.EPServiceProvider;
 import com.espertech.esper.client.EPServiceProviderManager;
 import com.espertech.esper.client.EPStatement;
-import cz.muni.fi.ResultRecievingType;
-import cz.muni.fi.event.TemperatureEvent;
-import cz.muni.fi.listener.*;
-import cz.muni.fi.subscriber.*;
+import cz.muni.fi.espmon.teststatementresultrecieving.ResultRecievingType;
+import cz.muni.fi.espmon.teststatementresultrecieving.event.TemperatureEvent;
+import cz.muni.fi.espmon.teststatementresultrecieving.listener.*;
+import cz.muni.fi.espmon.teststatementresultrecieving.subscriber.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Node;
-
-import java.util.Map;
 
 /**
  * @author Eduard Tomek

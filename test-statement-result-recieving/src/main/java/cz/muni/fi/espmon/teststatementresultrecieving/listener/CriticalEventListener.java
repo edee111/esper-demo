@@ -1,6 +1,6 @@
-package cz.muni.fi.listener;
+package cz.muni.fi.espmon.teststatementresultrecieving.listener;
 
-import cz.muni.fi.subscriber.CriticalEventSubscriber;
+import cz.muni.fi.espmon.teststatementresultrecieving.subscriber.CriticalEventSubscriber;
 
 /**
  * @author Eduard Tomek
