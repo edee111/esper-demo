@@ -38,7 +38,7 @@
     </dependency>
     <dependency>
       <groupId>cz.muni.fi</groupId>
-      <artifactId>mbean</artifactId>
+      <artifactId>espmon-mbean</artifactId>
       <version>${project.version}</version>
     </dependency>
 
@@ -60,7 +60,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>cz.muni.fi.ClientMain</mainClass>
+              <mainClass>cz.muni.fi.espmonclient.ClientMain</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>

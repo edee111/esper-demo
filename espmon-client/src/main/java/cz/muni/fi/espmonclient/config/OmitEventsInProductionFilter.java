@@ -1,10 +1,10 @@
-package cz.muni.fi.config;
+package cz.muni.fi.espmonclient.config;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.filter.Filter;
 import ch.qos.logback.core.spi.FilterReply;
-import cz.muni.fi.runtime.ClientListener;
+import cz.muni.fi.espmonclient.runtime.ClientListener;
 
 /**
  * Logback filter to get rid of event logs in production log

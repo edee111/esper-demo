@@ -1,4 +1,4 @@
-package cz.muni.fi;
+package cz.muni.fi.espmonclient;
 
 /**
  * Thrown to indicate that unexpected state of espmon-client application occured

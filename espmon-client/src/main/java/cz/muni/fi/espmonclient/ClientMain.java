@@ -1,10 +1,10 @@
-package cz.muni.fi;
+package cz.muni.fi.espmonclient;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
 import ch.qos.logback.core.util.StatusPrinter;
-import cz.muni.fi.config.EspMonClientConfig;
+import cz.muni.fi.espmonclient.config.EspMonClientConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;

@@ -1,7 +1,7 @@
-package cz.muni.fi;
+package cz.muni.fi.espmonclient;
 
-import cz.muni.fi.config.EspMonClientConfig;
-import cz.muni.fi.runtime.JMXClient;
+import cz.muni.fi.espmonclient.config.EspMonClientConfig;
+import cz.muni.fi.espmonclient.runtime.JMXClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,9 +1,8 @@
-package cz.muni.fi.runtime;
+package cz.muni.fi.espmonclient.runtime;
 
 import cz.muni.fi.espmon.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import javax.management.*;
 import javax.management.remote.JMXConnector;

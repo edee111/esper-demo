@@ -1,6 +1,6 @@
-package cz.muni.fi.config;
+package cz.muni.fi.espmonclient.config;
 
-import cz.muni.fi.EspmonClientException;
+import cz.muni.fi.espmonclient.EspmonClientException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -64,7 +64,7 @@ public class EspMonClientConfig {
    * Get list of JMX server URI's from configuration file
    *
    * @return list of server URI's
-   * @throws cz.muni.fi.EspmonClientException if configuration file doesn't exist or is not well formed
+   * @throws cz.muni.fi.espmonclient.EspmonClientException if configuration file doesn't exist or is not well formed
    */
   public List<String> getServers() throws EspmonClientException {
     log.info("Aquiring servers from config.");
@@ -97,7 +97,7 @@ public class EspMonClientConfig {
    * Validate config file to XSD schema
    *
    * @param configFile config file
-   * @throws cz.muni.fi.EspmonClientException if config file is not valid
+   * @throws cz.muni.fi.espmonclient.EspmonClientException if config file is not valid
    */
   private void validateConfigFile(File configFile) throws EspmonClientException {
     Source xmlFile = new StreamSource(configFile);

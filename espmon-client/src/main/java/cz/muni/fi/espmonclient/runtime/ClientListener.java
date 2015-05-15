@@ -1,4 +1,4 @@
-package cz.muni.fi.runtime;
+package cz.muni.fi.espmonclient.runtime;
 
 import cz.muni.fi.espmon.MBean;
 import org.slf4j.Logger;
