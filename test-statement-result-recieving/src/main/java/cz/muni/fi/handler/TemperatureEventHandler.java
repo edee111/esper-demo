@@ -32,7 +32,7 @@ public class TemperatureEventHandler {
     epService = EPServiceProviderManager.getDefaultProvider(config);
     this.resultRecievingType = resultRecievingType;
 
-    createCriticalTemperatureCheckExpression();
+    //createCriticalTemperatureCheckExpression();
     createWarningTemperatureCheckExpression();
     createTemperatureMonitorExpression();
 
@@ -46,14 +46,15 @@ public class TemperatureEventHandler {
   private void createCriticalTemperatureCheckExpression() {
     log.debug("creating Critical Temperature Check Expression");
     EPStatement criticalEventStatement = null;
+    String statementName = "TemperatureCriticalStatement";
     switch (resultRecievingType) {
       case SUBSCRIBER:
         StatementSubscriber subscriber = new CriticalEventSubscriber();
-        criticalEventStatement = epService.getEPAdministrator().createEPL(subscriber.getStatement(), "TemperatureCriticalStatement");
+        criticalEventStatement = epService.getEPAdministrator().createEPL(subscriber.getStatement(), statementName);
         criticalEventStatement.setSubscriber(subscriber);
       case LISTENER:
         BaseListener listener = new CriticalEventListener();
-        criticalEventStatement = epService.getEPAdministrator().createEPL(listener.getStatement(), "TemperatureCriticalStatement");
+        criticalEventStatement = epService.getEPAdministrator().createEPL(listener.getStatement(), statementName);
         criticalEventStatement.addListener(listener);
     }
   }
@@ -64,14 +65,15 @@ public class TemperatureEventHandler {
   private void createWarningTemperatureCheckExpression() {
     log.debug("creating Warning Temperature Check Expression");
     EPStatement warningEventStatement = null;
+    String statementName = "TemperatureWarningStatement";
     switch (resultRecievingType) {
       case SUBSCRIBER:
         StatementSubscriber subscriber = new WarningEventSubscriber();
-        warningEventStatement = epService.getEPAdministrator().createEPL(subscriber.getStatement(), "TemperatureWarningStatement");
+        warningEventStatement = epService.getEPAdministrator().createEPL(subscriber.getStatement(), statementName);
         warningEventStatement.setSubscriber(subscriber);
       case LISTENER:
         BaseListener listener = new WarningEventListener();
-        warningEventStatement = epService.getEPAdministrator().createEPL(listener.getStatement(), "TemperatureCriticalStatement");
+        warningEventStatement = epService.getEPAdministrator().createEPL(listener.getStatement(), statementName);
         warningEventStatement.addListener(listener);
     }
   }
@@ -82,14 +84,15 @@ public class TemperatureEventHandler {
   private void createTemperatureMonitorExpression() {
     log.debug("creating Timed Average Monitor");
     EPStatement monitorEventStatement = null;
+    String statementName = "TemperatureMonitorStatement";
     switch (resultRecievingType) {
       case SUBSCRIBER:
         StatementSubscriber subscriber = new MonitorEventSubscriber();
-        monitorEventStatement = epService.getEPAdministrator().createEPL(subscriber.getStatement(), "TemperatureWarningStatement");
+        monitorEventStatement = epService.getEPAdministrator().createEPL(subscriber.getStatement(), statementName);
         monitorEventStatement.setSubscriber(subscriber);
       case LISTENER:
         MonitorEventListener listener = new MonitorEventListener();
-        monitorEventStatement = epService.getEPAdministrator().createEPL(listener.getStatement(), "TemperatureCriticalStatement");
+        monitorEventStatement = epService.getEPAdministrator().createEPL(listener.getStatement(), statementName);
         monitorEventStatement.addListener(listener);
     }
   }
