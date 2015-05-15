@@ -48,7 +48,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>cz.muni.fi.MainExample</mainClass>
+              <mainClass>cz.muni.fi.espmon.example.MainExample</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>

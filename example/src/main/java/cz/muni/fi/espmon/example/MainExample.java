@@ -1,11 +1,11 @@
-package cz.muni.fi;
+package cz.muni.fi.espmon.example;
 
 import com.espertech.esper.client.Configuration;
 import cz.muni.fi.espmonjmx.EsperMetricsMonitor;
 import cz.muni.fi.espmonjmx.EspmonJMXException;
-import cz.muni.fi.event.TemperatureEvent;
-import cz.muni.fi.handler.TemperatureEventHandler;
-import cz.muni.fi.monitor.TemperatureMonitor;
+import cz.muni.fi.espmon.example.event.TemperatureEvent;
+import cz.muni.fi.espmon.example.handler.TemperatureEventHandler;
+import cz.muni.fi.espmon.example.monitor.TemperatureMonitor;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
