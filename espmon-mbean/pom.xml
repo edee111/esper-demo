@@ -9,7 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>mbean</artifactId>
+  <artifactId>espmon-mbean</artifactId>
 
   <properties>
     <esper-version>5.2.0</esper-version>
