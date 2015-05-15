@@ -25,7 +25,7 @@
     </dependency>
     <dependency>
       <groupId>cz.muni.fi</groupId>
-      <artifactId>mbean</artifactId>
+      <artifactId>espmon-mbean</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
 

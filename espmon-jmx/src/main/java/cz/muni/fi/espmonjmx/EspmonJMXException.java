@@ -1,4 +1,4 @@
-package cz.muni.fi;
+package cz.muni.fi.espmonjmx;
 
 /**
  * Thrown to indicate that unexpected state of espmon-jmx application occured

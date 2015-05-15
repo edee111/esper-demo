@@ -1,6 +1,8 @@
 package cz.muni.fi;
 
 import com.espertech.esper.client.Configuration;
+import cz.muni.fi.espmonjmx.EsperMetricsMonitor;
+import cz.muni.fi.espmonjmx.EspmonJMXException;
 import cz.muni.fi.event.TemperatureEvent;
 import cz.muni.fi.handler.TemperatureEventHandler;
 import cz.muni.fi.monitor.TemperatureMonitor;

@@ -1,8 +1,8 @@
-package cz.muni.fi.jmx;
+package cz.muni.fi.espmonjmx.jmx;
 
 
 
-import cz.muni.fi.EspmonJMXException;
+import cz.muni.fi.espmonjmx.EspmonJMXException;
 import cz.muni.fi.espmon.MBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

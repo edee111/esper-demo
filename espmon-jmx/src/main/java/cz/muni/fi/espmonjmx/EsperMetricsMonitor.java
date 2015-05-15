@@ -1,7 +1,7 @@
-package cz.muni.fi;
+package cz.muni.fi.espmonjmx;
 
 import com.espertech.esper.client.*;
-import cz.muni.fi.jmx.JMXAgent;
+import cz.muni.fi.espmonjmx.jmx.JMXAgent;
 
 /**
  * @author Eduard Tomek
