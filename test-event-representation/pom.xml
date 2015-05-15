@@ -12,14 +12,14 @@
   <version>1.0.0</version>
   <artifactId>test-event-representation</artifactId>
   <properties>
-    <esper-version>5.1.0</esper-version>
+    <esper-version>5.2.0</esper-version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>cz.muni.fi</groupId>
-      <artifactId>esper-jmx</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <artifactId>espmon-jmx</artifactId>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>com.espertech</groupId>
