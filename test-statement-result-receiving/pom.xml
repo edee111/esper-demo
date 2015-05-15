@@ -10,8 +10,8 @@
     <version>1.0.0</version>
   </parent>
 
-  <artifactId>test-statement-result-recieving</artifactId>
-  <version>${parent.version}</version>
+  <artifactId>test-statement-result-receiving</artifactId>
+  <version>1.0.0</version>
 
   <properties>
     <esper-version>5.2.0</esper-version>
@@ -51,13 +51,13 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>cz.muni.fi.espmon.teststatementresultrecieving.MainResultRecieving</mainClass>
+              <mainClass>cz.muni.fi.espmon.teststatementresultrecieving.MainResultReceiving</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
-          <finalName>test-recieving</finalName>
+          <finalName>test-receiving</finalName>
           <appendAssemblyId>false</appendAssemblyId>
         </configuration>
       </plugin>

@@ -4,10 +4,10 @@ package cz.muni.fi.espmon.teststatementresultrecieving;
  * @author Eduard Tomek
  * @since 9.5.15
  */
-public enum ResultRecievingType {
+public enum ResultReceivingType {
   SUBSCRIBER, LISTENER, ITERATOR;
 
-  public static ResultRecievingType valueOfStr(String str) {
+  public static ResultReceivingType valueOfStr(String str) {
     str = str.toUpperCase();
     switch (str) {
       case "SUBSCRIBER": return SUBSCRIBER;

@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>example</artifactId>
-  <version>${parent.version}</version>
+  <version>1.0.0</version>
 
   <properties>
     <esper-version>5.2.0</esper-version>

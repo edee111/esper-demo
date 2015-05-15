@@ -17,19 +17,22 @@ import java.util.concurrent.Executors;
  * @author Eduard Tomek
  * @since 9.5.15
  */
-public class MainResultRecieving {
+public class MainResultReceiving {
   private static final int SERVER_COUNT = 50;
   private static final int DEFAULT_DURATION = 3600;
-  private static final Logger log = LoggerFactory.getLogger(MainResultRecieving.class);
+  private static final Logger log = LoggerFactory.getLogger(MainResultReceiving.class);
+
+  private static final int ENGINE_INTERVAL = 5000;
+  private static final int STATEMENT_INTERVAL = 5000;
 
   public static void main(String[] args) throws EspmonJMXException {
     int duration = DEFAULT_DURATION;
-    ResultRecievingType recievingType;
+    ResultReceivingType recievingType;
     int port;
 
     if (args.length == 3) {
         duration = Integer.valueOf(args[0]);
-        recievingType = ResultRecievingType.valueOfStr(args[1]);
+        recievingType = ResultReceivingType.valueOfStr(args[1]);
         port = Integer.valueOf(args[2]);
     }
     else {
@@ -41,7 +44,7 @@ public class MainResultRecieving {
     runTest(duration, recievingType, port);
   }
 
-  private static void runTest(int durationInSeconds, ResultRecievingType resultRecievingType, int port) throws EspmonJMXException {
+  private static void runTest(int durationInSeconds, ResultReceivingType resultReceivingType, int port) throws EspmonJMXException {
     Configuration config = new Configuration();
     registerEventType(config);
 
@@ -54,9 +57,9 @@ public class MainResultRecieving {
      */
     config.getEngineDefaults().getViewResources().setShareViews(false);
 
-    EsperMetricsMonitor.enableEsperMetricsMonitoring(config, 5000, 5000, port);
+    EsperMetricsMonitor.enableEsperMetricsMonitoring(config, ENGINE_INTERVAL, STATEMENT_INTERVAL, port);
 
-    TemperatureEventHandler.init(config, resultRecievingType);
+    TemperatureEventHandler.init(config, resultReceivingType);
     runExecution(durationInSeconds);
   }
 
