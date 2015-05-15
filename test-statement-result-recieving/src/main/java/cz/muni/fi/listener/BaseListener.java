@@ -1,6 +1,7 @@
 package cz.muni.fi.listener;
 
 import com.espertech.esper.client.EventBean;
+import com.espertech.esper.client.StatementAwareUpdateListener;
 import com.espertech.esper.client.UpdateListener;
 import cz.muni.fi.event.TemperatureEvent;
 import cz.muni.fi.subscriber.BaseSubscriber;
@@ -19,18 +20,16 @@ public abstract class BaseListener implements UpdateListener, StatementListener 
 
   @Override
   public void update(EventBean[] newEvents, EventBean[] oldEvents) {
-    if (newEvents.length != 1) {
-      throw new IllegalArgumentException("Unexpected number of new events: " + newEvents.length);
-    }
+    for (EventBean b : newEvents) {
+      Map<String, Object> eventMap = new HashMap<>(TemperatureEvent.class.getDeclaredFields().length);
 
-    EventBean b = newEvents[0];
-    Map<String, Object> eventMap = new HashMap<>(TemperatureEvent.class.getDeclaredFields().length);
-    Field[] fields = TemperatureEvent.class.getDeclaredFields();
-    for (Field f : fields) {
-      eventMap.put(f.getName(), b.get(f.getName()));
-    }
+      String[] statementResultNames = baseSubscriber.getStatementResultNames();
+      for (String resultName : statementResultNames) {
+        eventMap.put(resultName, b.get(resultName));
+      }
 
-    baseSubscriber.update(eventMap);
+      baseSubscriber.update(eventMap);
+    }
   }
 
   @Override

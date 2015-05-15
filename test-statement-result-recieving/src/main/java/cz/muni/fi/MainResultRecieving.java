@@ -4,6 +4,8 @@ import com.espertech.esper.client.Configuration;
 import cz.muni.fi.event.TemperatureEvent;
 import cz.muni.fi.handler.TemperatureEventHandler;
 import cz.muni.fi.monitor.TemperatureMonitor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.util.concurrent.ExecutorService;
@@ -14,27 +16,30 @@ import java.util.concurrent.Executors;
  * @since 9.5.15
  */
 public class MainResultRecieving {
-  private static final int SERVER_COUNT = 100;
+  private static final int SERVER_COUNT = 50;
   private static final int DEFAULT_DURATION = 3600;
-  private static final String TEMPERATURE_EVENT_XSD_FILE_NAME = "temperature-event.xsd";
-
+  private static final Logger log = LoggerFactory.getLogger(MainResultRecieving.class);
 
   public static void main(String[] args) throws EspmonJMXException {
     int duration = DEFAULT_DURATION;
+    ResultRecievingType recievingType;
+    int port;
 
-    if (args.length == 2) {
-      try {
+    if (args.length == 3) {
         duration = Integer.valueOf(args[0]);
-      } catch (Exception e) {}
-      try {
-        //eventRepresentation = EventRepresentation.valueOfStr(args[1]);// todo reciving result
-      } catch (Exception e) {}
+        recievingType = ResultRecievingType.valueOfStr(args[1]);
+        port = Integer.valueOf(args[2]);
+    }
+    else {
+      log.error("Incorrect number of arguments. Arguments are: " +
+              "durationInSeconds recievingType(SUBSCRIBER|LISTENER) portNumber");
+      return;
     }
 
-    runTest(duration);
+    runTest(duration, recievingType, port);
   }
 
-  private static void runTest(int durationInSeconds) throws EspmonJMXException {
+  private static void runTest(int durationInSeconds, ResultRecievingType resultRecievingType, int port) throws EspmonJMXException {
     Configuration config = new Configuration();
     registerEventType(config);
 
@@ -47,12 +52,9 @@ public class MainResultRecieving {
      */
     config.getEngineDefaults().getViewResources().setShareViews(false);
 
-    EsperMetricsMonitor.enableEsperMetricsMonitoring(config, 5000, 5000);
-    ResultRecievingType type = ResultRecievingType.SUBSCRIBER; //todo listener is not listening
+    EsperMetricsMonitor.enableEsperMetricsMonitoring(config, 5000, 5000, port);
 
-
-    TemperatureEventHandler.init(config, type);
-
+    TemperatureEventHandler.init(config, resultRecievingType);
     runExecution(durationInSeconds);
   }
 
@@ -66,6 +68,7 @@ public class MainResultRecieving {
     try {
       Thread.sleep(durationInSeconds * 1000);
     } catch (InterruptedException e) {
+      log.error("Interrupted exception while running test.", e);
       return;
     }
 

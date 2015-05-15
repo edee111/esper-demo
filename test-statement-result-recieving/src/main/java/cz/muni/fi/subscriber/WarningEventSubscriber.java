@@ -16,6 +16,8 @@ public class WarningEventSubscriber extends BaseSubscriber {
    */
   private static final String WARNING_EVENT_THRESHOLD = "60";
 
+  private static final String[] STATEMENT_RESULT_NAMES = {"temp1", "temp2"};
+
   @Override
   public String getStatement() {
 
@@ -33,12 +35,16 @@ public class WarningEventSubscriber extends BaseSubscriber {
   }
 
   @Override
+  public String[] getStatementResultNames() {
+    return STATEMENT_RESULT_NAMES;
+  }
+
+  @Override
   public void update(Map<String, Object> eventMap) {
     Object temp1 = eventMap.get("temp1");
     Object temp2 = eventMap.get("temp2");
 
     Object[] temps = {temp1, temp2};
-    //temps = temperaturePreparationStrategy.prepareData(temps);
 
     StringBuilder sb = new StringBuilder();
     sb.append("\n--------------------------------------------------");

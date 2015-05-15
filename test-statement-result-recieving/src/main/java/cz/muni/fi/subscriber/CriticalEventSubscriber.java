@@ -9,6 +9,8 @@ import java.util.Map;
  * @since 27.2.15
  */
 public class CriticalEventSubscriber extends BaseSubscriber {
+  private static final String[] STATEMENT_RESULT_NAMES = {"temp1", "temp2", "temp3", "temp4"};
+
   /**
    * Used as the minimum starting threshold for a critical event.
    */
@@ -39,6 +41,11 @@ public class CriticalEventSubscriber extends BaseSubscriber {
   }
 
   @Override
+  public String[] getStatementResultNames() {
+    return STATEMENT_RESULT_NAMES;
+  }
+
+  @Override
   public void update(Map<String, Object> eventMap) {
     Object temp1 = eventMap.get("temp1");
     Object temp2 = eventMap.get("temp2");
@@ -46,7 +53,6 @@ public class CriticalEventSubscriber extends BaseSubscriber {
     Object temp4 = eventMap.get("temp4");
 
     Object[] temps = {temp1, temp2, temp3, temp4};
-//    temps = tempPrepStrat.prepareData(temps);
 
     StringBuilder sb = new StringBuilder();
     sb.append("\n***************************************");

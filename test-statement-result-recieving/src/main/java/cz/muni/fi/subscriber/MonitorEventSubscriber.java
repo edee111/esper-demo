@@ -9,9 +9,16 @@ import java.util.Map;
  */
 public class MonitorEventSubscriber extends BaseSubscriber {
 
+  private static final String[] STATEMENT_RESULT_NAMES = {"avg_val", "serverName"};
+
   @Override
   public String getStatement() {
     return "select avg(temperature) as avg_val, serverName from TemperatureEvent.win:time_batch(5 sec) group by serverName";
+  }
+
+  @Override
+  public String[] getStatementResultNames() {
+    return STATEMENT_RESULT_NAMES;
   }
 
   @Override

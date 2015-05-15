@@ -18,7 +18,7 @@
       <Pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%thread] %-5level %logger{36} %msg%n</Pattern>
     </layout>
   </appender>
-  <logger name="cz.muni.fi" level="DEBUG">
+  <logger name="cz.muni.fi" level="INFO">
     <appender-ref ref="STDOUT"/>
   </logger>
 
@@ -30,7 +30,7 @@
       <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%thread] %-5level %logger{36} %msg%n</pattern>
     </encoder>
   </appender>
-  <root level="WARN">
+  <root level="INFO">
     <appender-ref ref="FILE_PRODUCT" />
   </root>
 </configuration>
