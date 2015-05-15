@@ -4,7 +4,7 @@
 	<groupId>cz.muni.fi</groupId>
 	<artifactId>espmon</artifactId>
   <packaging>pom</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <modules>
     <module>espmon-client</module>
     <module>espmon-mbean</module>
