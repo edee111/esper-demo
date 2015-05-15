@@ -1,4 +1,4 @@
-package cz.muni.fi.subscriber;
+package cz.muni.fi.espmon.testeventrepresentation.subscriber;
 
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;

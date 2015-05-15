@@ -1,12 +1,12 @@
-package cz.muni.fi;
+package cz.muni.fi.espmon.testeventrepresentation;
 
 import com.espertech.esper.client.Configuration;
 import com.espertech.esper.client.ConfigurationEventTypeXMLDOM;
+import cz.muni.fi.espmon.testeventrepresentation.event.TemperatureEvent;
+import cz.muni.fi.espmon.testeventrepresentation.handler.TemperatureEventHandler;
+import cz.muni.fi.espmon.testeventrepresentation.monitor.TemperatureMonitor;
 import cz.muni.fi.espmonjmx.EsperMetricsMonitor;
 import cz.muni.fi.espmonjmx.EspmonJMXException;
-import cz.muni.fi.event.TemperatureEvent;
-import cz.muni.fi.handler.TemperatureEventHandler;
-import cz.muni.fi.monitor.TemperatureMonitor;
 
 import java.lang.reflect.Field;
 import java.net.URL;

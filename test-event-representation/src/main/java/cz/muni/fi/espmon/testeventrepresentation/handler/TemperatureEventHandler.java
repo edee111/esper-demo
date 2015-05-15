@@ -1,14 +1,14 @@
-package cz.muni.fi.handler;
+package cz.muni.fi.espmon.testeventrepresentation.handler;
 
 import com.espertech.esper.client.*;
-import cz.muni.fi.EventRepresentation;
-import cz.muni.fi.event.TemperatureEvent;
-import cz.muni.fi.subscriber.CriticalEventSubscriber;
-import cz.muni.fi.subscriber.MonitorEventSubscriber;
-import cz.muni.fi.subscriber.WarningEventSubscriber;
+import cz.muni.fi.espmon.testeventrepresentation.EventRepresentation;
+import cz.muni.fi.espmon.testeventrepresentation.event.TemperatureEvent;
+import cz.muni.fi.espmon.testeventrepresentation.subscriber.CriticalEventSubscriber;
+import cz.muni.fi.espmon.testeventrepresentation.subscriber.MonitorEventSubscriber;
+import cz.muni.fi.espmon.testeventrepresentation.subscriber.WarningEventSubscriber;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import cz.muni.fi.subscriber.StatementSubscriber;
+import cz.muni.fi.espmon.testeventrepresentation.subscriber.StatementSubscriber;
 import org.w3c.dom.Node;
 
 import java.util.Map;

@@ -1,4 +1,4 @@
-package cz.muni.fi.subscriber;
+package cz.muni.fi.espmon.testeventrepresentation.subscriber;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

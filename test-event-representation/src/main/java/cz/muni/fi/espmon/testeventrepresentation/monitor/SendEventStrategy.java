@@ -1,4 +1,4 @@
-package cz.muni.fi.monitor;
+package cz.muni.fi.espmon.testeventrepresentation.monitor;
 
 import java.util.Date;
 

@@ -1,9 +1,9 @@
-package cz.muni.fi.subscriber;
+package cz.muni.fi.espmon.testeventrepresentation.subscriber;
 
 
 
 
-import cz.muni.fi.EventRepresentation;
+import cz.muni.fi.espmon.testeventrepresentation.EventRepresentation;
 
 import java.util.*;
 

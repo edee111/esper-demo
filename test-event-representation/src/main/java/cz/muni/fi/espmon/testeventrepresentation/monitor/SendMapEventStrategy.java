@@ -1,6 +1,6 @@
-package cz.muni.fi.monitor;
+package cz.muni.fi.espmon.testeventrepresentation.monitor;
 
-import cz.muni.fi.handler.TemperatureEventHandler;
+import cz.muni.fi.espmon.testeventrepresentation.handler.TemperatureEventHandler;
 
 import java.util.Date;
 import java.util.HashMap;

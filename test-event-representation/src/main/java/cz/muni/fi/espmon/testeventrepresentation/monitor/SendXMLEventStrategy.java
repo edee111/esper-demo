@@ -1,6 +1,6 @@
-package cz.muni.fi.monitor;
+package cz.muni.fi.espmon.testeventrepresentation.monitor;
 
-import cz.muni.fi.handler.TemperatureEventHandler;
+import cz.muni.fi.espmon.testeventrepresentation.handler.TemperatureEventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;

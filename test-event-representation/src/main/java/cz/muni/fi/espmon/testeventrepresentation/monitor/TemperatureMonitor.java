@@ -1,6 +1,6 @@
-package cz.muni.fi.monitor;
+package cz.muni.fi.espmon.testeventrepresentation.monitor;
 
-import cz.muni.fi.EventRepresentation;
+import cz.muni.fi.espmon.testeventrepresentation.EventRepresentation;
 
 import java.util.Date;
 import java.util.Random;
