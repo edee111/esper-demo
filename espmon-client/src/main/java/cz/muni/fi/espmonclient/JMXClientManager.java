@@ -36,7 +36,13 @@ public class JMXClientManager {
     } catch (EspmonClientException e) {
       log.error("Server configuration load failed", e);
     }
+  }
 
+  /**
+   * Create connections and listen to MBeans
+   */
+  public void run() {
+    log.info(getStartingMessage());
     for (String serverUrl : servers) {
       JMXClient JMXClient = new JMXClient();
       try {
@@ -46,17 +52,12 @@ public class JMXClientManager {
         log.error("JMXClient could not connect to server " + serverUrl, e);
       }
     }
-  }
 
-  /**
-   * Create connections and listen to MBeans
-   */
-  public void run() {
-    log.info(getStartingMessage());
     if (clients.isEmpty()) {
       log.error("No clients are connected - exiting.");
       return;
     }
+
     for (JMXClient c : clients) {
       log.info("Creating MBean proxy for " + c.getUrl());
       c.createMBeanProxies();
