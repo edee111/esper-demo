@@ -41,12 +41,14 @@ public class EspMonClientConfig {
   private String ESPMON_HOME;
 
   private final String DIR_CONF = "conf";
+  private final String DIR_LOGS = "logs";
   private final String FILE_ESPMON_XML = "espmon.xml";
   private final String FILE_LOGBACK_XML = "logback.xml";
   private final String FILE_SEPARATOR = System.getProperty("file.separator");
   private String PATH_ESPMON_HOME_CONF;
   private String PATH_ESPMON_XML;
   private String PATH_LOGBACK_XML;
+  private String PATH_LOGS_DIR;
 
   private final String ELEMENT_SERVER = "server";
   private final String ATTRIBUTE_URI = "uri";
@@ -58,6 +60,7 @@ public class EspMonClientConfig {
     PATH_ESPMON_HOME_CONF = ESPMON_HOME + FILE_SEPARATOR + DIR_CONF;
     PATH_LOGBACK_XML = PATH_ESPMON_HOME_CONF + FILE_SEPARATOR + FILE_LOGBACK_XML;
     PATH_ESPMON_XML = PATH_ESPMON_HOME_CONF + FILE_SEPARATOR + FILE_ESPMON_XML;
+    PATH_LOGS_DIR = ESPMON_HOME + FILE_SEPARATOR + DIR_LOGS + FILE_SEPARATOR;
   }
 
   /**
@@ -91,6 +94,10 @@ public class EspMonClientConfig {
 
   public String getLogbackXmlPath() {
     return PATH_LOGBACK_XML;
+  }
+
+  public String getLogsDirPath() {
+    return PATH_LOGS_DIR;
   }
 
   /**

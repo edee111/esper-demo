@@ -59,6 +59,7 @@ public class ClientMain {
     // Call context.reset() to clear any previous configuration, e.g. default
     // configuration. For multi-step configuration, omit calling context.reset().
     context.reset();
+    context.putProperty("espmon-logdir", config.getLogsDirPath());
     try {
       configurator.doConfigure(config.getLogbackXmlPath());
     } catch (JoranException e) {

@@ -3,7 +3,7 @@
 
   <!-- event logger in file -->
   <appender name="FILE_EVENT" class="ch.qos.logback.core.FileAppender">
-    <file>/home/e/espmon-home/logs/event.log</file>
+    <file>${espmon-logdir}event.log</file>
     <encoder>
       <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%thread] %-5level %logger{36} %msg%n</pattern>
     </encoder>
@@ -24,7 +24,7 @@
 
   <!-- production logger -->
   <appender name="FILE_PRODUCT" class="ch.qos.logback.core.FileAppender">
-    <file>/home/e/espmon-home/logs/product.log</file>
+    <file>${espmon-logdir}product.log</file>
     <filter class="cz.muni.fi.espmonclient.config.OmitEventsInProductionFilter"/>
     <encoder>
       <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%thread] %-5level %logger{36} %msg%n</pattern>
