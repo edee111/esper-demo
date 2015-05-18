@@ -2,6 +2,7 @@ package cz.muni.fi.espmonjmx.jmx;
 
 
 
+import cz.muni.fi.espmon.MBeanInf;
 import cz.muni.fi.espmonjmx.EspmonJMXException;
 import cz.muni.fi.espmon.MBean;
 import org.slf4j.Logger;
@@ -121,7 +122,7 @@ public class JMXAgent {
       ObjectName name = getObjectName(mBean.getClass());
       if (mbs.isRegistered(name)) {
         MBean registeredMBean = registeredMBeans.get(mBean.getClass().getName());
-        registeredMBean.update(mBean);
+        registeredMBean.update((MBeanInf) mBean);
       }
       else {
         mbs.registerMBean(mBean, name);

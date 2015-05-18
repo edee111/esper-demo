@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
  * @author Eduard Tomek
  * @since 13.11.14
  */
-public abstract class MBean<T> extends NotificationBroadcasterSupport implements Serializable {
+public abstract class MBean<T extends MBeanInf> extends NotificationBroadcasterSupport implements Serializable {
 
   protected SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 
