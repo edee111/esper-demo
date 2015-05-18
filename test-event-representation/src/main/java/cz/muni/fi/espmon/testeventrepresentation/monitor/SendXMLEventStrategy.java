@@ -26,17 +26,28 @@ public class SendXMLEventStrategy implements SendEventStrategy {
   private final String XML_EVENT_FORMAT = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
           "<TemperatureEvent temperature=\"%s\" timeOfReading=\"%s\" serverName=\"%s\" />";
   private final SimpleDateFormat sdfISO8601 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-  private final DocumentBuilderFactory DBF = DocumentBuilderFactory.newInstance();
+  private DocumentBuilder builder;
+
+  public SendXMLEventStrategy() {
+    DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+    try {
+      this.builder = dbf.newDocumentBuilder();
+    } catch (ParserConfigurationException e) {
+      log.error("Cannot create document builder", e);
+    }
+  }
 
 
   @Override
   public void sendTemperatureEvent(Integer temp, Date date, String serverName) {
     String xmlString = String.format(XML_EVENT_FORMAT, temp, sdfISO8601.format(date), serverName);
     try {
-      DocumentBuilder builder = DBF.newDocumentBuilder();
-      Document eventNode = builder.parse(new InputSource(new StringReader(xmlString)));
+      Document eventNode;
+      synchronized (builder) {
+         eventNode = builder.parse(new InputSource(new StringReader(xmlString)));
+      }
       TemperatureEventHandler.handle(eventNode);
-    } catch (SAXException | IOException | ParserConfigurationException e) {
+    } catch (SAXException | IOException e) {
       log.error("Cannot send event", e);
     }
   }
