@@ -50,7 +50,7 @@ public class ClientMain {
    *
    * @throws EspmonClientException if logback file not found
    */
-  public void configureLogback() throws EspmonClientException {
+  private void configureLogback() throws EspmonClientException {
     // assume SLF4J is bound to logback in the current environment
     LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
 

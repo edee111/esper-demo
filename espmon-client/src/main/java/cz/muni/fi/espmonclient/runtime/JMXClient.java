@@ -56,7 +56,7 @@ public class JMXClient {
    * @param mbeanClass MBean class
    * @param objectName object name
    */
-  public void createMBeanProxy(Class<? extends MBeanInf> mbeanClass, String objectName) {
+  private void createMBeanProxy(Class<? extends MBeanInf> mbeanClass, String objectName) {
     ObjectName mbeanName = null;
     try {
       mbeanName = new ObjectName(objectName);
@@ -79,7 +79,7 @@ public class JMXClient {
    * @param mBeanName MBean name
    * @param listener notification listener
    */
-  public void createMBeanNotificationListener(ObjectName mBeanName, NotificationListener listener) {
+  private void createMBeanNotificationListener(ObjectName mBeanName, NotificationListener listener) {
     log.debug("Adding notification listener for JMXClient " + url.getURLPath());
     try {
       mbsc.addNotificationListener(mBeanName, listener, null, null);
