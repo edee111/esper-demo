@@ -62,7 +62,7 @@ public class MainExample {
 
 
   private static void runExecution(int durationInSeconds, int serverCount) throws EspmonJMXException {
-    ExecutorService exSvc = Executors.newFixedThreadPool(DEFAULT_SERVER_COUNT);
+    ExecutorService exSvc = Executors.newFixedThreadPool(serverCount);
 
     for (int i = 1; i <= serverCount; i++) {
       exSvc.execute(new TemperatureMonitor(i));
