@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
  */
 public class MainExample {
 
-  private static final int DEFAULT_SERVER_COUNT = 100;
+  private static final int DEFAULT_SERVER_COUNT = 10;
   private static final int DEFAULT_DURATION = 3600;
 
   public static void main(String[] args) throws EspmonJMXException {

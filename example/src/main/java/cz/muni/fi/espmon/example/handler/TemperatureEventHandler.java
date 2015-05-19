@@ -5,10 +5,7 @@ import com.espertech.esper.client.EPServiceProvider;
 import com.espertech.esper.client.EPServiceProviderManager;
 import com.espertech.esper.client.EPStatement;
 import cz.muni.fi.espmon.example.event.TemperatureEvent;
-import cz.muni.fi.espmon.example.subscriber.CriticalEventSubscriber;
-import cz.muni.fi.espmon.example.subscriber.MonitorEventSubscriber;
-import cz.muni.fi.espmon.example.subscriber.StatementSubscriber;
-import cz.muni.fi.espmon.example.subscriber.WarningEventSubscriber;
+import cz.muni.fi.espmon.example.subscriber.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Node;
@@ -34,6 +31,7 @@ public class TemperatureEventHandler {
     createCriticalTemperatureCheckExpression();
     createWarningTemperatureCheckExpression();
     createTemperatureMonitorExpression();
+    createPreviousTemperatureMonitorExpression();
 
     log.debug("TemperatureEventHandler initialized");
   }
@@ -67,6 +65,16 @@ public class TemperatureEventHandler {
     StatementSubscriber monitorEventSubscriber = new MonitorEventSubscriber();
     EPStatement monitorEventStatement = epService.getEPAdministrator().createEPL(monitorEventSubscriber.getStatement(), "TemperatureMonitorStatement");
     monitorEventStatement.setSubscriber(monitorEventSubscriber);
+  }
+
+  /**
+   * EPL to monitor the average temperature of past events.
+   */
+  private void createPreviousTemperatureMonitorExpression() {
+    log.debug("creating Average Monitor of past events");
+    StatementSubscriber monitorEventPrevSubs = new MonitorPreviousEventSubscriber();
+    EPStatement monitorEventStatement = epService.getEPAdministrator().createEPL(monitorEventPrevSubs.getStatement(), "PastTemperatureMonitorStatement");
+    monitorEventStatement.setSubscriber(monitorEventPrevSubs);
   }
 
   /**
