@@ -11,13 +11,18 @@
   <artifactId>espmon-jmx</artifactId>
   <version>1.0.0</version>
 
+  <properties>
+    <esper-version>5.2.0</esper-version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <name>esper-jmx</name>
   <description>Server monitoring using the ESPER libraries.</description>
   <dependencies>
     <dependency>
       <groupId>com.espertech</groupId>
       <artifactId>esper</artifactId>
-      <version>5.2.0</version>
+      <version>${esper-version}</version>
     </dependency>
     <dependency>
       <groupId>cz.muni.fi</groupId>

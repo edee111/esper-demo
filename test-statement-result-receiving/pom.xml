@@ -15,6 +15,7 @@
 
   <properties>
     <esper-version>5.2.0</esper-version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
