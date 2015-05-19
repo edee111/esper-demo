@@ -36,7 +36,7 @@ java -Xmx16m -jar test-statement-result-receiving/target/test-receiving.jar 3600
 ###Konfigurace:
 1) Vytvoření adresáře espmon-home
 
-2) Vytvoření systémové proměnné ESPMON_HOME odkazující na tento adresář.
+2) Vytvoření systémové proměnné ESPMON_HOME odkazující na adresář espmon-home.
 
 3) Nakopírování obsahu espmon-client/espmon-home-template do vytvřeného adresáře.
 ###Spuštění:
@@ -47,12 +47,12 @@ Konfigurace v espmon-home-template/conf/espmon.xml je nastavena na 4 servery na 
 Je možno konfiguraci upravit a zvolit si tak vlastní umístění serverů. Pokud je v konfiguraci server, který ale neběží,
 pak je přeskočen.
 
-Do adresáře $ESPMON_HOME/logs se nyní ukládají logy. Soubor event.log obsahuje zalogované EngineMetrics a StatementMetrics.
+Do adresáře $ESPMON_HOME/logs se nyní ukládají logy. Soubor event.log obsahuje zalogované EngineMetrics a StatementMetrics. Soubor product.log obsahuje ostatní logy.
 
 
 ##Spuštění vizualizace:
 ###Prerekvizity:
-logstash 1.4.2 (https://www.elastic.co/downloads/logstash)
+logstash 1.5.0 (https://www.elastic.co/downloads/logstash)
 
 elasticsearch 1.4.2 (https://www.elastic.co/downloads/past-releases/elasticsearch-1-4-2)
 
@@ -68,9 +68,9 @@ kibana 3.1.2 (https://www.elastic.co/downloads/past-releases/kibana-3-1-2)
 4) Zkopírovat obsah adresáře s kibana do adresáře s elasticsearch/plugins/kibana/_site
 
 ###Spuštění:
-1) V adresáři s logstash spustit bin/logstash -f logstash-espmon.conf
+1) V adresáři s logstash spustit bin/logstash -f logstash-espmon.conf (v systému Windows "bin/logstash" -f logstash-espmon.conf)
 
-2) V adresáři s elasticsearch spustit bin/elastisearch
+2) V adresáři s elasticsearch spustit bin/elastisearch (v systému Windows "bin/elastisearch")
 
 3) Ve webovém prohlížeči zadat adresu http://localhost:9200/_plugin/kibana/ - zobrazí se titulní strana kibana
 
