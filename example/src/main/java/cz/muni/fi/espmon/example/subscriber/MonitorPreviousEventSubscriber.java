@@ -10,6 +10,7 @@ public class MonitorPreviousEventSubscriber extends AbstractSubscriber implement
   /**
    * {@inheritDoc}
    */
+  @Override
   public String getStatement() {
     return "select irstream avg(temperature) as avg_val, serverName from TemperatureEvent.win:time_batch(5 sec) group by serverName";
   }

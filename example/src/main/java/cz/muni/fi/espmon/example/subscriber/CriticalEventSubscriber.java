@@ -22,6 +22,7 @@ public class CriticalEventSubscriber extends AbstractSubscriber implements State
   /**
    * {@inheritDoc}
    */
+  @Override
   public String getStatement() {
 
     // Example using 'Match Recognise' syntax.

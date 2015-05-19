@@ -11,6 +11,7 @@ public class MonitorEventSubscriber extends AbstractSubscriber implements Statem
   /**
    * {@inheritDoc}
    */
+  @Override
   public String getStatement() {
     return "select avg(temperature) as avg_val, serverName from TemperatureEvent.win:time_batch(5 sec) group by serverName";
   }

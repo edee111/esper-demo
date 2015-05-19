@@ -19,6 +19,7 @@ public class WarningEventSubscriber extends AbstractSubscriber implements Statem
   /**
    * {@inheritDoc}
    */
+  @Override
   public String getStatement() {
 
     // Example using 'Match Recognise' syntax.
