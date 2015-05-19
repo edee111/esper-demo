@@ -1,5 +1,5 @@
 {
-  "title": "Total dashboard - example",
+  "title": "Total dashboard",
   "services": {
     "query": {
       "list": {
@@ -127,7 +127,7 @@
           "tmode": "terms_stats",
           "tstat": "mean",
           "valuefield": "inputCountDelta",
-          "title": "Server inputCount"
+          "title": "Server inputCountDelta"
         },
         {
           "error": false,
@@ -467,7 +467,7 @@
     "default": "NO_TIME_FILTER_OR_INDEX_PATTERN_NOT_MATCHED",
     "warm_fields": true
   },
-  "style": "dark",
+  "style": "light",
   "panel_hints": true,
   "pulldowns": [
     {
