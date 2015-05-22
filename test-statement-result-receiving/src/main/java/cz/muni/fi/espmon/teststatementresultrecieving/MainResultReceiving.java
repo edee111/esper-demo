@@ -22,8 +22,8 @@ import java.util.concurrent.Executors;
  * @since 9.5.15
  */
 public class MainResultReceiving {
-  private static final int SERVER_COUNT = 2000;
-  private static final int SERVER_PER_THREAD_COUNT = 500;
+  private static final int SERVER_COUNT = 4000;
+  private static final int SERVER_PER_THREAD_COUNT = 1000;
 
   private static final int DEFAULT_DURATION = 3600;
   private static final Logger log = LoggerFactory.getLogger(MainResultReceiving.class);

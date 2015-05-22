@@ -28,9 +28,9 @@ java -Xmx16m -jar test-event-representation/target/test-representation.jar 3600 
 java -Xmx64m -jar test-event-representation/target/test-representation.jar 3600 XML 9996
 
 ###Spuštění test-statement-result-receiving:
-java -Xmx256m -jar test-statement-result-receiving/target/test-receiving.jar 3600 LISTENER 9999
+java -Xmx128m -jar test-statement-result-receiving/target/test-receiving.jar 3600 LISTENER 9999
 
-java -Xmx256m -jar test-statement-result-receiving/target/test-receiving.jar 3600 SUBSCRIBER 9998
+java -Xmx128m -jar test-statement-result-receiving/target/test-receiving.jar 3600 SUBSCRIBER 9998
 
 ##Spuštění klienta (sbírá výkonostní statistiky ze spuštěných Esper instancí):
 ###Konfigurace:
