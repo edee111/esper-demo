@@ -25,7 +25,7 @@ java -Xmx16m -jar test-event-representation/target/test-representation.jar 3600 
 
 java -Xmx16m -jar test-event-representation/target/test-representation.jar 3600 ARRAY 9997
 
-java -Xmx16m -jar test-event-representation/target/test-representation.jar 3600 XML 9996
+java -Xmx64m -jar test-event-representation/target/test-representation.jar 3600 XML 9996
 
 ###Spuštění test-statement-result-receiving:
 java -Xmx16m -jar test-statement-result-receiving/target/test-receiving.jar 3600 LISTENER 9999
