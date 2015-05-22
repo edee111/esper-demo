@@ -42,7 +42,7 @@
         "0": {
           "type": "time",
           "field": "event_timestamp",
-          "from": "now-5m",
+          "from": "now-15m",
           "to": "now",
           "mandate": "must",
           "active": true,
@@ -268,6 +268,39 @@
           },
           "tmode": "terms_stats",
           "tstat": "mean",
+          "valuefield": "numInput",
+          "title": "Server numInput"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "server",
+          "exclude": [],
+          "missing": false,
+          "other": true,
+          "size": 10,
+          "order": "mean",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": false,
+          "labels": false,
+          "arrangement": "vertical",
+          "chart": "bar",
+          "counter_pos": "below",
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              3
+            ]
+          },
+          "tmode": "terms_stats",
+          "tstat": "mean",
           "valuefield": "numOutputIStream",
           "title": "Server numOutputIStream"
         },
@@ -303,39 +336,6 @@
           "tstat": "mean",
           "valuefield": "numOutputRStream",
           "title": "Server numOutputRStream"
-        },
-        {
-          "error": false,
-          "span": 4,
-          "editable": true,
-          "type": "terms",
-          "loadingEditor": false,
-          "field": "server",
-          "exclude": [],
-          "missing": false,
-          "other": true,
-          "size": 10,
-          "order": "mean",
-          "style": {
-            "font-size": "10pt"
-          },
-          "donut": true,
-          "tilt": false,
-          "labels": false,
-          "arrangement": "vertical",
-          "chart": "bar",
-          "counter_pos": "below",
-          "spyable": true,
-          "queries": {
-            "mode": "selected",
-            "ids": [
-              3
-            ]
-          },
-          "tmode": "terms_stats",
-          "tstat": "mean",
-          "valuefield": "numInput",
-          "title": "Server numInput"
         }
       ],
       "notice": false
