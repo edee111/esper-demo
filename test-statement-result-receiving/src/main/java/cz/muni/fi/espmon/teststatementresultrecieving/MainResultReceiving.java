@@ -96,7 +96,7 @@ public class MainResultReceiving {
       waitUntilNextIteration(defaultSleepTime, start);
     }
 
-    stop();
+    stop(exeSvc);
   }
 
   private static Collection<TemperatureMonitorSingleRun> prepareRuns() {
@@ -149,7 +149,8 @@ public class MainResultReceiving {
     config.addEventType(TemperatureEvent.class.getSimpleName(), fieldNames, fieldTypes);
   }
 
-  private static void stop() throws EspmonJMXException {
+  private static void stop(ExecutorService exeSvc) throws EspmonJMXException {
     EsperMetricsMonitor.stopEsperMetricsMonitoring();
+    exeSvc.shutdown();
   }
 }
