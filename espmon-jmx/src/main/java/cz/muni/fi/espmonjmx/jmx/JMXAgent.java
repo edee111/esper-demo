@@ -141,6 +141,11 @@ public class JMXAgent {
     return new ObjectName(clazz.getPackage().getName() + ":type=" + clazz.getSimpleName());
   }
 
+  /**
+   * Stop connection and dont publish MBeans anymore
+   *
+   * @throws EspmonJMXException
+   */
   public void stop() throws EspmonJMXException {
     try {
       if (cs != null) {

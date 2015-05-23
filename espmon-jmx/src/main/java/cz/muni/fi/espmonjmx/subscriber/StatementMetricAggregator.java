@@ -1,4 +1,4 @@
-package cz.muni.fi.espmonjmx;
+package cz.muni.fi.espmonjmx.subscriber;
 
 import cz.muni.fi.espmon.StatementMetric;
 import cz.muni.fi.espmonjmx.jmx.JMXAgent;

@@ -1,4 +1,4 @@
-package cz.muni.fi.espmonjmx;
+package cz.muni.fi.espmonjmx.subscriber;
 
 import cz.muni.fi.espmon.StatementMetric;
 import cz.muni.fi.espmonjmx.jmx.JMXAgent;
@@ -14,7 +14,7 @@ public class StatementMetricSubscriber {
   private StatementMetricAggregator sma = new StatementMetricAggregator();
 
   /**
-   * Update method called by Esper engine.
+   * Update method called by Esper when engine has detected a pattern match.
    *
    * @param sm passed statement metric event
    */

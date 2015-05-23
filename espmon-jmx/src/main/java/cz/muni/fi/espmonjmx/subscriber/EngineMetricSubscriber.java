@@ -1,4 +1,4 @@
-package cz.muni.fi.espmonjmx;
+package cz.muni.fi.espmonjmx.subscriber;
 
 import cz.muni.fi.espmon.EngineMetric;
 import cz.muni.fi.espmonjmx.jmx.JMXAgent;
@@ -13,7 +13,7 @@ public class EngineMetricSubscriber {
   private JMXAgent jmxAgent = JMXAgent.getInstance();
 
   /**
-   * Update method called by Esper engine.
+   * Update method called by Esper when engine has detected a pattern match.
    *
    * @param em passed engine metric event
    */

@@ -2,6 +2,8 @@ package cz.muni.fi.espmonjmx;
 
 import com.espertech.esper.client.*;
 import cz.muni.fi.espmonjmx.jmx.JMXAgent;
+import cz.muni.fi.espmonjmx.subscriber.EngineMetricSubscriber;
+import cz.muni.fi.espmonjmx.subscriber.StatementMetricSubscriber;
 
 /**
  * @author Eduard Tomek
@@ -54,6 +56,11 @@ public class EsperMetricsMonitor {
     return "select * from com.espertech.esper.client.metric.StatementMetric";
   }
 
+  /**
+   * Stop monitoring of Esper metrics
+   *
+   * @throws EspmonJMXException
+   */
   public static void stopEsperMetricsMonitoring() throws EspmonJMXException {
     JMXAgent.getInstance().stop();
   }
