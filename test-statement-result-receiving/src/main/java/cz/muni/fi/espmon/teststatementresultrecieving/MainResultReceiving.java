@@ -48,15 +48,6 @@ public class MainResultReceiving {
     Configuration config = new Configuration();
     registerEventType(config);
 
-    /*
-     * Not all statements may report metrics: The engine performs certain runtime optimizations sharing resources
-     * between similar statements, thereby not reporting on certain statements unless resource sharing
-     * is disabled through configuration.
-     * Esper refference 16.4.12.1.
-     * We want real statement metrics results for purpose of this test. Optimization disabled.
-     */
-    config.getEngineDefaults().getViewResources().setShareViews(false);
-
     EsperMetricsMonitor.enableEsperMetricsMonitoring(config, ENGINE_INTERVAL, STATEMENT_INTERVAL, port);
 
     TemperatureEventHandler.init(config, resultReceivingType);
@@ -81,16 +72,7 @@ public class MainResultReceiving {
   }
 
   private static void registerEventType(Configuration config) throws EspmonJMXException {
-    Field[] fields = TemperatureEvent.class.getDeclaredFields();
-    String[] fieldNames = new String[fields.length];
-    Object[] fieldTypes = new Object[fields.length];
-    for (int i = 0; i < fields.length; i++ ) {
-      Field f = fields[i];
-      fieldNames[i] = f.getName();
-      fieldTypes[i] = f.getType();
-    }
-
-    config.addEventType(TemperatureEvent.class.getSimpleName(), fieldNames, fieldTypes);
+    config.addEventType(TemperatureEvent.class);
   }
 
   private static void stop(ExecutorService exSvc) throws EspmonJMXException {

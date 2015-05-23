@@ -1,5 +1,6 @@
 package cz.muni.fi.espmon.teststatementresultrecieving.monitor;
 
+import cz.muni.fi.espmon.teststatementresultrecieving.event.TemperatureEvent;
 import cz.muni.fi.espmon.teststatementresultrecieving.handler.TemperatureEventHandler;
 
 import java.util.Date;
@@ -41,7 +42,7 @@ public class TemperatureMonitor implements Runnable {
   }
 
   private void sendTemperatureEvent(int temp) {
-    Object[] event = {temp, new Date(), serverName};
+    TemperatureEvent event = new TemperatureEvent(temp, new Date(), serverName);
     TemperatureEventHandler.handle(event);
   }
 

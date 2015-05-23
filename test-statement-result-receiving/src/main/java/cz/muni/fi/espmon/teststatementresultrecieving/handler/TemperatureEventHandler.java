@@ -32,6 +32,7 @@ public class TemperatureEventHandler {
     createCriticalTemperatureCheckExpression();
     createWarningTemperatureCheckExpression();
     createTemperatureMonitorExpression();
+    createTemperatureExpression();
 
     log.debug("TemperatureEventHandler initialized");
   }
@@ -96,12 +97,31 @@ public class TemperatureEventHandler {
   }
 
   /**
+   * EPL for each temperature.
+   */
+  private void createTemperatureExpression() {
+    log.debug("creating Timed Average Monitor");
+    EPStatement monitorEventStatement = null;
+    final String statementName = "TemperatureStatement";
+    if (ResultReceivingType.SUBSCRIBER.equals(resultReceivingType)) {
+      StatementSubscriber subscriber = new TemperatureEventSubscriber();
+      monitorEventStatement = epService.getEPAdministrator().createEPL(subscriber.getStatement(), statementName);
+      monitorEventStatement.setSubscriber(subscriber);
+    }
+    else if (ResultReceivingType.LISTENER.equals(resultReceivingType)) {
+      BaseListener listener = new TemperatureEventListener();
+      monitorEventStatement = epService.getEPAdministrator().createEPL(listener.getStatement(), statementName);
+      monitorEventStatement.addListener(listener);
+    }
+  }
+
+  /**
    * Handle incoming event
    *
    * @param event array type event
    */
-  public static void handle(Object[] event) {
-    getInstance().epService.getEPRuntime().sendEvent(event, TemperatureEvent.class.getSimpleName());
+  public static void handle(TemperatureEvent event) {
+    getInstance().epService.getEPRuntime().sendEvent(event);
   }
 
   /**
