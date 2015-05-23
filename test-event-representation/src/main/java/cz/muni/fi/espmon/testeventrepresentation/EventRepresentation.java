@@ -7,6 +7,12 @@ package cz.muni.fi.espmon.testeventrepresentation;
 public enum EventRepresentation {
     POJO, MAP, ARRAY, XML;
 
+  /**
+   * Get EventRepresentation value from string case insensitive.
+   *
+   * @param str input string
+   * @return EventRepresentation value
+   */
     public static EventRepresentation valueOfStr(String str) {
       str = str.toUpperCase();
       switch (str) {

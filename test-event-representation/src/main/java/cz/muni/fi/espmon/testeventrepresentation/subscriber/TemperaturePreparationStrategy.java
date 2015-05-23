@@ -6,5 +6,11 @@ package cz.muni.fi.espmon.testeventrepresentation.subscriber;
  */
 public interface TemperaturePreparationStrategy {
 
+  /**
+   * Transform data from its representation to representation which is printable
+   *
+   * @param temps temperature event objects
+   * @return printable representation of temps
+   */
   public Object[] prepareData(Object[] temps);
 }

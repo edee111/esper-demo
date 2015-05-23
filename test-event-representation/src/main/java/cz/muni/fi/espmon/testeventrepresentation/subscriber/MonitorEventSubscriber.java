@@ -4,6 +4,8 @@ package cz.muni.fi.espmon.testeventrepresentation.subscriber;
 import java.util.Map;
 
 /**
+ * Subscriber for monitoring temperatures on servers
+ *
  * @author Eduard Tomek
  * @since 27.2.15
  */

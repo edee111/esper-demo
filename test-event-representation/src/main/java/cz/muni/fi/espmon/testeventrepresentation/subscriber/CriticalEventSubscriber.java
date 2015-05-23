@@ -7,6 +7,8 @@ import cz.muni.fi.espmon.testeventrepresentation.EventRepresentation;
 import java.util.Map;
 
 /**
+ * Subscriber for detecting critical temperature sequence
+ *
  * @author Eduard Tomek
  * @since 27.2.15
  */

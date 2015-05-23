@@ -7,6 +7,10 @@ import java.util.Arrays;
  * @since 17.4.15
  */
 public class TemperaturePreparationArrayStrategy implements TemperaturePreparationStrategy {
+
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Object[] prepareData(Object[] temps) {
     for (int i = 0; i < temps.length; i++) {

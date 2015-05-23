@@ -5,6 +5,10 @@ package cz.muni.fi.espmon.testeventrepresentation.subscriber;
  * @since 17.4.15
  */
 public class TemperaturePreparationPOJOStrategy implements TemperaturePreparationStrategy {
+
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Object[] prepareData(Object[] temps) {
     return temps;

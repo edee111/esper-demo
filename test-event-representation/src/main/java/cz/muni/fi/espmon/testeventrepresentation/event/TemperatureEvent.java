@@ -3,6 +3,8 @@ package cz.muni.fi.espmon.testeventrepresentation.event;
 import java.util.Date;
 
 /**
+ * Class representing one taking of temperature on server
+ *
  * @author Eduard Tomek
  * @since 27.2.15
  */
@@ -13,7 +15,7 @@ public class TemperatureEvent {
   private String serverName;
 
   /**
-   * Temerature constructor.
+   * Temerature constructor creates TemperatureEvent instance
    *
    * @param temperature   Temperature in Celsius
    * @param timeOfReading Time of Reading
@@ -22,18 +24,6 @@ public class TemperatureEvent {
     this.temperature = temperature;
     this.timeOfReading = timeOfReading;
     this.serverName = serverName;
-  }
-
-  public Integer getTemperature() {
-    return temperature;
-  }
-
-  public Date getTimeOfReading() {
-    return timeOfReading;
-  }
-
-  public String getServerName() {
-    return serverName;
   }
 
   @Override

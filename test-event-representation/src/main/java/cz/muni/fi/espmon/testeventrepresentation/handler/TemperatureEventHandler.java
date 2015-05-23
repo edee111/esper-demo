@@ -70,24 +70,42 @@ public class TemperatureEventHandler {
   }
 
   /**
-   * Handle the incoming TemperatureEvent.
+   * Handle the incoming TemperatureEvent represented by POJO
    */
   public static void handle(TemperatureEvent event) {
     getInstance().epService.getEPRuntime().sendEvent(event);
   }
 
+
+  /**
+   * Handle the incoming TemperatureEvent represented by Map
+   */
   public static void handle(Map<String, Object> event) {
     getInstance().epService.getEPRuntime().sendEvent(event, TemperatureEvent.class.getSimpleName());
   }
 
+  /**
+   * Handle the incoming TemperatureEvent represented by Array of objects
+   */
   public static void handle(Object[] event) {
     getInstance().epService.getEPRuntime().sendEvent(event, TemperatureEvent.class.getSimpleName());
   }
 
+
+  /**
+   * Handle the incoming TemperatureEvent represented by org.w3c.dom.Node class
+   */
   public static void handle(Node event) {
     getInstance().epService.getEPRuntime().sendEvent(event);
   }
 
+
+  /**
+   * Initialize TemperatureEventHandler instance
+   *
+   * @param config esper config
+   * @param representation used event representation
+   */
   public static void init(Configuration config, EventRepresentation representation) {
     instance = new TemperatureEventHandler(config, representation);
   }

@@ -19,7 +19,6 @@ public class TemperatureMonitor {
   private String serverName;
   private SendEventStrategy sendEventStrat;
 
-
   public TemperatureMonitor(int serverNumber, EventRepresentation repr) {
     this.serverName = String.valueOf(serverNumber);
     synchronized (repr) {
@@ -40,6 +39,11 @@ public class TemperatureMonitor {
     }
   }
 
+  /**
+   * Send given temperature
+   *
+   * @param temp temperature
+   */
   public void sendTemperatureEvent(int temp) {
     sendEventStrat.sendTemperatureEvent(temp, new Date(), this.serverName);
   }
