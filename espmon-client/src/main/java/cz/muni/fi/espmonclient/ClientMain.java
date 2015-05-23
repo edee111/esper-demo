@@ -25,9 +25,14 @@ public class ClientMain {
   @Autowired
   private EspMonClientConfig config;
   @Autowired
-  private JMXClientManager JMXClientManager;
+  private cz.muni.fi.espmonclient.jmx.JMXClientManager JMXClientManager;
   private static ClientMain instance;
 
+  /**
+   * Main method of module espmon-client
+   *
+   * @param args
+   */
   public static void main(String[] args) {
     log.info("Starting EspMon...");
     ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(new String[]{"application-context.xml"});

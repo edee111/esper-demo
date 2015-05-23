@@ -1,4 +1,4 @@
-package cz.muni.fi.espmonclient.runtime;
+package cz.muni.fi.espmonclient.jmx;
 
 import cz.muni.fi.espmon.MBean;
 import org.slf4j.Logger;
@@ -24,6 +24,12 @@ public class ClientListener implements NotificationListener {
     this.url = url;
   }
 
+  /**
+   * Invoked when a JMX notification occurs.
+   *
+   * @param notification
+   * @param handback
+   */
   @Override
   public void handleNotification(Notification notification, Object handback) {
     if (notification instanceof AttributeChangeNotification) {

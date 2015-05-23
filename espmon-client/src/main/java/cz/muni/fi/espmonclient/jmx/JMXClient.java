@@ -1,4 +1,4 @@
-package cz.muni.fi.espmonclient.runtime;
+package cz.muni.fi.espmonclient.jmx;
 
 import cz.muni.fi.espmon.*;
 import org.slf4j.Logger;
@@ -45,13 +45,17 @@ public class JMXClient {
     }
   }
 
+
+  /**
+   * Create MBean proxies for EngineMetrics and StatementMetrics MBeans
+   */
   public void createMBeanProxies() {
     createMBeanProxy(EngineMetricMBean.class, getObjectName(EngineMetric.class));
     createMBeanProxy(StatementMetricMBean.class, getObjectName(StatementMetric.class));
   }
 
   /**
-   * Create MBean progy for given MBean class with given object name and add notification listener to it
+   * Create MBean proxy for given MBean class with given object name and add notification listener to it
    *
    * @param mbeanClass MBean class
    * @param objectName object name

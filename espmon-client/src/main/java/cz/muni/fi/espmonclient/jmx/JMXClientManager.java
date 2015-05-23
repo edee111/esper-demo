@@ -1,7 +1,7 @@
-package cz.muni.fi.espmonclient;
+package cz.muni.fi.espmonclient.jmx;
 
+import cz.muni.fi.espmonclient.EspmonClientException;
 import cz.muni.fi.espmonclient.config.EspMonClientConfig;
-import cz.muni.fi.espmonclient.runtime.JMXClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +65,7 @@ public class JMXClientManager {
     listen();
   }
 
-  public void listen() {
+  private void listen() {
     while (true) {
       try {
         Thread.sleep(5000);
@@ -76,6 +76,9 @@ public class JMXClientManager {
     }
   }
 
+  /**
+   * Stop and close all JMX connections
+   */
   @PreDestroy
   public void stop() {
     for (JMXClient c : clients) {

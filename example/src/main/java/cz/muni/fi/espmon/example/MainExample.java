@@ -50,7 +50,7 @@ public class MainExample {
 
     setupPOJOTest(config);
     /*
-     * Not all statements may report metrics: The engine performs certain runtime optimizations sharing resources
+     * Not all statements may report metrics: The engine performs certain jmx optimizations sharing resources
      * between similar statements, thereby not reporting on certain statements unless resource sharing
      * is disabled through configuration.
      * Esper refference 16.4.12.1.
