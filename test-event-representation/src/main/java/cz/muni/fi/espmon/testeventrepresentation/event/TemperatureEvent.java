@@ -26,6 +26,18 @@ public class TemperatureEvent {
     this.serverName = serverName;
   }
 
+  public Integer getTemperature() {
+    return temperature;
+  }
+
+  public Date getTimeOfReading() {
+    return timeOfReading;
+  }
+
+  public String getServerName() {
+    return serverName;
+  }
+
   @Override
   public String toString() {
     return "TemperatureEvent{" +
