@@ -19,13 +19,13 @@ java -Xmx16m -jar example/target/test-example.jar 3600 1 9996
 Tím se spustí 4 Esper servery s testy v 40, 20, 10 a 1 vlákně na portech 9999, 9998, 9997, 9996.
 
 ###Spuštění test-event-representation:
-java -Xmx16m -jar test-event-representation/target/test-representation.jar 3600 POJO 9999
+java -Xmx128m -jar test-event-representation/target/test-representation.jar 3600 POJO 9999
 
-java -Xmx16m -jar test-event-representation/target/test-representation.jar 3600 MAP 9998
+java -Xmx128m -jar test-event-representation/target/test-representation.jar 3600 MAP 9998
 
-java -Xmx16m -jar test-event-representation/target/test-representation.jar 3600 ARRAY 9997
+java -Xmx128m -jar test-event-representation/target/test-representation.jar 3600 ARRAY 9997
 
-java -Xmx64m -jar test-event-representation/target/test-representation.jar 3600 XML 9996
+java -Xmx512m -jar test-event-representation/target/test-representation.jar 3600 XML 9996
 
 ###Spuštění test-statement-result-receiving:
 java -Xmx128m -jar test-statement-result-receiving/target/test-receiving.jar 3600 LISTENER 9999
