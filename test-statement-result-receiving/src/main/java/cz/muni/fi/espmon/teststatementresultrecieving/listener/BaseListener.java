@@ -16,6 +16,9 @@ public abstract class BaseListener implements UpdateListener, StatementListener 
 
   protected BaseSubscriber baseSubscriber;
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void update(EventBean[] newEvents, EventBean[] oldEvents) {
     for (EventBean b : newEvents) {
@@ -30,6 +33,9 @@ public abstract class BaseListener implements UpdateListener, StatementListener 
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getStatement() {
     return baseSubscriber.getStatement();

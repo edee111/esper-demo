@@ -31,8 +31,12 @@ public class MainEventRepresentation {
 
   private static final Logger log = LoggerFactory.getLogger(MainEventRepresentation.class);
 
-
-
+  /**
+   * Main method of module
+   *
+   * @param args arguments, which are durationInSecods, eventRepresenation, portNumber(optional)
+   * @throws EspmonJMXException
+   */
   public static void main(String[] args) throws EspmonJMXException {
     EventRepresentation eventRepresentation = DEFAULT_EVENT_REPRESENTATION;
     int duration = DEFAULT_DURATION;

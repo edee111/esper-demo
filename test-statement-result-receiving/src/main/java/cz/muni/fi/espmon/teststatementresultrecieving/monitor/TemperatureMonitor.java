@@ -20,6 +20,11 @@ public class TemperatureMonitor {
     this.serverName = serverName;
   }
 
+  /**
+   * Send given temperature
+   *
+   * @param temp temperature
+   */
   public void sendTemperatureEvent(int temp) {
     Object[] event = {temp, new Date(), serverName};
     TemperatureEventHandler.handle(event);

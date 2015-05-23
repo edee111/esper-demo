@@ -9,6 +9,7 @@ import java.util.Map;
  */
 public class WarningEventSubscriber extends BaseSubscriber {
 
+  private static final String[] STATEMENT_RESULT_NAMES = {"temp1", "temp2"};
 
   /**
    * If 2 consecutive temperature events are greater than this
@@ -16,8 +17,9 @@ public class WarningEventSubscriber extends BaseSubscriber {
    */
   private static final String WARNING_EVENT_THRESHOLD = "60";
 
-  private static final String[] STATEMENT_RESULT_NAMES = {"temp1", "temp2"};
-
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getStatement() {
 
@@ -34,11 +36,17 @@ public class WarningEventSubscriber extends BaseSubscriber {
     return warningEventExpression;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String[] getStatementResultNames() {
     return STATEMENT_RESULT_NAMES;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void update(Map<String, Object> eventMap) {
     Object temp1 = eventMap.get("temp1");

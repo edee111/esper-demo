@@ -7,6 +7,12 @@ package cz.muni.fi.espmon.teststatementresultrecieving;
 public enum ResultReceivingType {
   SUBSCRIBER, LISTENER, ITERATOR;
 
+  /**
+   * Get ResultReceivingType value from string case insensitive.
+   *
+   * @param str input string
+   * @return ResultReceivingType value
+   */
   public static ResultReceivingType valueOfStr(String str) {
     str = str.toUpperCase();
     switch (str) {

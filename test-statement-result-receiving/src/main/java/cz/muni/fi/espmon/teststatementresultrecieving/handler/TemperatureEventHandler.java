@@ -95,10 +95,21 @@ public class TemperatureEventHandler {
     }
   }
 
+  /**
+   * Handle incoming event
+   *
+   * @param event array type event
+   */
   public static void handle(Object[] event) {
     getInstance().epService.getEPRuntime().sendEvent(event, TemperatureEvent.class.getSimpleName());
   }
 
+  /**
+   * Initialize TemperatureEventHandler instance
+   *
+   * @param config esper config
+   * @param type type of result receiving from Esper
+   */
   public static void init(Configuration config, ResultReceivingType type) {
     instance = new TemperatureEventHandler(config, type);
   }

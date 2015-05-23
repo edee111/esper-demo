@@ -16,11 +16,17 @@ public class MonitorEventSubscriber extends BaseSubscriber {
     return "select avg(temperature) as avg_val, serverName from TemperatureEvent.win:time_batch(5 sec) group by serverName";
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String[] getStatementResultNames() {
     return STATEMENT_RESULT_NAMES;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void update(Map<String, Object> eventMap) {
 

@@ -17,6 +17,10 @@ public class TemperatureMonitorSingleRun implements Callable<Object> {
     this.monitors = monitors;
   }
 
+  /**
+   * Run single teperature check over all monitors in this run
+   * @throws Exception
+   */
   @Override
   public Object call() throws Exception {
     for (TemperatureMonitor m : monitors) {

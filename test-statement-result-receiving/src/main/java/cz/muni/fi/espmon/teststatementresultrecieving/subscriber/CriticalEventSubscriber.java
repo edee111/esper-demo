@@ -22,6 +22,9 @@ public class CriticalEventSubscriber extends BaseSubscriber {
    */
   private static final String CRITICAL_EVENT_MULTIPLIER = "1.15";
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getStatement() {
 
@@ -40,11 +43,17 @@ public class CriticalEventSubscriber extends BaseSubscriber {
     return criticalEventExpression;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String[] getStatementResultNames() {
     return STATEMENT_RESULT_NAMES;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void update(Map<String, Object> eventMap) {
     Object temp1 = eventMap.get("temp1");

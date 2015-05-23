@@ -18,6 +18,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * Main class of module
+ *
  * @author Eduard Tomek
  * @since 9.5.15
  */
@@ -25,14 +27,20 @@ public class MainResultReceiving {
   private static final int SERVER_COUNT = 4000;
   private static final int SERVER_PER_THREAD_COUNT = 1000;
 
-  private static final int DEFAULT_DURATION = 3600;
   private static final Logger log = LoggerFactory.getLogger(MainResultReceiving.class);
 
   private static final int ENGINE_INTERVAL = 5000;
   private static final int STATEMENT_INTERVAL = 5000;
 
+
+  /**
+   * Main method of module
+   *
+   * @param args arguments, which are durationInSecords recievingType(SUBSCRIBER|LISTENER) portNumber
+   * @throws EspmonJMXException
+   */
   public static void main(String[] args) throws EspmonJMXException {
-    int duration = DEFAULT_DURATION;
+    int duration;
     ResultReceivingType recievingType;
     int port;
 
