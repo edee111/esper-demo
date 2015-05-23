@@ -10,12 +10,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @author Eduard Tomek
  * @since 27.2.15
  */
-public class TemperatureMonitor implements Runnable {
+public class TemperatureMonitor {
 
-  private static AtomicBoolean isMonitoringRunning = new AtomicBoolean(true);
-  private static final int TEMPERATURE_MIN = 0;
-  private static final int TEMPERATURE_MAX = 80;
-  private static final int EVENT_PER_SEC_COUNT = 10;
+  public static final int TEMPERATURE_MIN = 0;
+  public static final int TEMPERATURE_MAX = 80;
+  public static final int EVENT_PER_SEC_COUNT = 2;
 
   private String serverName;
   private SendEventStrategy sendEventStrat;
@@ -41,28 +40,7 @@ public class TemperatureMonitor implements Runnable {
     }
   }
 
-  @Override
-  public void run() {
-    Random random = new Random();
-    int randomRange = TEMPERATURE_MAX - TEMPERATURE_MIN;
-    int sleepTime = 1000 / EVENT_PER_SEC_COUNT;
-    while (isMonitoringRunning.get()) {
-      int temp = random.nextInt(randomRange);
-      sendTemperatureEvent(TEMPERATURE_MIN + temp);
-
-      try {
-        Thread.sleep(sleepTime);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-    }
-  }
-
-  private void sendTemperatureEvent(int temp) {
+  public void sendTemperatureEvent(int temp) {
     sendEventStrat.sendTemperatureEvent(temp, new Date(), this.serverName);
-  }
-
-  public static void stopMonitoring() {
-    isMonitoringRunning.set(false);
   }
 }

@@ -11,6 +11,9 @@ import java.util.HashMap;
  */
 public class SendMapEventStrategy implements SendEventStrategy {
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void sendTemperatureEvent(Integer temp, Date date, String serverName) {
     HashMap<String, Object> mapEvent = new HashMap();

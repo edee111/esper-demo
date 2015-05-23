@@ -11,6 +11,9 @@ import java.util.Date;
  */
 public class SendPOJOEventStrategy implements SendEventStrategy {
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void sendTemperatureEvent(Integer temp, Date date, String serverName) {
     TemperatureEvent tempEve = new TemperatureEvent(temp, date, serverName);
