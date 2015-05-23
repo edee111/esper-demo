@@ -1,6 +1,8 @@
 package cz.muni.fi.espmon;
 
 /**
+ * Interface for StatementMetric MBean
+ *
  * @author Eduard Tomek
  * @since 12.2.15
  */

@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 
 /**
+ * MBean superclass implementing common functionality of MBeans
+ *
  * @author Eduard Tomek
  * @since 13.11.14
  */
@@ -15,6 +17,9 @@ public abstract class MBean<T extends MBeanInf> extends NotificationBroadcasterS
 
   protected SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public MBeanNotificationInfo[] getNotificationInfo() {
     String[] types = new String[] {

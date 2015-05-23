@@ -4,6 +4,8 @@ import javax.management.AttributeChangeNotification;
 import javax.management.Notification;
 
 /**
+ * Class representing Esper's EngineMetric event
+ *
  * @author Eduard Tomek
  * @since 12.2.15
  */
