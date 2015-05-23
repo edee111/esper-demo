@@ -3,6 +3,8 @@ package cz.muni.fi.espmon.example.subscriber;
 import java.util.Map;
 
 /**
+ * Subscriber for monitoring old temperatures on servers
+ *
  * @author Eduard Tomek
  * @since 19.5.15
  */

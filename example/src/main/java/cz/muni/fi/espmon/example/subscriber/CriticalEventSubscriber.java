@@ -4,6 +4,8 @@ package cz.muni.fi.espmon.example.subscriber;
 import java.util.Map;
 
 /**
+ * Subscriber for detecting critical temperature sequence
+ *
  * @author Eduard Tomek
  * @since 27.2.15
  */

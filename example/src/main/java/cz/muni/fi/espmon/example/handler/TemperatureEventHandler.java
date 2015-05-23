@@ -84,18 +84,11 @@ public class TemperatureEventHandler {
     getInstance().epService.getEPRuntime().sendEvent(event);
   }
 
-  public static void handle(Map<String, Object> event) {
-    getInstance().epService.getEPRuntime().sendEvent(event, TemperatureEvent.class.getSimpleName());
-  }
-
-  public static void handle(Object[] event) {
-    getInstance().epService.getEPRuntime().sendEvent(event, TemperatureEvent.class.getSimpleName());
-  }
-
-  public static void handle(Node event) {
-    getInstance().epService.getEPRuntime().sendEvent(event);
-  }
-
+  /**
+   * Initialize TemperatureEventHandler instance
+   *
+   * @param config esper config
+   */
   public static void init(Configuration config) {
     instance = new TemperatureEventHandler(config);
   }

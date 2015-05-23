@@ -11,6 +11,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * Main class of module
+ *
  * @author Eduard Tomek
  * @since 27.2.15
  */
@@ -19,6 +21,12 @@ public class MainExample {
   private static final int DEFAULT_SERVER_COUNT = 10;
   private static final int DEFAULT_DURATION = 3600;
 
+  /**
+   * Main method of module
+   *
+   * @param args arguments, which are durationInSeconds serverCount port
+   * @throws EspmonJMXException
+   */
   public static void main(String[] args) throws EspmonJMXException {
     int duration = DEFAULT_DURATION;
     int serverCount = DEFAULT_SERVER_COUNT;
