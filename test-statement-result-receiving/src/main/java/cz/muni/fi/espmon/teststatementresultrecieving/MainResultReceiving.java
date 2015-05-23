@@ -78,11 +78,6 @@ public class MainResultReceiving {
   }
 
   private static void runExecution(int durationInSeconds) throws EspmonJMXException {
-    List<TemperatureMonitor> monitors = new ArrayList<>();
-    for (int i = 1; i <= SERVER_COUNT; i++) {
-      monitors.add(new TemperatureMonitor(String.valueOf(i)));
-    }
-
     long runEndTime = durationInSeconds * 1000 + System.currentTimeMillis();
     int defaultSleepTime = 1000 / TemperatureMonitor.EVENT_PER_SEC_COUNT;
     Collection<TemperatureMonitorSingleRun> runs = prepareRuns();
