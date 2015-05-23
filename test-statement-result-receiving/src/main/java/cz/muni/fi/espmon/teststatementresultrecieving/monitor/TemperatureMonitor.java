@@ -41,6 +41,11 @@ public class TemperatureMonitor implements Runnable {
     }
   }
 
+  /**
+   * Send given temperature
+   *
+   * @param temp temperature
+   */
   private void sendTemperatureEvent(int temp) {
     TemperatureEvent event = new TemperatureEvent(temp, new Date(), serverName);
     TemperatureEventHandler.handle(event);

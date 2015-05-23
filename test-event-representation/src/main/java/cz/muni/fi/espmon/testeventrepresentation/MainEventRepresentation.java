@@ -16,6 +16,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * Main class of module
+ *
  * @author Eduard Tomek
  * @since 27.2.15
  */
@@ -26,7 +28,12 @@ public class MainEventRepresentation {
   private static final EventRepresentation DEFAULT_EVENT_REPRESENTATION = EventRepresentation.POJO;
   private static final String TEMPERATURE_EVENT_XSD_FILE_NAME = "temperature-event.xsd";
 
-
+  /**
+   * Main method of module
+   *
+   * @param args arguments, which are durationInSecods, eventRepresenation, portNumber(optional)
+   * @throws EspmonJMXException
+   */
   public static void main(String[] args) throws EspmonJMXException {
     EventRepresentation eventRepresentation = DEFAULT_EVENT_REPRESENTATION;
     int duration = DEFAULT_DURATION;
