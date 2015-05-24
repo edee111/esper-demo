@@ -38,7 +38,7 @@ java -Xmx16m -jar test-statement-result-receiving/target/test-receiving.jar 3600
 
 2) Vytvoření systémové proměnné ESPMON_HOME odkazující na adresář espmon-home.
 
-3) Nakopírování obsahu espmon-client/espmon-home-template do vytvřeného adresáře.
+3) Nakopírování obsahu espmon-client/espmon-home-template do vytvořeného adresáře.
 ###Spuštění:
 java -jar espmon-client/target/espmon-client.jar
 
