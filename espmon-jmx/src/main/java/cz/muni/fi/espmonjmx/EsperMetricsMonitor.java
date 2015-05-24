@@ -35,7 +35,7 @@ public class EsperMetricsMonitor {
   /**
    * Create engine and statement metrics EPL's and set them subscribers
    *
-   * @param config
+   * @param config Esper configuration
    * @throws EspmonJMXException
    */
   private static void doEnable(Configuration config) throws EspmonJMXException {
